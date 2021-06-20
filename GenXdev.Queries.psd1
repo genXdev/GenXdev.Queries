@@ -6,7 +6,7 @@
     RootModule = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.5'
+    ModuleVersion     = '1.0.6'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -45,7 +45,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.0.5'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.0.5'})
+    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.0.6'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.0.6'})
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies = @("System.Web")
@@ -117,7 +117,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    HelpInfoURI       = 'https://github.com/renevaessen/GenXdev.Queries/blob/main/README.md#syntax'
+    HelpInfoURI       = 'https://github.com/renevaessen/GenXdev.Queries/blob/master/README.md#syntax'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
