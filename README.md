@@ -21,9 +21,6 @@
     Get-Gpt3EnglishSummary      -Query <string>
     Get-Gpt3QuestionSummary     -Query <string>
 
-    Get-NextAffirmations        -Query <string>             -> WhatAboutIt
-    Get-NextJoke                -Query <string>             -> TellAJoke
-
     Get-WikipediaSummary        -Query <string>             -> wikitxt
 
     Open-GoogleQuery            -Query <string>             -> q
@@ -41,6 +38,9 @@
     Open-WhoisHostSiteInfo      -Query <string>
     Open-BuiltWithSiteInfo      -Query <string>
 
+    Get-NextAffirmations                                    -> WhatAboutIt
+    Get-NextJoke                                            -> TellAJoke
+
 ````
 ## TYPE
     PowerShell Module
@@ -51,7 +51,7 @@
 ## INSTALLATION
 ````Powershell
 
-    Install-Module "GenXdev.Console" -Force
+    Install-Module "GenXdev.Queries" -Force
 
 ````
 
@@ -73,7 +73,7 @@
     The `ConvertTo-JsonEx` cmdlet converts any .NET object to a string in
     JavaScript Object Notation (JSON) format - at full depth
 ### PARAMETERS
-````Powershell
+````
     -object <Object>
         Object to serialize
 
