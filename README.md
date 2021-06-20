@@ -52,6 +52,7 @@
 ````Powershell
 
     Install-Module "GenXdev.Queries" -Force
+    Import-Module "GenXdev.Queries"
 
 ````
 
