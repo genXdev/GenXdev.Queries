@@ -185,7 +185,7 @@ function Open-GoogleQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-WikipediaQuery {
@@ -202,7 +202,7 @@ function Open-WikipediaQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://en.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://en.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-WikipediaNLQuery {
@@ -219,7 +219,7 @@ function Open-WikipediaNLQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://nl.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://nl.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-YoutubeQuery {
@@ -236,7 +236,7 @@ function Open-YoutubeQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-IMDBQuery {
@@ -253,7 +253,7 @@ function Open-IMDBQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.imdb.com/find?q=$([Uri]::EscapeUriString($Query))&ref_=nv_sr_sm="
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.imdb.com/find?q=$([Uri]::EscapeUriString($Query))&ref_=nv_sr_sm="
 }
 ######################################################################################################################################################
 function Open-StackOverflowQuery {
@@ -270,7 +270,7 @@ function Open-StackOverflowQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://stackoverflow.com/search?q=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://stackoverflow.com/search?q=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-WolframAlphaQuery {
@@ -287,7 +287,7 @@ function Open-WolframAlphaQuery {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.wolframalpha.com/input/?i=$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.wolframalpha.com/input/?i=$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-GithubQuery {
@@ -317,7 +317,7 @@ function Open-GithubQuery {
         $Language = "l=$([Uri]::EscapeUriString($Language))&"
     }
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
 }
 ######################################################################################################################################################
 ######################################################################################################################################################
@@ -335,9 +335,9 @@ function Open-GoogleSiteInfo {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("site:$Query"))"
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("link:$Query"))"
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("related:$Query"))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("site:$Query"))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("link:$Query"))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("related:$Query"))"
 }
 ######################################################################################################################################################
 function Open-BuiltWithSiteInfo {
@@ -353,7 +353,7 @@ function Open-BuiltWithSiteInfo {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://builtwith.com/?$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://builtwith.com/?$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-WhoisHostSiteInfo {
@@ -370,7 +370,7 @@ function Open-WhoisHostSiteInfo {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://whois.domaintools.com/$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://whois.domaintools.com/$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-WaybackMachineSiteInfo {
@@ -387,7 +387,7 @@ function Open-WaybackMachineSiteInfo {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://web.archive.org/web/*/$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://web.archive.org/web/*/$([Uri]::EscapeUriString($Query))"
 }
 ######################################################################################################################################################
 function Open-SimularWebSiteInfo {
@@ -404,7 +404,7 @@ function Open-SimularWebSiteInfo {
         [string] $Query
     )
 
-    Open-Webbrowser -NoNewWindow -Chromium "https://www.similarweb.com/website/$([Uri]::EscapeUriString($Query))"
+    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.similarweb.com/website/$([Uri]::EscapeUriString($Query))"
 }
 
 ######################################################################################################################################################
