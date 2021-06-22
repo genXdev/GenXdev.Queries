@@ -1004,12 +1004,13 @@ function Open-Repeaters {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/repeaters/") | Out-Null;
+        $PSBoundParameters.Add("ApplicationMode", $True) | Out-Null;
         $PSBoundParameters.Remove("Repeater") | Out-Null;
 
         foreach ($Repeater in $Repeaters) {
