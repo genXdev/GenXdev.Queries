@@ -6,7 +6,7 @@
     RootModule = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0.9'
+    ModuleVersion     = '1.0.10'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -45,7 +45,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.0.9'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.0.9'})
+    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.0.10'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.0.10'})
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies = @("System.Web")

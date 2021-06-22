@@ -199,7 +199,7 @@ function Open-GoogleQuery {
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $false,
+            ValueFromRemainingArguments = $true,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
