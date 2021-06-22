@@ -4,101 +4,110 @@ function Open-AllPossibleTextQueries {
     [Alias("qqq")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
-    try {
+    process {
 
-        Clear-Host
+        foreach ($Query in $Queries) {
 
-        [Uri] $uri = $null;
+            try {
 
-        $q = $Query.Trim("`"").Trim("'");
-        $isUri = (
+                Clear-Host
 
-            [Uri]::TryCreate($q, "absolute", [ref] $uri) -or (
-                $Query.ToLowerInvariant().StartsWith("www.") -and
-                [Uri]::TryCreate("http://$q", "absolute", [ref] $uri)
-            )
-        ) -and $uri.IsWellFormedOriginalString() -and $uri.Scheme -like "http*";
+                [Uri] $uri = $null;
 
-        if ($isUri) {
+                $q = $Query.Trim("`"").Trim("'");
+                $isUri = (
 
-            "`r`nSearched for URL : $Query" | Write-Host -ForegroundColor "DarkGreen"
+                    [Uri]::TryCreate($q, "absolute", [ref] $uri) -or (
+                        $Query.ToLowerInvariant().StartsWith("www.") -and
+                        [Uri]::TryCreate("http://$q", "absolute", [ref] $uri)
+                    )
+                ) -and $uri.IsWellFormedOriginalString() -and $uri.Scheme -like "http*";
+
+                if ($isUri) {
+
+                    "`r`nSearched for URL : $Query" | Write-Host -ForegroundColor "DarkGreen"
+
+                    Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
+                    ForEach-Object Name |
+                    ForEach-Object -ThrottleLimit 64 -Parallel {
+
+                        if ($using:isUri -and $PSItem.EndsWith("SiteSummary") -and $PSItem.StartsWith("Get-")) {
+
+                            try {
+
+                                "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-SiteSummary".Length) + ":" | Write-Host -ForegroundColor "Blue"
+
+                                $exp = Invoke-Expression "$PSItem $($using:uri.DnsSafeHost)"
+                                Write-Output $exp
+
+                                if ($PSItem.EndsWith("HostSiteSummary") -eq $false) {
+
+                                    $safeUrl = ($using:Query).Split("#")[0];
+
+                                    if ($using:Uri.Query.Length -gt 0) {
+
+                                        $safeUrl = $safeUrl.Replace($using:Uri.Query, "");
+                                    }
+
+                                    $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-HostSiteSummary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
+                                    $line = $line + (Invoke-Expression "$PSItemsafeUrl") + "`r`n"
+
+                                    Write-Output $line;
+                                }
+                            }
+                            Catch {
+
+                            }
+                        }
+                    }
+                    return;
+                }
+            }
+            catch {
+                throw $PSItem
+            }
+
+            "`r`nSearched for: $Query" | Write-Host -ForegroundColor "DarkGreen"
 
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -ThrottleLimit 64 -Parallel {
 
-                if ($using:isUri -and $PSItem.EndsWith("SiteSummary") -and $PSItem.StartsWith("Get-")) {
+                if ($PSItem.EndsWith("Summary") -and $PSItem.StartsWith("Get-")) {
 
                     try {
 
-                        "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-SiteSummary".Length) + ":" | Write-Host -ForegroundColor "Blue"
+                        $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-Summary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
+                        $line = $line + (Invoke-Expression "$PSItem $using:Query") + "`r`n"
 
-                        $exp = Invoke-Expression "$PSItem $($using:uri.DnsSafeHost)"
-                        Write-Output $exp
-
-                        if ($PSItem.EndsWith("HostSiteSummary") -eq $false) {
-
-                            $safeUrl = ($using:Query).Split("#")[0];
-
-                            if ($using:Uri.Query.Length -gt 0) {
-
-                                $safeUrl = $safeUrl.Replace($using:Uri.Query, "");
-                            }
-
-                            $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-HostSiteSummary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
-                            $line = $line + (Invoke-Expression "$PSItemsafeUrl") + "`r`n"
-
-                            Write-Output $line;
-                        }
+                        Write-Output $line;
                     }
-                    Catch {
+                    catch {
 
                     }
                 }
+            } |
+            ForEach-Object {
+
+                $lines = $PSItem.Split("`r`n", [System.StringSplitOptions]::RemoveEmptyEntries);
+                "`r`n$($lines[0])" | Write-Host -ForegroundColor Yellow;
+                $lines | Select-Object -Skip 1 | Write-Output
             }
-            return;
+
+            "`r`n-------------" | Write-Host -ForegroundColor "DarkGreen"
         }
     }
-    catch {
-        throw $PSItem
-    }
-
-    "`r`nSearched for: $Query" | Write-Host -ForegroundColor "DarkGreen"
-
-    Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-    ForEach-Object Name |
-    ForEach-Object -ThrottleLimit 64 -Parallel {
-
-        if ($PSItem.EndsWith("Summary") -and $PSItem.StartsWith("Get-")) {
-
-            try {
-
-                $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-Summary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
-                $line = $line + (Invoke-Expression "$PSItem $using:Query") + "`r`n"
-
-                Write-Output $line;
-            }
-            catch {
-
-            }
-        }
-    } |
-    ForEach-Object {
-
-        $lines = $PSItem.Split("`r`n", [System.StringSplitOptions]::RemoveEmptyEntries);
-        "`r`n$($lines[0])" | Write-Host -ForegroundColor Yellow;
-        $lines | Select-Object -Skip 1 | Write-Output
-    }
-
-    "`r`n-------------" | Write-Host -ForegroundColor "DarkGreen"
 }
 
 ######################################################################################################################################################
@@ -108,64 +117,73 @@ function Open-AllPossibleQueries {
     [Alias("qq")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
-    try {
+    process {
 
-        [Uri] $uri = $null;
+        foreach ($Query in $Queries) {
 
-        $q = $Query.Trim("`"").Trim("'");
-        $isUri = (
+            try {
 
-            [Uri]::TryCreate($q, "absolute", [ref] $uri) -or (
-                $Query.ToLowerInvariant().StartsWith("www.") -and
-                [Uri]::TryCreate("http://$q", "absolute", [ref] $uri)
-            )
-        ) -and $uri.IsWellFormedOriginalString() -and $uri.Scheme -like "http*";
+                [Uri] $uri = $null;
 
-        if ($isUri) {
+                $q = $Query.Trim("`"").Trim("'");
+                $isUri = (
+
+                    [Uri]::TryCreate($q, "absolute", [ref] $uri) -or (
+                        $Query.ToLowerInvariant().StartsWith("www.") -and
+                        [Uri]::TryCreate("http://$q", "absolute", [ref] $uri)
+                    )
+                ) -and $uri.IsWellFormedOriginalString() -and $uri.Scheme -like "http*";
+
+                if ($isUri) {
+
+                    Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
+                    ForEach-Object Name |
+                    ForEach-Object -Process {
+
+                        if ($isUri -and $PSItem.EndsWith("SiteInfo") -and $PSItem.StartsWith("Open-")) {
+
+                            Invoke-Expression "$PSItem $($uri.DnsSafeHost)"
+
+                            if ($PSItem.EndsWith("HostSiteInfo") -eq $false) {
+
+                                $safeUrl = $Query.Split("#")[0];
+
+                                if ($Uri.Query.Length -gt 0) {
+
+                                    $safeUrl = $safeUrl.Replace($Uri.Query, "");
+                                }
+
+                                Invoke-Expression "$PSItem $safeUrl"
+                            }
+                        }
+                    }
+                    return;
+                }
+            }
+            catch {
+                throw $PSItem
+            }
 
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -Process {
 
-                if ($isUri -and $PSItem.EndsWith("SiteInfo") -and $PSItem.StartsWith("Open-")) {
+                if ($PSItem.EndsWith("Query") -and $PSItem.StartsWith("Open-")) {
 
-                    Invoke-Expression "$PSItem $($uri.DnsSafeHost)"
-
-                    if ($PSItem.EndsWith("HostSiteInfo") -eq $false) {
-
-                        $safeUrl = $Query.Split("#")[0];
-
-                        if ($Uri.Query.Length -gt 0) {
-
-                            $safeUrl = $safeUrl.Replace($Uri.Query, "");
-                        }
-
-                        Invoke-Expression "$PSItem $safeUrl"
-                    }
+                    Invoke-Expression "$PSItem $Query"
                 }
             }
-            return;
-        }
-    }
-    catch {
-        throw $PSItem
-    }
-
-    Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-    ForEach-Object Name |
-    ForEach-Object -Process {
-
-        if ($PSItem.EndsWith("Query") -and $PSItem.StartsWith("Open-")) {
-
-            Invoke-Expression "$PSItem $Query"
         }
     }
 }
@@ -177,16 +195,43 @@ function Open-GoogleQuery {
     [Alias("q")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $false,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
+
 ######################################################################################################################################################
 function Open-WikipediaQuery {
 
@@ -194,15 +239,39 @@ function Open-WikipediaQuery {
     [Alias("wiki")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://en.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://en.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-WikipediaNLQuery {
@@ -211,15 +280,40 @@ function Open-WikipediaNLQuery {
     [Alias("wikinl")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://nl.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://nl.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-YoutubeQuery {
@@ -228,15 +322,40 @@ function Open-YoutubeQuery {
     [Alias("youtube")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-IMDBQuery {
@@ -245,15 +364,40 @@ function Open-IMDBQuery {
     [Alias("imdb")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.imdb.com/find?q=$([Uri]::EscapeUriString($Query))&ref_=nv_sr_sm="
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.imdb.com/find?q=$([Uri]::EscapeUriString($Query))&ref_=nv_sr_sm="
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-StackOverflowQuery {
@@ -262,15 +406,40 @@ function Open-StackOverflowQuery {
     [Alias("qso")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://stackoverflow.com/search?q=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://stackoverflow.com/search?q=$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-WolframAlphaQuery {
@@ -279,15 +448,40 @@ function Open-WolframAlphaQuery {
     [Alias("qalpha")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.wolframalpha.com/input/?i=$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.wolframalpha.com/input/?i=$([Uri]::EscapeUriString($Query))";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-GithubQuery {
@@ -296,29 +490,55 @@ function Open-GithubQuery {
     [Alias("qgit")]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query,
+        [string[]] $Queries,
         [parameter(
             Mandatory = $false
         )]
-        [string] $Language = ""
+        [string] $Language = "",
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    if ([string]::IsNullOrWhiteSpace($Language)) {
+    DynamicParam {
 
-        $Language = ""
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
-    else {
+    process {
 
-        $Language = "l=$([Uri]::EscapeUriString($Language))&"
+        if ([string]::IsNullOrWhiteSpace($Language)) {
+
+            $Language = ""
+        }
+        else {
+
+            $Language = "l=$([Uri]::EscapeUriString($Language))&"
+        }
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Remove("Language") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
+
+            Open-Webbrowser @PSBoundParameters
+        }
     }
-
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
 }
+
 ######################################################################################################################################################
 ######################################################################################################################################################
 function Open-GoogleSiteInfo {
@@ -327,33 +547,83 @@ function Open-GoogleSiteInfo {
     [Alias()]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("site:$Query"))"
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("link:$Query"))"
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.google.com/search?q=$([Uri]::EscapeUriString("related:$Query"))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        foreach ($Query in $Queries) {
+
+            $q = $Query;
+
+            $PSBoundParameters["Query"] = "site:$q";
+
+            Open-GoogleQuery @PSBoundParameters
+
+            $PSBoundParameters["Query"] = "link:$q";
+
+            Open-GoogleQuery @PSBoundParameters
+
+            $PSBoundParameters["Query"] = "related:$q";
+
+            Open-GoogleQuery @PSBoundParameters
+        }
+    }
 }
+
 ######################################################################################################################################################
 function Open-BuiltWithSiteInfo {
 
     [CmdletBinding()]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://builtwith.com/?$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://builtwith.com/?$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-WhoisHostSiteInfo {
@@ -362,15 +632,41 @@ function Open-WhoisHostSiteInfo {
     [Alias()]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://whois.domaintools.com/$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://whois.domaintools.com/$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-WaybackMachineSiteInfo {
@@ -379,15 +675,40 @@ function Open-WaybackMachineSiteInfo {
     [Alias()]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://web.archive.org/web/*/$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://web.archive.org/web/*/$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 ######################################################################################################################################################
 function Open-SimularWebSiteInfo {
@@ -396,15 +717,41 @@ function Open-SimularWebSiteInfo {
     [Alias()]
 
     param(
+        [Alias("q", "Value", "Name", "Text")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
-    Open-Webbrowser -Foreground -NoNewWindow -Chromium "https://www.similarweb.com/website/$([Uri]::EscapeUriString($Query))"
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.similarweb.com/website/$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
 }
 
 ######################################################################################################################################################
@@ -416,12 +763,15 @@ function Get-WikipediaSummary {
     [Alias("wikitxt")]
 
     Param(
+        [Alias("q", "Value", "Name", "Text")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
     function fixWiki ([string]$text) {
@@ -488,12 +838,15 @@ function Get-Gpt3QuestionSummary {
     [Alias("q3")]
 
     Param(
+        [Alias("q", "Value", "Name", "Text")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
     if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
@@ -517,12 +870,15 @@ function Get-Gpt3EnglishSummary {
     [Alias("q3")]
 
     Param(
+        [Alias("q", "Value", "Name", "Text")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
     if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
@@ -546,12 +902,15 @@ function Get-Gpt3DutchSummary {
     [Alias("q3")]
 
     Param(
+        [Alias("q", "Value", "Name", "Text")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
     if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
@@ -616,3 +975,49 @@ function Get-NextJoke {
 
     Write-Output $joke
 }
+
+######################################################################################################################################################
+function Open-Repeaters {
+
+    [CmdletBinding()]
+    [Alias()]
+
+    Param(
+        [Alias("q", "Value", "Name", "Text")]
+        [Parameter(
+            Mandatory = $false,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [ValidateSet("PI2NOS", "PI3UTR", "PI3GOE", "MEETNET", "PI6NOS", "PI1DFT")]
+        [string[]] $Repeaters = @("PI6NOS"),
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://pc7x.net/repeaters/") | Out-Null;
+        $PSBoundParameters.Remove("Repeater") | Out-Null;
+
+        foreach ($Repeater in $Repeaters) {
+
+            $PSBoundParameters["Url"] = "https://pc7x.net/repeaters/#/map/google/$($Repeater.ToLowerInvariant())";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
+}
+
