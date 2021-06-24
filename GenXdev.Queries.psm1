@@ -1,3 +1,30 @@
+function Combine-InvocationArguments {
+
+    param(
+        [parameter(Mandatory, Position = 0)]
+        $InvocationInfo,
+
+        [parameter(Mandatory, Position = 1)]
+        [string[]] $Arguments
+    )
+
+    if ($Arguments.Length -gt 1 -and (!!$InvocationInfo) -and
+        ![string]::IsNullOrWhiteSpace($InvocationInfo.Line) -and
+        ![string]::IsNullOrWhiteSpace($InvocationInfo.InvocationName) -and
+        $InvocationInfo.Line.StartsWith($InvocationInfo.InvocationName)
+    ) {
+
+        $cmd = $MyInvocInvocationInfotion.Line.Substring($InvocationInfo.InvocationName.Length).Trim();
+
+        if (!$cmd.Contains(",") -and !$cmd.Contains("@") -and !$cmd.Contains("$")) {
+
+            $Arguments = @($cmd);
+        }
+    }
+
+    $Arguments
+}
+
 function Open-AllPossibleTextQueries {
 
     [CmdletBinding()]
@@ -14,6 +41,11 @@ function Open-AllPossibleTextQueries {
         )]
         [string[]] $Queries
     )
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
 
     process {
 
@@ -128,6 +160,11 @@ function Open-AllPossibleQueries {
         [string[]] $Queries
     )
 
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         foreach ($Query in $Queries) {
@@ -164,7 +201,16 @@ function Open-AllPossibleQueries {
                                     $safeUrl = $safeUrl.Replace($Uri.Query, "");
                                 }
 
-                                Invoke-Expression "$PSItem $safeUrl"
+                                try {
+                                    Invoke-Expression "$PSItem '$safeUrl'"
+                                }
+                                Catch {
+                                    Write-Warning "
+                                      $($_.Exception) $($_.InvocationInfo.PositionMessage)
+                                      $($_.InvocationInfo.Line)
+                                  "
+                                }
+
                             }
                         }
                     }
@@ -181,7 +227,16 @@ function Open-AllPossibleQueries {
 
                 if ($PSItem.EndsWith("Query") -and $PSItem.StartsWith("Open-")) {
 
-                    Invoke-Expression "$PSItem $Query"
+                    $Query = $Query.Replace("`"", "```"");
+                    try {
+                        Invoke-Expression "$PSItem `"$Query`""
+                    }
+                    Catch {
+                        Write-Warning "
+                          $($_.Exception) $($_.InvocationInfo.PositionMessage)
+                          $($_.InvocationInfo.Line)
+                      "
+                    }
                 }
             }
         }
@@ -216,6 +271,11 @@ function Open-GoogleQuery {
     DynamicParam {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -261,6 +321,12 @@ function Open-WikipediaQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
@@ -302,6 +368,12 @@ function Open-WikipediaNLQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -344,6 +416,12 @@ function Open-YoutubeQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -386,6 +464,12 @@ function Open-IMDBQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -428,6 +512,12 @@ function Open-StackOverflowQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -470,6 +560,12 @@ function Open-WolframAlphaQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -516,6 +612,12 @@ function Open-GithubQuery {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         if ([string]::IsNullOrWhiteSpace($Language)) {
@@ -555,28 +657,31 @@ function Open-GoogleSiteInfo {
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
-        [string[]] $Queries
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+        )]
+        [int] $Monitor = -1
     )
 
     DynamicParam {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         foreach ($Query in $Queries) {
 
-            $q = $Query;
-
-            $PSBoundParameters["Query"] = "site:$q";
-
-            Open-GoogleQuery @PSBoundParameters
-
-            $PSBoundParameters["Query"] = "link:$q";
-
-            Open-GoogleQuery @PSBoundParameters
-
-            $PSBoundParameters["Query"] = "related:$q";
+            $PSBoundParameters["Queries"] = @("site:$Query", "link:$Query", "related:$Query");
 
             Open-GoogleQuery @PSBoundParameters
         }
@@ -610,6 +715,11 @@ function Open-BuiltWithSiteInfo {
     DynamicParam {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -655,6 +765,11 @@ function Open-WhoisHostSiteInfo {
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
 
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -697,6 +812,12 @@ function Open-WaybackMachineSiteInfo {
 
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
+
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -740,6 +861,11 @@ function Open-SimularWebSiteInfo {
         Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
     }
 
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
+
     process {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -774,62 +900,73 @@ function Get-WikipediaSummary {
         [string[]] $Queries
     )
 
-    function fixWiki ([string]$text) {
+    begin {
 
-        $input | ForEach-Object -Process {
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+    }
 
-            $i = $_.IndexOf("(")
+    process {
+        function fixWiki ([string]$text) {
 
-            if ($i -lt 150) {
+            $input | ForEach-Object -Process {
 
-                if ($result.Length - 1 -eq $i) {
+                $i = $_.IndexOf("(")
 
-                    Write-Output $result.SubString(0, $i).Replace("  ", " ");
-                }
-                else {
+                if ($i -lt 150) {
 
-                    $end = $_.IndexOf(")", $i);
+                    if ($result.Length - 1 -eq $i) {
 
-                    $result = $_.Substring(0, $i)
-
-                    if ($end -lt $_.Length) {
-
-                        $result = $result + $_.Substring($end + 1)
+                        Write-Output $result.SubString(0, $i).Replace("  ", " ");
                     }
+                    else {
 
-                    Write-Output $result.Replace("  ", " ");
+                        $end = $_.IndexOf(")", $i);
+
+                        $result = $_.Substring(0, $i)
+
+                        if ($end -lt $_.Length) {
+
+                            $result = $result + $_.Substring($end + 1)
+                        }
+
+                        Write-Output $result.Replace("  ", " ");
+                    }
                 }
             }
         }
+
+        foreach ($Query in $Queries) {
+
+            $urlPart = [Uri]::EscapeUriString($Query.Replace("-", " "))
+
+            $url = ("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=" + $urlPart)
+
+            $r = (Invoke-WebRequest -Uri $url -MaximumRedirection 20).Content | ConvertFrom-Json
+
+            $memberName = ($r.query.pages | Get-Member | Where-Object -Property "MemberType" -EQ "NoteProperty" | Select-Object -ExpandProperty "Name" | Select-Object -First 1)
+
+            $value = ($r.query.pages | Select-Object -ExpandProperty $memberName)
+
+            $result = $value.extract
+
+            if ((!$result) -or ($result -eq "")) {
+
+                "Nothing found on `"$Query`".."
+                continue;
+            }
+
+            try {
+
+                $result = ($result | fixWiki)
+            }
+            catch {
+
+                $result = $value.extract
+            }
+
+            $result
+        }
     }
-
-    $urlPart = [Uri]::EscapeUriString($Query.Replace("-", " "))
-
-    $url = ("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=" + $urlPart)
-
-    $r = (Invoke-WebRequest -Uri $url -MaximumRedirection 20).Content | ConvertFrom-Json
-
-    $memberName = ($r.query.pages | Get-Member | Where-Object -Property "MemberType" -EQ "NoteProperty" | Select-Object -ExpandProperty "Name" | Select-Object -First 1)
-
-    $value = ($r.query.pages | Select-Object -ExpandProperty $memberName)
-
-    $result = $value.extract
-
-    if ((!$result) -or ($result -eq "")) {
-
-        return "Nothing found on `"$Query`".."
-    }
-
-    try {
-
-        $result = ($result | fixWiki)
-    }
-    catch {
-
-        $result = $value.extract
-    }
-
-    return $result
 }
 ######################################################################################################################################################
 function Get-Gpt3QuestionSummary {
@@ -849,19 +986,32 @@ function Get-Gpt3QuestionSummary {
         [string[]] $Queries
     )
 
-    if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
+    begin {
 
-        throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+
+        if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
+
+            throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+        }
     }
 
-    $result = [GenXdev.Helpers.GPT3]::AskQuestion($Global:GPT3ApiKey, $Query)
+    process {
 
-    if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+        foreach ($Query in $Queries) {
 
-        return "Nothing found on `"$Query`".."
+            $result = [GenXdev.Helpers.GPT3]::AskQuestion($Global:GPT3ApiKey, $Query)
+
+            if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+
+                "Nothing found on `"$Query`".."
+
+                continue;
+            }
+
+            "$($result.Result)".Trim();
+        }
     }
-
-    return "$($result.Result)".Trim();
 }
 ######################################################################################################################################################
 function Get-Gpt3EnglishSummary {
@@ -881,19 +1031,30 @@ function Get-Gpt3EnglishSummary {
         [string[]] $Queries
     )
 
-    if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
+    begin {
 
-        throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
     }
 
-    $result = [GenXdev.Helpers.GPT3]::CorrectGrammar($Global:GPT3ApiKey, $Query, "English")
+    process {
 
-    if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+        if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
 
-        return "Nothing found on `"$Query`".."
+            throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+        }
+
+        foreach ($Query in $Queries ) {
+
+            $result = [GenXdev.Helpers.GPT3]::CorrectGrammar($Global:GPT3ApiKey, $Query, "English")
+
+            if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+
+                return "Nothing found on `"$Query`".."
+            }
+
+            "$($result.Result)".Split("`n")[0].Trim();
+        }
     }
-
-    return "$($result.Result)".Split("`n")[0].Trim();
 }
 ######################################################################################################################################################
 function Get-Gpt3DutchSummary {
@@ -913,19 +1074,31 @@ function Get-Gpt3DutchSummary {
         [string[]] $Queries
     )
 
-    if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
 
-        throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+    begin {
+
+        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+
+        if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
+
+            throw "No api key found, please set `$Global:GPT3ApiKey variable in your profile script"
+        }
     }
 
-    $result = [GenXdev.Helpers.GPT3]::CorrectGrammar($Global:GPT3ApiKey, $Query, "Dutch")
+    process {
 
-    if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+        foreach ($Query in $Queries) {
+            $result = [GenXdev.Helpers.GPT3]::CorrectGrammar($Global:GPT3ApiKey, $Query, "Dutch")
 
-        return "Nothing found on `"$Query`".."
+            if ((!$result) -or ($result -eq "") -or ($result.Result -like "Unknown *")) {
+
+                "Nothing found on `"$Query`".."
+                continue;
+            }
+
+            "$($result.Result)".Split("`n")[0].Trim();
+        }
     }
-
-    return "$($result.Result)".Split("`n")[0].Trim();
 }
 
 ######################################################################################################################################################

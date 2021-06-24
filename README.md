@@ -14,29 +14,29 @@
 
 ## CmdLets and aliases
 ````Powershell
-    Open-AllPossibleQueries     -Query <string>             -> qq
-    Open-AllPossibleTextQueries -Query <string>             -> qqq
+    Open-AllPossibleQueries     -Queries <string[]>          -> qq
+    Open-AllPossibleTextQueries -Queries <string[]>          -> qqq
 
-    Get-Gpt3DutchSummary        -Query <string>             -> q3
-    Get-Gpt3EnglishSummary      -Query <string>
-    Get-Gpt3QuestionSummary     -Query <string>
+    Get-Gpt3DutchSummary        -Queries <string[]>          -> q3
+    Get-Gpt3EnglishSummary      -Queries <string[]>
+    Get-Gpt3QuestionSummary     -Queries <string[]>
 
-    Get-WikipediaSummary        -Query <string>             -> wikitxt
+    Get-WikipediaSummary        -Queries <string[]>          -> wikitxt
 
-    Open-GoogleQuery            -Query <string>             -> q
-    Open-StackOverflowQuery     -Query <string>             -> qso
-    Open-GithubQuery            -Query <string>             -> qgit
-    Open-YoutubeQuery           -Query <string>             -> youtube
-    Open-IMDBQuery              -Query <string>             -> imdb
-    Open-WolframAlphaQuery      -Query <string>             -> qalpha
-    Open-WikipediaQuery         -Query <string>             -> wiki
-    Open-WikipediaNLQuery       -Query <string>             -> wikinl
+    Open-GoogleQuery            -Queries <string[]>          -> q
+    Open-StackOverflowQuery     -Queries <string[]>          -> qso
+    Open-GithubQuery            -Queries <string[]>          -> qgit
+    Open-YoutubeQuery           -Queries <string[]>          -> youtube
+    Open-IMDBQuery              -Queries <string[]>          -> imdb
+    Open-WolframAlphaQuery      -Queries <string[]>          -> qalpha
+    Open-WikipediaQuery         -Queries <string[]>          -> wiki
+    Open-WikipediaNLQuery       -Queries <string[]>          -> wikinl
 
-    Open-GoogleSiteInfo         -Query <string>
-    Open-SimularWebSiteInfo     -Query <string>
-    Open-WaybackMachineSiteInfo -Query <string>
-    Open-WhoisHostSiteInfo      -Query <string>
-    Open-BuiltWithSiteInfo      -Query <string>
+    Open-GoogleSiteInfo         -Queries <string[]>
+    Open-SimularWebSiteInfo     -Queries <string[]>
+    Open-WaybackMachineSiteInfo -Queries <string[]>
+    Open-WhoisHostSiteInfo      -Queries <string[]>
+    Open-BuiltWithSiteInfo      -Queries <string[]>
 
     Get-NextAffirmations                                    -> WhatAboutIt
     Get-NextJoke                                            -> TellAJoke
