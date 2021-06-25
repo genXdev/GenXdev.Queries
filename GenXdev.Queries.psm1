@@ -11,10 +11,10 @@ function Combine-InvocationArguments {
     if ($Arguments.Length -gt 1 -and (!!$InvocationInfo) -and
         ![string]::IsNullOrWhiteSpace($InvocationInfo.Line) -and
         ![string]::IsNullOrWhiteSpace($InvocationInfo.InvocationName) -and
-        $InvocationInfo.Line.StartsWith($InvocationInfo.InvocationName)
+        $InvocationInfo.Line.Trim("`r`n`t ").StartsWith($InvocationInfo.InvocationName)
     ) {
 
-        $cmd = $MyInvocInvocationInfotion.Line.Substring($InvocationInfo.InvocationName.Length).Trim();
+        $cmd = $InvocationInfo.Line.Trim("`r`n`t ").Substring($InvocationInfo.InvocationName.Length).Trim();
 
         if (!$cmd.Contains(",") -and !$cmd.Contains("@") -and !$cmd.Contains("$")) {
 
