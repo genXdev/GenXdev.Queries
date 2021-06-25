@@ -1,6 +1,6 @@
 <hr/>
 
-![](https://genxdev.net/Powershell.jpg)
+![](powershell.jpg)
 
 <hr/>
 
