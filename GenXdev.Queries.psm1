@@ -1,4 +1,4 @@
-function Combine-InvocationArguments {
+﻿function Combine-InvocationArguments {
 
     param(
         [parameter(Mandatory, Position = 0)]
@@ -1195,3 +1195,312 @@ function Open-Repeaters {
     }
 }
 
+
+##############################################################################################################
+##############################################################################################################
+
+<#
+.SYNOPSIS
+Performs a google search in previously selected webbrowser tab and returns the links
+
+.DESCRIPTION
+Performs a google search in previously selected webbrowser tab and returns the links
+
+.PARAMETER Query
+The google query to perform
+
+.PARAMETER Max
+The maximum number of results to obtain, defaults to 200
+
+.EXAMPLE
+PS C:\> Select-WebbrowserTab; $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+
+.NOTES
+Requires the Windows 10+ Operating System
+#>
+function Get-GoogleSearchResultUrls {
+
+    [CmdletBinding()]
+    [Alias("qlinksget")]
+
+    param(
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true
+        )]
+        [string] $Query,
+        ###################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The maximum number of results to obtain, defaults to 200"
+        )]
+        [int] $Max = 200
+    )
+
+    $Global:Data = @{
+
+        urls  = @();
+        query = $Query
+    }
+
+    $Query = "$([Uri]::EscapeUriString($Query))"
+    $Url = "https://www.google.com/search?q=$Query"
+
+    Invoke-WebbrowserEvaluation "document.location.href='$Url'" | Out-Null
+
+    do {
+        Start-Sleep 5 | Out-Null
+
+        Invoke-WebbrowserEvaluation -Scripts @("$PSScriptRoot\Get-GoogleSearchResultUrls.js") | Out-Null
+
+        $Global:data.urls | ForEach-Object -ErrorAction SilentlyContinue {
+
+            if ($Max-- -gt 0) {
+
+                $_;
+            }
+        }
+    }
+
+    while ($Global:data.more -and ($Max-- -gt 0))
+}
+
+##############################################################################################################
+##############################################################################################################
+
+<#
+.SYNOPSIS
+Executes a polling script in a previously selected webbrowser tab.
+
+.DESCRIPTION
+Executes a polling script in a previously selected webbrowser tab.
+
+.PARAMETER Scripts
+The scripts to load
+
+.NOTES
+Requires the Windows 10+ Operating System
+#>
+function Invoke-WebbrowserTabPollingScript {
+
+    [CmdletBinding()]
+
+    param(
+        [Parameter(
+            Position = 0,
+            Mandatory = $false,
+            HelpMessage = "A string containing javascript, a url or a file reference to a javascript file",
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true)
+        ]
+        [Alias('FullName')]
+        [object[]] $Scripts,
+
+        [parameter(
+            HelpMessage = "An optional url to navigate to, before polling starts"
+        )]
+        [string] $InitialUrl = $null
+    )
+
+    Start-ThreadJob -InitializationScript { Import-Module GenXdev.Queries; } -ScriptBlock {
+
+        param ($Scripts, $Reference, $InitialUrl)
+
+        $Global:data = @{
+
+            urls  = @();
+            query = $Query
+        }
+
+        Select-WebbrowserTab -ByReference $Reference
+
+        if (![string]::IsNullOrWhiteSpace($InitialUrl)) {
+
+            Invoke-WebbrowserEvaluation "document.location.href='$InitialUrl'" | Out-Null
+        }
+
+        do {
+            Start-Sleep 1 | Out-Null
+
+            Invoke-WebbrowserEvaluation -Scripts $Scripts  | Out-Null
+        }
+        while ($Global:data.more)
+
+    } -ArgumentList($Scripts, (Get-ChromiumSessionReference), $InitialUrl)
+}
+
+##############################################################################################################
+##############################################################################################################
+
+<#
+.SYNOPSIS
+Performs an infinite auto opening google search in previously selected webbrowser tab.
+
+.DESCRIPTION
+Performs a google search in previously selected webbrowser tab.
+Opens 10 tabs each times, pauses until initial tab is revisited
+Close initial tab to stop
+
+.PARAMETER Query
+The google query to perform
+
+.EXAMPLE
+PS C:\>
+
+    Select-WebbrowserTab;
+    Open-AllGoogleLinks "site:github.com PowerShell module"
+
+.NOTES
+Requires the Windows 10+ Operating System
+#>
+function Open-AllGoogleLinks {
+
+    [CmdletBinding()]
+    [Alias("qlinks")]
+
+    param(
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true
+        )]
+        [string] $Query
+    )
+
+    $Global:data = @{
+
+        urls  = @();
+        query = $Query
+    }
+
+    Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+}
+
+##############################################################################################################
+##############################################################################################################
+
+<#
+.SYNOPSIS
+Performs an infinite auto opening youtube search in previously selected webbrowser tab.
+
+.DESCRIPTION
+Performs a google search in previously selected webbrowser tab.
+Opens 10 tabs each times, pauses until initial tab is revisited
+Close initial tab to stop
+
+.PARAMETER Query
+The youtube query to perform
+
+.EXAMPLE
+PS C:\>
+
+    Select-WebbrowserTab;
+    Open-AllYoutubeVideos "PowerShell Windows Terminal"
+
+.NOTES
+Requires the Windows 10+ Operating System
+#>
+function Open-AllYoutubeVideos {
+
+    [CmdletBinding()]
+    [Alias("qvideos")]
+
+    param(
+        [parameter(
+            Mandatory = $false,
+            Position = 0,
+            ValueFromRemainingArguments = $true
+        )]
+        [string] $Query
+    )
+
+    $Global:data = @{
+
+        urls  = @();
+        query = $Query
+    }
+
+    $Url = $null
+    if (![string]::IsNullOrWhiteSpace($Query)) {
+
+        $Url = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+    }
+
+    Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js") -InitialUrl $Url
+}
+
+##############################################################################################################
+##############################################################################################################
+<#
+.SYNOPSIS
+Performs a google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+
+.DESCRIPTION
+Performs a google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+
+.PARAMETER Query
+Parameter description
+
+.PARAMETER Max
+The maximum number of results to obtain, defaults to 200
+
+.EXAMPLE
+PS D:\Downloads>
+
+    mkdir pdfs;
+    cd pdfs;
+
+    Select-WebbrowserTab;
+
+    DownloadPDFS "scientific paper co2"
+
+.NOTES
+Requires the Windows 10+ Operating System
+#>
+function DownloadPDFs {
+
+    [CmdletBinding()]
+
+    param(
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true
+        )]
+        [string] $Query,
+        ###################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The maximum number of results to obtain, defaults to 200"
+        )]
+        [int] $Max = 200
+    )
+
+    Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" |
+    ForEach-Object -ThrottleLimit 64 -Parallel {
+
+        try {
+
+            $destination = [IO.Path]::Combine(
+                $PWD,
+                (
+                    [IO.Path]::ChangeExtension(
+                        [Uri]::UnescapeDataString(
+                            [IO.Path]::GetFileName($_).Split("#")[0].Split("?")[0]
+                        ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_"),
+                        ".pdf"
+                    )
+                )
+            );
+
+            Invoke-WebRequest -Uri $_ -OutFile $destination
+
+            "Success: $_"
+        }
+        catch {
+
+            "Failed: $_"
+        }
+    }
+}

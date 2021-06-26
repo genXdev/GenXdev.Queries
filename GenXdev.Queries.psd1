@@ -6,7 +6,7 @@
     RootModule = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.6.0'
+    ModuleVersion     = '1.7.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -45,7 +45,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.6.0'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.6.0'})
+    RequiredModules = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.7.0'},@{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.7.0'})
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies = @("System.Web")
@@ -81,7 +81,7 @@
     ModuleList        = @("GenXdev.Queries")
 
     # List of all files packaged with this module
-    FileList          = @("GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "LICENSE", "license.txt", "README.md")
+    FileList          = @("GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "LICENSE", "license.txt", "powershell.jpg", "README.md", "Get-GoogleSearchResultUrls.js", "Open-AllGoogleLinks.js", "Open-AllYoutubeVideos.js")
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData       = @{

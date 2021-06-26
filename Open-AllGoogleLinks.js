@@ -1,16 +1,3 @@
-
-data.more = false;
-data.done = !!data.done ? data.done : [];
-data.urls = [];
-window.queueUrls = !!window.queueUrls ? window.queueUrls : [];
-
-let vid = document.getElementsByTagName("video")[0];
-let isSuggestionPage = window.location.href === "https://www.youtube.com/";
-let isViewPage = window.location.href.indexOf("https://www.youtube.com/watch?v") === 0;
-let isSearchPage = (window.location.href.indexOf("https://www.youtube.com/results?search_query=") === 0) ||
-    (window.location.href === "https://www.youtube.com/feed/subscriptions");
-
-
 let hidden = null;
 
 if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
@@ -53,8 +40,8 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
     visibilityChange = "webkitvisibilitychange";
 }
 
-function onVisibilityChanged(e) {
 
+function onVisibilityChanged(e) {
 
     if (!hidden) return;
 
@@ -63,42 +50,31 @@ function onVisibilityChanged(e) {
     } else {
 
         let a = document.getElementsByTagName('span');
+
         let i2 = 0;
         while (window.queueUrls.length > 0 && i2++ < 10) {
 
             window.open(window.queueUrls.pop());
         }
 
-        if (window.queueUrls.length === 0) {
+        if (window.queueUrls.length === 0)
+            for (let i = 0; i < a.length; i++) {
 
-            if (isSuggestionPage) {
+                if (a[i].innerText === "Next" || a[i].innerText === "Volgende") {
 
-                window.location.reload();
-
-            } else if (isSearchPage) {
-
-                if (!!document.scrollingElement) {
-
-                    document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
-                    setTimeout(() => {
-                        window.onceOnly = false;
-                    }, 1);
-                }
-            } else if (isViewPage) {
-
-                if (!!vid) {
-
-                    if (vid.paused && shouldActivate()) {
-
-                        vid.play();
-                    }
+                    fakeClick(a[i]);
+                    break;
                 }
             }
-        }
-
-        data.more = window.queueUrls.length > 0;
     }
 }
+
+data.more = false;
+data.done = !!data.done ? data.done : [];
+data.urls = [];
+window.queueUrls = !!window.queueUrls ? window.queueUrls : [];
+
+let a = document.getElementsByTagName('a');
 
 if (!window.onceOnly) {
 
@@ -106,24 +82,37 @@ if (!window.onceOnly) {
     document.removeEventListener("visibilitychange", onVisibilityChanged);
     document.addEventListener("visibilitychange", onVisibilityChanged, { passive: false });
 
-    var a = document.getElementsByClassName("ytd-thumbnail");
-    var t = 0;
-    var i2 = 0;
-    for (let i = a.length - 1; i >= 0; i--) {
-        let b = a[i];
-        if (b.id === "thumbnail") {
-            let c = b.getAttribute("href");
-            if (!!c && typeof c === "string" && c.indexOf("/watch?v") >= 0) {
-                c = "https://www.youtube.com" + c.replace("https://www.youtube.com", "");
+    let i2 = 0;
+    for (let i = 0; i < a.length; i++) {
+
+        try {
+            let b = a[i].getAttribute('href');
+
+            if (!!b && (typeof b === 'string') && b !== '' && b.substr(0, 1) !== '#' && b.indexOf('google') < 0 && data.done.indexOf(b) < 0) {
+
+                if (b.indexOf('/search?') === 0) {
+
+                    continue;
+                }
 
                 if (i2++ < 10) {
-                    window.open(c);
+                    window.open(b);
                 } else {
-                    window.queueUrls.push(c);
+                    window.queueUrls.push(b);
                 }
             }
+        } catch (e) {
+
         }
     }
 }
 
-data.more = window.queueUrls.length > 0;
+a = document.getElementsByTagName('span');
+for (let i = 0; i < a.length; i++) {
+
+    if (a[i].innerText === "Next" || a[i].innerText === "Volgende") {
+
+        data.more = true;
+        break;
+    }
+}
