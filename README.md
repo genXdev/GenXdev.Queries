@@ -1,19 +1,17 @@
 <hr/>
 
-![](powershell.jpg)
+<img src="powershell.jpg" alt="drawing" width="50%"/>
 
 <hr/>
 
-## NAME
-
+### NAME
     GenXdev.Queries
+### SYNOPSIS
+    A Windows PowerShell module for finding resources and information on the internet
+[![GenXdev.Queries](https://img.shields.io/powershellgallery/v/GenXdev.Queries.svg?style=flat-square&label=GenXdev.Queries)](https://www.powershellgallery.com/packages/GenXdev.Queries/) [![License](https://img.shields.io/github/license/renevaessen/GenXdev.Queries?style=flat-square)](./LICENSE)
 
-## SYNOPSIS
-
-    A collection of cmdLets that help finding resources and information on the internet
-
-## CmdLets and aliases
-````Powershell
+### FEATURES
+````PowerShell
     Open-AllPossibleQueries     -Queries <string[]>          -> qq
     Open-AllPossibleTextQueries -Queries <string[]>          -> qqq
 
@@ -42,18 +40,20 @@
     Get-NextJoke                                            -> TellAJoke
 
 ````
-## TYPE
+### TYPE
     PowerShell Module
 
-## DEPENDENCIES
-    GenXdev.Helpers, GenXdev.Webbrowser
+### DEPENDENCIES
+[![GenXdev.Helpers](https://img.shields.io/powershellgallery/v/GenXdev.Helpers.svg?style=flat-square&label=GenXdev.Helpers)](https://www.powershellgallery.com/packages/GenXdev.Helpers/) [![GenXdev.Webbrowser](https://img.shields.io/powershellgallery/v/GenXdev.Webbrowser.svg?style=flat-square&label=GenXdev.Webbrowser)](https://www.powershellgallery.com/packages/GenXdev.Webbrowser/)
 
-## INSTALLATION
-````Powershell
-
-    Install-Module "GenXdev.Queries" -Force
-    Import-Module "GenXdev.Queries"
-
+### INSTALLATION
+````PowerShell
+Install-Module "GenXdev.Queries" -Force
+Import-Module "GenXdev.Queries"
+````
+### UPDATE
+````PowerShell
+Update-Module
 ````
 
 <br/><hr/><hr/><hr/><hr/><br/>
@@ -401,7 +401,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -581,7 +581,7 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -753,7 +753,7 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -916,7 +916,7 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Private]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1088,7 +1088,7 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1260,7 +1260,7 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1432,7 +1432,7 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1604,7 +1604,7 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1776,7 +1776,7 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1948,7 +1948,7 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2120,7 +2120,7 @@ Open-WikipediaQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2292,7 +2292,7 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2464,7 +2464,7 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>]
         Dynamic?                     false
         Accept wildcard characters?  false
     -RestoreFocus
-        Restore Powershell window focus
+        Restore PowerShell window focus
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
