@@ -1456,7 +1456,15 @@ function Open-AllYoutubeVideos {
     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
     Clear-Host
     Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
-    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -ReturnProcess
+
+    if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
+
+        $browser = Open-Webbrowser -NewWindow -ApplicationMode -RestoreFocus -Chromium -Right -Url $Url -ReturnProcess
+    }
+    else {
+        $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -ReturnProcess
+    }
+
     Start-Sleep 3
     Select-WebbrowserTab -Name "*youtube*" | Out-Null
 
