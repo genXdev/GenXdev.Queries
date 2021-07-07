@@ -1402,12 +1402,11 @@ function Open-AllGoogleLinks {
 
 <#
 .SYNOPSIS
-Performs an infinite auto opening youtube search in previously selected webbrowser tab.
+Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor
 
 .DESCRIPTION
-Performs a google search in previously selected webbrowser tab.
-Opens 10 tabs each times, pauses until initial tab is revisited
-Close initial tab to stop
+Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor
+Console window will show info about the video and keyboard shortcuts for controlling current playing video
 
 .PARAMETER Query
 The youtube query to perform
