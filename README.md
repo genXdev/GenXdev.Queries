@@ -1,3 +1,11 @@
+## Features
+
+## Ideas
+
+## Issues
+
+## Todoos
+
 <hr/>
 
 <img src="powershell.jpg" alt="drawing" width="50%"/>
@@ -65,13 +73,13 @@ Update-Module
 # Cmdlets
 
 ### NAME
-    DownloadPDFs
+    Copy-PDFsFromGoogleQuery
 ### SYNOPSIS
     Performs a google query in the previously selected webbrowser tab, and
     download all found pdf's into current directory
 ### SYNTAX
 ````PowerShell
-DownloadPDFs [-Query] <String> [-Max <Int32>] [<CommonParameters>]
+Copy-PDFsFromGoogleQuery [-Query] <String> [-Max <Int32>] [<CommonParameters>]
 ````
 ### DESCRIPTION
     Performs a google query in the previously selected webbrowser tab, and
@@ -107,7 +115,7 @@ PS D:\Downloads>
     cd pdfs;
 
     Select-WebbrowserTab;
-    DownloadPDFS "scientific paper co2"
+    Copy-PDFsFromGoogleQuery "scientific paper co2"
 ````
 <br/><hr/><hr/><hr/><hr/><br/>
 ### NAME

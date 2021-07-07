@@ -38,15 +38,9 @@ function fakeClick(anchorObj, event) {
                 evt.initMouseEvent("click", true, true, window,
                     0, 0, 0, 0, 0, false, false, false, false, 0, null);
                 var allowDefault = anchorObj.dispatchEvent(evt);
-                // you can check allowDefault for false to see if
-                // any handler called evt.preventDefault().
-                // Firefox will *not* redirect to anchorObj.href
-                // for you. However every other browser will.
             }
         }
-    } catch (e) {
-        debugger;
-    }
+    } catch (e) { }
 }
 
 a = document.getElementsByTagName('span');

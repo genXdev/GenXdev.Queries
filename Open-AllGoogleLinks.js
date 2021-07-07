@@ -100,6 +100,8 @@ if (!window.onceOnly) {
                 } else {
                     window.queueUrls.push(b);
                 }
+
+                document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
             }
         } catch (e) {
 

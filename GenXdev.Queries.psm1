@@ -1,4 +1,4 @@
-﻿function Combine-InvocationArguments {
+﻿function Build-InvocationArguments {
 
     param(
         [parameter(Mandatory, Position = 0)]
@@ -44,7 +44,7 @@ function Open-AllPossibleTextQueries {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -162,7 +162,7 @@ function Open-AllPossibleQueries {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -275,7 +275,7 @@ function Open-GoogleQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -324,7 +324,7 @@ function Open-WikipediaQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -371,7 +371,7 @@ function Open-WikipediaNLQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -419,7 +419,7 @@ function Open-YoutubeQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -467,7 +467,7 @@ function Open-IMDBQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -515,7 +515,7 @@ function Open-StackOverflowQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -563,7 +563,7 @@ function Open-WolframAlphaQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -615,7 +615,7 @@ function Open-GithubQuery {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -674,7 +674,7 @@ function Open-GoogleSiteInfo {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -719,7 +719,7 @@ function Open-BuiltWithSiteInfo {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -767,7 +767,7 @@ function Open-WhoisHostSiteInfo {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -815,7 +815,7 @@ function Open-WaybackMachineSiteInfo {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -863,7 +863,7 @@ function Open-SimularWebSiteInfo {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -902,7 +902,7 @@ function Get-WikipediaSummary {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -988,7 +988,7 @@ function Get-Gpt3QuestionSummary {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
 
         if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
 
@@ -1033,7 +1033,7 @@ function Get-Gpt3EnglishSummary {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
@@ -1077,7 +1077,7 @@ function Get-Gpt3DutchSummary {
 
     begin {
 
-        $Queries = Combine-InvocationArguments $MyInvocation $Queries
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
 
         if ([string]::IsNullOrWhiteSpace($Global:GPT3ApiKey)) {
 
@@ -1271,13 +1271,16 @@ function Get-GoogleSearchResultUrls {
 
 <#
 .SYNOPSIS
-Executes a polling script in a previously selected webbrowser tab.
+Executes a background polling script in a previously selected webbrowser tab.
 
 .DESCRIPTION
-Executes a polling script in a previously selected webbrowser tab.
+Executes a background polling script in a previously selected webbrowser tab.
 
 .PARAMETER Scripts
 The scripts to load
+
+.PARAMETER Callback
+A scriptblock that gets executed each time the tab has been polled
 
 .NOTES
 Requires the Windows 10+ Operating System
@@ -1300,7 +1303,11 @@ function Invoke-WebbrowserTabPollingScript {
         [parameter(
             HelpMessage = "An optional url to navigate to, before polling starts"
         )]
-        [string] $InitialUrl = $null
+        [string] $InitialUrl = $null,
+
+        [parameter(
+            Mandatory = $false
+        )] [ScriptBlock] $Callback = $null
     )
 
     Start-ThreadJob -InitializationScript { Import-Module GenXdev.Queries; } -ScriptBlock {
@@ -1317,13 +1324,26 @@ function Invoke-WebbrowserTabPollingScript {
 
         if (![string]::IsNullOrWhiteSpace($InitialUrl)) {
 
-            Invoke-WebbrowserEvaluation "document.location.href='$InitialUrl'" | Out-Null
+            Invoke-WebbrowserEvaluation "document.location.href='$InitialUrl'" -NoAutoSelectTab | Out-Null
         }
 
         do {
             Start-Sleep 1 | Out-Null
 
-            Invoke-WebbrowserEvaluation -Scripts $Scripts  | Out-Null
+            Invoke-WebbrowserEvaluation -Scripts $Scripts -NoAutoSelectTab | Out-Null
+
+            if ($null -ne $Callback) {
+
+                try {
+                    Invoke-Command -ScriptBlock $Callback -ErrorAction SilentlyContinue
+                }
+                catch {
+
+                    Write-Warning $PSItem.Exception
+                }
+
+                Select-WebbrowserTab -ByReference $Reference
+            }
         }
         while ($Global:data.more)
 
@@ -1407,6 +1427,7 @@ function Open-AllYoutubeVideos {
     [Alias("qvideos")]
 
     param(
+        [Alias("q")]
         [parameter(
             Mandatory = $false,
             Position = 0,
@@ -1417,8 +1438,14 @@ function Open-AllYoutubeVideos {
 
     $Global:data = @{
 
-        urls  = @();
-        query = $Query
+        urls           = @();
+        query          = $Query;
+        description    = "";
+        title          = "";
+        subscribeTitle = "";
+        playing        = $true;
+        duration       = 0;
+        position       = 0;
     }
 
     $Url = $null
@@ -1427,7 +1454,179 @@ function Open-AllYoutubeVideos {
         $Url = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
     }
 
-    Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js") -InitialUrl $Url
+    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
+    Clear-Host
+    Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -ReturnProcess
+    Start-Sleep 3
+    Select-WebbrowserTab -Name "*youtube*" | Out-Null
+
+    $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
+
+    while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
+
+    while ($null -ne $job -and $job.State -ne "Running") {
+        Start-Sleep 1
+        $job = Get-Job $job.Name -ErrorAction SilentlyContinue
+    }
+
+    while ($null -ne $job -and $job.State -eq "Running") {
+
+        do {
+            $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
+            Clear-Host
+            $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle)," }
+            if ($Global:data.playing) { $pause = " P = Pause," } else { $pause = "P = Resume" }
+
+            Write-Host "Q = quit,$sub $pause SPACE=Next video, 0..9 = skip 0% to 90%, Left-Arrow = -20sec, RightArrow = +20sec".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+            Write-Host "$($Global:data.title)".PadRight($hostInfo.WindowSize.Width, " ") -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
+            Write-Host ((("$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ") -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue { if ($nn -isnot [int]) { $nn = 0; } if ([string]::IsNullOrWhiteSpace($PSItem)) { $nn = $nn + 1; } else { $nn = 0 } if ($nn -lt 2) { $s = $PSItem.Trim(); for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) { $s = $s.substring(0, $i) + "`r" + $s.substring($i); } $s } }) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+            [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
+            [Console]::BackgroundColor = [ConsoleColor]::Blue;
+            [Console]::ForegroundColor = [ConsoleColor]::Yellow;
+            try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
+            [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
+            try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
+            [Console]::SetCursorPosition(0, 0);
+            [Console]::ResetColor();
+
+            if ([Console]::KeyAvailable) {
+                [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
+                $c = [Console]::ReadKey();
+
+                switch ("$($c.KeyChar)".ToLowerInvariant()) {
+
+                    "q" {
+                        Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
+                        $browser.CloseMainWindow();
+                        Clear-Host;
+                        return;
+                    }
+
+                    " " {
+
+                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                        Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
+                        Start-Sleep 1
+                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                    }
+
+                    "s" {
+
+                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                        Invoke-WebbrowserEvaluation "
+                        window.fakeClick = function (anchorObj, event) {
+                            try {
+
+                                if (anchorObj.click) {
+                                    anchorObj.click()
+                                } else if (document.createEvent) {
+                                    if (!event || event.target !== anchorObj) {
+                                        var evt = document.createEvent("MouseEvents");
+                                        evt.initMouseEvent("click", true, true, window,
+                                            0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                                        var allowDefault = anchorObj.dispatchEvent(evt);
+                                    }
+                                }
+                            } catch (e) { }
+                        }
+                        " -ErrorAction SilentlyContinue | Out-Null
+                        Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                        Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                    }
+
+                    "p" {
+
+                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                        Invoke-WebbrowserEvaluation "
+
+                        window.video = document.getElementsByTagName('video')[0];
+                        if (window.video.paused) {
+                            window.video.play();
+                        }
+                        else {
+                           window.video.pause();
+                        }
+                          data.playing = !window.video.paused;
+                          data.position = window.video.currentTime;
+                          data.duration = window.video.duration;
+
+                        " -ErrorAction SilentlyContinue | Out-Null
+                    }
+
+                    default {
+
+                        [int] $n = 0;
+                        if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
+
+                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                            Invoke-WebbrowserEvaluation "
+                                window.video = document.getElementsByTagName('video')[0];
+                                window.video.currentTime = Math.round(window.video.duration * ($n/10));
+                                window.video.play();
+                                data.playing = !window.video.paused;
+                                data.position = window.video.currentTime;
+                                data.duration = window.video.duration;
+                               " -ErrorAction SilentlyContinue | Out-Null;
+                        }
+                        else {
+                            if ($c.Key -eq [ConsoleKey]::RightArrow) {
+
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "
+                                window.video = document.getElementsByTagName('video')[0];
+                                window.video.currentTime = Math.min(window.video.duration, window.video.currentTime+20);
+                                window.video.play();
+                                data.playing = !window.video.paused;
+                                data.position = window.video.currentTime;
+                                data.duration = window.video.duration;
+                                " -ErrorAction SilentlyContinue | Out-Null;
+                            }
+                            else {
+                                if ($c.Key -eq [ConsoleKey]::LeftArrow) {
+
+                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                    Invoke-WebbrowserEvaluation "
+                                    window.video = document.getElementsByTagName('video')[0];
+                                    window.video.currentTime = Math.max(0, window.video.currentTime-20);
+                                    window.video.play();
+                                    data.playing = !window.video.paused;
+                                    data.position = window.video.currentTime;
+                                    data.duration = window.video.duration;
+                                " -ErrorAction SilentlyContinue | Out-Null;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        } while ([Console]::KeyAvailable);
+
+        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+        Invoke-WebbrowserEvaluation "
+            window.video = document.getElementsByTagName('video')[0];
+            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+
+            if (!document.getElementById('genxbackground')) {
+                window.video.onended = () => { window.close() };
+                let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
+                document.body.appendChild(window.video);document.body.setAttribute('style', 'overflow:hidden');
+            }
+
+            data.description = document.getElementById('description').innerText;
+            data.title = document.querySelector('h1.title').innerText;
+            data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim()
+            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+            data.playing = !window.video.paused;
+            data.position = window.video.currentTime;
+            data.duration = window.video.duration;
+        " -ErrorAction SilentlyContinue | Out-Null;
+
+        $job = Get-Job $job.Name -ErrorAction SilentlyContinue
+    }
+
+    while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
 }
 
 ##############################################################################################################
@@ -1453,12 +1652,12 @@ PS D:\Downloads>
 
     Select-WebbrowserTab;
 
-    DownloadPDFS "scientific paper co2"
+    Copy-PDFsFromGoogleQuery "scientific paper co2"
 
 .NOTES
 Requires the Windows 10+ Operating System
 #>
-function DownloadPDFs {
+function Copy-PDFsFromGoogleQuery {
 
     [CmdletBinding()]
 
