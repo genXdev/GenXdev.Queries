@@ -4,8 +4,8 @@
         [parameter(Mandatory, Position = 0)]
         $InvocationInfo,
 
-        [parameter(Mandatory, Position = 1)]
-        [string[]] $Arguments,
+        [parameter(Mandatory = $false, Position = 1)]
+        [string[]] $Arguments = @(),
 
         [parameter(Mandatory = $false, Position = 2)]
         [switch] $SingleString
@@ -2138,18 +2138,33 @@ function Open-AllYoutubeVideos {
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory = $false,
             Position = 0,
             ValueFromRemainingArguments = $true,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
-        [string[]] $Queries
+        [string[]] $Queries = @(""),
+
+        [parameter(
+            Mandatory = $false
+        )]
+        [switch] $Subscriptions,
+
+        [parameter(
+            Mandatory = $false
+        )]
+        [switch] $WatchLater
     )
 
     begin {
 
         $Queries = Build-InvocationArguments $MyInvocation $Queries
+        $PowershellProcess = [System.Diagnostics.Process]::GetCurrentProcess();
+        if ($null -ne $PowershellProcess.Parent -and [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess.Parent).Count -gt 0) {
+            $PowershellProcess = $PowershellProcess.Parent;
+        }
+        $PowershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess);
     }
 
     process {
@@ -2166,23 +2181,12 @@ function Open-AllYoutubeVideos {
             position       = 0;
         }
 
-        function go($Query) {
-
-            $Url = $null
-            if (![string]::IsNullOrWhiteSpace($Query)) {
-
-                $Url = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
-            }
+        function go($Url) {
 
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
             Clear-Host
             Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
             $browser = $null;
-            $PowershellProcess = [System.Diagnostics.Process]::GetCurrentProcess();
-            if ($null -ne $PowershellProcess.Parent -and [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess.Parent).Count -gt 0) {
-                $PowershellProcess = $PowershellProcess.Parent;
-            }
-            $PowershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess);
             if ($PowershellWindow.Count -gt 0) {
 
                 $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
@@ -2210,6 +2214,7 @@ function Open-AllYoutubeVideos {
             }
 
             if ($null -eq $browser) {
+
                 if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
 
                     $browser = Open-Webbrowser -NewWindow -ApplicationMode -RestoreFocus -Chromium -Right -Url $Url -PassThrough
@@ -2237,9 +2242,9 @@ function Open-AllYoutubeVideos {
                 do {
                     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
                     Clear-Host
-                    $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle)," }
-                    if ($Global:data.playing) { $pause = " P = Pause," } else { $pause = "P = Resume" }
-                    $header = "Q = quit,$sub $pause SPACE=Next video, 0..9 = skip 0% to 90%, Left-Arrow = -20sec, RightArrow = +20sec".PadRight($hostInfo.WindowSize.Width, " ");
+                    $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle) |" }
+                    if ($Global:data.playing) { $pause = " [P]ause |" } else { $pause = " [R]esume |" }
+                    $header = "[Q]uit |$sub$pause SPACE=Next | [0]..[9] = skip | ◀ -20sec | +20sec ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
                     if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
                         $scrollPosition = ($scrollPosition + 1) % $header.length;
@@ -2298,8 +2303,8 @@ function Open-AllYoutubeVideos {
                                     anchorObj.click()
                                 } else if (document.createEvent) {
                                     if (!event || event.target !== anchorObj) {
-                                        var evt = document.createEvent("MouseEvents");
-                                        evt.initMouseEvent("click", true, true, window,
+                                        var evt = document.createEvent(`"MouseEvents`");
+                                        evt.initMouseEvent(`"click`", true, true, window,
                                             0, 0, 0, 0, 0, false, false, false, false, 0, null);
                                         var allowDefault = anchorObj.dispatchEvent(evt);
                                     }
@@ -2316,18 +2321,32 @@ function Open-AllYoutubeVideos {
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                 Invoke-WebbrowserEvaluation "
 
-                        window.video = document.getElementsByTagName('video')[0];
-                        if (window.video.paused) {
-                            window.video.play();
-                        }
-                        else {
-                           window.video.pause();
-                        }
-                          data.playing = !window.video.paused;
-                          data.position = window.video.currentTime;
-                          data.duration = window.video.duration;
+                                    window.video = document.getElementsByTagName('video')[0];
+                                    if (window.video.paused) {
+                                        window.video.play();
+                                    }
+                                    else {
+                                    window.video.pause();
+                                    }
+                                    data.playing = !window.video.paused;
+                                    data.position = window.video.currentTime;
+                                    data.duration = window.video.duration;
 
-                        " -ErrorAction SilentlyContinue | Out-Null
+                                    " -ErrorAction SilentlyContinue | Out-Null
+                            }
+
+                            "r" {
+
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "
+
+                                    window.video = document.getElementsByTagName('video')[0];
+                                    window.video.play();
+                                    data.playing = !window.video.paused;
+                                    data.position = window.video.currentTime;
+                                    data.duration = window.video.duration;
+
+                                    " -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             default {
@@ -2337,42 +2356,41 @@ function Open-AllYoutubeVideos {
 
                                     Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                     Invoke-WebbrowserEvaluation "
-                                window.video = document.getElementsByTagName('video')[0];
-                                window.video.currentTime = Math.round(window.video.duration * ($n/10));
-                                window.video.play();
-                                data.playing = !window.video.paused;
-                                data.position = window.video.currentTime;
-                                data.duration = window.video.duration;
-                               " -ErrorAction SilentlyContinue | Out-Null;
+                                        window.video = document.getElementsByTagName('video')[0];
+                                        window.video.currentTime = Math.round(window.video.duration * ($n/10));
+                                        window.video.play();
+                                        data.playing = !window.video.paused;
+                                        data.position = window.video.currentTime;
+                                        data.duration = window.video.duration;
+                                    " -ErrorAction SilentlyContinue | Out-Null;
                                 }
                                 else {
                                     if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
                                         Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                         Invoke-WebbrowserEvaluation "
-                                window.video = document.getElementsByTagName('video')[0];
-                                window.video.currentTime = Math.min(window.video.duration, window.video.currentTime+20);
-                                window.video.play();
-                                data.playing = !window.video.paused;
-                                data.position = window.video.currentTime;
-                                data.duration = window.video.duration;
-                                " -ErrorAction SilentlyContinue | Out-Null;
+                                            window.video = document.getElementsByTagName('video')[0];
+                                            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime+20);
+                                            window.video.play();
+                                            data.playing = !window.video.paused;
+                                            data.position = window.video.currentTime;
+                                            data.duration = window.video.duration;
+                                            " -ErrorAction SilentlyContinue | Out-Null;
                                     }
                                     else {
                                         if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
                                             Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                             Invoke-WebbrowserEvaluation "
-                                    window.video = document.getElementsByTagName('video')[0];
-                                    window.video.currentTime = Math.max(0, window.video.currentTime-20);
-                                    window.video.play();
-                                    data.playing = !window.video.paused;
-                                    data.position = window.video.currentTime;
-                                    data.duration = window.video.duration;
-                                " -ErrorAction SilentlyContinue | Out-Null;
+                                                window.video = document.getElementsByTagName('video')[0];
+                                                window.video.currentTime = Math.max(0, window.video.currentTime-20);
+                                                window.video.play();
+                                                data.playing = !window.video.paused;
+                                                data.position = window.video.currentTime;
+                                                data.duration = window.video.duration;
+                                            " -ErrorAction SilentlyContinue | Out-Null;
                                         }
                                     }
-
                                 }
                             }
                         }
@@ -2381,23 +2399,23 @@ function Open-AllYoutubeVideos {
 
                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                 Invoke-WebbrowserEvaluation "
-            window.video = document.getElementsByTagName('video')[0];
-            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+                    window.video = document.getElementsByTagName('video')[0];
+                    window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
 
-            if (!document.getElementById('genxbackground')) {
-                window.video.onended = () => { window.close() };
-                let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
-                document.body.appendChild(window.video);document.body.setAttribute('style', 'overflow:hidden');
-            }
+                    if (!document.getElementById('genxbackground')) {
+                        window.video.onended = () => { window.close() };
+                        let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
+                        document.body.appendChild(window.video);document.body.setAttribute('style', 'overflow:hidden');
+                    }
 
-            data.description = document.getElementById('description').innerText;
-            data.title = document.querySelector('h1.title').innerText;
-            data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim()
-            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
-            data.playing = !window.video.paused;
-            data.position = window.video.currentTime;
-            data.duration = window.video.duration;
-        " -ErrorAction SilentlyContinue | Out-Null;
+                    data.description = document.getElementById('description').innerText;
+                    data.title = document.querySelector('h1.title').innerText;
+                    data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim()
+                    window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+                    data.playing = !window.video.paused;
+                    data.position = window.video.currentTime;
+                    data.duration = window.video.duration;
+                " -ErrorAction SilentlyContinue | Out-Null;
 
                 $job = Get-Job $job.Name -ErrorAction SilentlyContinue
             }
@@ -2405,12 +2423,32 @@ function Open-AllYoutubeVideos {
             while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
         }
 
-        foreach ($Query in $Queries) {
+        if ($Subscriptions -eq $true) {
 
-            go $Query
+            go "https://www.youtube.com/feed/subscriptions"
+        }
+        if ($WatchLater -eq $true) {
+
+            go "https://www.youtube.com/feed/subscriptions"
+        }
+
+        if (!$Subscriptions -and !$WatchLater -and $Queries.Length -gt 0 -and ([string]::IsNullOrWhiteSpace($Queries[0] -eq $false))) {
+
+            foreach ($Query in $Queries) {
+
+                go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+            }
+
+            return;
+        }
+
+        if (!$Subscriptions -and !$WatchLater -and (($Queries.Length -eq 0) -or [string]::IsNullOrWhiteSpace($Queries[0]))) {
+
+            go "https://www.youtube.com/"
         }
     }
 }
+
 
 ##############################################################################################################
 ##############################################################################################################
@@ -2494,7 +2532,7 @@ function Copy-PDFsFromGoogleQuery {
                             [IO.Path]::ChangeExtension(
                                 [Uri]::UnescapeDataString(
                                     [IO.Path]::GetFileName($_).Split("#")[0].Split("?")[0]
-                                ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_")+
+                                ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_") +
                                 "_$([DateTime]::UtcNow.Ticks)_$([System.Threading.Thread]::CurrentThread.ManagedThreadId)",
                                 ".pdf"
                             )
