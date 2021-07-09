@@ -2423,28 +2423,33 @@ function Open-AllYoutubeVideos {
             while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
         }
 
-        if ($Subscriptions -eq $true) {
+        try {
+            if ($Subscriptions -eq $true) {
 
-            go "https://www.youtube.com/feed/subscriptions"
-        }
-        if ($WatchLater -eq $true) {
+                go "https://www.youtube.com/feed/subscriptions"
+            }
+            if ($WatchLater -eq $true) {
 
-            go "https://www.youtube.com/feed/subscriptions"
-        }
-
-        if (!$Subscriptions -and !$WatchLater -and $Queries.Length -gt 0 -and ([string]::IsNullOrWhiteSpace($Queries[0] -eq $false))) {
-
-            foreach ($Query in $Queries) {
-
-                go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+                go "https://www.youtube.com/playlist?list=WL"
             }
 
-            return;
+            if (($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and ($Queries.Length -gt 0) -and ([string]::IsNullOrWhiteSpace($Queries[0]) -eq $false)) {
+
+                foreach ($Query in $Queries) {
+
+                    go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+                }
+
+                return;
+            }
+
+            if (($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and (($Queries.Length -eq 0) -or ([string]::IsNullOrWhiteSpace($Queries[0]) -eq $true))) {
+
+                go "https://www.youtube.com/"
+            }
         }
-
-        if (!$Subscriptions -and !$WatchLater -and (($Queries.Length -eq 0) -or [string]::IsNullOrWhiteSpace($Queries[0]))) {
-
-            go "https://www.youtube.com/"
+        finally {
+            Clear-Host
         }
     }
 }
