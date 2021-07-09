@@ -10,7 +10,7 @@ for (let i = 0; i < a.length; i++) {
 
         if (!!b && (typeof b === 'string') && b !== '' && b.substr(0, 1) !== '#' && b.indexOf('google') < 0) {
 
-            if (b.indexOf('/search?') === 0) {
+            if (b.indexOf('/search?') === 0  && b.indexOf('reCAPTCHA') === 0) {
 
                 if (data.done.indexOf(b) < 0 && b.indexOf(encodeURIComponent(data.query)) > 0) {
 

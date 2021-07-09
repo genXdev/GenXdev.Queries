@@ -5,24 +5,342 @@
         $InvocationInfo,
 
         [parameter(Mandatory, Position = 1)]
-        [string[]] $Arguments
+        [string[]] $Arguments,
+
+        [parameter(Mandatory = $false, Position = 2)]
+        [switch] $SingleString
     )
 
-    if ($Arguments.Length -gt 1 -and (!!$InvocationInfo) -and
-        ![string]::IsNullOrWhiteSpace($InvocationInfo.Line) -and
-        ![string]::IsNullOrWhiteSpace($InvocationInfo.InvocationName) -and
-        $InvocationInfo.Line.Trim("`r`n`t ").StartsWith($InvocationInfo.InvocationName)
-    ) {
+    begin {
 
-        $cmd = $InvocationInfo.Line.Trim("`r`n`t ").Substring($InvocationInfo.InvocationName.Length).Trim();
-
-        if (!$cmd.Contains(",") -and !$cmd.Contains("@") -and !$cmd.Contains("$")) {
-
-            $Arguments = @($cmd);
-        }
+        $ParameterInfo = $InvocationInfo.MyCommand.Parameters.GetEnumerator() | Select-Object -First 1
+        $ParameterNameAndAliases = @($ParameterInfo.Key) + $ParameterInfo.Value.Aliases;
+        $SingleString = ($SingleString -eq $true) -or ($ParameterInfo.Value.ParameterType -eq [string]);
     }
 
-    $Arguments
+    process {
+
+        function getArgumentCount($InvocationInfo, $Container) {
+
+            $argumentCount = 1;
+            $argumentToSkip = 0;
+
+            foreach ($argument in $Container) {
+
+                if ($argument.StartsWith("-")) {
+
+                    $argumentName = $argument.Substring(1).Trim();
+                    foreach ($keyValue in $InvocationInfo.MyCommand.Parameters.GetEnumerator()) {
+
+                        $match = $keyValue.Key -like $argumentName;
+
+                        if (!$match) {
+
+                            foreach ($alias in $keyValue.Value.Aliases) {
+
+                                if ($alias -like $argumentName) {
+                                    $match = $true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ($match) {
+
+                            $argumentToSkip = 2;
+                            if ($keyValue.Value.SwitchParameter) {
+
+                                $argumentToSkip = 1;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                if ($argumentToSkip -gt 0) {
+
+                    $argumentToSkip = $argumentToSkip - 1;
+                    continue;
+                }
+
+                if ($argument.Contains(",")) {
+
+                    $parts = $argument.Split(",");
+
+                    $argumentCount += $parts.Length - 1;
+                }
+            }
+
+            return $argumentCount;
+        }
+
+        function hasParamOrQuotes($InvocationInfo, $Container) {
+
+            $argumentToSkip = 0;
+
+            foreach ($argument in $Container) {
+
+                if ($argument.StartsWith("-")) {
+
+                    $argumentName = $argument.Substring(1).Trim();
+                    foreach ($keyValue in $InvocationInfo.MyCommand.Parameters.GetEnumerator()) {
+
+                        $match = $keyValue.Key -like $argumentName;
+
+                        if (!$match) {
+
+                            foreach ($alias in $keyValue.Value.Aliases) {
+
+                                if ($alias -like $argumentName) {
+                                    $match = $true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ($match) {
+
+                            $argumentToSkip = 2;
+                            if ($keyValue.Value.SwitchParameter) {
+
+                                $argumentToSkip = 1;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                if ($argumentToSkip -gt 0) {
+
+                    $argumentToSkip = $argumentToSkip - 1;
+                    continue;
+                }
+
+                if ($argument -like "@*") { return $true; }
+                if ($argument -like "*`"*") { return $true; }
+                if ($argument -like "*`$*") { return $true; }
+                if ($argument -like "(*") { return $true; }
+
+                continue;
+            }
+
+            return $false
+        }
+
+        function getSingleLineText($InvocationInfo, $Container) {
+
+            $argumentText = [System.Text.StringBuilder]::new();
+            $argumentToSkip = 0;
+
+            foreach ($argument in $Container) {
+
+                if ($argument.StartsWith("-")) {
+
+                    $argumentName = $argument.Substring(1).Trim();
+                    foreach ($keyValue in $InvocationInfo.MyCommand.Parameters.GetEnumerator()) {
+
+                        $match = $keyValue.Key -like $argumentName;
+
+                        if (!$match) {
+
+                            foreach ($alias in $keyValue.Value.Aliases) {
+
+                                if ($alias -like $argumentName) {
+                                    $match = $true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ($match) {
+
+                            $argumentToSkip = 2;
+                            if ($keyValue.Value.SwitchParameter) {
+
+                                $argumentToSkip = 1;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                if ($argumentToSkip -gt 0) {
+
+                    $argumentToSkip = $argumentToSkip - 1;
+                    continue;
+                }
+
+                if ($argument.Contains(",")) {
+
+                    $parts = $argument.Split(",");
+
+                    for ($i = 0; $i -lt $parts.Length; $i++) {
+
+                        if ($i -gt 0) {
+
+                            $currentIndex++;
+                        }
+
+                        $argumentText.Append("$($parts[$i]) ") | Out-Null
+                    }
+                }
+                else {
+
+
+                    $argumentText.Append("$argument ") | Out-Null
+                }
+            }
+
+            return $argumentText.ToString().Trim();
+        }
+
+        function getArgument($InvocationInfo, $Container, [int] $argumentIndex) {
+
+            [int] $currentIndex = 0;
+
+            $argumentText = [System.Text.StringBuilder]::new();
+            $argumentToSkip = 0;
+
+            foreach ($argument in $Container) {
+
+                if ($argument.StartsWith("-")) {
+
+                    $argumentName = $argument.Substring(1).Trim();
+                    foreach ($keyValue in $InvocationInfo.MyCommand.Parameters.GetEnumerator()) {
+
+                        $match = $keyValue.Key -like $argumentName;
+
+                        if (!$match) {
+
+                            foreach ($alias in $keyValue.Value.Aliases) {
+
+                                if ($alias -like $argumentName) {
+                                    $match = $true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ($match) {
+
+                            $argumentToSkip = 2;
+                            if ($keyValue.Value.SwitchParameter) {
+
+                                $argumentToSkip = 1;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                if ($argumentToSkip -gt 0) {
+
+                    $argumentToSkip = $argumentToSkip - 1;
+                    continue;
+                }
+
+                if ($argument.Contains(",")) {
+
+                    $parts = $argument.Split(",");
+
+                    for ($i = 0; $i -lt $parts.Length; $i++) {
+
+                        if ($i -gt 0) {
+
+                            $currentIndex++;
+                        }
+
+                        if ($currentIndex -eq $argumentIndex) {
+
+                            $argumentText.Append("$($parts[$i]) ") | Out-Null
+                        }
+
+                        if ($currentIndex -gt $argumentIndex) {
+
+                            break;
+                        }
+                    }
+                }
+                else {
+
+                    if ($currentIndex -eq $argumentIndex) {
+
+                        $argumentText.Append("$argument ") | Out-Null
+                    }
+                }
+
+                if ($currentIndex -gt $argumentIndex) {
+
+                    break;
+                }
+            }
+
+            return $argumentText.ToString().Trim();
+        }
+
+        $InInvocation = $false
+        [bool] $HasNamedParameterSupplied = $false;
+        $Container = $InvocationInfo.Line.Split("|;".ToCharArray()) | ForEach-Object -ErrorAction SilentlyContinue {
+
+            $LinePart = $PSItem;
+            $LinePart.Split(" ", [System.StringSplitOptions]::RemoveEmptyEntries) | ForEach-Object -ErrorAction SilentlyContinue {
+
+                if ($InInvocation) {
+
+                    $PSItem
+                }
+
+                if (!$InInvocation -and $PSItem -eq $InvocationInfo.InvocationName) {
+
+                    $InInvocation = $true;
+                }
+            }
+
+            if ($InInvocation) {
+
+                foreach ($paramName in $ParameterNameAndAliases ) {
+                    if ($PSItem -like "-$paramName") {
+
+                        $HasNamedParameterSupplied = $true;
+                    }
+                }
+
+                return;
+            }
+        }
+
+        if ($HasNamedParameterSupplied) {
+
+            return $Arguments;
+        }
+
+        [int] $argumentCount = getArgumentCount $InvocationInfo $Container
+        [string] $singlelineStringValue = getSingleLineText $InvocationInfo $Container
+
+
+        if ((hasParamOrQuotes $InvocationInfo $Container) -or ($argumentCount -lt 2 -and [string]::IsNullOrWhiteSpace($singlelineStringValue))) {
+
+            return $Arguments
+        }
+
+        if ($SingleString -eq $true) {
+
+            return $singlelineStringValue
+        }
+
+        $results = [System.Collections.Generic.List[string]]::new();
+
+        for ([int] $argumentIndex = 0; $argumentIndex -lt $argumentCount; $argumentIndex++) {
+
+            $results.Add((getArgument $InvocationInfo $Container $argumentIndex))
+        }
+
+        return $results.ToArray();
+    }
 }
 
 function Open-AllPossibleTextQueries {
@@ -31,7 +349,7 @@ function Open-AllPossibleTextQueries {
     [Alias("qqq")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -149,7 +467,7 @@ function Open-AllPossibleQueries {
     [Alias("qq")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -157,15 +475,35 @@ function Open-AllPossibleQueries {
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
-        [string[]] $Queries
+        [string[]] $Queries,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
     )
 
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
     begin {
+
+        Write-Verbose "Open-AllPossibleQueries Monitor = $Monitor"
 
         $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
     process {
+        $PSBoundParameters.Remove("Queries") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -202,7 +540,10 @@ function Open-AllPossibleQueries {
                                 }
 
                                 try {
-                                    Invoke-Expression "$PSItem '$safeUrl'"
+                                    $PSBoundParameters.Add("Url", $safeUrl) | Out-Null;
+                                    & $PSItem @PSBoundParameters
+                                    $PSBoundParameters.Remove("Url") | Out-Null;
+
                                 }
                                 Catch {
                                     Write-Warning "
@@ -221,6 +562,7 @@ function Open-AllPossibleQueries {
                 throw $PSItem
             }
 
+
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -Process {
@@ -229,7 +571,9 @@ function Open-AllPossibleQueries {
 
                     $Query = $Query.Replace("`"", "```"");
                     try {
-                        Invoke-Expression "$PSItem `"$Query`""
+                        $PSBoundParameters.Add("Queries", @($Query)) | Out-Null;
+                        & $PSItem @PSBoundParameters
+                        $PSBoundParameters.Remove("Queries") | Out-Null;
                     }
                     Catch {
                         Write-Warning "
@@ -250,7 +594,7 @@ function Open-GoogleQuery {
     [Alias("q")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -263,7 +607,7 @@ function Open-GoogleQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -282,6 +626,11 @@ function Open-GoogleQuery {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -299,7 +648,7 @@ function Open-WikipediaQuery {
     [Alias("wiki")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -312,7 +661,7 @@ function Open-WikipediaQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -330,6 +679,11 @@ function Open-WikipediaQuery {
     process {
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -346,7 +700,7 @@ function Open-WikipediaNLQuery {
     [Alias("wikinl")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -359,7 +713,7 @@ function Open-WikipediaNLQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -378,6 +732,11 @@ function Open-WikipediaNLQuery {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -394,7 +753,7 @@ function Open-YoutubeQuery {
     [Alias("youtube")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -407,7 +766,7 @@ function Open-YoutubeQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -426,6 +785,11 @@ function Open-YoutubeQuery {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -442,7 +806,7 @@ function Open-IMDBQuery {
     [Alias("imdb")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -455,7 +819,7 @@ function Open-IMDBQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -474,6 +838,11 @@ function Open-IMDBQuery {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -490,7 +859,7 @@ function Open-StackOverflowQuery {
     [Alias("qso")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -503,7 +872,7 @@ function Open-StackOverflowQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -522,6 +891,11 @@ function Open-StackOverflowQuery {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -538,7 +912,7 @@ function Open-WolframAlphaQuery {
     [Alias("qalpha")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -551,7 +925,7 @@ function Open-WolframAlphaQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -571,6 +945,11 @@ function Open-WolframAlphaQuery {
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
 
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
         foreach ($Query in $Queries) {
 
             $PSBoundParameters["Url"] = "https://www.wolframalpha.com/input/?i=$([Uri]::EscapeUriString($Query))";
@@ -586,7 +965,7 @@ function Open-GithubQuery {
     [Alias("qgit")]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -603,7 +982,7 @@ function Open-GithubQuery {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -632,6 +1011,11 @@ function Open-GithubQuery {
         $PSBoundParameters.Remove("Language") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
 
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
         foreach ($Query in $Queries) {
 
             $PSBoundParameters["Url"] = "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
@@ -649,7 +1033,7 @@ function Open-GoogleSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -662,7 +1046,7 @@ function Open-GoogleSiteInfo {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -678,6 +1062,11 @@ function Open-GoogleSiteInfo {
     }
 
     process {
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -694,7 +1083,7 @@ function Open-BuiltWithSiteInfo {
     [CmdletBinding()]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -707,7 +1096,7 @@ function Open-BuiltWithSiteInfo {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -726,6 +1115,11 @@ function Open-BuiltWithSiteInfo {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -742,7 +1136,7 @@ function Open-WhoisHostSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -755,7 +1149,7 @@ function Open-WhoisHostSiteInfo {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -774,6 +1168,11 @@ function Open-WhoisHostSiteInfo {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -790,7 +1189,7 @@ function Open-WaybackMachineSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -803,7 +1202,7 @@ function Open-WaybackMachineSiteInfo {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -822,6 +1221,11 @@ function Open-WaybackMachineSiteInfo {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -838,7 +1242,7 @@ function Open-SimularWebSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
@@ -851,7 +1255,7 @@ function Open-SimularWebSiteInfo {
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
         [int] $Monitor = -1
     )
@@ -870,6 +1274,11 @@ function Open-SimularWebSiteInfo {
 
         $PSBoundParameters.Remove("Queries") | Out-Null;
         $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         foreach ($Query in $Queries) {
 
@@ -889,7 +1298,7 @@ function Get-WikipediaSummary {
     [Alias("wikitxt")]
 
     Param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
@@ -975,7 +1384,7 @@ function Get-Gpt3QuestionSummary {
     [Alias("q3")]
 
     Param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
@@ -1020,7 +1429,7 @@ function Get-Gpt3EnglishSummary {
     [Alias("q3")]
 
     Param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
@@ -1063,7 +1472,7 @@ function Get-Gpt3DutchSummary {
     [Alias("q3")]
 
     Param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
             Position = 0,
@@ -1150,13 +1559,13 @@ function Get-NextJoke {
 }
 
 ######################################################################################################################################################
+
 function Open-Repeaters {
 
     [CmdletBinding()]
-    [Alias()]
 
     Param(
-        [Alias("q", "Value", "Name", "Text")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $false,
             Position = 0,
@@ -1167,24 +1576,40 @@ function Open-Repeaters {
         [ValidateSet("PI2NOS", "PI3UTR", "PI3GOE", "MEETNET", "PI6NOS", "PI1DFT")]
         [string[]] $Repeaters = @("PI6NOS"),
         ####################################################################################################
-        [Alias("m", "mon")]
+        [Alias("fs", "f")]
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard"
+            HelpMessage = "Opens in fullscreen mode"
         )]
-        [int] $Monitor = -1
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode
     )
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor", "ApplicationMode"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/repeaters/") | Out-Null;
-        $PSBoundParameters.Add("ApplicationMode", $True) | Out-Null;
-        $PSBoundParameters.Remove("Repeater") | Out-Null;
+        $PSBoundParameters.Remove("Repeaters") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
 
         foreach ($Repeater in $Repeaters) {
 
@@ -1194,17 +1619,272 @@ function Open-Repeaters {
         }
     }
 }
+######################################################################################################################################################
+
+function Open-Timeline {
+
+    [CmdletBinding()]
+    [Alias("timeline")]
+
+    Param(
+        ####################################################################################################
+        [Alias("fs", "f")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://pc7x.net/detijdonline/") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+
+        Open-Webbrowser @PSBoundParameters
+    }
+}
+
+######################################################################################################################################################
+
+function Open-GameOfLife {
+
+    [CmdletBinding()]
+    [Alias("gameoflife", "conway")]
+
+    Param(
+        ####################################################################################################
+        [Alias("fs", "f")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://pc7x.net/conway/") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+
+        Open-Webbrowser @PSBoundParameters
+    }
+}
+
+######################################################################################################################################################
+
+function Open-ViralSimulation {
+
+    [CmdletBinding()]
+    [Alias("viral")]
+
+    Param(
+        ####################################################################################################
+        [Alias("fs", "f")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://pc7x.net/viral/") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+
+        Open-Webbrowser @PSBoundParameters
+    }
+}
+
+######################################################################################################################################################
+function Open-Tetris {
+
+    [CmdletBinding()]
+    [Alias("tetris")]
+
+    Param(
+        ####################################################################################################
+        [Alias("fs", "f")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://yab.pc7x.net/#/single/marathon/") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        Open-Webbrowser @PSBoundParameters
+    }
+}
+######################################################################################################################################################
+
+function Open-TetrisAIBattle {
+
+    [CmdletBinding()]
+    [Alias("tetrisbattle")]
+
+    Param(
+        ####################################################################################################
+        [Alias("fs", "f")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+        ####################################################################################################
+        [Alias("a", "app", "appmode")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode,
+        ####################################################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode", "Monitor"
+    }
+
+    process {
+
+        $PSBoundParameters.Add("Url", "https://yab.pc7x.net/#/ai/battle/") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
+
+            $PSBoundParameters.Add("FullScreen", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
 
+        Open-Webbrowser @PSBoundParameters
+    }
+}
 ##############################################################################################################
 ##############################################################################################################
 
 <#
 .SYNOPSIS
-Performs a google search in previously selected webbrowser tab and returns the links
+Performs a google search and returns the links
 
 .DESCRIPTION
-Performs a google search in previously selected webbrowser tab and returns the links
+Performs a google search and returns the links
 
 .PARAMETER Query
 The google query to perform
@@ -1213,7 +1893,7 @@ The google query to perform
 The maximum number of results to obtain, defaults to 200
 
 .EXAMPLE
-PS C:\> Select-WebbrowserTab; $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
 
 .NOTES
 Requires the Windows 10+ Operating System
@@ -1224,12 +1904,15 @@ function Get-GoogleSearchResultUrls {
     [Alias("qlinksget")]
 
     param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query,
+        [string[]] $Queries,
         ###################################################################
         [parameter(
             Mandatory = $false,
@@ -1238,32 +1921,43 @@ function Get-GoogleSearchResultUrls {
         [int] $Max = 200
     )
 
-    $Global:Data = @{
+    begin {
 
-        urls  = @();
-        query = $Query
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
-    $Query = "$([Uri]::EscapeUriString($Query))"
-    $Url = "https://www.google.com/search?q=$Query"
+    process {
 
-    Invoke-WebbrowserEvaluation "document.location.href='$Url'" | Out-Null
+        foreach ($Query in $Queries) {
 
-    do {
-        Start-Sleep 5 | Out-Null
+            $Global:Data = @{
 
-        Invoke-WebbrowserEvaluation -Scripts @("$PSScriptRoot\Get-GoogleSearchResultUrls.js") | Out-Null
-
-        $Global:data.urls | ForEach-Object -ErrorAction SilentlyContinue {
-
-            if ($Max-- -gt 0) {
-
-                $_;
+                urls  = @();
+                query = $Query
             }
+
+            $Query = "$([Uri]::EscapeUriString($Query))"
+            $Url = "https://www.google.com/search?q=$Query"
+
+            Invoke-WebbrowserEvaluation "document.location.href='$Url'" | Out-Null
+
+            do {
+                Start-Sleep 5 | Out-Null
+
+                Invoke-WebbrowserEvaluation -Scripts @("$PSScriptRoot\Get-GoogleSearchResultUrls.js") | Out-Null
+
+                $Global:data.urls | ForEach-Object -ErrorAction SilentlyContinue {
+
+                    if ($Max-- -gt 0) {
+
+                        $_;
+                    }
+                }
+            }
+
+            while ($Global:data.more -and ($Max-- -gt 0))
         }
     }
-
-    while ($Global:data.more -and ($Max-- -gt 0))
 }
 
 ##############################################################################################################
@@ -1355,10 +2049,10 @@ function Invoke-WebbrowserTabPollingScript {
 
 <#
 .SYNOPSIS
-Performs an infinite auto opening google search in previously selected webbrowser tab.
+Performs an infinite auto opening google search .
 
 .DESCRIPTION
-Performs a google search in previously selected webbrowser tab.
+Performs a google search .
 Opens 10 tabs each times, pauses until initial tab is revisited
 Close initial tab to stop
 
@@ -1368,7 +2062,6 @@ The google query to perform
 .EXAMPLE
 PS C:\>
 
-    Select-WebbrowserTab;
     Open-AllGoogleLinks "site:github.com PowerShell module"
 
 .NOTES
@@ -1380,21 +2073,32 @@ function Open-AllGoogleLinks {
     [Alias("qlinks")]
 
     param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
-    $Global:data = @{
+    begin {
 
-        urls  = @();
-        query = $Query
+        $Query = Build-InvocationArguments $MyInvocation $Queries -SingleString
     }
 
-    Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+    process {
+
+        $Global:data = @{
+
+            urls  = @();
+            query = $Query
+        }
+
+        Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+    }
 }
 
 ##############################################################################################################
@@ -1414,8 +2118,14 @@ The youtube query to perform
 .EXAMPLE
 PS C:\>
 
-    Select-WebbrowserTab;
     Open-AllYoutubeVideos "PowerShell Windows Terminal"
+
+.EXAMPLE
+PS C:\>
+
+    qvideos PowerShell tutorial, vscode tips
+
+    qvideos -Queries "PowerShell tutorials", "vscode tips"
 
 .NOTES
 Requires the Windows 10+ Operating System
@@ -1426,102 +2136,161 @@ function Open-AllYoutubeVideos {
     [Alias("qvideos")]
 
     param(
-        [Alias("q")]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $false,
+            Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query
+        [string[]] $Queries
     )
 
-    $Global:data = @{
+    begin {
 
-        urls           = @();
-        query          = $Query;
-        description    = "";
-        title          = "";
-        subscribeTitle = "";
-        playing        = $true;
-        duration       = 0;
-        position       = 0;
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
     }
 
-    $Url = $null
-    if (![string]::IsNullOrWhiteSpace($Query)) {
+    process {
 
-        $Url = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
-    }
+        $Global:data = @{
 
-    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-    Clear-Host
-    Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+            urls           = @();
+            query          = $Query;
+            description    = "";
+            title          = "";
+            subscribeTitle = "";
+            playing        = $true;
+            duration       = 0;
+            position       = 0;
+        }
 
-    if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
+        function go($Query) {
 
-        $browser = Open-Webbrowser -NewWindow -ApplicationMode -RestoreFocus -Chromium -Right -Url $Url -ReturnProcess
-    }
-    else {
-        $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -ReturnProcess
-    }
+            $Url = $null
+            if (![string]::IsNullOrWhiteSpace($Query)) {
 
-    Start-Sleep 3
-    Select-WebbrowserTab -Name "*youtube*" | Out-Null
+                $Url = "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+            }
 
-    $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
-
-    while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
-
-    while ($null -ne $job -and $job.State -ne "Running") {
-        Start-Sleep 1
-        $job = Get-Job $job.Name -ErrorAction SilentlyContinue
-    }
-
-    while ($null -ne $job -and $job.State -eq "Running") {
-
-        do {
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
             Clear-Host
-            $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle)," }
-            if ($Global:data.playing) { $pause = " P = Pause," } else { $pause = "P = Resume" }
+            Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+            $browser = $null;
+            $PowershellProcess = [System.Diagnostics.Process]::GetCurrentProcess();
+            if ($null -ne $PowershellProcess.Parent -and [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess.Parent).Count -gt 0) {
+                $PowershellProcess = $PowershellProcess.Parent;
+            }
+            $PowershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess);
+            if ($PowershellWindow.Count -gt 0) {
 
-            Write-Host "Q = quit,$sub $pause SPACE=Next video, 0..9 = skip 0% to 90%, Left-Arrow = -20sec, RightArrow = +20sec".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
-            Write-Host "$($Global:data.title)".PadRight($hostInfo.WindowSize.Width, " ") -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
-            Write-Host ((("$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ") -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue { if ($nn -isnot [int]) { $nn = 0; } if ([string]::IsNullOrWhiteSpace($PSItem)) { $nn = $nn + 1; } else { $nn = 0 } if ($nn -lt 2) { $s = $PSItem.Trim(); for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) { $s = $s.substring(0, $i) + "`r" + $s.substring($i); } $s } }) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
-            [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
-            [Console]::BackgroundColor = [ConsoleColor]::Blue;
-            [Console]::ForegroundColor = [ConsoleColor]::Yellow;
-            try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
-            [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
-            try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
-            [Console]::SetCursorPosition(0, 0);
-            [Console]::ResetColor();
+                $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
+                $PowershellMonitorNr = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen);
 
-            if ([Console]::KeyAvailable) {
-                [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
-                $c = [Console]::ReadKey();
+                if ($PowershellMonitorNr -eq 1) {
 
-                switch ("$($c.KeyChar)".ToLowerInvariant()) {
+                    if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
 
-                    "q" {
-                        Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
-                        $browser.CloseMainWindow();
-                        Clear-Host;
-                        return;
+                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                        1..3 | ForEach-Object {
+                            $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width / 2, $PowershellScreen.WorkingArea.Height) | Out-Null
+                            $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y) | Out-Null
+                        }
+                    }
+                    else {
+
+                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Top -Url $Url -PassThrough
+                        1..3 | ForEach-Object {
+                            $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width, $PowershellScreen.WorkingArea.Height / 2) | Out-Null
+                            $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y + $PowershellScreen.WorkingArea.Height / 2) | Out-Null
+                        }
+                    }
+                }
+            }
+
+            if ($null -eq $browser) {
+                if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
+
+                    $browser = Open-Webbrowser -NewWindow -ApplicationMode -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                }
+                else {
+                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
+                }
+            }
+
+            Start-Sleep 3
+            Select-WebbrowserTab -Name "*youtube*" | Out-Null
+
+            $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
+
+            while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
+
+            while ($null -ne $job -and $job.State -ne "Running") {
+                Start-Sleep 1
+                $job = Get-Job $job.Name -ErrorAction SilentlyContinue
+            }
+            [int] $scrollPosition = -1;
+            [int] $scrollPosition2 = -1;
+            while ($null -ne $job -and $job.State -eq "Running") {
+
+                do {
+                    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
+                    Clear-Host
+                    $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle)," }
+                    if ($Global:data.playing) { $pause = " P = Pause," } else { $pause = "P = Resume" }
+                    $header = "Q = quit,$sub $pause SPACE=Next video, 0..9 = skip 0% to 90%, Left-Arrow = -20sec, RightArrow = +20sec".PadRight($hostInfo.WindowSize.Width, " ");
+                    if ($header.Length -gt $hostInfo.WindowSize.Width) {
+
+                        $scrollPosition = ($scrollPosition + 1) % $header.length;
+                        $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
                     }
 
-                    " " {
+                    Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
 
-                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                        Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
-                        Start-Sleep 1
-                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                    $header = "$($Global:data.title)".PadRight($hostInfo.WindowSize.Width, " ");
+                    if ($header.Length -gt $hostInfo.WindowSize.Width) {
+
+                        $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
+                        $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
                     }
 
-                    "s" {
+                    Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
+                    [int] $nn = 0; Write-Host ((("$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ") -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue { if ([string]::IsNullOrWhiteSpace($PSItem)) { $nn = $nn + 1; } else { $nn = 0 } if ($nn -lt 2) { $s = $PSItem.Trim(); for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) { $s = $s.substring(0, $i) + "`r" + $s.substring($i); } $s } }) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
+                    [Console]::BackgroundColor = [ConsoleColor]::Blue;
+                    [Console]::ForegroundColor = [ConsoleColor]::Yellow;
+                    try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
+                    [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
+                    try { [Console]::Write([TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
+                    [Console]::SetCursorPosition(0, 0);
+                    [Console]::ResetColor();
 
-                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                        Invoke-WebbrowserEvaluation "
+                    if ([Console]::KeyAvailable) {
+                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
+                        $c = [Console]::ReadKey();
+
+                        switch ("$($c.KeyChar)".ToLowerInvariant()) {
+
+                            "q" {
+                                Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
+                                $browser.CloseMainWindow();
+                                Clear-Host;
+                                return;
+                            }
+
+                            " " {
+
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
+                                Start-Sleep 1
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                            }
+
+                            "s" {
+
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "
                         window.fakeClick = function (anchorObj, event) {
                             try {
 
@@ -1538,14 +2307,14 @@ function Open-AllYoutubeVideos {
                             } catch (e) { }
                         }
                         " -ErrorAction SilentlyContinue | Out-Null
-                        Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
-                        Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
-                    }
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                            }
 
-                    "p" {
+                            "p" {
 
-                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                        Invoke-WebbrowserEvaluation "
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "
 
                         window.video = document.getElementsByTagName('video')[0];
                         if (window.video.paused) {
@@ -1559,15 +2328,15 @@ function Open-AllYoutubeVideos {
                           data.duration = window.video.duration;
 
                         " -ErrorAction SilentlyContinue | Out-Null
-                    }
+                            }
 
-                    default {
+                            default {
 
-                        [int] $n = 0;
-                        if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
+                                [int] $n = 0;
+                                if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
 
-                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                            Invoke-WebbrowserEvaluation "
+                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                    Invoke-WebbrowserEvaluation "
                                 window.video = document.getElementsByTagName('video')[0];
                                 window.video.currentTime = Math.round(window.video.duration * ($n/10));
                                 window.video.play();
@@ -1575,12 +2344,12 @@ function Open-AllYoutubeVideos {
                                 data.position = window.video.currentTime;
                                 data.duration = window.video.duration;
                                " -ErrorAction SilentlyContinue | Out-Null;
-                        }
-                        else {
-                            if ($c.Key -eq [ConsoleKey]::RightArrow) {
+                                }
+                                else {
+                                    if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "
+                                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                        Invoke-WebbrowserEvaluation "
                                 window.video = document.getElementsByTagName('video')[0];
                                 window.video.currentTime = Math.min(window.video.duration, window.video.currentTime+20);
                                 window.video.play();
@@ -1588,12 +2357,12 @@ function Open-AllYoutubeVideos {
                                 data.position = window.video.currentTime;
                                 data.duration = window.video.duration;
                                 " -ErrorAction SilentlyContinue | Out-Null;
-                            }
-                            else {
-                                if ($c.Key -eq [ConsoleKey]::LeftArrow) {
+                                    }
+                                    else {
+                                        if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
-                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                    Invoke-WebbrowserEvaluation "
+                                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                            Invoke-WebbrowserEvaluation "
                                     window.video = document.getElementsByTagName('video')[0];
                                     window.video.currentTime = Math.max(0, window.video.currentTime-20);
                                     window.video.play();
@@ -1601,17 +2370,17 @@ function Open-AllYoutubeVideos {
                                     data.position = window.video.currentTime;
                                     data.duration = window.video.duration;
                                 " -ErrorAction SilentlyContinue | Out-Null;
+                                        }
+                                    }
+
                                 }
                             }
-
                         }
                     }
-                }
-            }
-        } while ([Console]::KeyAvailable);
+                } while ([Console]::KeyAvailable);
 
-        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-        Invoke-WebbrowserEvaluation "
+                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                Invoke-WebbrowserEvaluation "
             window.video = document.getElementsByTagName('video')[0];
             window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
 
@@ -1630,10 +2399,17 @@ function Open-AllYoutubeVideos {
             data.duration = window.video.duration;
         " -ErrorAction SilentlyContinue | Out-Null;
 
-        $job = Get-Job $job.Name -ErrorAction SilentlyContinue
-    }
+                $job = Get-Job $job.Name -ErrorAction SilentlyContinue
+            }
 
-    while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
+            while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
+        }
+
+        foreach ($Query in $Queries) {
+
+            go $Query
+        }
+    }
 }
 
 ##############################################################################################################
@@ -1654,27 +2430,42 @@ The maximum number of results to obtain, defaults to 200
 .EXAMPLE
 PS D:\Downloads>
 
+    Open-Webbrowser
+    Select-WebbrowserTab
+
     mkdir pdfs;
     cd pdfs;
 
-    Select-WebbrowserTab;
+    Copy-PDFsFromGoogleQuery scientific paper co2
+.EXAMPLE
+PS D:\Downloads>
 
-    Copy-PDFsFromGoogleQuery "scientific paper co2"
+    Open-Webbrowser
+    Select-WebbrowserTab
+
+    mkdir pdfs;
+    cd pdfs;
+
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | Open-Webbrowser
 
 .NOTES
 Requires the Windows 10+ Operating System
 #>
 function Copy-PDFsFromGoogleQuery {
 
+
     [CmdletBinding()]
 
     param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
         )]
-        [string] $Query,
+        [string[]] $Queries,
         ###################################################################
         [parameter(
             Mandatory = $false,
@@ -1683,30 +2474,41 @@ function Copy-PDFsFromGoogleQuery {
         [int] $Max = 200
     )
 
-    Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" |
-    ForEach-Object -ThrottleLimit 64 -Parallel {
+    begin {
 
-        try {
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
 
-            $destination = [IO.Path]::Combine(
-                $PWD,
-                (
-                    [IO.Path]::ChangeExtension(
-                        [Uri]::UnescapeDataString(
-                            [IO.Path]::GetFileName($_).Split("#")[0].Split("?")[0]
-                        ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_"),
-                        ".pdf"
-                    )
-                )
-            );
+    process {
 
-            Invoke-WebRequest -Uri $_ -OutFile $destination
+        foreach ($Query in $Queries) {
 
-            "Success: $_"
-        }
-        catch {
+            Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" |
+            ForEach-Object -ThrottleLimit 64 -Parallel {
 
-            "Failed: $_"
+                try {
+
+                    $destination = [IO.Path]::Combine(
+                        $PWD,
+                        (
+                            [IO.Path]::ChangeExtension(
+                                [Uri]::UnescapeDataString(
+                                    [IO.Path]::GetFileName($_).Split("#")[0].Split("?")[0]
+                                ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_")+
+                                "_$([DateTime]::UtcNow.Ticks)_$([System.Threading.Thread]::CurrentThread.ManagedThreadId)",
+                                ".pdf"
+                            )
+                        )
+                    );
+
+                    Invoke-WebRequest -Uri $_ -OutFile $destination
+
+                    Get-ChildItem $destination
+                }
+                catch {
+
+                }
+            }
         }
     }
 }
