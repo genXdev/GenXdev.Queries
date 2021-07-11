@@ -145,11 +145,11 @@ function Open-AllGoogleLinks {
 
 <#
 .SYNOPSIS
-Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor
+Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.
 
 .DESCRIPTION
-Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor
-Console window will show info about the video and keyboard shortcuts for controlling current playing video
+Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.
+The console window will show info about the video and keyboard shortcuts for controlling current playing video
 
 .PARAMETER Query
 The youtube query to perform
@@ -351,8 +351,8 @@ function Open-AllYoutubeVideos {
                             } catch (e) { }
                         }
                         " -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             "p" {
@@ -627,7 +627,7 @@ function Open-AllPossibleTextQueries {
 
 function Open-AllPossibleQueries {
 
-    # DESCRIPTION Open-AllPossibleQueries: Open-AllPossibleQueries: Executes all CmdLets that handle webqueries for provided query
+    # DESCRIPTION Open-AllPossibleQueries: Open-AllPossibleQueries: Executes all CmdLets that handle webqueries for provided query
 
     [CmdletBinding()]
     [Alias("qq")]
@@ -755,7 +755,7 @@ function Open-AllPossibleQueries {
 ######################################################################################################################################################
 function Open-GoogleQuery {
 
-    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("q")]
@@ -982,7 +982,7 @@ function Open-WikipediaQuery {
 
 function Open-WikipediaNLQuery {
 
-    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("wikinl")]
@@ -1040,7 +1040,7 @@ function Open-WikipediaNLQuery {
 
 function Open-YoutubeQuery {
 
-    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("youtube")]
@@ -1098,7 +1098,7 @@ function Open-YoutubeQuery {
 
 function Open-IMDBQuery {
 
-    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("imdb")]
@@ -1156,7 +1156,7 @@ function Open-IMDBQuery {
 
 function Open-StackOverflowQuery {
 
-    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("qso")]
@@ -1214,7 +1214,7 @@ function Open-StackOverflowQuery {
 
 function Open-WolframAlphaQuery {
 
-    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("qalpha")]
@@ -1272,7 +1272,7 @@ function Open-WolframAlphaQuery {
 
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias("qgit")]
@@ -1343,7 +1343,7 @@ function Open-GithubQuery {
 
 function Open-GoogleSiteInfo {
 
-    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias()]
@@ -1399,7 +1399,7 @@ function Open-GoogleSiteInfo {
 
 function Open-BuiltWithSiteInfo {
 
-    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
 
@@ -1456,7 +1456,7 @@ function Open-BuiltWithSiteInfo {
 
 function Open-WhoisHostSiteInfo {
 
-    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias()]
@@ -1514,7 +1514,7 @@ function Open-WhoisHostSiteInfo {
 
 function Open-WaybackMachineSiteInfo {
 
-    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias()]
@@ -1572,7 +1572,7 @@ function Open-WaybackMachineSiteInfo {
 
 function Open-SimularWebSiteInfo {
 
-    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
 
     [CmdletBinding()]
     [Alias()]
@@ -1974,7 +1974,7 @@ function Get-NextJoke {
 ##############################################################################################################
 function Open-Repeaters {
 
-    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
+    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
 
     [CmdletBinding()]
 
@@ -1990,13 +1990,6 @@ function Open-Repeaters {
         [ValidateSet("PI2NOS", "PI3UTR", "PI3GOE", "MEETNET", "PI6NOS", "PI1DFT")]
         [string[]] $Repeaters = @("PI6NOS"),
         ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
-        ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
@@ -2007,18 +2000,13 @@ function Open-Repeaters {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/repeaters/") | Out-Null;
         $PSBoundParameters.Remove("Repeaters") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
@@ -2039,19 +2027,12 @@ function Open-Repeaters {
 
 function Open-Timeline {
 
-    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
+    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
 
     [CmdletBinding()]
     [Alias("timeline")]
 
     Param(
-        ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
         ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
@@ -2063,17 +2044,12 @@ function Open-Timeline {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/detijdonline/") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
@@ -2090,19 +2066,12 @@ function Open-Timeline {
 
 function Open-GameOfLife {
 
-    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
+    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
 
     [CmdletBinding()]
     [Alias("gameoflife", "conway")]
 
     Param(
-        ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
         ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
@@ -2114,17 +2083,12 @@ function Open-GameOfLife {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/conway/") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
@@ -2141,19 +2105,12 @@ function Open-GameOfLife {
 
 function Open-ViralSimulation {
 
-    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
+    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
 
     [CmdletBinding()]
     [Alias("viral")]
 
     Param(
-        ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
         ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
@@ -2165,17 +2122,12 @@ function Open-ViralSimulation {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://pc7x.net/viral/") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
@@ -2192,19 +2144,12 @@ function Open-ViralSimulation {
 
 function Open-Yab {
 
-    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
+    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
 
     [CmdletBinding()]
     [Alias("yab")]
 
     Param(
-        ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
         ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
@@ -2223,17 +2168,12 @@ function Open-Yab {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode", "Monitor"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode", "Monitor"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://yab.pc7x.net/#/single/marathon/") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
@@ -2254,19 +2194,12 @@ function Open-Yab {
 
 function Open-YabAIBattle {
 
-    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
+    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
 
     [CmdletBinding()]
     [Alias("yabbattle")]
 
     Param(
-        ####################################################################################################
-        [Alias("fs", "f")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Opens in fullscreen mode"
-        )]
-        [switch] $FullScreen,
         ####################################################################################################
         [Alias("a", "app", "appmode")]
         [parameter(
@@ -2285,17 +2218,12 @@ function Open-YabAIBattle {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "FullScreen", "ApplicationMode", "Monitor"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "ApplicationMode", "Monitor"
     }
 
     process {
 
         $PSBoundParameters.Add("Url", "https://yab.pc7x.net/#/ai/battle/") | Out-Null;
-
-        if ($PSBoundParameters.ContainsKey("FullScreen") -eq $false) {
-
-            $PSBoundParameters.Add("FullScreen", $true);
-        }
 
         if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
 
