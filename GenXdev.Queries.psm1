@@ -1,6 +1,5 @@
 ﻿
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -36,7 +35,8 @@ function Get-GoogleSearchResultUrls {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ###################################################################
+        ###############################################################################
+
         [parameter(
             Mandatory = $false,
             HelpMessage = "The maximum number of results to obtain, defaults to 200"
@@ -83,8 +83,7 @@ function Get-GoogleSearchResultUrls {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -140,8 +139,7 @@ function Open-AllGoogleLinks {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -193,7 +191,12 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false
         )]
-        [switch] $WatchLater
+        [switch] $WatchLater,
+
+        [parameter(
+            Mandatory = $false
+        )]
+        [switch] $CurrentTab
     )
 
     begin {
@@ -220,33 +223,41 @@ function Open-AllYoutubeVideos {
             position       = 0;
         }
 
-        function go($Url) {
+        function go($Url = $null) {
 
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
             Clear-Host
             Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
             $browser = $null;
-            if ($PowershellWindow.Count -gt 0) {
 
-                $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
-                $PowershellMonitorNr = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen);
+            if ([string]::IsNullOrWhiteSpace($Url)) {
 
-                if ($PowershellMonitorNr -eq 1) {
+                $browser = Open-Webbrowser -PassThrough -RestoreFocus -Monitor -1
+            }
+            else {
 
-                    if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
+                if ($PowershellWindow.Count -gt 0) {
 
-                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
-                        1..3 | ForEach-Object {
-                            $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width / 2, $PowershellScreen.WorkingArea.Height) | Out-Null
-                            $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y) | Out-Null
+                    $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
+                    $PowershellMonitorNr = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen);
+
+                    if ($PowershellMonitorNr -eq 1) {
+
+                        if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
+
+                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                            1..3 | ForEach-Object {
+                                $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width / 2, $PowershellScreen.WorkingArea.Height) | Out-Null
+                                $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y) | Out-Null
+                            }
                         }
-                    }
-                    else {
+                        else {
 
-                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Top -Url $Url -PassThrough
-                        1..3 | ForEach-Object {
-                            $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width, $PowershellScreen.WorkingArea.Height / 2) | Out-Null
-                            $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y + $PowershellScreen.WorkingArea.Height / 2) | Out-Null
+                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Top -Url $Url -PassThrough
+                            1..3 | ForEach-Object {
+                                $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width, $PowershellScreen.WorkingArea.Height / 2) | Out-Null
+                                $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y + $PowershellScreen.WorkingArea.Height / 2) | Out-Null
+                            }
                         }
                     }
                 }
@@ -318,7 +329,10 @@ function Open-AllYoutubeVideos {
 
                             "q" {
                                 Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
-                                $browser.CloseMainWindow();
+                                if ($CurrentTab -ne $true) {
+
+                                    $browser.CloseMainWindow();
+                                }
                                 Clear-Host;
                                 return;
                             }
@@ -463,6 +477,13 @@ function Open-AllYoutubeVideos {
         }
 
         try {
+
+            if ($CurrentTab -eq $true) {
+
+                go
+                return;
+            }
+
             if ($Subscriptions -eq $true) {
 
                 go "https://www.youtube.com/feed/subscriptions"
@@ -493,8 +514,7 @@ function Open-AllYoutubeVideos {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -623,13 +643,12 @@ function Open-AllPossibleTextQueries {
     }
 }
 
-######################################################################################################################################################
+###############################################################################
 
 function Open-AllPossibleQueries {
 
     # DESCRIPTION Open-AllPossibleQueries: Open-AllPossibleQueries: Executes all CmdLets that handle webqueries for provided query
 
-    [CmdletBinding()]
     [Alias("qq")]
 
     param(
@@ -642,7 +661,8 @@ function Open-AllPossibleQueries {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -664,7 +684,16 @@ function Open-AllPossibleQueries {
     }
 
     process {
-        $PSBoundParameters.Remove("Queries") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -706,7 +735,11 @@ function Open-AllPossibleQueries {
                                 }
 
                                 try {
-                                    $PSBoundParameters.Add("Url", $safeUrl) | Out-Null;
+                                    if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+                                        $PSBoundParameters.Add("Url", $safeUrl) | Out-Null;
+                                    }
+
                                     & $PSItem @PSBoundParameters
                                     $PSBoundParameters.Remove("Url") | Out-Null;
 
@@ -728,7 +761,6 @@ function Open-AllPossibleQueries {
                 throw $PSItem
             }
 
-
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -Process {
@@ -737,6 +769,11 @@ function Open-AllPossibleQueries {
 
                     $Query = $Query.Replace("`"", "```"");
                     try {
+                        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+                            $PSBoundParameters.Remove("Queries") | Out-Null;
+                        }
+
                         $PSBoundParameters.Add("Queries", @($Query)) | Out-Null;
                         & $PSItem @PSBoundParameters
                         $PSBoundParameters.Remove("Queries") | Out-Null;
@@ -752,12 +789,12 @@ function Open-AllPossibleQueries {
         }
     }
 }
-######################################################################################################################################################
+###############################################################################
+
 function Open-GoogleQuery {
 
     # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("q")]
 
     param(
@@ -770,7 +807,8 @@ function Open-GoogleQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -778,7 +816,6 @@ function Open-GoogleQuery {
         )]
         [int] $Monitor = -1
     )
-
 
     DynamicParam {
 
@@ -792,8 +829,15 @@ function Open-GoogleQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -809,10 +853,7 @@ function Open-GoogleQuery {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
-
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -853,7 +894,6 @@ Requires the Windows 10+ Operating System
 #>
 function Copy-PDFsFromGoogleQuery {
 
-
     [CmdletBinding()]
 
     param(
@@ -866,7 +906,8 @@ function Copy-PDFsFromGoogleQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ###################################################################
+        ###############################################################################
+
         [parameter(
             Mandatory = $false,
             HelpMessage = "The maximum number of results to obtain, defaults to 200"
@@ -913,9 +954,7 @@ function Copy-PDFsFromGoogleQuery {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -940,7 +979,8 @@ function Open-WikipediaQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -960,8 +1000,15 @@ function Open-WikipediaQuery {
     }
 
     process {
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -977,14 +1024,12 @@ function Open-WikipediaQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-WikipediaNLQuery {
 
     # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("wikinl")]
 
     param(
@@ -997,7 +1042,8 @@ function Open-WikipediaNLQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1018,8 +1064,15 @@ function Open-WikipediaNLQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1035,14 +1088,12 @@ function Open-WikipediaNLQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-YoutubeQuery {
 
     # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("youtube")]
 
     param(
@@ -1055,7 +1106,8 @@ function Open-YoutubeQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1076,8 +1128,15 @@ function Open-YoutubeQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1093,14 +1152,12 @@ function Open-YoutubeQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-IMDBQuery {
 
     # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("imdb")]
 
     param(
@@ -1113,7 +1170,8 @@ function Open-IMDBQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1134,8 +1192,15 @@ function Open-IMDBQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1151,15 +1216,13 @@ function Open-IMDBQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
-function Open-StackOverflowQuery {
+function Open-InstantStreetViewQuery {
 
-    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
-    [Alias("qso")]
+    [Alias("isv")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1171,7 +1234,8 @@ function Open-StackOverflowQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1192,8 +1256,79 @@ function Open-StackOverflowQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.instantstreetview.com/s/$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
+}
+
+###############################################################################
+
+function Open-StackOverflowQuery {
+
+    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+
+    [Alias("qso")]
+
+    param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [string[]] $Queries,
+        ###############################################################################
+
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
+
+    process {
+
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1209,14 +1344,12 @@ function Open-StackOverflowQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-WolframAlphaQuery {
 
-    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("qalpha")]
 
     param(
@@ -1229,7 +1362,8 @@ function Open-WolframAlphaQuery {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1250,8 +1384,15 @@ function Open-WolframAlphaQuery {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1267,14 +1408,12 @@ function Open-WolframAlphaQuery {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias("qgit")]
 
     param(
@@ -1291,7 +1430,8 @@ function Open-GithubQuery {
             Mandatory = $false
         )]
         [string] $Language = "",
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1320,9 +1460,21 @@ function Open-GithubQuery {
 
             $Language = "l=$([Uri]::EscapeUriString($Language))&"
         }
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Remove("Language") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("Language")) {
+
+            $PSBoundParameters.Remove("Language") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1338,14 +1490,12 @@ function Open-GithubQuery {
     }
 }
 
-######################################################################################################################################################
-######################################################################################################################################################
+###############################################################################
 
 function Open-GoogleSiteInfo {
 
-    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias()]
 
     param(
@@ -1358,7 +1508,8 @@ function Open-GoogleSiteInfo {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1393,15 +1544,11 @@ function Open-GoogleSiteInfo {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-BuiltWithSiteInfo {
 
-    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
-
-    [CmdletBinding()]
+    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1413,7 +1560,8 @@ function Open-BuiltWithSiteInfo {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1434,8 +1582,20 @@ function Open-BuiltWithSiteInfo {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1451,14 +1611,12 @@ function Open-BuiltWithSiteInfo {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-WhoisHostSiteInfo {
 
-    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias()]
 
     param(
@@ -1471,7 +1629,8 @@ function Open-WhoisHostSiteInfo {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1492,8 +1651,20 @@ function Open-WhoisHostSiteInfo {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1509,14 +1680,12 @@ function Open-WhoisHostSiteInfo {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-WaybackMachineSiteInfo {
 
-    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias()]
 
     param(
@@ -1529,7 +1698,8 @@ function Open-WaybackMachineSiteInfo {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1550,8 +1720,20 @@ function Open-WaybackMachineSiteInfo {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1567,14 +1749,12 @@ function Open-WaybackMachineSiteInfo {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-SimularWebSiteInfo {
 
-    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [CmdletBinding()]
     [Alias()]
 
     param(
@@ -1587,7 +1767,8 @@ function Open-SimularWebSiteInfo {
             ValueFromPipelineByPropertyName = $true
         )]
         [string[]] $Queries,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -1608,8 +1789,20 @@ function Open-SimularWebSiteInfo {
 
     process {
 
-        $PSBoundParameters.Remove("Queries") | Out-Null;
-        $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
 
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
@@ -1625,9 +1818,7 @@ function Open-SimularWebSiteInfo {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1644,7 +1835,7 @@ function Get-WikipediaSummary {
     [CmdletBinding()]
     [Alias("wikitxt")]
 
-    Param(
+    param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
@@ -1725,8 +1916,7 @@ function Get-WikipediaSummary {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1743,7 +1933,7 @@ function Get-Gpt3QuestionSummary {
     [CmdletBinding()]
     [Alias("q3")]
 
-    Param(
+    param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
@@ -1783,8 +1973,7 @@ function Get-Gpt3QuestionSummary {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1801,7 +1990,7 @@ function Get-Gpt3EnglishSummary {
     [CmdletBinding()]
     [Alias("q3")]
 
-    Param(
+    param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
@@ -1839,8 +2028,7 @@ function Get-Gpt3EnglishSummary {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1857,7 +2045,7 @@ function Get-Gpt3DutchSummary {
     [CmdletBinding()]
     [Alias("q3")]
 
-    Param(
+    param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $True,
@@ -1868,7 +2056,6 @@ function Get-Gpt3DutchSummary {
         )]
         [string[]] $Queries
     )
-
 
     begin {
 
@@ -1896,9 +2083,7 @@ function Get-Gpt3DutchSummary {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1915,7 +2100,7 @@ function Get-NextAffirmations {
     [CmdletBinding()]
     [Alias("WhatAboutIt")]
 
-    Param(
+    param(
         [Parameter(
             Mandatory = $False,
             Position = 0
@@ -1933,8 +2118,7 @@ function Get-NextAffirmations {
     Write-Output $affirmation
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -1951,7 +2135,7 @@ function Get-NextJoke {
     [CmdletBinding()]
     [Alias("TellAJoke")]
 
-    Param(
+    param(
         [Parameter(
             Mandatory = $False,
             Position = 0
@@ -1969,14 +2153,11 @@ function Get-NextJoke {
     Write-Output $joke
 }
 
+###############################################################################
 
-##############################################################################################################
-##############################################################################################################
 function Open-Repeaters {
 
-    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
-
-    [CmdletBinding()]
+    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
 
     Param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1989,7 +2170,8 @@ function Open-Repeaters {
         )]
         [ValidateSet("PI2NOS", "PI3UTR", "PI3GOE", "MEETNET", "PI6NOS", "PI1DFT")]
         [string[]] $Repeaters = @("PI6NOS"),
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
@@ -2022,18 +2204,17 @@ function Open-Repeaters {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-Timeline {
 
-    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
+    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
 
-    [CmdletBinding()]
     [Alias("timeline")]
 
     Param(
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
@@ -2060,19 +2241,17 @@ function Open-Timeline {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-GameOfLife {
 
-    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
+    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
 
-    [CmdletBinding()]
     [Alias("gameoflife", "conway")]
 
     Param(
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
@@ -2099,19 +2278,17 @@ function Open-GameOfLife {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-ViralSimulation {
 
-    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
+    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
 
-    [CmdletBinding()]
     [Alias("viral")]
 
     Param(
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
@@ -2138,26 +2315,25 @@ function Open-ViralSimulation {
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-Yab {
 
-    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
+    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
 
-    [CmdletBinding()]
     [Alias("yab")]
 
     Param(
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
             HelpMessage = "Hide the browser controls"
         )]
         [switch] $ApplicationMode,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -2189,25 +2365,25 @@ function Open-Yab {
     }
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 function Open-YabAIBattle {
 
-    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
+    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
 
-    [CmdletBinding()]
     [Alias("yabbattle")]
 
     Param(
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("a", "app", "appmode")]
         [parameter(
             Mandatory = $false,
             HelpMessage = "Hide the browser controls"
         )]
         [switch] $ApplicationMode,
-        ####################################################################################################
+        ###############################################################################
+
         [Alias("m", "mon")]
         [parameter(
             Mandatory = $false,
@@ -2235,14 +2411,11 @@ function Open-YabAIBattle {
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
 
-
         Open-Webbrowser @PSBoundParameters
     }
 }
 
-
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -2325,8 +2498,7 @@ function Invoke-WebbrowserTabPollingScript {
     } -ArgumentList($Scripts, (Get-ChromiumSessionReference), $InitialUrl)
 }
 
-##############################################################################################################
-##############################################################################################################
+###############################################################################
 
 <#
 .SYNOPSIS
@@ -2336,6 +2508,8 @@ Helper function for allowing different commandline parsing for query parameters
 Helper function for allowing different commandline parsing for query parameters
 #>
 function Build-InvocationArguments {
+
+    [CmdletBinding()]
 
     param(
         [parameter(Mandatory, Position = 0)]
@@ -2526,7 +2700,6 @@ function Build-InvocationArguments {
                 }
                 else {
 
-
                     $argumentText.Append("$argument ") | Out-Null
                 }
             }
@@ -2657,7 +2830,6 @@ function Build-InvocationArguments {
 
         [int] $argumentCount = getArgumentCount $InvocationInfo $Container
         [string] $singlelineStringValue = getSingleLineText $InvocationInfo $Container
-
 
         if ((hasParamOrQuotes $InvocationInfo $Container) -or ($argumentCount -lt 2 -and [string]::IsNullOrWhiteSpace($singlelineStringValue))) {
 

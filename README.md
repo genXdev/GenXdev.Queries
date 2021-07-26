@@ -35,6 +35,7 @@
 | [Open-GoogleQuery](#Open-GoogleQuery) | q | Opens a google query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-GoogleSiteInfo](#Open-GoogleSiteInfo) |  | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-IMDBQuery](#Open-IMDBQuery) | imdb |  |
+| [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery) | isv |  |
 | [Open-Repeaters](#Open-Repeaters) |  |  |
 | [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) |  | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-StackOverflowQuery](#Open-StackOverflowQuery) | qso |  |
@@ -50,19 +51,29 @@
 | [Open-YoutubeQuery](#Open-YoutubeQuery) | youtube | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches |
 
 <br/><hr/><hr/><br/>
+
+
 # Cmdlets
+
 ## Build-InvocationArguments
 ````PowerShell
 Build-InvocationArguments
 ````
+
 ### SYNOPSIS
-    Helper function for allowing different commandline parsing for query parameters
+    Helper function for allowing different commandline parsing for query 
+    parameters
+
 ### SYNTAX
 ````PowerShell
-Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] <String[]>] [[-SingleString]] [<CommonParameters>]
+Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] 
+<String[]>] [[-SingleString]] [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Helper function for allowing different commandline parsing for query parameters
+    Helper function for allowing different commandline parsing for query 
+    parameters
+
 ### PARAMETERS
     -InvocationInfo <Object>
         Required?                    true
@@ -86,20 +97,30 @@ Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] <String[]>] [
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Copy-PDFsFromGoogleQuery
 ````PowerShell
 Copy-PDFsFromGoogleQuery
 ````
+
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and 
+    download all found pdf's into current directory
+
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [<CommonParameters>]
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] 
+[<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and 
+    download all found pdf's into current directory
+
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
@@ -118,7 +139,9 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [<CommonParameters
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
@@ -135,21 +158,29 @@ Open-Webbrowser
     Select-WebbrowserTab
     mkdir pdfs;
     cd pdfs;
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | Open-Webbrowser
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object 
+-First 10 | Open-Webbrowser
 ````
+
 <br/><hr/><hr/><br/>
+
 ## Get-GoogleSearchResultUrls
 ````PowerShell
 Get-GoogleSearchResultUrls           --> qlinksget
 ````
+
 ### SYNOPSIS
     Performs a google search and returns the links
+
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [<CommonParameters>]
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] 
+[<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Performs a google search and returns the links
+
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
@@ -168,26 +199,37 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [<CommonParamete
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell 
+module"; $Urls
 ````
+
 <br/><hr/><hr/><br/>
+
 ## Get-Gpt3DutchSummary
 ````PowerShell
 Get-Gpt3DutchSummary                 --> q3
 ````
+
 ### SYNOPSIS
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), Dutch summary" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), Dutch summary" 
+    text query
+
 ### SYNTAX
 ````PowerShell
 Get-Gpt3DutchSummary [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), Dutch summary" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), Dutch summary" 
+    text query
+
 ### PARAMETERS
     -Queries <String[]>
         The query to perform
@@ -200,20 +242,29 @@ Get-Gpt3DutchSummary [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Get-Gpt3EnglishSummary
 ````PowerShell
 Get-Gpt3EnglishSummary
 ````
+
 ### SYNOPSIS
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), English summary" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), English summary" 
+    text query
+
 ### SYNTAX
 ````PowerShell
 Get-Gpt3EnglishSummary [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), English summary" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), English summary" 
+    text query
+
 ### PARAMETERS
     -Queries <String[]>
         The query to perform
@@ -226,20 +277,29 @@ Get-Gpt3EnglishSummary [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Get-Gpt3QuestionSummary
 ````PowerShell
 Get-Gpt3QuestionSummary
 ````
+
 ### SYNOPSIS
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), question" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), question" text 
+    query
+
 ### SYNTAX
 ````PowerShell
 Get-Gpt3QuestionSummary [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Performs a "Generative Pre-trained Transformer 3 (GPT-3), question" text query
+    Performs a "Generative Pre-trained Transformer 3 (GPT-3), question" text 
+    query
+
 ### PARAMETERS
     -Queries <String[]>
         The query to perform
@@ -252,20 +312,27 @@ Get-Gpt3QuestionSummary [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Get-NextAffirmations
 ````PowerShell
 Get-NextAffirmations                 --> WhatAboutIt
 ````
+
 ### SYNOPSIS
     Returns a random affirmation text
+
 ### SYNTAX
 ````PowerShell
 Get-NextAffirmations [[-Speak]] [<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Returns a random affirmation text
+
 ### PARAMETERS
     -Speak [<SwitchParameter>]
         Use text-to-speech to speak out affirmation
@@ -278,20 +345,27 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Get-NextJoke
 ````PowerShell
 Get-NextJoke                         --> TellAJoke
 ````
+
 ### SYNOPSIS
     Returns a random joke
+
 ### SYNTAX
 ````PowerShell
 Get-NextJoke [[-Speak]] [<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Returns a random joke
+
 ### PARAMETERS
     -Speak [<SwitchParameter>]
         Use text-to-speech to speak out the joke
@@ -304,20 +378,27 @@ Get-NextJoke [[-Speak]] [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Get-WikipediaSummary
 ````PowerShell
 Get-WikipediaSummary                 --> wikitxt
 ````
+
 ### SYNOPSIS
     Performs a "Wikipedia summary" text query
+
 ### SYNTAX
 ````PowerShell
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Performs a "Wikipedia summary" text query
+
 ### PARAMETERS
     -Queries <String[]>
         The query to perform
@@ -330,20 +411,30 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Invoke-WebbrowserTabPollingScript
 ````PowerShell
 Invoke-WebbrowserTabPollingScript
 ````
+
 ### SYNOPSIS
-    Executes a background polling script in a previously selected webbrowser tab.
+    Executes a background polling script in a previously selected webbrowser 
+    tab.
+
 ### SYNTAX
 ````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback <ScriptBlock>] [<CommonParameters>]
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl 
+<String>] [-Callback <ScriptBlock>] [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Executes a background polling script in a previously selected webbrowser tab.
+    Executes a background polling script in a previously selected webbrowser 
+    tab.
+
 ### PARAMETERS
     -Scripts <Object[]>
         The scripts to load
@@ -369,26 +460,34 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 ### NOTES
 ````PowerShell
 Requires the Windows 10+ Operating System
 ````
+
 <br/><hr/><hr/><br/>
+
 ## Open-AllGoogleLinks
 ````PowerShell
 Open-AllGoogleLinks                  --> qlinks
 ````
+
 ### SYNOPSIS
     Performs an infinite auto opening google search .
+
 ### SYNTAX
 ````PowerShell
 Open-AllGoogleLinks [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Performs a google search .
     Opens 10 tabs each times, pauses until initial tab is revisited
     Close initial tab to stop
+
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
@@ -400,7 +499,9 @@ Open-AllGoogleLinks [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
@@ -408,17 +509,23 @@ Open-AllGoogleLinks [-Queries] <String[]> [<CommonParameters>]
 PS C:\> 
 Open-AllGoogleLinks "site:github.com PowerShell module"
 ````
+
 <br/><hr/><hr/><br/>
+
 ## Open-AllPossibleQueries
 ````PowerShell
 Open-AllPossibleQueries              --> qq
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -466,7 +573,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -520,7 +628,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, -2 = Configured secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -567,7 +676,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -630,20 +740,27 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-AllPossibleTextQueries
 ````PowerShell
 Open-AllPossibleTextQueries          --> qqq
 ````
+
 ### SYNOPSIS
     Executes all Text query Cmdlets in parallel
+
 ### SYNTAX
 ````PowerShell
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
 ````
+
 ### DESCRIPTION
     Executes all Text query Cmdlets in parallel and shows the results
+
 ### PARAMETERS
     -Queries <String[]>
         The query to perform
@@ -656,21 +773,32 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-AllYoutubeVideos
 ````PowerShell
 Open-AllYoutubeVideos                --> qvideos
 ````
+
 ### SYNOPSIS
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.
+    Performs an infinite auto opening youtube search in a new fullscreen 
+    browser window on second monitor.
+
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] 
+[-WatchLater] [-CurrentTab] [<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.
-    The console window will show info about the video and keyboard shortcuts for controlling current playing video
+    Performs an infinite auto opening youtube search in a new fullscreen 
+    browser window on second monitor.
+    The console window will show info about the video and keyboard shortcuts 
+    for controlling current playing video
+
 ### PARAMETERS
     -Queries <String[]>
         Required?                    false
@@ -690,11 +818,19 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [<C
         Default value                False
         Accept pipeline input?       false
         Accept wildcard characters?  false
+    -CurrentTab [<SwitchParameter>]
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
@@ -706,17 +842,23 @@ PS C:\>
 qvideos PowerShell tutorial, vscode tips
     qvideos -Queries "PowerShell tutorials", "vscode tips"
 ````
+
 <br/><hr/><hr/><br/>
+
 ## Open-BuiltWithSiteInfo
 ````PowerShell
 Open-BuiltWithSiteInfo
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -764,7 +906,8 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -818,7 +961,8 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -865,7 +1009,8 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -928,17 +1073,25 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-GameOfLife
 ````PowerShell
 Open-GameOfLife                      --> conway, gameoflife
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -986,7 +1139,8 @@ Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fi
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1040,7 +1194,9 @@ Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fi
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if not found
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if 
+        not found
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1142,18 +1298,26 @@ Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fi
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-GithubQuery
 ````PowerShell
 Open-GithubQuery                     --> qgit
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
-<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
-[-PassThrough] [<CommonParameters>]
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor 
+<int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
+[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
+[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -1201,7 +1365,8 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1263,7 +1428,8 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1310,7 +1476,8 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -1373,18 +1540,25 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-GoogleQuery
 ````PowerShell
 Open-GoogleQuery                     --> q
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] 
+[-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -1432,7 +1606,8 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chr
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1486,7 +1661,8 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chr
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1533,7 +1709,8 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chr
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -1596,18 +1773,25 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chr
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-GoogleSiteInfo
 ````PowerShell
 Open-GoogleSiteInfo
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -1655,7 +1839,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1709,7 +1894,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1756,7 +1942,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -1819,18 +2006,25 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-IMDBQuery
 ````PowerShell
 Open-IMDBQuery                       --> imdb
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] 
+[-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -1878,7 +2072,8 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrom
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1932,7 +2127,8 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrom
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -1979,7 +2175,8 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrom
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -2042,18 +2239,25 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrom
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
-## Open-Repeaters
+
+## Open-InstantStreetViewQuery
 ````PowerShell
-Open-Repeaters
+Open-InstantStreetViewQuery          --> isv
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1DFT}] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] 
+[-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
 [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -2071,7 +2275,7 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1D
         Accept pipeline input?       false
         Parameter set name           (All)
         Aliases                      a, app, appmode
-        Dynamic?                     false
+        Dynamic?                     true
         Accept wildcard characters?  false
     -Bottom
         Place browser window on the bottom side of the screen
@@ -2101,7 +2305,8 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1D
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2155,7 +2360,243 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1D
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if not found
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+## Open-Repeaters
+````PowerShell
+Open-Repeaters
+````
+
+### SYNTAX
+````PowerShell
+Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS 
+| PI1DFT}] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if 
+        not found
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2202,7 +2643,8 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1D
     -Repeaters <string[]>
         Required?                    false
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -2265,18 +2707,25 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS | PI1D
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-SimularWebSiteInfo
 ````PowerShell
 Open-SimularWebSiteInfo
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -2324,7 +2773,8 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2378,7 +2828,8 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2425,7 +2876,8 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -2488,18 +2940,25 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-StackOverflowQuery
 ````PowerShell
 Open-StackOverflowQuery              --> qso
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -2547,7 +3006,8 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2601,7 +3061,8 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2648,7 +3109,8 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -2711,17 +3173,25 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-Timeline
 ````PowerShell
 Open-Timeline                        --> timeline
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -2769,7 +3239,8 @@ Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fire
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2823,7 +3294,9 @@ Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fire
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if not found
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if 
+        not found
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2925,17 +3398,25 @@ Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Fire
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-ViralSimulation
 ````PowerShell
 Open-ViralSimulation                 --> viral
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -2983,7 +3464,8 @@ Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3037,7 +3519,9 @@ Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if not found
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, defaults to Global:DefaultSecondaryMonitor or 1 if 
+        not found
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3139,18 +3623,25 @@ Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-WaybackMachineSiteInfo
 ````PowerShell
 Open-WaybackMachineSiteInfo
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] 
+[-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -3198,7 +3689,8 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3252,7 +3744,8 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3299,7 +3792,8 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -3362,18 +3856,25 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-WhoisHostSiteInfo
 ````PowerShell
 Open-WhoisHostSiteInfo
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -3421,7 +3922,8 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3475,7 +3977,8 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3522,7 +4025,8 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -3585,18 +4089,25 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-WikipediaNLQuery
 ````PowerShell
 Open-WikipediaNLQuery                --> wikinl
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -3644,7 +4155,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3698,7 +4210,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3745,7 +4258,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -3808,20 +4322,29 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] 
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-WikipediaQuery
 ````PowerShell
 Open-WikipediaQuery                  --> wiki
 ````
+
 ### SYNOPSIS
     Opens a Wikipedia query in a webbrowser
+
 ### SYNTAX
 ````PowerShell
-Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] 
+[<CommonParameters>]
 ````
+
 ### DESCRIPTION
-    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches
+    Opens a Wikipedia query in a webbrowser, in a configurable manner, using 
+    commandline switches
+
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
@@ -3839,18 +4362,25 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-WolframAlphaQuery
 ````PowerShell
 Open-WolframAlphaQuery               --> qalpha
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -3898,7 +4428,8 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3952,7 +4483,8 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -3999,7 +4531,8 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -4062,17 +4595,25 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-Yab
 ````PowerShell
 Open-Yab                             --> yab
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] 
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -4120,7 +4661,8 @@ Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Ch
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -4174,7 +4716,8 @@ Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Ch
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -4276,17 +4819,25 @@ Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Ch
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-YabAIBattle
 ````PowerShell
 Open-YabAIBattle                     --> yabbattle
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -4334,7 +4885,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chro
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -4388,7 +4940,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chro
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor, -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -4490,18 +5043,25 @@ Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge] [-Chro
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>
+
 ## Open-YoutubeQuery
 ````PowerShell
 Open-YoutubeQuery                    --> youtube
 ````
+
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
+<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] 
+[-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
+
 ### PARAMETERS
     -All
         Opens in all registered modern browsers
@@ -4549,7 +5109,8 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Ch
         Dynamic?                     true
         Accept wildcard characters?  false
     -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Opens in Microsoft Edge or Google Chrome, depending on what the 
+        default browser is
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -4603,7 +5164,8 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Ch
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured 
+        secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -4650,7 +5212,8 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Ch
     -Queries <string[]>
         Required?                    true
         Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Accept pipeline input?       true (ByValue, ByPropertyName, 
+        FromRemainingArguments)
         Parameter set name           (All)
         Aliases                      q, Value, Name, Text, Query
         Dynamic?                     false
@@ -4713,5 +5276,7 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Ch
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
 <br/><hr/><hr/><br/>

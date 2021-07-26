@@ -10,17 +10,6 @@ let isViewPage = window.location.href.indexOf("https://www.youtube.com/watch?v")
 let isSearchPage = (window.location.href.indexOf("https://www.youtube.com/results?search_query=") === 0) ||
     (window.location.href === "https://www.youtube.com/feed/subscriptions");
 
-
-let hidden = null;
-
-if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
-    hidden = "hidden";
-} else if (typeof document["msHidden"] !== "undefined") {
-    hidden = "msHidden";
-} else if (typeof document["webkitHidden"] !== "undefined") {
-    hidden = "webkitHidden";
-}
-
 function fakeClick(anchorObj, event) {
     try {
 
@@ -43,6 +32,16 @@ function fakeClick(anchorObj, event) {
     }
 }
 
+let hidden = null;
+
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+    hidden = "hidden";
+} else if (typeof document["msHidden"] !== "undefined") {
+    hidden = "msHidden";
+} else if (typeof document["webkitHidden"] !== "undefined") {
+    hidden = "webkitHidden";
+}
+
 let visibilityChange = null;
 
 if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
@@ -55,7 +54,6 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
 
 function onVisibilityChanged(e) {
 
-
     if (!hidden) return;
 
     if (document[hidden]) {
@@ -64,9 +62,14 @@ function onVisibilityChanged(e) {
 
         let a = document.getElementsByTagName('span');
         let i2 = 0;
+        let list = [];
         while (window.queueUrls.length > 0 && i2++ < 10) {
 
-            window.open(window.queueUrls.pop());
+            list.push(window.queueUrls.splice(0, 1)[0]);
+        }
+        for (let b of list) {
+
+            window.open(b);
         }
 
         if (window.queueUrls.length === 0) {
@@ -106,9 +109,10 @@ if (!window.onceOnly) {
     document.removeEventListener("visibilitychange", onVisibilityChanged);
     document.addEventListener("visibilitychange", onVisibilityChanged, { passive: false });
 
-    var a = document.getElementsByClassName("ytd-thumbnail");
-    var t = 0;
-    var i2 = 0;
+    let a = document.getElementsByClassName("ytd-thumbnail");
+    let t = 0;
+    let i2 = 0;
+    let list = [];
     for (let i = a.length - 1; i >= 0; i--) {
         let b = a[i];
         if (b.id === "thumbnail") {
@@ -117,13 +121,19 @@ if (!window.onceOnly) {
                 c = "https://www.youtube.com" + c.replace("https://www.youtube.com", "");
 
                 if (i2++ < 10) {
-                    window.open(c);
+                    list.push(c);
                 } else {
                     window.queueUrls.push(c);
                 }
             }
         }
     }
+
+    for (let b of list) {
+
+        window.open(b);
+    }
+
 }
 
 data.more = window.queueUrls.length > 0;

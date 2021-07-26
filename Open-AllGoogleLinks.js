@@ -40,7 +40,6 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
     visibilityChange = "webkitvisibilitychange";
 }
 
-
 function onVisibilityChanged(e) {
 
     if (!hidden) return;
@@ -54,7 +53,7 @@ function onVisibilityChanged(e) {
         let i2 = 0;
         while (window.queueUrls.length > 0 && i2++ < 10) {
 
-            window.open(window.queueUrls.pop());
+            window.open(window.queueUrls.splice(0, 1)[0]);
         }
 
         if (window.queueUrls.length === 0)
