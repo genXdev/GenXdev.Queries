@@ -29,25 +29,25 @@
 | [Open-AllPossibleQueries](#Open-AllPossibleQueries) | qq | Open-AllPossibleQueries: Executes all CmdLets that handle webqueries for provided query |
 | [Open-AllPossibleTextQueries](#Open-AllPossibleTextQueries) | qqq | Executes all Text query Cmdlets in parallel and shows the results |
 | [Open-AllYoutubeVideos](#Open-AllYoutubeVideos) | qvideos | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
-| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo) |  | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches |
-| [Open-GameOfLife](#Open-GameOfLife) | conway, gameoflife | Opens an interactive game-of-life simulation |
-| [Open-GithubQuery](#Open-GithubQuery) | qgit | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo) |  |  |
+| [Open-GameOfLife](#Open-GameOfLife) | conway, gameoflife |  |
+| [Open-GithubQuery](#Open-GithubQuery) | qgit | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-GoogleQuery](#Open-GoogleQuery) | q | Opens a google query in a webbrowser, in a configurable manner, using commandline switches |
-| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo) |  | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo) |  | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-IMDBQuery](#Open-IMDBQuery) | imdb |  |
 | [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery) | isv |  |
 | [Open-Repeaters](#Open-Repeaters) |  |  |
-| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) |  | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) |  |  |
 | [Open-StackOverflowQuery](#Open-StackOverflowQuery) | qso |  |
-| [Open-Timeline](#Open-Timeline) | timeline | Opens an interactive timeline, showing the current time, date, centery, millenium |
-| [Open-ViralSimulation](#Open-ViralSimulation) | viral | Opens a very simple, interactive infection simulation |
-| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo) |  | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches |
-| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo) |  |  |
+| [Open-Timeline](#Open-Timeline) | timeline |  |
+| [Open-ViralSimulation](#Open-ViralSimulation) | viral | Opens a very simple, interactive infection simulation |
+| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo) |  | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo) |  | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-WikipediaNLQuery](#Open-WikipediaNLQuery) | wikinl |  |
 | [Open-WikipediaQuery](#Open-WikipediaQuery) | wiki | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-WolframAlphaQuery](#Open-WolframAlphaQuery) | qalpha |  |
-| [Open-Yab](#Open-Yab) | yab |  |
-| [Open-YabAIBattle](#Open-YabAIBattle) | yabbattle | Opens an interactive block-falling-game in battle AI mode |
+| [Open-Yab](#Open-Yab) | yab | Opens an interactive block-falling-game in single playermode |
+| [Open-YabAIBattle](#Open-YabAIBattle) | yabbattle | Opens an interactive block-falling-game in battle AI mode |
 | [Open-YoutubeQuery](#Open-YoutubeQuery) | youtube | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches |
 
 <br/><hr/><hr/><br/>
@@ -55,7 +55,7 @@
 
 # Cmdlets
 
-## Build-InvocationArguments
+##	Build-InvocationArguments
 ````PowerShell
 Build-InvocationArguments
 ````
@@ -102,7 +102,7 @@ Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments]
 
 <br/><hr/><hr/><br/>
 
-## Copy-PDFsFromGoogleQuery
+##	Copy-PDFsFromGoogleQuery
 ````PowerShell
 Copy-PDFsFromGoogleQuery
 ````
@@ -164,7 +164,7 @@ Open-Webbrowser
 
 <br/><hr/><hr/><br/>
 
-## Get-GoogleSearchResultUrls
+##	Get-GoogleSearchResultUrls
 ````PowerShell
 Get-GoogleSearchResultUrls           --> qlinksget
 ````
@@ -212,7 +212,7 @@ module"; $Urls
 
 <br/><hr/><hr/><br/>
 
-## Get-Gpt3DutchSummary
+##	Get-Gpt3DutchSummary
 ````PowerShell
 Get-Gpt3DutchSummary                 --> q3
 ````
@@ -247,7 +247,7 @@ Get-Gpt3DutchSummary [-Queries] <String[]> [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Get-Gpt3EnglishSummary
+##	Get-Gpt3EnglishSummary
 ````PowerShell
 Get-Gpt3EnglishSummary
 ````
@@ -282,7 +282,7 @@ Get-Gpt3EnglishSummary [-Queries] <String[]> [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Get-Gpt3QuestionSummary
+##	Get-Gpt3QuestionSummary
 ````PowerShell
 Get-Gpt3QuestionSummary
 ````
@@ -317,7 +317,7 @@ Get-Gpt3QuestionSummary [-Queries] <String[]> [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Get-NextAffirmations
+##	Get-NextAffirmations
 ````PowerShell
 Get-NextAffirmations                 --> WhatAboutIt
 ````
@@ -350,7 +350,7 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Get-NextJoke
+##	Get-NextJoke
 ````PowerShell
 Get-NextJoke                         --> TellAJoke
 ````
@@ -383,7 +383,7 @@ Get-NextJoke [[-Speak]] [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Get-WikipediaSummary
+##	Get-WikipediaSummary
 ````PowerShell
 Get-WikipediaSummary                 --> wikitxt
 ````
@@ -416,7 +416,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Invoke-WebbrowserTabPollingScript
+##	Invoke-WebbrowserTabPollingScript
 ````PowerShell
 Invoke-WebbrowserTabPollingScript
 ````
@@ -470,7 +470,7 @@ Requires the Windows 10+ Operating System
 
 <br/><hr/><hr/><br/>
 
-## Open-AllGoogleLinks
+##	Open-AllGoogleLinks
 ````PowerShell
 Open-AllGoogleLinks                  --> qlinks
 ````
@@ -512,7 +512,7 @@ Open-AllGoogleLinks "site:github.com PowerShell module"
 
 <br/><hr/><hr/><br/>
 
-## Open-AllPossibleQueries
+##	Open-AllPossibleQueries
 ````PowerShell
 Open-AllPossibleQueries              --> qq
 ````
@@ -745,7 +745,7 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-AllPossibleTextQueries
+##	Open-AllPossibleTextQueries
 ````PowerShell
 Open-AllPossibleTextQueries          --> qqq
 ````
@@ -778,7 +778,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
 
 <br/><hr/><hr/><br/>
 
-## Open-AllYoutubeVideos
+##	Open-AllYoutubeVideos
 ````PowerShell
 Open-AllYoutubeVideos                --> qvideos
 ````
@@ -845,7 +845,7 @@ qvideos PowerShell tutorial, vscode tips
 
 <br/><hr/><hr/><br/>
 
-## Open-BuiltWithSiteInfo
+##	Open-BuiltWithSiteInfo
 ````PowerShell
 Open-BuiltWithSiteInfo
 ````
@@ -1078,7 +1078,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-GameOfLife
+##	Open-GameOfLife
 ````PowerShell
 Open-GameOfLife                      --> conway, gameoflife
 ````
@@ -1303,7 +1303,7 @@ Open-GameOfLife [-ApplicationMode] [-Private] [-Edge] [-Chrome]
 
 <br/><hr/><hr/><br/>
 
-## Open-GithubQuery
+##	Open-GithubQuery
 ````PowerShell
 Open-GithubQuery                     --> qgit
 ````
@@ -1545,7 +1545,7 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor
 
 <br/><hr/><hr/><br/>
 
-## Open-GoogleQuery
+##	Open-GoogleQuery
 ````PowerShell
 Open-GoogleQuery                     --> q
 ````
@@ -1778,7 +1778,7 @@ Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
 
 <br/><hr/><hr/><br/>
 
-## Open-GoogleSiteInfo
+##	Open-GoogleSiteInfo
 ````PowerShell
 Open-GoogleSiteInfo
 ````
@@ -2011,7 +2011,7 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-IMDBQuery
+##	Open-IMDBQuery
 ````PowerShell
 Open-IMDBQuery                       --> imdb
 ````
@@ -2244,7 +2244,7 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge]
 
 <br/><hr/><hr/><br/>
 
-## Open-InstantStreetViewQuery
+##	Open-InstantStreetViewQuery
 ````PowerShell
 Open-InstantStreetViewQuery          --> isv
 ````
@@ -2477,7 +2477,7 @@ Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>]
 
 <br/><hr/><hr/><br/>
 
-## Open-Repeaters
+##	Open-Repeaters
 ````PowerShell
 Open-Repeaters
 ````
@@ -2712,7 +2712,7 @@ Open-Repeaters [[-Repeaters] {PI2NOS | PI3UTR | PI3GOE | MEETNET | PI6NOS
 
 <br/><hr/><hr/><br/>
 
-## Open-SimularWebSiteInfo
+##	Open-SimularWebSiteInfo
 ````PowerShell
 Open-SimularWebSiteInfo
 ````
@@ -2945,7 +2945,7 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-StackOverflowQuery
+##	Open-StackOverflowQuery
 ````PowerShell
 Open-StackOverflowQuery              --> qso
 ````
@@ -3178,7 +3178,7 @@ Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-Timeline
+##	Open-Timeline
 ````PowerShell
 Open-Timeline                        --> timeline
 ````
@@ -3403,7 +3403,7 @@ Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium]
 
 <br/><hr/><hr/><br/>
 
-## Open-ViralSimulation
+##	Open-ViralSimulation
 ````PowerShell
 Open-ViralSimulation                 --> viral
 ````
@@ -3628,7 +3628,7 @@ Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome]
 
 <br/><hr/><hr/><br/>
 
-## Open-WaybackMachineSiteInfo
+##	Open-WaybackMachineSiteInfo
 ````PowerShell
 Open-WaybackMachineSiteInfo
 ````
@@ -3861,7 +3861,7 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>]
 
 <br/><hr/><hr/><br/>
 
-## Open-WhoisHostSiteInfo
+##	Open-WhoisHostSiteInfo
 ````PowerShell
 Open-WhoisHostSiteInfo
 ````
@@ -4094,7 +4094,7 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-WikipediaNLQuery
+##	Open-WikipediaNLQuery
 ````PowerShell
 Open-WikipediaNLQuery                --> wikinl
 ````
@@ -4327,7 +4327,7 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-WikipediaQuery
+##	Open-WikipediaQuery
 ````PowerShell
 Open-WikipediaQuery                  --> wiki
 ````
@@ -4367,7 +4367,7 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>]
 
 <br/><hr/><hr/><br/>
 
-## Open-WolframAlphaQuery
+##	Open-WolframAlphaQuery
 ````PowerShell
 Open-WolframAlphaQuery               --> qalpha
 ````
@@ -4600,7 +4600,7 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private]
 
 <br/><hr/><hr/><br/>
 
-## Open-Yab
+##	Open-Yab
 ````PowerShell
 Open-Yab                             --> yab
 ````
@@ -4824,7 +4824,7 @@ Open-Yab [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge]
 
 <br/><hr/><hr/><br/>
 
-## Open-YabAIBattle
+##	Open-YabAIBattle
 ````PowerShell
 Open-YabAIBattle                     --> yabbattle
 ````
@@ -5048,7 +5048,7 @@ Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge]
 
 <br/><hr/><hr/><br/>
 
-## Open-YoutubeQuery
+##	Open-YoutubeQuery
 ````PowerShell
 Open-YoutubeQuery                    --> youtube
 ````
