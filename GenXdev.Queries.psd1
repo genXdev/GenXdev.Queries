@@ -6,7 +6,7 @@
     RootModule             = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '1.15.0'
+    ModuleVersion          = '1.16.0'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 

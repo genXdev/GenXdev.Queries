@@ -690,11 +690,6 @@ function Open-AllPossibleQueries {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
-
-            $PSBoundParameters.Add("Url", "Url") | Out-Null;
-        }
-
         if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
@@ -761,6 +756,11 @@ function Open-AllPossibleQueries {
                 throw $PSItem
             }
 
+            if ($PSBoundParameters.ContainsKey("Url")) {
+
+                $PSBoundParameters.Remove("Url") | Out-Null;
+            }
+            
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -Process {
