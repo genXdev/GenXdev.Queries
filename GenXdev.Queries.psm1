@@ -760,7 +760,7 @@ function Open-AllPossibleQueries {
 
                 $PSBoundParameters.Remove("Url") | Out-Null;
             }
-            
+
             Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
             ForEach-Object Name |
             ForEach-Object -Process {
@@ -1988,7 +1988,7 @@ The query to perform
 function Get-Gpt3EnglishSummary {
 
     [CmdletBinding()]
-    [Alias("q3")]
+    [Alias("q3eng")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -2043,7 +2043,7 @@ The query to perform
 function Get-Gpt3DutchSummary {
 
     [CmdletBinding()]
-    [Alias("q3")]
+    [Alias("q3nl")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
