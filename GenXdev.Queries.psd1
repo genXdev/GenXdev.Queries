@@ -1,4 +1,4 @@
-#
+﻿#
 # Module manifest for module 'GenXdev.Queries'
 @{
 
@@ -6,7 +6,7 @@
     RootModule             = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '1.20.0'
+    ModuleVersion          = '1.23.2021'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -38,13 +38,13 @@
     DotNetFrameworkVersion = '4.6.1'
 
     # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    # ClrVersion = ''
+    ClrVersion = '4.0.0'
 
     # Processor architecture (None, X86, Amd64) required by this module
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.20.0' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.20.0' })
+    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.23.2021' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.23.2021' })
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies     = @("System.Web")
