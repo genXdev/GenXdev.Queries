@@ -6,7 +6,7 @@
     RootModule             = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '1.17.0'
+    ModuleVersion          = '1.20.0'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -44,7 +44,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion  = '1.14.0'}, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion  = '1.14.0'})
+    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.20.0' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.20.0' })
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies     = @("System.Web")
@@ -59,12 +59,12 @@
     # FormatsToProcess = @()
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-    # NestedModules = @()
+    NestedModules          = @("GenXdev.Queries.Webbrowser.psm1", "GenXdev.Queries.Text.psm1", "GenXdev.Queries.Misc.psm1")
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport      = '*' # @("*")
 
-    # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
+    # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no Cmdlets to export.
     CmdletsToExport        = '*' # = @("*")
 
     # Variables to export from this module
@@ -80,7 +80,7 @@
     ModuleList             = @("GenXdev.Queries")
 
     # List of all files packaged with this module
-    FileList               = @("GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "LICENSE", "license.txt", "powershell.jpg", "README.md", "Get-GoogleSearchResultUrls.js", "Open-AllGoogleLinks.js", "Open-AllYoutubeVideos.js")
+    FileList               = @("GenXdev.Queries.Misc.psm1", "GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "GenXdev.Queries.Text.psm1", "GenXdev.Queries.Webbrowser.psm1", "Get-GoogleSearchResultUrls.js", "LICENSE", "license.txt", "Open-AllGoogleLinks.js", "Open-AllYoutubeVideos.js", "PauseVideoOnHide.js", "powershell.jpg", "README.md")
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData            = @{
@@ -88,7 +88,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags                     = 'Goodle', 'Searchengine', 'gpt3', 'openai', 'GenXdev'
+            Tags                     = 'Google', 'Searchengine', 'gpt3', 'openai', 'GenXdev'
 
             # A URL to the license for this module.
             LicenseUri               = 'https://raw.githubusercontent.com/renevaessen/GenXdev.Queries/main/LICENSE'
@@ -116,7 +116,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    HelpInfoURI            = 'https://github.com/renevaessen/GenXdev.Queries/blob/master/README.md#syntax'
+    HelpInfoURI            = 'https://github.com/renevaessen/GenXdev.Queries/blob/master/README.md#cmdlet-index'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
