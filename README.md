@@ -38,9 +38,7 @@ Update-Module
 | Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
 | --- | --- | --- |
 | [Get-GoogleSearchResultUrls](#Get-GoogleSearchResultUrls) | qlinksget | Performs a google search and returns the links |
-| [Build-InvocationArguments](#Build-InvocationArguments) |  | Helper function for allowing different commandline parsing for query parameters |
 | [Open-AllGoogleLinks](#Open-AllGoogleLinks) | qlinks | Performs a google search .Opens 10 tabs each times, pauses until initial tab is revisitedClose initial tab to stop |
-| [Invoke-WebbrowserTabPollingScript](#Invoke-WebbrowserTabPollingScript) |  | Executes a background polling script in a previously selected webbrowser tab. |
 | [Open-AllYoutubeVideos](#Open-AllYoutubeVideos) | qvideos | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
 | [Open-AllPossibleTextQueries](#Open-AllPossibleTextQueries) | qqq | Executes all Text query Cmdlets in parallel and shows the results |
 | [Open-AllPossibleQueries](#Open-AllPossibleQueries) | qq | Open-AllPossibleQueries: Executes all CmdLets that handle webqueries for provided query |
@@ -71,6 +69,8 @@ Update-Module
 | [Open-ViralSimulation](#Open-ViralSimulation) | viral | Opens a very simple, interactive infection simulation |
 | [Open-Yab](#Open-Yab) | yab | Opens an interactive block-falling-game in single playermode |
 | [Open-YabAIBattle](#Open-YabAIBattle) | yabbattle | Opens an interactive block-falling-game in battle AI mode |
+| [Invoke-WebbrowserTabPollingScript](#Invoke-WebbrowserTabPollingScript) |  | Executes a background polling script in a previously selected webbrowser tab. |
+| [Build-InvocationArguments](#Build-InvocationArguments) |  | Helper function for allowing different commandline parsing for query parameters |
 
 <br/><hr/><hr/><br/>
 
@@ -128,53 +128,6 @@ module"; $Urls
 
 <br/><hr/><hr/><br/>
 
-##	Build-InvocationArguments
-````PowerShell
-Build-InvocationArguments
-````
-
-### SYNOPSIS
-    Helper function for allowing different commandline parsing for query 
-    parameters
-
-### SYNTAX
-````PowerShell
-Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] 
-<String[]>] [[-SingleString]] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Helper function for allowing different commandline parsing for query 
-    parameters
-
-### PARAMETERS
-    -InvocationInfo <Object>
-        Required?                    true
-        Position?                    1
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Arguments <String[]>
-        Required?                    false
-        Position?                    2
-        Default value                @()
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -SingleString [<SwitchParameter>]
-        Required?                    false
-        Position?                    3
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters 
-        (https://go.microsoft.com/fwlink/?LinkID=113216). 
-
-<br/><hr/><hr/><br/>
-
 ##	Open-AllGoogleLinks
 ````PowerShell
 Open-AllGoogleLinks                  --> qlinks
@@ -213,60 +166,6 @@ Open-AllGoogleLinks [-Queries] <String[]> [<CommonParameters>]
 -------------------------- EXAMPLE 1 --------------------------
 PS C:\> 
 Open-AllGoogleLinks "site:github.com PowerShell module"
-````
-
-<br/><hr/><hr/><br/>
-
-##	Invoke-WebbrowserTabPollingScript
-````PowerShell
-Invoke-WebbrowserTabPollingScript
-````
-
-### SYNOPSIS
-    Executes a background polling script in a previously selected webbrowser 
-    tab.
-
-### SYNTAX
-````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl 
-<String>] [-Callback <ScriptBlock>] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Executes a background polling script in a previously selected webbrowser 
-    tab.
-
-### PARAMETERS
-    -Scripts <Object[]>
-        The scripts to load
-        Required?                    false
-        Position?                    1
-        Default value                
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -InitialUrl <String>
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Callback <ScriptBlock>
-        A scriptblock that gets executed each time the tab has been polled
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters 
-        (https://go.microsoft.com/fwlink/?LinkID=113216). 
-
-### NOTES
-````PowerShell
-Requires the Windows 10+ Operating System
 ````
 
 <br/><hr/><hr/><br/>
@@ -5296,6 +5195,107 @@ Open-YabAIBattle [[-Monitor] <int>] [-ApplicationMode] [-Private] [-Edge]
         Parameter set name           (All)
         Aliases                      None
         Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Invoke-WebbrowserTabPollingScript
+````PowerShell
+Invoke-WebbrowserTabPollingScript
+````
+
+### SYNOPSIS
+    Executes a background polling script in a previously selected webbrowser 
+    tab.
+
+### SYNTAX
+````PowerShell
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl 
+<String>] [-Callback <ScriptBlock>] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Executes a background polling script in a previously selected webbrowser 
+    tab.
+
+### PARAMETERS
+    -Scripts <Object[]>
+        The scripts to load
+        Required?                    false
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -InitialUrl <String>
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Callback <ScriptBlock>
+        A scriptblock that gets executed each time the tab has been polled
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters 
+        (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### NOTES
+````PowerShell
+Requires the Windows 10+ Operating System
+````
+
+<br/><hr/><hr/><br/>
+
+##	Build-InvocationArguments
+````PowerShell
+Build-InvocationArguments
+````
+
+### SYNOPSIS
+    Helper function for allowing different commandline parsing for query 
+    parameters
+
+### SYNTAX
+````PowerShell
+Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] 
+<String[]>] [[-SingleString]] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Helper function for allowing different commandline parsing for query 
+    parameters
+
+### PARAMETERS
+    -InvocationInfo <Object>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Arguments <String[]>
+        Required?                    false
+        Position?                    2
+        Default value                @()
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -SingleString [<SwitchParameter>]
+        Required?                    false
+        Position?                    3
+        Default value                False
+        Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
