@@ -1686,7 +1686,7 @@ function Open-WaybackMachineSiteInfo {
 
     # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
-    [Alias()]
+    [Alias("wayback")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1755,7 +1755,7 @@ function Open-SimularWebSiteInfo {
 
     # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
 
-    [Alias()]
+    [Alias("simularsite")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -2159,6 +2159,8 @@ function Open-Repeaters {
 
     # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
 
+    [Alias("repeater")]
+
     Param(
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
@@ -2316,7 +2318,6 @@ function Open-ViralSimulation {
 }
 
 ###############################################################################
-
 function Open-Yab {
 
     # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
@@ -2366,7 +2367,6 @@ function Open-Yab {
 }
 
 ###############################################################################
-
 function Open-YabAIBattle {
 
     # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
