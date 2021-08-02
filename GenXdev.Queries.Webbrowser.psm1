@@ -152,6 +152,9 @@ The console window will show info about the video and keyboard shortcuts for con
 .PARAMETER Query
 The youtube query to perform
 
+.NOTES
+The very first time, you will need to allow youtube to open pop-ups, using the appropiate button in the addressbar of the browser.
+
 .EXAMPLE
 PS C:\>
 

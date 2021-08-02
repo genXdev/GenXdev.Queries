@@ -107,6 +107,15 @@ Performs a "Generative Pre-trained Transformer 3 (GPT-3), question" text query
 
 .PARAMETER Queries
 The query to perform
+
+.EXAMPLE
+PS C:\> q3 is a python capable of killing a human?
+Yes, a python is capable of killing a human
+
+.EXAMPLE
+PS C:\> q3 How would a python kill a human?
+A python would suffocate a human
+
 #>
 function Get-Gpt3QuestionSummary {
 
@@ -288,7 +297,7 @@ function Get-NextAffirmations {
         [Switch] $Speak
     )
 
-    $affirmation = (Invoke-RestMethod https://www.affirmations.dev/).affirmation;
+    $affirmation = (Invoke-RestMethod https://www.affirmations.dev/ -TimeOutSec 2).affirmation;
 
     if ($Speak -eq $true) {
 
@@ -302,18 +311,18 @@ function Get-NextAffirmations {
 
 <#
 .SYNOPSIS
-Returns a random joke
+Returns a random quote
 
 .DESCRIPTION
-Returns a random joke
+Returns a random quote
 
 .PARAMETER Speak
-Use text-to-speech to speak out the joke
+Use text-to-speech to speak out the quote
 #>
-function Get-NextJoke {
+function Get-QuoteOfTheDay {
 
     [CmdletBinding()]
-    [Alias("TellAJoke")]
+    [Alias("Quote")]
 
     param(
         [Parameter(
@@ -323,12 +332,13 @@ function Get-NextJoke {
         [Switch] $Speak
     )
 
-    $joke = [System.Web.HttpUtility]::HtmlDecode((Invoke-RestMethod https://icanhazdadjoke.com/ -Headers @{"Accept" = "text/plain" }));
+    $quote = (Invoke-RestMethod https://quotes.rest/qod)
+    $line = "$($quote.contents.quotes.quote) - $($quote.contents.quotes.author)";
 
     if ($Speak -eq $true) {
 
-        say $joke
+        say $line
     }
 
-    Write-Output $joke
+    Write-Output $line
 }
