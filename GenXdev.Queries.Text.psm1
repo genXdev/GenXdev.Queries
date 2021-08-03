@@ -297,7 +297,7 @@ function Get-NextAffirmations {
         [Switch] $Speak
     )
 
-    $affirmation = (Invoke-RestMethod https://www.affirmations.dev/ -TimeOutSec 2).affirmation;
+    $affirmation = (Invoke-RestMethod https://www.affirmations.dev/ -TimeoutSec 2).affirmation;
 
     if ($Speak -eq $true) {
 
@@ -332,7 +332,19 @@ function Get-QuoteOfTheDay {
         [Switch] $Speak
     )
 
-    $quote = (Invoke-RestMethod https://quotes.rest/qod)
+    $path = Expand-Path -FilePath "$PSScriptRoot\..\..\GenXdev.Local\QuoteOfTheDay.json" -CreateDirectory
+    $info = [IO.FileInfo]::new($path);
+
+    if ($info.Exists -and ([DateTime]::Now - $info.LastWriteTime -lt [TimeSpan]::FromHours(24))) {
+
+        $quote = $info.OpenText().ReadToEnd() | ConvertFrom-Json -Depth 100
+    }
+    else {
+
+        $quote = (Invoke-RestMethod https://quotes.rest/qod)
+        $quote | ConvertTo-Json -Depth 100 | Out-File -FilePath $path
+    }
+
     $line = "$($quote.contents.quotes.quote) - $($quote.contents.quotes.author)";
 
     if ($Speak -eq $true) {
