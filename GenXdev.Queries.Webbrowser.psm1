@@ -149,11 +149,22 @@ Performs an infinite auto opening youtube search in a new fullscreen browser win
 Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.
 The console window will show info about the video and keyboard shortcuts for controlling current playing video
 
-.PARAMETER Query
-The youtube query to perform
+.PARAMETER Queries
+Opens all videos of each searchterm provided
+
+.PARAMETER Subscriptions
+Opens all videos of subscribed channels
+
+.PARAMETER WatchLater
+Opens all videos of the watch-later playlist
+
+.PARAMETER Recommended
+Opens all videos that youtube recommends
 
 .NOTES
 The very first time, you will need to allow youtube to open pop-ups, using the appropiate button in the addressbar of the browser.
+
+If no parameters are provided, it will provide the UI for any youtube tab that has focus
 
 .EXAMPLE
 PS C:\>
@@ -199,7 +210,7 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false
         )]
-        [switch] $CurrentTab
+        [switch] $Recommended
     )
 
     begin {
@@ -213,6 +224,9 @@ function Open-AllYoutubeVideos {
     }
 
     process {
+
+        [bool] $CurrentTab = ($Recommended -ne $true) -and ($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and
+        (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]));
 
         $Global:data = @{
 
@@ -234,8 +248,10 @@ function Open-AllYoutubeVideos {
             $browser = $null;
 
             if ([string]::IsNullOrWhiteSpace($Url)) {
+                if ($CurrentTab -ne $true) {
 
-                $browser = Open-Webbrowser -PassThrough -RestoreFocus -Monitor -1
+                    $browser = Open-Webbrowser -PassThrough -RestoreFocus
+                }
             }
             else {
 
@@ -266,33 +282,37 @@ function Open-AllYoutubeVideos {
                 }
             }
 
-            if ($null -eq $browser) {
+            if ($CurrentTab -ne $true) {
 
-                if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
+                if ($null -eq $browser) {
 
-                    $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
-                }
-                else {
-                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
+                    if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
+
+                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                    }
+                    else {
+                        $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
+                    }
                 }
             }
 
             Start-Sleep 3
             Select-WebbrowserTab -Name "*youtube*" | Out-Null
+            $job = $null;
+            if ($CurrentTab -ne $true) {
 
-            $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
+                $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
 
-            while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
-
-            while ($null -ne $job -and $job.State -ne "Running") {
-                Start-Sleep 1
-                $job = Get-Job $job.Name -ErrorAction SilentlyContinue
+                while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
             }
+
             [int] $scrollPosition = -1;
             [int] $scrollPosition2 = -1;
-            while ($null -ne $job -and $job.State -eq "Running") {
 
-                do {
+            while ($true) {
+
+                try {
+
                     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
                     Clear-Host
                     $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle) |" }
@@ -331,8 +351,9 @@ function Open-AllYoutubeVideos {
                         switch ("$($c.KeyChar)".ToLowerInvariant()) {
 
                             "q" {
-                                Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
-                                if ($CurrentTab -ne $true) {
+                                if ($null -ne $Job) {
+
+                                    Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
 
                                     $browser.CloseMainWindow();
                                 }
@@ -450,11 +471,35 @@ function Open-AllYoutubeVideos {
                                 }
                             }
                         }
-                    }
-                } while ([Console]::KeyAvailable);
+                        while ([Console]::KeyAvailable) {
 
-                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                Invoke-WebbrowserEvaluation "
+                            [Console]::ReadKey() | Out-Null
+                        }
+                    }
+
+                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                    Invoke-WebbrowserEvaluation "
+
+                    let isSuggestionPage = window.location.href === 'https://www.youtube.com/';
+                    let isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
+                    let isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
+                    let isSearchPage = (window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0);
+                    let isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
+
+                    if (!isViewPage){
+
+                        data.description = isSearchPage ? 'Search page' :
+                                           isSuggestionPage ? 'Suggested' :
+                                           isSubscriptionsPage ? 'Subscriptions' :
+                                           isWatchLaterPage ? 'Watch later' : 'unknown page';
+                        data.title = document.title;
+                        data.subscribeTitle = '         ';
+                        data.playing = false;
+                        data.position = 0;
+                        data.duration = 0;
+                        return;
+                    }
+
                     window.video = document.getElementsByTagName('video')[0];
                     window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
 
@@ -464,7 +509,7 @@ function Open-AllYoutubeVideos {
                         document.body.appendChild(window.video);document.body.setAttribute('style', 'overflow:hidden');
                     }
 
-                    data.description = document.getElementById('description').innerText;
+                    data.description = document.querySelector('#content #description').innerText;
                     data.title = document.querySelector('h1.title').innerText;
                     data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim()
                     window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
@@ -473,15 +518,18 @@ function Open-AllYoutubeVideos {
                     data.duration = window.video.duration;
                 " -ErrorAction SilentlyContinue | Out-Null;
 
-                $job = Get-Job $job.Name -ErrorAction SilentlyContinue
-            }
+                }
+                catch {
 
-            while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
+                    Clear-Host
+                }
+            }
         }
 
         try {
 
-            if ($CurrentTab -eq $true) {
+
+            if ($CurrentTab) {
 
                 go
                 return;
@@ -491,24 +539,23 @@ function Open-AllYoutubeVideos {
 
                 go "https://www.youtube.com/feed/subscriptions"
             }
+
+            if ($Recommended -eq $true) {
+
+                go "https://www.youtube.com/"
+            }
+
             if ($WatchLater -eq $true) {
 
                 go "https://www.youtube.com/playlist?list=WL"
             }
 
-            if (($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and ($Queries.Length -gt 0) -and ([string]::IsNullOrWhiteSpace($Queries[0]) -eq $false)) {
+            if ($Queries.Count -gt 0) {
 
                 foreach ($Query in $Queries) {
 
                     go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
                 }
-
-                return;
-            }
-
-            if (($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and (($Queries.Length -eq 0) -or ([string]::IsNullOrWhiteSpace($Queries[0]) -eq $true))) {
-
-                go "https://www.youtube.com/"
             }
         }
         finally {
@@ -521,7 +568,7 @@ function Open-AllYoutubeVideos {
 
 function Open-GoogleQuery {
 
-    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("q")]
 
@@ -756,7 +803,7 @@ function Open-WikipediaQuery {
 
 function Open-WikipediaNLQuery {
 
-    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wikinl")]
 
@@ -820,7 +867,7 @@ function Open-WikipediaNLQuery {
 
 function Open-YoutubeQuery {
 
-    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("youtube")]
 
@@ -884,7 +931,7 @@ function Open-YoutubeQuery {
 
 function Open-IMDBQuery {
 
-    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("imdb")]
 
@@ -948,7 +995,7 @@ function Open-IMDBQuery {
 
 function Open-InstantStreetViewQuery {
 
-    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("isv")]
 
@@ -1012,7 +1059,7 @@ function Open-InstantStreetViewQuery {
 
 function Open-StackOverflowQuery {
 
-    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qso")]
 
@@ -1076,7 +1123,7 @@ function Open-StackOverflowQuery {
 
 function Open-WolframAlphaQuery {
 
-    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qalpha")]
 
@@ -1140,7 +1187,7 @@ function Open-WolframAlphaQuery {
 
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qgit")]
 
@@ -1222,7 +1269,7 @@ function Open-GithubQuery {
 
 function Open-GoogleSiteInfo {
 
-    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias()]
 
@@ -1276,7 +1323,7 @@ function Open-GoogleSiteInfo {
 
 function Open-BuiltWithSiteInfo {
 
-    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1343,7 +1390,7 @@ function Open-BuiltWithSiteInfo {
 
 function Open-WhoisHostSiteInfo {
 
-    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias()]
 
@@ -1412,7 +1459,7 @@ function Open-WhoisHostSiteInfo {
 
 function Open-WaybackMachineSiteInfo {
 
-    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wayback")]
 
@@ -1481,7 +1528,7 @@ function Open-WaybackMachineSiteInfo {
 
 function Open-SimularWebSiteInfo {
 
-    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("simularsite")]
 
