@@ -225,8 +225,7 @@ function Open-AllYoutubeVideos {
 
     process {
 
-        [bool] $CurrentTab = ($Recommended -ne $true) -and ($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and
-        (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]));
+        [bool] $CurrentTab = ($Recommended -ne $true) -and ($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]));
 
         $Global:data = @{
 
@@ -294,9 +293,9 @@ function Open-AllYoutubeVideos {
                         $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
                     }
                 }
+                Start-Sleep 3
             }
 
-            Start-Sleep 3
             Select-WebbrowserTab -Name "*youtube*" | Out-Null
             $job = $null;
             if ($CurrentTab -ne $true) {
@@ -345,6 +344,7 @@ function Open-AllYoutubeVideos {
                     [Console]::ResetColor();
 
                     if ([Console]::KeyAvailable) {
+
                         [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
                         $c = [Console]::ReadKey();
 
@@ -483,39 +483,52 @@ function Open-AllYoutubeVideos {
                     let isSuggestionPage = window.location.href === 'https://www.youtube.com/';
                     let isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
                     let isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
-                    let isSearchPage = (window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0);
+                    let isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
                     let isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
 
                     if (!isViewPage){
 
-                        data.description = isSearchPage ? 'Search page' :
-                                           isSuggestionPage ? 'Suggested' :
-                                           isSubscriptionsPage ? 'Subscriptions' :
-                                           isWatchLaterPage ? 'Watch later' : 'unknown page';
-                        data.title = document.title;
+                        data.description = document.title;
+                        data.title = isSearchPage ? 'Search page' :
+                            isSuggestionPage ? 'Recommended' :
+                            isSubscriptionsPage ? 'Subscriptions' :
+                            isWatchLaterPage ? 'Watch later' : 'Unknown page';
                         data.subscribeTitle = '         ';
                         data.playing = false;
                         data.position = 0;
                         data.duration = 0;
-                        return;
                     }
+                    else {
 
-                    window.video = document.getElementsByTagName('video')[0];
-                    window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+                        window.video = document.getElementsByTagName('video')[0];
+                        if (window.video) {
 
-                    if (!document.getElementById('genxbackground')) {
-                        window.video.onended = () => { window.close() };
-                        let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
-                        document.body.appendChild(window.video);document.body.setAttribute('style', 'overflow:hidden');
+                            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+
+                            if (!document.getElementById('genxbackground')) {
+
+                                window.video.onended = () => { window.close() };
+                                let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
+                                div.setAttribute('id', 'genxbackground');
+                                document.body.appendChild(window.video);
+                                document.body.setAttribute('style', 'overflow:hidden');
+                            }
+
+                            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
+                            data.playing = !window.video.paused;
+                            data.position = window.video.currentTime;
+                            data.duration = window.video.duration;
+                        }
+                        else {
+                            data.playing = false;
+                            data.position = 0;
+                            data.duration = 0;
+                        }
+
+                        try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
+                        try { data.title = document.querySelector('h1.title').innerText; } catch { data.title = ''; }
+                        try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
                     }
-
-                    data.description = document.querySelector('#content #description').innerText;
-                    data.title = document.querySelector('h1.title').innerText;
-                    data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim()
-                    window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
-                    data.playing = !window.video.paused;
-                    data.position = window.video.currentTime;
-                    data.duration = window.video.duration;
                 " -ErrorAction SilentlyContinue | Out-Null;
 
                 }
@@ -527,7 +540,6 @@ function Open-AllYoutubeVideos {
         }
 
         try {
-
 
             if ($CurrentTab) {
 
@@ -554,7 +566,10 @@ function Open-AllYoutubeVideos {
 
                 foreach ($Query in $Queries) {
 
-                    go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+                    if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
+
+                        go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+                    }
                 }
             }
         }
