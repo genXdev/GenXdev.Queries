@@ -325,7 +325,7 @@ function Open-AllYoutubeVideos {
 
                     Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
 
-                    $header = "$($Global:data.title)".PadRight($hostInfo.WindowSize.Width, " ");
+                    $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
                     if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
                         $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
@@ -333,7 +333,26 @@ function Open-AllYoutubeVideos {
                     }
 
                     Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
-                    [int] $nn = 0; Write-Host ((("$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ") -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue { if ([string]::IsNullOrWhiteSpace($PSItem)) { $nn = $nn + 1; } else { $nn = 0 } if ($nn -lt 2) { $s = $PSItem.Trim(); for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) { $s = $s.substring(0, $i) + "`r" + $s.substring($i); } $s } }) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+                    [int] $nn = 0;
+                    $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
+                    Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
+                                    if ([string]::IsNullOrWhiteSpace($PSItem)) {
+                                        $nn = $nn + 1;
+                                    }
+                                    else {
+                                        $nn = 0
+                                    }
+                                    if ($nn -lt 2) {
+                                        $s = $PSItem.Trim();
+                                        for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
+
+                                            $s = $s.substring(0, $i) + "`r" + $s.substring($i);
+                                        }
+
+                                        $s
+                                    }
+                                }
+                            ) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
                     [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
                     [Console]::BackgroundColor = [ConsoleColor]::Blue;
                     [Console]::ForegroundColor = [ConsoleColor]::Yellow;
@@ -525,9 +544,9 @@ function Open-AllYoutubeVideos {
                             data.duration = 0;
                         }
 
-                        try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
-                        try { data.title = document.querySelector('h1.title').innerText; } catch { data.title = ''; }
-                        try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
+                        try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
+                        try { data.title = document.title; } catch { data.title = ''; }
+                        try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
                     }
                 " -ErrorAction SilentlyContinue | Out-Null;
 
@@ -583,7 +602,7 @@ function Open-AllYoutubeVideos {
 
 function Open-GoogleQuery {
 
-    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("q")]
 
@@ -818,7 +837,7 @@ function Open-WikipediaQuery {
 
 function Open-WikipediaNLQuery {
 
-    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wikinl")]
 
@@ -882,7 +901,7 @@ function Open-WikipediaNLQuery {
 
 function Open-YoutubeQuery {
 
-    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("youtube")]
 
@@ -946,7 +965,7 @@ function Open-YoutubeQuery {
 
 function Open-IMDBQuery {
 
-    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("imdb")]
 
@@ -1010,7 +1029,7 @@ function Open-IMDBQuery {
 
 function Open-InstantStreetViewQuery {
 
-    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("isv")]
 
@@ -1074,7 +1093,7 @@ function Open-InstantStreetViewQuery {
 
 function Open-StackOverflowQuery {
 
-    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qso")]
 
@@ -1138,7 +1157,7 @@ function Open-StackOverflowQuery {
 
 function Open-WolframAlphaQuery {
 
-    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qalpha")]
 
@@ -1202,7 +1221,7 @@ function Open-WolframAlphaQuery {
 
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qgit")]
 
@@ -1338,7 +1357,7 @@ function Open-GoogleSiteInfo {
 
 function Open-BuiltWithSiteInfo {
 
-    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1405,7 +1424,7 @@ function Open-BuiltWithSiteInfo {
 
 function Open-WhoisHostSiteInfo {
 
-    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias()]
 
@@ -1474,7 +1493,7 @@ function Open-WhoisHostSiteInfo {
 
 function Open-WaybackMachineSiteInfo {
 
-    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wayback")]
 
@@ -1543,7 +1562,7 @@ function Open-WaybackMachineSiteInfo {
 
 function Open-SimularWebSiteInfo {
 
-    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-SimularWebSiteInfo: Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("simularsite")]
 
