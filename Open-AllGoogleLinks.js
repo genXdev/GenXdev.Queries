@@ -100,7 +100,7 @@ if (!window.onceOnly) {
                     window.queueUrls.push(b);
                 }
 
-                document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
+                document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight+99999;
             }
         } catch (e) {
 

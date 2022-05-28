@@ -704,8 +704,8 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-Timeline [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1140,8 +1140,8 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-ViralSimulation [-ApplicationMode] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <int>] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2465,8 +2465,8 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2692,8 +2692,8 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -3827,8 +3827,8 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
-<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
 [-PassThrough] [<CommonParameters>]
 ````
 

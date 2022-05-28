@@ -341,7 +341,7 @@ function Get-QuoteOfTheDay {
     }
     else {
 
-        $quote = (Invoke-RestMethod https://quotes.rest/qod)
+        $quote = (Invoke-RestMethod https://quotes.rest/qod -TimeoutSec 2)
         $quote | ConvertTo-Json -Depth 100 | Out-File -FilePath $path
     }
 
