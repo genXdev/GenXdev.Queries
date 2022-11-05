@@ -1,6 +1,6 @@
 ﻿function Open-Repeaters {
 
-    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
+    # DESCRIPTION Open-Repeaters: Opens HobbyScoop, Dutch amateur repeater status page
 
     [Alias("repeater")]
 
@@ -53,7 +53,7 @@
 
 function Open-Timeline {
 
-    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
+    # DESCRIPTION Open-Timeline: Opens an interactive timeline, showing the current time, date, centery, millenium
 
     [Alias("timeline")]
 
@@ -90,7 +90,7 @@ function Open-Timeline {
 
 function Open-GameOfLife {
 
-    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
+    # DESCRIPTION Open-GameOfLife: Opens an interactive game-of-life simulation
 
     [Alias("gameoflife", "conway")]
 
@@ -127,7 +127,7 @@ function Open-GameOfLife {
 
 function Open-ViralSimulation {
 
-    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
+    # DESCRIPTION Open-ViralSimulation: Opens a very simple, interactive infection simulation
 
     [Alias("viral")]
 
@@ -163,7 +163,7 @@ function Open-ViralSimulation {
 ###############################################################################
 function Open-Yab {
 
-    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
+    # DESCRIPTION Open-Yab: Opens an interactive block-falling-game in single playermode
 
     [Alias("yab")]
 
@@ -212,7 +212,7 @@ function Open-Yab {
 ###############################################################################
 function Open-YabAIBattle {
 
-    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
+    # DESCRIPTION Open-YabAIBattle: Opens an interactive block-falling-game in battle AI mode
 
     [Alias("yabbattle")]
 

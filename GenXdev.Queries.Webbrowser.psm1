@@ -1,5 +1,4 @@
-﻿
-###############################################################################
+﻿###############################################################################
 
 <#
 .SYNOPSIS
@@ -41,12 +40,174 @@ function Get-GoogleSearchResultUrls {
             Mandatory = $false,
             HelpMessage = "The maximum number of results to obtain, defaults to 200"
         )]
-        [int] $Max = 200
+        [int] $Max = 200,
+        ###############################################################################
+        [ValidateSet(
+            "Afrikaans",
+            "Akan",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bemba",
+            "Bengali",
+            "Bihari",
+            "Bork, bork, bork!",
+            "Bosnian",
+            "Breton",
+            "Bulgarian",
+            "Cambodian",
+            "Catalan",
+            "Cherokee",
+            "Chichewa",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Corsican",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Elmer Fudd",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Ewe",
+            "Faroese",
+            "Filipino",
+            "Finnish",
+            "French",
+            "Frisian",
+            "Ga",
+            "Galician",
+            "Georgian",
+            "German",
+            "Greek",
+            "Guarani",
+            "Gujarati",
+            "Hacker",
+            "Haitian Creole",
+            "Hausa",
+            "Hawaiian",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Igbo",
+            "Indonesian",
+            "Interlingua",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Javanese",
+            "Kannada",
+            "Kazakh",
+            "Kinyarwanda",
+            "Kirundi",
+            "Klingon",
+            "Kongo",
+            "Korean",
+            "Krio (Sierra Leone)",
+            "Kurdish",
+            "Kurdish (Soranî)",
+            "Kyrgyz",
+            "Laothian",
+            "Latin",
+            "Latvian",
+            "Lingala",
+            "Lithuanian",
+            "Lozi",
+            "Luganda",
+            "Luo",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Maori",
+            "Marathi",
+            "Mauritian Creole",
+            "Moldavian",
+            "Mongolian",
+            "Montenegrin",
+            "Nepali",
+            "Nigerian Pidgin",
+            "Northern Sotho",
+            "Norwegian",
+            "Norwegian (Nynorsk)",
+            "Occitan",
+            "Oriya",
+            "Oromo",
+            "Pashto",
+            "Persian",
+            "Pirate",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Quechua",
+            "Romanian",
+            "Romansh",
+            "Runyakitara",
+            "Russian",
+            "Scots Gaelic",
+            "Serbian",
+            "Serbo-Croatian",
+            "Sesotho",
+            "Setswana",
+            "Seychellois Creole",
+            "Shona",
+            "Sindhi",
+            "Sinhalese",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Spanish (Latin American)",
+            "Sundanese",
+            "Swahili",
+            "Swedish",
+            "Tajik",
+            "Tamil",
+            "Tatar",
+            "Telugu",
+            "Thai",
+            "Tigrinya",
+            "Tonga",
+            "Tshiluba",
+            "Tumbuka",
+            "Turkish",
+            "Turkmen",
+            "Twi",
+            "Uighur",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Wolof",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The language of the returned search results"
+        )]
+        [string] $Language = $null
     )
 
     begin {
 
         $Queries = Build-InvocationArguments $MyInvocation $Queries
+        $LangKey = "&hl=en";
+
+        if ($Language -ne $null) {
+
+            $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
+        }
     }
 
     process {
@@ -60,7 +221,7 @@ function Get-GoogleSearchResultUrls {
             }
 
             $Query = "$([Uri]::EscapeUriString($Query))"
-            $Url = "https://www.google.com/search?q=$Query"
+            $Url = "https://www.google.com/search?q=$Query$LangKey"
 
             Invoke-WebbrowserEvaluation "document.location.href='$Url'" | Out-Null
 
@@ -119,12 +280,174 @@ function Open-AllGoogleLinks {
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
-        [string[]] $Queries
+        [string[]] $Queries,
+        ###############################################################################
+        [ValidateSet(
+            "Afrikaans",
+            "Akan",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bemba",
+            "Bengali",
+            "Bihari",
+            "Bork, bork, bork!",
+            "Bosnian",
+            "Breton",
+            "Bulgarian",
+            "Cambodian",
+            "Catalan",
+            "Cherokee",
+            "Chichewa",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Corsican",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Elmer Fudd",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Ewe",
+            "Faroese",
+            "Filipino",
+            "Finnish",
+            "French",
+            "Frisian",
+            "Ga",
+            "Galician",
+            "Georgian",
+            "German",
+            "Greek",
+            "Guarani",
+            "Gujarati",
+            "Hacker",
+            "Haitian Creole",
+            "Hausa",
+            "Hawaiian",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Igbo",
+            "Indonesian",
+            "Interlingua",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Javanese",
+            "Kannada",
+            "Kazakh",
+            "Kinyarwanda",
+            "Kirundi",
+            "Klingon",
+            "Kongo",
+            "Korean",
+            "Krio (Sierra Leone)",
+            "Kurdish",
+            "Kurdish (Soranî)",
+            "Kyrgyz",
+            "Laothian",
+            "Latin",
+            "Latvian",
+            "Lingala",
+            "Lithuanian",
+            "Lozi",
+            "Luganda",
+            "Luo",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Maori",
+            "Marathi",
+            "Mauritian Creole",
+            "Moldavian",
+            "Mongolian",
+            "Montenegrin",
+            "Nepali",
+            "Nigerian Pidgin",
+            "Northern Sotho",
+            "Norwegian",
+            "Norwegian (Nynorsk)",
+            "Occitan",
+            "Oriya",
+            "Oromo",
+            "Pashto",
+            "Persian",
+            "Pirate",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Quechua",
+            "Romanian",
+            "Romansh",
+            "Runyakitara",
+            "Russian",
+            "Scots Gaelic",
+            "Serbian",
+            "Serbo-Croatian",
+            "Sesotho",
+            "Setswana",
+            "Seychellois Creole",
+            "Shona",
+            "Sindhi",
+            "Sinhalese",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Spanish (Latin American)",
+            "Sundanese",
+            "Swahili",
+            "Swedish",
+            "Tajik",
+            "Tamil",
+            "Tatar",
+            "Telugu",
+            "Thai",
+            "Tigrinya",
+            "Tonga",
+            "Tshiluba",
+            "Tumbuka",
+            "Turkish",
+            "Turkmen",
+            "Twi",
+            "Uighur",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Wolof",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The language of the returned search results"
+        )]
+        [string] $Language = $null
     )
 
     begin {
 
         $Query = Build-InvocationArguments $MyInvocation $Queries -SingleString
+        $LangKey = "&hl=en";
+
+        if ($Language -ne $null) {
+
+            $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
+        }
     }
 
     process {
@@ -135,7 +458,7 @@ function Open-AllGoogleLinks {
             query = $Query
         }
 
-        Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))"
+        Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))$LangKey"
     }
 }
 
@@ -215,11 +538,9 @@ function Open-AllYoutubeVideos {
 
     begin {
 
+        $LastVideo = "";
         $Queries = Build-InvocationArguments $MyInvocation $Queries
-        $PowershellProcess = [System.Diagnostics.Process]::GetCurrentProcess();
-        if ($null -ne $PowershellProcess.Parent -and [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess.Parent).Count -gt 0) {
-            $PowershellProcess = $PowershellProcess.Parent;
-        }
+        $PowershellProcess = Get-PowershellMainWindowProcess
         $PowershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess);
     }
 
@@ -246,64 +567,61 @@ function Open-AllYoutubeVideos {
             Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
             $browser = $null;
 
-            if ([string]::IsNullOrWhiteSpace($Url)) {
-                if ($CurrentTab -ne $true) {
-
-                    $browser = Open-Webbrowser -PassThrough -RestoreFocus
-                }
-            }
-            else {
+            if ($CurrentTab -ne $true) {
 
                 if ($PowershellWindow.Count -gt 0) {
 
                     $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
-                    $PowershellMonitorNr = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen);
+                    $PowershellScreenIndex = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen) + 1;
 
-                    if ($PowershellMonitorNr -eq 1) {
+                    [int] $defaultMonitor = 1;
 
-                        if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
+                    if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
 
-                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
-                            1..3 | ForEach-Object {
-                                $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width / 2, $PowershellScreen.WorkingArea.Height) | Out-Null
-                                $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y) | Out-Null
-                            }
+                        $Monitor = $defaultMonitor % ([System.Windows.Forms.Screen]::AllScreens.Length + 1);
+                    }
+                    else {
+
+                        $Monitor = 2 % ([System.Windows.Forms.Screen]::AllScreens.Length + 1);
+                    }
+
+                    if ($monitor -lt 1) {
+
+                        if ($monitor -lt 0) {
+
+                            $monitor = $PowershellWindow;
                         }
                         else {
 
+                            $monitor = [System.Windows.Forms.Screen]::AllScreens.IndexOf([System.Windows.Forms.Screen]::PrimaryScreen) + 1;
+                        }
+                    }
+
+                    if ($PowershellScreenIndex -eq $Monitor) {
+
+                        if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
+
+                            Set-WindowPosition -Left -Monitor $Monitor
+                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                        }
+                        else {
+
+                            Set-WindowPosition -Bottom -Monitor $Monitor
                             $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Top -Url $Url -PassThrough
-                            1..3 | ForEach-Object {
-                                $PowershellWindow[0].Resize($PowershellScreen.WorkingArea.Width, $PowershellScreen.WorkingArea.Height / 2) | Out-Null
-                                $PowershellWindow[0].Move($PowershellScreen.WorkingArea.X, $PowershellScreen.WorkingArea.Y + $PowershellScreen.WorkingArea.Height / 2) | Out-Null
-                            }
                         }
                     }
                 }
-            }
-
-            if ($CurrentTab -ne $true) {
 
                 if ($null -eq $browser) {
 
-                    if ([System.Windows.Forms.Screen]::AllScreens.Length -lt 2) {
-
-                        $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
-                    }
-                    else {
-                        $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
-                    }
+                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
                 }
-                Start-Sleep 3
             }
 
             Select-WebbrowserTab -Name "*youtube*" | Out-Null
-            $job = $null;
-            if ($CurrentTab -ne $true) {
 
-                $job = Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllYoutubeVideos.js")
-
-                while ([Console]::KeyAvailable) { [Console]::ReadKey(); }
-            }
+            $job = [System.IO.File]::ReadAllText("$PSScriptRoot\Open-AllYoutubeVideos.js");
+            Invoke-WebbrowserEvaluation "window.oayvInitialized = false; $job"
 
             [int] $scrollPosition = -1;
             [int] $scrollPosition2 = -1;
@@ -313,46 +631,72 @@ function Open-AllYoutubeVideos {
                 try {
 
                     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                    Clear-Host
                     $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle) |" }
                     if ($Global:data.playing) { $pause = " [P]ause |" } else { $pause = " [R]esume |" }
                     $header = "[Q]uit |$sub$pause SPACE=Next | [0]..[9] = skip | ◀ -20sec | +20sec ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
                     if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
                         $scrollPosition = ($scrollPosition + 1) % $header.length;
-                        $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                        try {
+                            $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                        }
+                        catch {
+                            try {
+                                $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                            }
+                            catch {
+                            }
+                        }
                     }
 
-                    Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                    $scrollPosition = -1;
+                    $scrollPosition2 = -1;
+                    $videoInfo = "$($Global:data.title)$($Global:data.description)"
+                    if ($videoInfo -ne $LastVideo) {
 
-                    $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
-                    if ($header.Length -gt $hostInfo.WindowSize.Width) {
+                        Clear-Host
+                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                        $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
+                        if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
-                        $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
-                        $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
-                    }
-
-                    Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
-                    [int] $nn = 0;
-                    $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
-                    Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
-                                    if ([string]::IsNullOrWhiteSpace($PSItem)) {
-                                        $nn = $nn + 1;
-                                    }
-                                    else {
-                                        $nn = 0
-                                    }
-                                    if ($nn -lt 2) {
-                                        $s = $PSItem.Trim();
-                                        for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
-
-                                            $s = $s.substring(0, $i) + "`r" + $s.substring($i);
-                                        }
-
-                                        $s
-                                    }
+                            $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
+                            try {
+                                $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                            }
+                            catch {
+                                try {
+                                    $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
                                 }
-                            ) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+                                catch {
+                                }
+                            }
+                        }
+
+                        Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
+                        [int] $nn = 0;
+                        $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
+                        Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
+                                        if ([string]::IsNullOrWhiteSpace($PSItem)) {
+                                            $nn = $nn + 1;
+                                        }
+                                        else {
+                                            $nn = 0
+                                        }
+                                        if ($nn -lt 2) {
+                                            $s = $PSItem.Trim();
+                                            for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
+
+                                                $s = $s.substring(0, $i) + "`r" + $s.substring($i);
+                                            }
+
+                                            $s
+                                        }
+                                    }
+                                ) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+
+                        $LastVideo = $videoInfo
+                    }
+
                     [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
                     [Console]::BackgroundColor = [ConsoleColor]::Blue;
                     [Console]::ForegroundColor = [ConsoleColor]::Yellow;
@@ -370,13 +714,11 @@ function Open-AllYoutubeVideos {
                         switch ("$($c.KeyChar)".ToLowerInvariant()) {
 
                             "q" {
-                                if ($null -ne $Job) {
-
-                                    Stop-Job $job.Name -ErrorAction SilentlyContinue | Out-Null
-
-                                    $browser.CloseMainWindow();
-                                }
                                 Clear-Host;
+                                if ($null -ne $browser) {
+
+                                   $browser.CloseMainWindow();
+                                }
                                 return;
                             }
 
@@ -386,6 +728,7 @@ function Open-AllYoutubeVideos {
                                 Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
                                 Start-Sleep 1
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                $LastVideo = "";
                             }
 
                             "s" {
@@ -408,12 +751,13 @@ function Open-AllYoutubeVideos {
                             } catch (e) { }
                         }
                         " -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             "p" {
 
+                                $LastVideo = "";
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                 Invoke-WebbrowserEvaluation "
 
@@ -433,6 +777,7 @@ function Open-AllYoutubeVideos {
 
                             "r" {
 
+                                $LastVideo = "";
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
                                 Invoke-WebbrowserEvaluation "
 
@@ -497,63 +842,10 @@ function Open-AllYoutubeVideos {
                     }
 
                     Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                    Invoke-WebbrowserEvaluation "
-
-                    let isSuggestionPage = window.location.href === 'https://www.youtube.com/';
-                    let isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
-                    let isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
-                    let isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
-                    let isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
-
-                    if (!isViewPage){
-
-                        data.description = document.title;
-                        data.title = isSearchPage ? 'Search page' :
-                            isSuggestionPage ? 'Recommended' :
-                            isSubscriptionsPage ? 'Subscriptions' :
-                            isWatchLaterPage ? 'Watch later' : 'Unknown page';
-                        data.subscribeTitle = '         ';
-                        data.playing = false;
-                        data.position = 0;
-                        data.duration = 0;
-                    }
-                    else {
-
-                        window.video = document.getElementsByTagName('video')[0];
-                        if (window.video) {
-
-                            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
-
-                            if (!document.getElementById('genxbackground')) {
-
-                                window.video.onended = () => { window.close() };
-                                let div = document.createElement('div'); document.body.appendChild(div);div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
-                                div.setAttribute('id', 'genxbackground');
-                                document.body.appendChild(window.video);
-                                document.body.setAttribute('style', 'overflow:hidden');
-                            }
-
-                            window.video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;z-index:10000;width:100vw;height:100vh');
-                            data.playing = !window.video.paused;
-                            data.position = window.video.currentTime;
-                            data.duration = window.video.duration;
-                        }
-                        else {
-                            data.playing = false;
-                            data.position = 0;
-                            data.duration = 0;
-                        }
-
-                        try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
-                        try { data.title = document.title; } catch { data.title = ''; }
-                        try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
-                    }
-                " -ErrorAction SilentlyContinue | Out-Null;
-
+                    Invoke-WebbrowserEvaluation "$job ;`r`n debugger; window.oayv.updatePage(data);" -ErrorAction SilentlyContinue | Out-Null;
                 }
                 catch {
 
-                    Clear-Host
                 }
             }
         }
@@ -602,7 +894,7 @@ function Open-AllYoutubeVideos {
 
 function Open-GoogleQuery {
 
-    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("q")]
 
@@ -623,7 +915,163 @@ function Open-GoogleQuery {
             Mandatory = $false,
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
-        [int] $Monitor = -1
+        [int] $Monitor = -1,
+        ###############################################################################
+        [ValidateSet(
+            "Afrikaans",
+            "Akan",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bemba",
+            "Bengali",
+            "Bihari",
+            "Bork, bork, bork!",
+            "Bosnian",
+            "Breton",
+            "Bulgarian",
+            "Cambodian",
+            "Catalan",
+            "Cherokee",
+            "Chichewa",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Corsican",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Elmer Fudd",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Ewe",
+            "Faroese",
+            "Filipino",
+            "Finnish",
+            "French",
+            "Frisian",
+            "Ga",
+            "Galician",
+            "Georgian",
+            "German",
+            "Greek",
+            "Guarani",
+            "Gujarati",
+            "Hacker",
+            "Haitian Creole",
+            "Hausa",
+            "Hawaiian",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Igbo",
+            "Indonesian",
+            "Interlingua",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Javanese",
+            "Kannada",
+            "Kazakh",
+            "Kinyarwanda",
+            "Kirundi",
+            "Klingon",
+            "Kongo",
+            "Korean",
+            "Krio (Sierra Leone)",
+            "Kurdish",
+            "Kurdish (Soranî)",
+            "Kyrgyz",
+            "Laothian",
+            "Latin",
+            "Latvian",
+            "Lingala",
+            "Lithuanian",
+            "Lozi",
+            "Luganda",
+            "Luo",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Maori",
+            "Marathi",
+            "Mauritian Creole",
+            "Moldavian",
+            "Mongolian",
+            "Montenegrin",
+            "Nepali",
+            "Nigerian Pidgin",
+            "Northern Sotho",
+            "Norwegian",
+            "Norwegian (Nynorsk)",
+            "Occitan",
+            "Oriya",
+            "Oromo",
+            "Pashto",
+            "Persian",
+            "Pirate",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Quechua",
+            "Romanian",
+            "Romansh",
+            "Runyakitara",
+            "Russian",
+            "Scots Gaelic",
+            "Serbian",
+            "Serbo-Croatian",
+            "Sesotho",
+            "Setswana",
+            "Seychellois Creole",
+            "Shona",
+            "Sindhi",
+            "Sinhalese",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Spanish (Latin American)",
+            "Sundanese",
+            "Swahili",
+            "Swedish",
+            "Tajik",
+            "Tamil",
+            "Tatar",
+            "Telugu",
+            "Thai",
+            "Tigrinya",
+            "Tonga",
+            "Tshiluba",
+            "Tumbuka",
+            "Turkish",
+            "Turkmen",
+            "Twi",
+            "Uighur",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Wolof",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The language of the returned search results"
+        )]
+        [string] $Language = $null
     )
 
     DynamicParam {
@@ -721,7 +1169,163 @@ function Copy-PDFsFromGoogleQuery {
             Mandatory = $false,
             HelpMessage = "The maximum number of results to obtain, defaults to 200"
         )]
-        [int] $Max = 200
+        [int] $Max = 200,
+        ###############################################################################
+        [ValidateSet(
+            "Afrikaans",
+            "Akan",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bemba",
+            "Bengali",
+            "Bihari",
+            "Bork, bork, bork!",
+            "Bosnian",
+            "Breton",
+            "Bulgarian",
+            "Cambodian",
+            "Catalan",
+            "Cherokee",
+            "Chichewa",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Corsican",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Elmer Fudd",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Ewe",
+            "Faroese",
+            "Filipino",
+            "Finnish",
+            "French",
+            "Frisian",
+            "Ga",
+            "Galician",
+            "Georgian",
+            "German",
+            "Greek",
+            "Guarani",
+            "Gujarati",
+            "Hacker",
+            "Haitian Creole",
+            "Hausa",
+            "Hawaiian",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Igbo",
+            "Indonesian",
+            "Interlingua",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Javanese",
+            "Kannada",
+            "Kazakh",
+            "Kinyarwanda",
+            "Kirundi",
+            "Klingon",
+            "Kongo",
+            "Korean",
+            "Krio (Sierra Leone)",
+            "Kurdish",
+            "Kurdish (Soranî)",
+            "Kyrgyz",
+            "Laothian",
+            "Latin",
+            "Latvian",
+            "Lingala",
+            "Lithuanian",
+            "Lozi",
+            "Luganda",
+            "Luo",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Maori",
+            "Marathi",
+            "Mauritian Creole",
+            "Moldavian",
+            "Mongolian",
+            "Montenegrin",
+            "Nepali",
+            "Nigerian Pidgin",
+            "Northern Sotho",
+            "Norwegian",
+            "Norwegian (Nynorsk)",
+            "Occitan",
+            "Oriya",
+            "Oromo",
+            "Pashto",
+            "Persian",
+            "Pirate",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Quechua",
+            "Romanian",
+            "Romansh",
+            "Runyakitara",
+            "Russian",
+            "Scots Gaelic",
+            "Serbian",
+            "Serbo-Croatian",
+            "Sesotho",
+            "Setswana",
+            "Seychellois Creole",
+            "Shona",
+            "Sindhi",
+            "Sinhalese",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Spanish (Latin American)",
+            "Sundanese",
+            "Swahili",
+            "Swedish",
+            "Tajik",
+            "Tamil",
+            "Tatar",
+            "Telugu",
+            "Thai",
+            "Tigrinya",
+            "Tonga",
+            "Tshiluba",
+            "Tumbuka",
+            "Turkish",
+            "Turkmen",
+            "Twi",
+            "Uighur",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Wolof",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The language of the returned search results"
+        )]
+        [string] $Language = $null
     )
 
     begin {
@@ -733,7 +1337,7 @@ function Copy-PDFsFromGoogleQuery {
 
         foreach ($Query in $Queries) {
 
-            Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" |
+            Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" -Language $Language |
             ForEach-Object -ThrottleLimit 64 -Parallel {
 
                 try {
@@ -837,7 +1441,7 @@ function Open-WikipediaQuery {
 
 function Open-WikipediaNLQuery {
 
-    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WikipediaNLQuery: Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wikinl")]
 
@@ -901,7 +1505,7 @@ function Open-WikipediaNLQuery {
 
 function Open-YoutubeQuery {
 
-    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-YoutubeQuery: Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("youtube")]
 
@@ -965,7 +1569,7 @@ function Open-YoutubeQuery {
 
 function Open-IMDBQuery {
 
-    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-IMDBQuery: Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("imdb")]
 
@@ -1029,7 +1633,7 @@ function Open-IMDBQuery {
 
 function Open-InstantStreetViewQuery {
 
-    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-InstantStreetViewQuery: Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("isv")]
 
@@ -1093,7 +1697,7 @@ function Open-InstantStreetViewQuery {
 
 function Open-StackOverflowQuery {
 
-    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-StackOverflowQuery: Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qso")]
 
@@ -1157,7 +1761,7 @@ function Open-StackOverflowQuery {
 
 function Open-WolframAlphaQuery {
 
-    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WolframAlphaQuery: Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qalpha")]
 
@@ -1221,7 +1825,7 @@ function Open-WolframAlphaQuery {
 
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("qgit")]
 
@@ -1303,7 +1907,7 @@ function Open-GithubQuery {
 
 function Open-GoogleSiteInfo {
 
-    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-GoogleSiteInfo: Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias()]
 
@@ -1357,7 +1961,7 @@ function Open-GoogleSiteInfo {
 
 function Open-BuiltWithSiteInfo {
 
-    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -1424,7 +2028,7 @@ function Open-BuiltWithSiteInfo {
 
 function Open-WhoisHostSiteInfo {
 
-    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WhoisHostSiteInfo: Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias()]
 
@@ -1493,7 +2097,7 @@ function Open-WhoisHostSiteInfo {
 
 function Open-WaybackMachineSiteInfo {
 
-    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
+    # DESCRIPTION Open-WaybackMachineSiteInfo: Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches
 
     [Alias("wayback")]
 
@@ -1625,4 +2229,169 @@ function Open-SimularWebSiteInfo {
             Open-Webbrowser @PSBoundParameters
         }
     }
+}
+
+###############################################################################
+
+<#
+.SYNOPSIS
+Returns a reversed dictionary for all languages supported by Google Search
+
+.DESCRIPTION
+Returns a reversed dictionary for all languages supported by Google Search
+#>
+function Get-WebLanguageDictionary {
+
+    $result = New-Object System.Collections.Generic.Dictionary"[String,string]"
+    $result["Afrikaans"] = "af";
+    $result["Akan"] = "ak";
+    $result["Albanian"] = "sq";
+    $result["Amharic"] = "am";
+    $result["Arabic"] = "ar";
+    $result["Armenian"] = "hy";
+    $result["Azerbaijani"] = "az";
+    $result["Basque"] = "eu";
+    $result["Belarusian"] = "be";
+    $result["Bemba"] = "bem";
+    $result["Bengali"] = "bn";
+    $result["Bihari"] = "bh";
+    $result["Bork, bork, bork!"] = "xx-bork";
+    $result["Bosnian"] = "bs";
+    $result["Breton"] = "br";
+    $result["Bulgarian"] = "bg";
+    $result["Cambodian"] = "km";
+    $result["Catalan"] = "ca";
+    $result["Cherokee"] = "chr";
+    $result["Chichewa"] = "ny";
+    $result["Chinese (Simplified)"] = "zh-CN";
+    $result["Chinese (Traditional)"] = "zh-TW";
+    $result["Corsican"] = "co";
+    $result["Croatian"] = "hr";
+    $result["Czech"] = "cs";
+    $result["Danish"] = "da";
+    $result["Dutch"] = "nl";
+    $result["Elmer Fudd"] = "xx-elmer";
+    $result["English"] = "en";
+    $result["Esperanto"] = "eo";
+    $result["Estonian"] = "et";
+    $result["Ewe"] = "ee";
+    $result["Faroese"] = "fo";
+    $result["Filipino"] = "tl";
+    $result["Finnish"] = "fi";
+    $result["French"] = "fr";
+    $result["Frisian"] = "fy";
+    $result["Ga"] = "gaa";
+    $result["Galician"] = "gl";
+    $result["Georgian"] = "ka";
+    $result["German"] = "de";
+    $result["Greek"] = "el";
+    $result["Guarani"] = "gn";
+    $result["Gujarati"] = "gu";
+    $result["Hacker"] = "xx-hacker";
+    $result["Haitian Creole"] = "ht";
+    $result["Hausa"] = "ha";
+    $result["Hawaiian"] = "haw";
+    $result["Hebrew"] = "iw";
+    $result["Hindi"] = "hi";
+    $result["Hungarian"] = "hu";
+    $result["Icelandic"] = "is";
+    $result["Igbo"] = "ig";
+    $result["Indonesian"] = "id";
+    $result["Interlingua"] = "ia";
+    $result["Irish"] = "ga";
+    $result["Italian"] = "it";
+    $result["Japanese"] = "ja";
+    $result["Javanese"] = "jw";
+    $result["Kannada"] = "kn";
+    $result["Kazakh"] = "kk";
+    $result["Kinyarwanda"] = "rw";
+    $result["Kirundi"] = "rn";
+    $result["Klingon"] = "xx-klingon";
+    $result["Kongo"] = "kg";
+    $result["Korean"] = "ko";
+    $result["Krio (Sierra Leone)"] = "kri";
+    $result["Kurdish"] = "ku";
+    $result["Kurdish (Soranî)"] = "ckb";
+    $result["Kyrgyz"] = "ky";
+    $result["Laothian"] = "lo";
+    $result["Latin"] = "la";
+    $result["Latvian"] = "lv";
+    $result["Lingala"] = "ln";
+    $result["Lithuanian"] = "lt";
+    $result["Lozi"] = "loz";
+    $result["Luganda"] = "lg";
+    $result["Luo"] = "ach";
+    $result["Macedonian"] = "mk";
+    $result["Malagasy"] = "mg";
+    $result["Malay"] = "ms";
+    $result["Malayalam"] = "ml";
+    $result["Maltese"] = "mt";
+    $result["Maori"] = "mi";
+    $result["Marathi"] = "mr";
+    $result["Mauritian Creole"] = "mfe";
+    $result["Moldavian"] = "mo";
+    $result["Mongolian"] = "mn";
+    $result["Montenegrin"] = "sr-ME";
+    $result["Nepali"] = "ne";
+    $result["Nigerian Pidgin"] = "pcm";
+    $result["Northern Sotho"] = "nso";
+    $result["Norwegian"] = "no";
+    $result["Norwegian (Nynorsk)"] = "nn";
+    $result["Occitan"] = "oc";
+    $result["Oriya"] = "or";
+    $result["Oromo"] = "om";
+    $result["Pashto"] = "ps";
+    $result["Persian"] = "fa";
+    $result["Pirate"] = "xx-pirate";
+    $result["Polish"] = "pl";
+    $result["Portuguese (Brazil)"] = "pt-BR";
+    $result["Portuguese (Portugal)"] = "pt-PT";
+    $result["Punjabi"] = "pa";
+    $result["Quechua"] = "qu";
+    $result["Romanian"] = "ro";
+    $result["Romansh"] = "rm";
+    $result["Runyakitara"] = "nyn";
+    $result["Russian"] = "ru";
+    $result["Scots Gaelic"] = "gd";
+    $result["Serbian"] = "sr";
+    $result["Serbo-Croatian"] = "sh";
+    $result["Sesotho"] = "st";
+    $result["Setswana"] = "tn";
+    $result["Seychellois Creole"] = "crs";
+    $result["Shona"] = "sn";
+    $result["Sindhi"] = "sd";
+    $result["Sinhalese"] = "si";
+    $result["Slovak"] = "sk";
+    $result["Slovenian"] = "sl";
+    $result["Somali"] = "so";
+    $result["Spanish"] = "es";
+    $result["Spanish (Latin American)"] = "es-419";
+    $result["Sundanese"] = "su";
+    $result["Swahili"] = "sw";
+    $result["Swedish"] = "sv";
+    $result["Tajik"] = "tg";
+    $result["Tamil"] = "ta";
+    $result["Tatar"] = "tt";
+    $result["Telugu"] = "te";
+    $result["Thai"] = "th";
+    $result["Tigrinya"] = "ti";
+    $result["Tonga"] = "to";
+    $result["Tshiluba"] = "lua";
+    $result["Tumbuka"] = "tum";
+    $result["Turkish"] = "tr";
+    $result["Turkmen"] = "tk";
+    $result["Twi"] = "tw";
+    $result["Uighur"] = "ug";
+    $result["Ukrainian"] = "uk";
+    $result["Urdu"] = "ur";
+    $result["Uzbek"] = "uz";
+    $result["Vietnamese"] = "vi";
+    $result["Welsh"] = "cy";
+    $result["Wolof"] = "wo";
+    $result["Xhosa"] = "xh";
+    $result["Yiddish"] = "yi";
+    $result["Yoruba"] = "yo";
+    $result["Zulu"] = "zu";
+
+    return $result;
 }
