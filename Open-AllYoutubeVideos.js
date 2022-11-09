@@ -10,7 +10,6 @@ window.oayv = window["oayv"] || (function () {
     result.doneUrls = [];
     result.nowHidden = null;
 
-
     result.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
     result.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
     result.isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
@@ -119,7 +118,7 @@ window.oayv = window["oayv"] || (function () {
 
                     let item = result.queueUrls.splice(0, 1)[0];
                     result.doneUrls.push(item);
-                    list.push(item);
+                    list.splice(0, 0, item);
                 }
                 for (let b of list) {
 
@@ -134,7 +133,7 @@ window.oayv = window["oayv"] || (function () {
 
                         setTimeout(function () {
                             window.oayvInitialized = false;
-                            result.initializePage();
+                            result.initializePage(data);
                         }, 1000);
                     }
                 }
@@ -164,14 +163,14 @@ window.oayv = window["oayv"] || (function () {
             result.vid = document.getElementsByTagName("video")[0];
             if (!!result.vid) {
                 window.oayvInitialized = false;
-                result.initializePage(dataObj);
+                result.initializePage(data);
             }
         }
 
         if ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage) &&
             result.doneUrls.length + result.queueUrls.length === 0) {
             window.oayvInitialized = false;
-            result.initializePage(dataObj);
+            result.initializePage(data);
         }
 
         if (!(result.isViewPage || result.isShortsPage)) {

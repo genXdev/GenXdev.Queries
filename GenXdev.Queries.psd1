@@ -6,7 +6,7 @@
     RootModule             = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '1.34.2022'
+    ModuleVersion          = '1.35.2022'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -44,7 +44,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.34.2022' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.34.2022' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion  = '1.34.2022'})
+    RequiredModules        = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.35.2022' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.35.2022' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion  = '1.35.2022'})
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies     = @("System.Web")
@@ -59,7 +59,7 @@
     # FormatsToProcess = @()
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-    NestedModules          = @("GenXdev.Queries.Webbrowser.psm1", "GenXdev.Queries.Text.psm1", "GenXdev.Queries.Misc.psm1")
+    NestedModules          = @("GenXdev.Queries.Webbrowser.psm1", "GenXdev.Queries.Text.psm1")
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport      = '*' # @("*")
@@ -80,7 +80,7 @@
     ModuleList             = @("GenXdev.Queries")
 
     # List of all files packaged with this module
-    FileList               = @("GenXdev.Queries.Misc.psm1", "GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "GenXdev.Queries.Text.psm1", "GenXdev.Queries.Webbrowser.psm1", "Get-GoogleSearchResultUrls.js", "LICENSE", "license.txt", "Open-AllGoogleLinks.js", "Open-AllYoutubeVideos.js", "PauseVideoOnHide.js", "powershell.jpg", "README.md")
+    FileList               = @("GenXdev.Queries.psd1", "GenXdev.Queries.psm1", "GenXdev.Queries.Text.psm1", "GenXdev.Queries.Webbrowser.psm1", "Get-GoogleSearchResultUrls.js", "LICENSE", "license.txt", "Open-AllGoogleLinks.js", "Open-AllYoutubeVideos.js", "PauseVideoOnHide.js", "powershell.jpg", "README.md")
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
     PrivateData            = @{
@@ -116,7 +116,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    HelpInfoURI            = 'https://github.com/genXdev/GenXdev.Queries/blob/master/README.md#cmdlet-index'
+    HelpInfoURI            = 'https://github.com/genXdev/GenXdev.Queries/blob/main/README.md#cmdlet-index'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''

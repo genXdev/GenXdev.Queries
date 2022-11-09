@@ -652,9 +652,10 @@ function Open-AllYoutubeVideos {
                     $scrollPosition = -1;
                     $scrollPosition2 = -1;
                     $videoInfo = "$($Global:data.title)$($Global:data.description)"
+
                     if ($videoInfo -ne $LastVideo) {
 
-                        Clear-Host
+                        Clear-Host;
                         Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                         $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
                         if ($header.Length -gt $hostInfo.WindowSize.Width) {
@@ -717,7 +718,7 @@ function Open-AllYoutubeVideos {
                                 Clear-Host;
                                 if ($null -ne $browser) {
 
-                                   $browser.CloseMainWindow();
+                                    $browser.CloseMainWindow();
                                 }
                                 return;
                             }
