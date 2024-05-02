@@ -204,7 +204,7 @@ function Get-GoogleSearchResultUrls {
         $Queries = Build-InvocationArguments $MyInvocation $Queries
         $LangKey = "&hl=en";
 
-        if ($Language -ne $null) {
+        if (![string]::IsNullOrWhiteSpace($Language)) {
 
             $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
         }
@@ -444,7 +444,7 @@ function Open-AllGoogleLinks {
         $Query = Build-InvocationArguments $MyInvocation $Queries -SingleString
         $LangKey = "&hl=en";
 
-        if ($Language -ne $null) {
+        if (![string]::IsNullOrWhiteSpace($Language)) {
 
             $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
         }
@@ -843,9 +843,18 @@ function Open-AllYoutubeVideos {
                     }
 
                     Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+
+                    if (($Global:chromeSessions.Count -eq 0) -or ($null -eq $Global:chrome)) {
+
+                        throw "No active session"
+                    }
+
                     Invoke-WebbrowserEvaluation "$job ;`r`n debugger; window.oayv.updatePage(data);" -ErrorAction SilentlyContinue | Out-Null;
                 }
                 catch {
+                    if ($LastVideo -ne "") {
+                        return;
+                    }
 
                 }
             }
@@ -1338,8 +1347,15 @@ function Copy-PDFsFromGoogleQuery {
 
         foreach ($Query in $Queries) {
 
-            Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" -Language $Language |
-            ForEach-Object -ThrottleLimit 64 -Parallel {
+            if ([string]::IsNullOrWhiteSpace($Language)) {
+
+                $list = Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query"
+            }
+            else {
+                $list = Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" -Language $Language
+            }
+
+            $list | ForEach-Object -ThrottleLimit 64 -Parallel {
 
                 try {
 
@@ -1439,6 +1455,148 @@ function Open-WikipediaQuery {
 }
 
 ###############################################################################
+
+###############################################################################
+
+<#
+.SYNOPSIS
+Opens a Bing chat query in a webbrowser
+
+.DESCRIPTION
+Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches
+
+#>
+function Open-BingChatQuery {
+
+    [CmdletBinding()]
+    [Alias("bc")]
+
+    param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [string[]] $Queries,
+        ###############################################################################
+
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
+
+    process {
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.bing.com/chat?q=$([Uri]::EscapeUriString($Query))";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
+}
+
+###############################################################################
+
+###############################################################################
+
+<#
+.SYNOPSIS
+Opens a Bing query in a webbrowser
+
+.DESCRIPTION
+Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches
+
+#>
+function Open-BingQuery {
+
+    [CmdletBinding()]
+    [Alias("bq")]
+
+    param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [string[]] $Queries,
+        ###############################################################################
+
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
+
+    process {
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.bing.com/search?q=$([Uri]::EscapeUriString($Query))";
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
+}
 
 function Open-WikipediaNLQuery {
 
@@ -2157,6 +2315,75 @@ function Open-WaybackMachineSiteInfo {
         foreach ($Query in $Queries) {
 
             $PSBoundParameters["Url"] = "https://web.archive.org/web/*/$([Uri]::EscapeUriString($Query))"
+
+            Open-Webbrowser @PSBoundParameters
+        }
+    }
+}
+
+###############################################################################
+
+function Open-MovieQuote {
+
+    # DESCRIPTION Open-MovieQuote: Opens a video of a movie quote
+
+    [Alias("moviequote")]
+
+    param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [string[]] $Queries,
+        ###############################################################################
+
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+    }
+
+    begin {
+
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
+
+    process {
+
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = "https://www.playphrase.me/#/search?q=$([Uri]::EscapeUriString($Query))"
 
             Open-Webbrowser @PSBoundParameters
         }

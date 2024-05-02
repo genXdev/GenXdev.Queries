@@ -53,7 +53,7 @@ function onVisibilityChanged(e) {
 
         if (!!document.scrollingElement) {
 
-            document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight+99999;
+            window.scrollTo(0,document.body.scrollHeight);
             setTimeout(() => {
                 window.onceOnly = false;
             }, 1);

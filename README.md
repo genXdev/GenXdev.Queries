@@ -81,6 +81,8 @@ Update-Module
 | [Open-GoogleQuery](#Open-GoogleQuery) | q | Opens a google query in a webbrowser, in a configurable manner, using commandline switches |
 | [Copy-PDFsFromGoogleQuery](#Copy-PDFsFromGoogleQuery) |  | Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory |
 | [Open-WikipediaQuery](#Open-WikipediaQuery) | wiki | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BingChatQuery](#Open-BingChatQuery) | bc | Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BingQuery](#Open-BingQuery) | bq | Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-WikipediaNLQuery](#Open-WikipediaNLQuery) | wikinl | Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-YoutubeQuery](#Open-YoutubeQuery) | youtube | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-IMDBQuery](#Open-IMDBQuery) | imdb | Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches |
@@ -92,6 +94,7 @@ Update-Module
 | [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo) |  | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo) |  | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo) | wayback | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-MovieQuote](#Open-MovieQuote) | moviequote | Opens a video of a movie quote |
 | [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) | simularsite | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches |
 | [Get-WebLanguageDictionary](#Get-WebLanguageDictionary) |  | Returns a reversed dictionary for all languages supported by Google Search |
 
@@ -110,10 +113,8 @@ Open-AllPossibleQueries              --> qq
 
 ### SYNTAX
 ````PowerShell
-Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -217,8 +218,7 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -374,8 +374,7 @@ Invoke-WebbrowserTabPollingScript
 
 ### SYNTAX
 ````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback <ScriptBlock>] 
-[<CommonParameters>]
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback <ScriptBlock>] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -827,24 +826,17 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic | 
-Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | 
-Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | 
-Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | Finnish 
-| French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian Creole | 
-Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | 
-Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
-Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda | Luo | 
-Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | 
-Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo 
-| Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua | Romanian | 
-Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho | Setswana | Seychellois Creole 
-| Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | 
-Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | 
-Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | Zulu}] 
-[-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] 
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] 
-[-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | 
+Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian | Czech | Danish | Dutch | 
+Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian Creole | 
+Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo 
+| Korean | Krio (Sierra Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | 
+Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | 
+Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | 
+Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar 
+| Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | Zulu}] 
+[-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1077,8 +1069,7 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
 
 ### SYNTAX
 ````PowerShell
@@ -1086,8 +1077,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
 
 ### PARAMETERS
     -Queries <String[]>
@@ -1173,6 +1163,80 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
 
 <br/><hr/><hr/><br/>
 
+##	Open-BingChatQuery
+````PowerShell
+Open-BingChatQuery                   --> bc
+````
+
+### SYNOPSIS
+    Opens a Bing chat query in a webbrowser
+
+### SYNTAX
+````PowerShell
+Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Monitor <Int32>
+        Required?                    false
+        Position?                    named
+        Default value                -1
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-BingQuery
+````PowerShell
+Open-BingQuery                       --> bq
+````
+
+### SYNOPSIS
+    Opens a Bing query in a webbrowser
+
+### SYNTAX
+````PowerShell
+Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Monitor <Int32>
+        Required?                    false
+        Position?                    named
+        Default value                -1
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
 ##	Open-WikipediaNLQuery
 ````PowerShell
 Open-WikipediaNLQuery                --> wikinl
@@ -1180,10 +1244,8 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1408,9 +1470,8 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
+[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1635,9 +1696,8 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
+[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1862,10 +1922,8 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2090,10 +2148,8 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2318,10 +2374,8 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2546,10 +2600,8 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2782,10 +2834,8 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
+[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3010,10 +3060,8 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3238,10 +3286,8 @@ Open-WhoisHostSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3466,10 +3512,234 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-MovieQuote
+````PowerShell
+Open-MovieQuote                      --> moviequote
+````
+
+### SYNTAX
+````PowerShell
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
+[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3694,10 +3964,8 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
-[<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] 
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS

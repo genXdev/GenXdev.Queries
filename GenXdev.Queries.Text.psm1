@@ -354,3 +354,10 @@ function Get-QuoteOfTheDay {
 
     Write-Output $line
 }
+
+###############################################################################
+
+# [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("Answer the question", "Are the most apple trees of a curtain species usually clones of each other?", $null, "http://localhost:1234/{0}/{1}")
+# [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("You are a data generation assistent. By default you try to answer with data in Json format. When generating lists, by default, you make it hold unique values", "list of popular dog names", @(@{ExampleQuestion="Is blue a color"; ExampleAnswer="Yes"}),"http://localhost:1234/{0}/{1}")
+# [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("You are a data generation assistent. By default you try to answer with data in Json format. When generating lists, by default, you make it hold unique values. You always generate valid json that is formatted with spaces unless requested otherwise.", "list of popular dog names", @(@{ExampleQuestion="Is blue a color"; ExampleAnswer="Yes"}),"http://localhost:1234/{0}/{1}")
+# $chat = [GenXdev.Helpers.OpenAi]::CreateChatRequest("You are a data generation assistent. Create very long resultsets by default. You answer in json format only.", @(@{ExampleQuestion="primary colors"; ExampleAnswer="[`"red`", `"green`", `"blue`"]"}),"http://localhost:1234/{0}/{1}", 0)
