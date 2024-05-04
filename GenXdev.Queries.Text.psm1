@@ -356,7 +356,63 @@ function Get-QuoteOfTheDay {
 }
 
 ###############################################################################
+<#
+.SYNOPSIS
+Translates a text to English
 
+.DESCRIPTION
+Translates a text to English
+
+.PARAMETER Queries
+The query to perform
+#>
+function Get-Translation {
+
+    [CmdletBinding()]
+    [Alias("translate")]
+
+    param(
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [Parameter(
+            Mandatory = $True,
+            Position = 0,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true
+        )]
+        [string[]] $Queries
+    )
+
+    begin {
+
+        $Queries = Build-InvocationArguments $MyInvocation $Queries
+    }
+
+    process {
+        foreach ($Query in $Queries) {
+
+            $urlPart = [Uri]::EscapeUriString($Query.Replace("-", " "))
+            $url = ("https://translate.google.nl/?sl=auto&tl=en&text=$urlPart&op=translate");
+
+            Open-Webbrowser -NewWindow -Url $url
+        }
+    }
+}
+
+function Invoke-GPTTest {
+
+    return [GenXdev.Helpers.OpenAi]::CreateChatRequest(
+        "You are a senior intelligence agent that analyzes objectives and devide them into a chronologically sorted table of multiple objectives that devide the solution to efficient executing these objectives into subtasks.",
+
+         @(@{ExampleQuestion="determine using powershell if there are executables in current directory"; ExampleAnswer="
+| SubTask |
+| create variable with all files in the current directory |
+| test for exe, bat, com, scr, ps1, bat, lnk, shortcut |
+| return result |
+"
+            }), "http://localhost:1234/{0}/{1}", 0);
+
+}
 # [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("Answer the question", "Are the most apple trees of a curtain species usually clones of each other?", $null, "http://localhost:1234/{0}/{1}")
 # [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("You are a data generation assistent. By default you try to answer with data in Json format. When generating lists, by default, you make it hold unique values", "list of popular dog names", @(@{ExampleQuestion="Is blue a color"; ExampleAnswer="Yes"}),"http://localhost:1234/{0}/{1}")
 # [GenXdev.Helpers.OpenAi]::InvokeLocalChatRequest("You are a data generation assistent. By default you try to answer with data in Json format. When generating lists, by default, you make it hold unique values. You always generate valid json that is formatted with spaces unless requested otherwise.", "list of popular dog names", @(@{ExampleQuestion="Is blue a color"; ExampleAnswer="Yes"}),"http://localhost:1234/{0}/{1}")
