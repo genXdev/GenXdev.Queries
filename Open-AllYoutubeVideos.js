@@ -281,7 +281,7 @@ window.oayv = window["oayv"] || (function () {
 
             try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
             try { data.title = document.title; } catch { data.title = ''; }
-            try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
+            try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
         }
     }
 
