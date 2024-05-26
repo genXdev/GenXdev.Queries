@@ -1499,7 +1499,7 @@ function Open-BingChatQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor", "NewWindow"
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor", "NewWindow", "Force"
     }
 
     begin {
