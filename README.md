@@ -162,8 +162,9 @@ Open-AllPossibleQueries              --> qq
 
 ### SYNTAX
 ````PowerShell
-Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -277,7 +278,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -414,7 +416,6 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -434,7 +435,8 @@ Invoke-WebbrowserTabPollingScript
 
 ### SYNTAX
 ````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback <ScriptBlock>] [<CommonParameters>]
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback <ScriptBlock>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -447,14 +449,12 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -InitialUrl <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Callback <ScriptBlock>
         A scriptblock that gets executed each time the tab has been polled
@@ -462,7 +462,6 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>]
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -487,7 +486,8 @@ Build-InvocationArguments
 
 ### SYNTAX
 ````PowerShell
-Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] <String[]>] [[-SingleString]] [<CommonParameters>]
+Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] <String[]>] [[-SingleString]] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -499,21 +499,18 @@ Build-InvocationArguments [-InvocationInfo] <Object> [[-Arguments] <String[]>] [
         Position?                    1
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Arguments <String[]>
         Required?                    false
         Position?                    2
         Default value                @()
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -SingleString [<SwitchParameter>]
         Required?                    false
         Position?                    3
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -564,7 +561,6 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -597,7 +593,6 @@ Get-QuoteOfTheDay [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -630,7 +625,6 @@ Get-Translation [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -663,7 +657,6 @@ Get-Gpt3QuestionSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -696,7 +689,6 @@ Get-Gpt3EnglishSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -729,7 +721,6 @@ Get-Gpt3DutchSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -762,7 +753,6 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -795,7 +785,6 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -828,7 +817,6 @@ Get-Gpt3QuestionSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -861,7 +849,6 @@ Get-Gpt3EnglishSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -894,7 +881,6 @@ Get-Gpt3DutchSummary [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -927,7 +913,6 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -960,7 +945,6 @@ Get-QuoteOfTheDay [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -993,7 +977,6 @@ Get-Translation [-Queries] <String[]> [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -1028,8 +1011,9 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -1264,8 +1248,9 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -1515,14 +1500,12 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -1539,8 +1522,9 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -1775,8 +1759,9 @@ Open-WhoisHostSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2011,8 +1996,9 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2247,8 +2233,9 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2483,8 +2470,9 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2719,8 +2707,9 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2954,7 +2943,8 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
+    directory
 
 ### SYNTAX
 ````PowerShell
@@ -2962,7 +2952,8 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
+    directory
 
 ### PARAMETERS
     -Queries <String[]>
@@ -2970,7 +2961,6 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -2978,14 +2968,12 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3021,8 +3009,9 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -3299,14 +3288,12 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3348,7 +3335,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    1
         Default value                @("")
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Subscriptions [<SwitchParameter>]
         Opens all videos of subscribed channels
@@ -3356,7 +3342,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -WatchLater [<SwitchParameter>]
         Opens all videos of the watch-later playlist
@@ -3364,7 +3349,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Recommended [<SwitchParameter>]
         Opens all videos that youtube recommends
@@ -3372,7 +3356,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3416,14 +3399,12 @@ Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-Force] [<CommonPar
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
-        Default value                0
+        Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Enforced that the debugging port is enabled, even if that means stopping all already opened browser processes
@@ -3431,7 +3412,6 @@ Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-Force] [<CommonPar
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3463,14 +3443,12 @@ Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3487,8 +3465,9 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -3738,7 +3717,6 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -3746,14 +3724,12 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -3777,9 +3753,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
-<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
-[-PassThrough] [<CommonParameters>]
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4021,18 +3998,24 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba 
-| Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | 
-Corsican | Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | Finnish | French | Frisian | Ga | Galician | 
-Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | 
-Irish | Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | 
-Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | 
-Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | Persian | Pirate | 
-Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho 
-| Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | 
-Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | 
-Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
-[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic 
+| Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | 
+Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | 
+Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | 
+Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian 
+Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | 
+Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra 
+Leone) | Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda 
+| Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | Moldavian | 
+Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
+Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | 
+Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho | 
+Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish 
+(Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | 
+Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | 
+Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
+[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4275,8 +4258,9 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -4511,8 +4495,10 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
+[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4761,7 +4747,6 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -4769,14 +4754,12 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -4817,14 +4800,12 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -4866,7 +4847,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    1
         Default value                @("")
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Subscriptions [<SwitchParameter>]
         Opens all videos of subscribed channels
@@ -4874,7 +4854,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -WatchLater [<SwitchParameter>]
         Opens all videos of the watch-later playlist
@@ -4882,7 +4861,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Recommended [<SwitchParameter>]
         Opens all videos that youtube recommends
@@ -4890,7 +4868,6 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -4919,18 +4896,24 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba 
-| Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | 
-Corsican | Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | Finnish | French | Frisian | Ga | Galician | 
-Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | 
-Irish | Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | 
-Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | 
-Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | Persian | Pirate | 
-Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho 
-| Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | 
-Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | 
-Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] 
-[-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic 
+| Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | 
+Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | 
+Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | 
+Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian 
+Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | 
+Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra 
+Leone) | Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda 
+| Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | Moldavian | 
+Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
+Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | 
+Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho | 
+Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish 
+(Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | 
+Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | 
+Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
+[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -5172,7 +5155,8 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
+    directory
 
 ### SYNTAX
 ````PowerShell
@@ -5180,7 +5164,8 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
+    directory
 
 ### PARAMETERS
     -Queries <String[]>
@@ -5188,7 +5173,6 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -5196,14 +5180,12 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
         Default value                
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -5254,14 +5236,12 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -5293,14 +5273,12 @@ Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-Force] [<CommonPar
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
-        Default value                0
+        Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Enforced that the debugging port is enabled, even if that means stopping all already opened browser processes
@@ -5308,7 +5286,6 @@ Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-Force] [<CommonPar
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -5340,14 +5317,12 @@ Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
         Position?                    1
         Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
@@ -5364,8 +5339,9 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -5600,8 +5576,9 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -5836,8 +5813,10 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
+[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -6071,8 +6050,9 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -6307,8 +6287,9 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -6543,8 +6524,9 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -6779,9 +6761,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width 
-<int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
-[-PassThrough] [<CommonParameters>]
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -7023,8 +7006,9 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -7259,8 +7243,9 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -7495,8 +7480,9 @@ Open-WhoisHostSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -7731,8 +7717,9 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -7967,8 +7954,9 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -8203,8 +8191,9 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -8467,8 +8456,9 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8563,7 +8553,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8685,8 +8676,9 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8781,7 +8773,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8894,12 +8887,15 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves 
-| KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
-GauguinGlow | RenoirReflections}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground <string>] 
-[-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] [-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor <string>] 
-[-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | 
+PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | KlimtKaleidoscope | MiroMirage | RothkoRhythms | 
+SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | 
+CezanneContours | GauguinGlow | RenoirReflections}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] 
+[-DragedNodeBackground <string>] [-FocusedNodeBackground <string>] [-FocusedNodeForeground <string>] 
+[-UnFocusedNodeBackground <string>] [-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] 
+[-BorderDarkColor <string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9197,8 +9193,9 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9293,7 +9290,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9406,8 +9404,9 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9502,7 +9501,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9624,12 +9624,15 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves 
-| KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
-GauguinGlow | RenoirReflections}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground <string>] 
-[-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] [-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor <string>] 
-[-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | 
+PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | KlimtKaleidoscope | MiroMirage | RothkoRhythms | 
+SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | 
+CezanneContours | GauguinGlow | RenoirReflections}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] 
+[-DragedNodeBackground <string>] [-FocusedNodeBackground <string>] [-FocusedNodeForeground <string>] 
+[-UnFocusedNodeBackground <string>] [-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] 
+[-BorderDarkColor <string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9927,8 +9930,9 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
+[-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10023,7 +10027,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10136,8 +10141,9 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10232,7 +10238,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10345,8 +10352,9 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
+[-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10441,7 +10449,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10563,8 +10572,9 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
+[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10659,7 +10669,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
+        monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false

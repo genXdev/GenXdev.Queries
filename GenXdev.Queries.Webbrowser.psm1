@@ -1487,7 +1487,7 @@ function Open-BingChatQuery {
             Mandatory = $false,
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
         )]
-        [int] $Monitor = 0,
+        [int] $Monitor = -1,
         ###############################################################################
         [parameter(
             Mandatory = $false,
@@ -1533,7 +1533,7 @@ function Open-BingChatQuery {
             $PSBoundParameters.Add("Force", $Force);
         }
 
-        Set-WindowPosition -Left -Monitor 0;
+        Set-WindowPosition -Left -Monitor -1;
 
         if ($PSBoundParameters.ContainsKey("Right") -eq $false) {
 
@@ -2638,8 +2638,8 @@ function Get-WebLanguageDictionary {
 # SIG # Begin signature block
 # MIIbzgYJKoZIhvcNAQcCoIIbvzCCG7sCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCC3E5+wSCDLFKUf
-# /1cloijNqdXkf2oxo6PNQFm/i2MzY6CCFhswggMOMIIB9qADAgECAhBwxOfTiuon
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCCTQnQx8ABfHrX8
+# EtWbiQcYgPvrszDE8j1vyaZwkGENhaCCFhswggMOMIIB9qADAgECAhBwxOfTiuon
 # hU3SZf3YwpWAMA0GCSqGSIb3DQEBCwUAMB8xHTAbBgNVBAMMFEdlblhkZXYgQXV0
 # aGVudGljb2RlMB4XDTI0MDUwNTIwMzEzOFoXDTM0MDUwNTE4NDEzOFowHzEdMBsG
 # A1UEAwwUR2VuWGRldiBBdXRoZW50aWNvZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IB
@@ -2761,28 +2761,28 @@ function Get-WebLanguageDictionary {
 # ZW5YZGV2IEF1dGhlbnRpY29kZQIQcMTn04rqJ4VN0mX92MKVgDANBglghkgBZQME
 # AgEFAKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEM
 # BgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMC8GCSqG
-# SIb3DQEJBDEiBCAxyUYF8rbx98kP/WobF4X6wJjNVGVmK58jpq7cT/mEZzANBgkq
-# hkiG9w0BAQEFAASCAQCKVhZjVHLP0v/5PHf3rKC92fPJRyb16XyrDSfqERLqBkao
-# PnHfHrvG5CuBaKneynVFEvAYxzGgcJlOYiNpvVkCMNNv/2cKnMbuTlmITuYDdYva
-# H3/yAkXp6jTK7HQOdXnp1EO7KPyICe1mdN7iwIe6TnlMIcsu6se2oO8fJggMT2sa
-# 9VK7WXhnydpso7qbG7V0CNQI7DCdN5LMU730M7UIu5iuFJ/9VUOL3mjZEmTgzzt4
-# pySHKSnppe5+OnKVbsUiVHWKDw4cxE/fGyjnX6irp++EuFM23Qs4TppeAsJT/fRY
-# L63NUj9QZulP6CNNHzc19ANNIKdGXscePyUvdypUoYIDIDCCAxwGCSqGSIb3DQEJ
+# SIb3DQEJBDEiBCBEIbAVvdamjqHv6i9i2FlOezHrTN9OTMN9rXbsxumg9jANBgkq
+# hkiG9w0BAQEFAASCAQBZKfNbcpsfdFpXUMJ23762QroCJIc79K9o9riTwi8bFFQC
+# 4c1PTMs8z1SyiLXXsBDzEPEcwfFjBj0v5ZgQVQeLmaE2/UW2IdLFJRBnebBW20Gv
+# /f6+D/RR3cHPb4J1L62CtMGg93gzNS5JpKlSl3xu468oWGG3IiOr93M1pxVFRtCw
+# G/QXfWFQd+w0z/gehU+HaVm/GMAobpTGbCrDs6QUWr5ZAPlZjUjbpsOnXBO/sD51
+# tNICh1QUEk0/K/QMJ9jYL7tMbzWMJArPvovgoWHcK1572EIWhse9AR28Cd/2XPV7
+# HbdNXLXG9ND/NwP+2Y37Kg0HckHiOPE1rY0ELu8boYIDIDCCAxwGCSqGSIb3DQEJ
 # BjGCAw0wggMJAgEBMHcwYzELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0
 # LCBJbmMuMTswOQYDVQQDEzJEaWdpQ2VydCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hB
 # MjU2IFRpbWVTdGFtcGluZyBDQQIQBUSv85SdCDmmv9s/X+VhFjANBglghkgBZQME
 # AgEFAKBpMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8X
-# DTI0MDUyNjE2NTEyN1owLwYJKoZIhvcNAQkEMSIEILVlsQuKbpJNr5ihSoOC6fgY
-# GHAYCoOrFlgpnrEUosHhMA0GCSqGSIb3DQEBAQUABIICAEmbl+Eg8ENKc+SmGOCz
-# Ebkic+AFXm3fZDpL8RysuRvWTRDip6dLNPEspk4pCziwVgq7n6q66Ii4CgXnkklL
-# 93qmiFGfODXYNoKbrzGqvxfn/5d4+kc/abMFAuJmWatn18nw3FTlZvd57VqZSwXZ
-# rnJWyrIRxHIjjY5L2gljMPRQocvIOPauTv+VeM0W1AT07xjBpMLIk7YzIb3Ibz02
-# c69sZdDxdP5DLj8uCh5/ilFKqJnco8Hf9bi8LutkxLijBLl9CvHoNadCgp3/SepT
-# nmuprxinewdpRMDS3ZjNR/p+AvOIScFoZS3SeFpycizLTUGgc9E3+2sHp4mOPGE/
-# KdaFnRTa/zdkpkXl5gt4habeUQJntM9H4+N+quGwUkIr6B9qvbWbtNUEqn2qFgre
-# xN1gU0/Xvl4A2kD+3vII09e8jSSowlLExm2n9jpyKTVMsjlqVVq3Cis13W42qVEX
-# d2aICraMAZ6T4wt5T40rbWtCbCVEsgoL0MxwFi1r3G2wZYlEIXsAo5Os4R/1N50x
-# otf95as4gXAVtqNCrbwPG2QUYIBvVaOWARjlVloCLwXgpM3qABCxlXsGkQOMms7v
-# 4S3UBv/ZwC4A05UgsieHGpLa5zBU9d6+/SHS5JeyfEyLLhE0WQkqeTC/sHZ1tJsf
-# JYePx6T8yIRozBn0XWeKtpao
+# DTI0MDYwNzA5MTkzOFowLwYJKoZIhvcNAQkEMSIEINJ/u+svKceBP38Xn7eY2cNd
+# rUowONF9JW1xo/WMlBmsMA0GCSqGSIb3DQEBAQUABIICAE12B6oLs3CN4kldvdOY
+# Z2ApGfgzJuSyS+OlCZoGQToSb6VfRijh95yU4rrjsu8N/Bl7f8xHU9V1V1OaydSy
+# urywNqEFnei+AgCpIgNrHWN/dxXg9r0muAnatxzlwE8TwqUKxTfUmwa+iVxZeRUI
+# 4j8wu3l+hsFHr1HFXlClZjk0eQAlk1rSFd9RMN+Tf5cLgkAM2iDnX6velnrqgVbZ
+# uk/eEqpbpAKOT750l8/nchStYPhnoARXy5JqDR6LoGAuMkKHoaZ2LjwDjP9Mm1ou
+# sFD332bAdPqSnSwW6rSzwX77y3K1VQNpjIRTT7s0NfjQTH1cwF3fJKddn9EgE80i
+# YbpcmF4n3Pq7JnupBWWjepsfDsRfu6r+qFcnMm1pl0ZxRD0i1lG8U2DhrBSsxm9y
+# 9JljJib4kRWdWATNhpJmDUPrTRUobp/kxkYpsLjhP9331UxTzZMQrgfKV7Mw9w3m
+# ER3QxdMg1PR3+idcnLZBmjRi+zHbWO6Wec2wpr/GBIM9RthiGWXEaRn2naa3uCHO
+# f0Um4zYjGp/OxT1IbYYW/GkuMfXgGfH5Ux/xretBjQx5VngfDzWN1tjRzAAwGMQh
+# HNhQwtfQfndAzHGMTG7PEbQlAmWJladF8N8xvUACspj6N99Ctof+h0jn0DCyjvvQ
+# omDWyw41Zm5/9HZU76cYiiIo
 # SIG # End signature block
