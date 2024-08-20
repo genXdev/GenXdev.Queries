@@ -4032,7 +4032,7 @@ Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Gree
 | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
 Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
 Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
-Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
 Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
 Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
 | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 
@@ -4943,7 +4943,7 @@ Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Gree
 | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
 Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
 Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
-Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
 Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
 Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
 | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 

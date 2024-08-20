@@ -484,6 +484,9 @@ Opens all videos of the watch-later playlist
 .PARAMETER Recommended
 Opens all videos that youtube recommends
 
+.PARAMETER Trending
+Opens all videos that are currently trending on youtube
+
 .NOTES
 The very first time, you will need to allow youtube to open pop-ups, using the appropiate button in the addressbar of the browser.
 
@@ -533,7 +536,12 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false
         )]
-        [switch] $Recommended
+        [switch] $Recommended,
+
+        [parameter(
+            Mandatory = $false
+        )]
+        [switch] $Trending
     )
 
     begin {
@@ -546,7 +554,7 @@ function Open-AllYoutubeVideos {
 
     process {
 
-        [bool] $CurrentTab = ($Recommended -ne $true) -and ($Subscriptions -ne $true) -and ($WatchLater -ne $true) -and (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]));
+        [bool] $CurrentTab = ($Recommended -ne $true) -and ($Subscriptions -ne $true) -and ($Trending -ne $true) -and ($WatchLater -ne $true) -and (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]));
 
         $Global:data = @{
 
@@ -631,8 +639,8 @@ function Open-AllYoutubeVideos {
                 try {
 
                     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                    $sub = ""; if (![string]::IsNullOrWhiteSpace($Global:data.subscribeTitle)) { $sub = " S = $($Global:data.subscribeTitle) |" }
-                    if ($Global:data.playing) { $pause = " [P]ause |" } else { $pause = " [R]esume |" }
+                    $sub = "";
+                    $pause = " [P]ause |";
                     $header = "[Q]uit |$sub$pause SPACE=Next | [0]..[9] = skip | ◀ -20sec | +20sec ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
                     if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
@@ -735,60 +743,14 @@ function Open-AllYoutubeVideos {
                             "s" {
 
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "
-                        window.fakeClick = function (anchorObj, event) {
-                            try {
-
-                                if (anchorObj.click) {
-                                    anchorObj.click()
-                                } else if (document.createEvent) {
-                                    if (!event || event.target !== anchorObj) {
-                                        var evt = document.createEvent(`"MouseEvents`");
-                                        evt.initMouseEvent(`"click`", true, true, window,
-                                            0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                                        var allowDefault = anchorObj.dispatchEvent(evt);
-                                    }
-                                }
-                            } catch (e) { }
-                        }
-                        " -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#subscribe-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'))" -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "toggleSubscribeToChannel();" -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             "p" {
 
                                 $LastVideo = "";
                                 Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "
-
-                                    window.video = document.getElementsByTagName('video')[0];
-                                    if (window.video.paused) {
-                                        window.video.play();
-                                    }
-                                    else {
-                                    window.video.pause();
-                                    }
-                                    data.playing = !window.video.paused;
-                                    data.position = window.video.currentTime;
-                                    data.duration = window.video.duration;
-
-                                    " -ErrorAction SilentlyContinue | Out-Null
-                            }
-
-                            "r" {
-
-                                $LastVideo = "";
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                Invoke-WebbrowserEvaluation "
-
-                                    window.video = document.getElementsByTagName('video')[0];
-                                    window.video.play();
-                                    data.playing = !window.video.paused;
-                                    data.position = window.video.currentTime;
-                                    data.duration = window.video.duration;
-
-                                    " -ErrorAction SilentlyContinue | Out-Null
+                                Invoke-WebbrowserEvaluation "togglePauseVideo();" -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             default {
@@ -797,40 +759,19 @@ function Open-AllYoutubeVideos {
                                 if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
 
                                     Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                    Invoke-WebbrowserEvaluation "
-                                        window.video = document.getElementsByTagName('video')[0];
-                                        window.video.currentTime = Math.round(window.video.duration * ($n/10));
-                                        window.video.play();
-                                        data.playing = !window.video.paused;
-                                        data.position = window.video.currentTime;
-                                        data.duration = window.video.duration;
-                                    " -ErrorAction SilentlyContinue | Out-Null;
+                                    Invoke-WebbrowserEvaluation "setVideoPosition($n);" -ErrorAction SilentlyContinue | Out-Null;
                                 }
                                 else {
                                     if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
                                         Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                        Invoke-WebbrowserEvaluation "
-                                            window.video = document.getElementsByTagName('video')[0];
-                                            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime+20);
-                                            window.video.play();
-                                            data.playing = !window.video.paused;
-                                            data.position = window.video.currentTime;
-                                            data.duration = window.video.duration;
-                                            " -ErrorAction SilentlyContinue | Out-Null;
+                                        Invoke-WebbrowserEvaluation "forwardInVideo();" -ErrorAction SilentlyContinue | Out-Null;
                                     }
                                     else {
                                         if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
                                             Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
-                                            Invoke-WebbrowserEvaluation "
-                                                window.video = document.getElementsByTagName('video')[0];
-                                                window.video.currentTime = Math.max(0, window.video.currentTime-20);
-                                                window.video.play();
-                                                data.playing = !window.video.paused;
-                                                data.position = window.video.currentTime;
-                                                data.duration = window.video.duration;
-                                            " -ErrorAction SilentlyContinue | Out-Null;
+                                            Invoke-WebbrowserEvaluation "backwardsInVideo();" -ErrorAction SilentlyContinue | Out-Null;
                                         }
                                     }
                                 }
@@ -855,7 +796,6 @@ function Open-AllYoutubeVideos {
                     if ($LastVideo -ne "") {
                         return;
                     }
-
                 }
             }
         }
@@ -881,6 +821,11 @@ function Open-AllYoutubeVideos {
             if ($WatchLater -eq $true) {
 
                 go "https://www.youtube.com/playlist?list=WL"
+            }
+
+            if ($Trending -eq $true) {
+
+                go "https://www.youtube.com/feed/trending"
             }
 
             if ($Queries.Count -gt 0) {
@@ -1491,9 +1436,9 @@ function Open-BingChatQuery {
         ###############################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Enforced that the debugging port is enabled, even if that means stopping all already opened browser processes"
+            HelpMessage = "Creates a new topic"
         )]
-        [switch] $Force
+        [switch] $NewTopic
         ###############################################################################
     )
 
@@ -1530,7 +1475,12 @@ function Open-BingChatQuery {
 
         if ($PSBoundParameters.ContainsKey("Force") -eq $false) {
 
-            $PSBoundParameters.Add("Force", $Force);
+            $PSBoundParameters.Add("Force", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("NewTopic")) {
+
+            $PSBoundParameters.Remove("NewTopic");
         }
 
         Set-WindowPosition -Left -Monitor -1;
@@ -1540,21 +1490,115 @@ function Open-BingChatQuery {
             $PSBoundParameters.Add("Right", $true);
         }
 
-        $url = "https://www.bing.com/chat?q=Microsoft+Copilot&FORM=hpcodx";
+        $url = "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx";
         $PSBoundParameters["Url"] = $url;
+        $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
 
-        Open-Webbrowser @PSBoundParameters
-        Start-Sleep 2;
+        if ($null -eq $currentTabs) {
 
-        $helper = New-Object -ComObject WScript.Shell;
-
-        $Queries | ForEach-Object {
-
-            $helper.sendKeys("$PSItem");
-            $helper.SendKeys('^');
-            $helper.SendKeys('{enter}');
+            Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
+            Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
+            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
         }
-        $helper.sendKeys("{enter}");
+        elseif ($currentTabs[0] -is [char]) {
+
+            Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
+            Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
+            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
+        }
+
+        $bingTab = $currentTabs | Where-Object -Property A -EQ "*" | Select-Object -First 1
+
+        if ($null -ne $bingTab) {
+
+            $Queries | ForEach-Object {
+
+                $text = $PSItem.trim();
+                if ([string]::IsNullOrWhiteSpace($text)) { return; }
+
+                $script = "
+(function() {
+    let text = JSON.parse("+ ($text | ConvertTo-Json -Compress | ConvertTo-Json -Compress) + ");
+    let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
+    let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
+
+    function setText(b, force) {
+
+        if (force || b.value === '') {
+
+            b.value = text;
+            b.dispatchEvent(new Event('paste', {'bubbles': true, 'cancelable': true}));
+            b.dispatchEvent(new Event('change', {'bubbles': true, 'cancelable': true}));
+
+            return true;
+        }
+
+        return false;
+    }
+
+    let c = a.querySelector(`"button[aria-label='Submit']`");
+    debugger;
+    let done = false;
+
+    function callSubmit() {
+
+        let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
+
+        if (!!a) {
+
+            let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
+            let c = a.querySelector(`"button[aria-label='Submit']`");
+            setText(b);
+
+            setTimeout(function() {
+
+                let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
+
+                if (!!a) {
+
+                    let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
+                    let c = a.querySelector(`"button[aria-label='Submit']`");
+
+                    if (!!c && !c.hasAttribute('disabled') && setText(b)) {
+
+                        if ($(($NewTopic -eq $true).ToString().ToLowerInvariant()) && !done) {
+
+                            done = true;
+                            let d = a.querySelector(`"button[aria-label='New topic']`");
+                            d.dispatchEvent(new Event('click', {'bubbles': true, 'cancelable': true}));
+                            d.dispatchEvent(new Event('tap', {'bubbles': true, 'cancelable': true}));
+                            d.dispatchEvent(new Event('mousedown', {'bubbles': true, 'cancelable': true}));
+                            d.dispatchEvent(new Event('mouseup', {'bubbles': true, 'cancelable': true}));
+                        }
+
+                        setText(b, true);
+
+                        c.dispatchEvent(new Event('click', {'bubbles': true, 'cancelable': true}));
+                        c.dispatchEvent(new Event('tap', {'bubbles': true, 'cancelable': true}));
+                        c.dispatchEvent(new Event('mousedown', {'bubbles': true, 'cancelable': true}));
+                        c.dispatchEvent(new Event('mouseup', {'bubbles': true, 'cancelable': true}));
+                        c.setAttribute(`"disabled`", `"`");
+
+                        return true;
+                    }
+                }
+            }, 25);
+
+            return;
+        }
+
+        setTimeout(callSubmit, 1000);
+    }
+
+   callSubmit();
+})();
+                ";
+
+                $script | Set-Clipboard
+                Invoke-WebbrowserEvaluation -Scripts $script -NoAutoSelectTab
+
+            }
+        }
     }
 }
 

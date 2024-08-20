@@ -57,7 +57,35 @@ function Open-Timeline {
             "GauguinGlow",
             "RenoirReflections"
         )]
-        [string] $Theme = "PicassoPulse",
+        [string] $Theme = "[All]",
+        ###############################################################################
+        [parameter(
+            Mandatory = $false,
+            Position = 1,
+            HelpMessage = "Override default browser language, or select [All] for rotation of all languages every minute"
+        )]
+        [ValidateSet(
+            "English",
+            "Kotava",
+            "Arabic",
+            "German",
+            "Spanish",
+            "French",
+            "Italian",
+            "Japanese",
+            "Korean",
+            "Dutch",
+            "Polish",
+            "Portuguese",
+            "Russian",
+            "Thai",
+            "Turkish",
+            "Ukrainian",
+            "Vietnamese",
+            "Yiddish",
+            "Chinese",
+            "[All]")]
+        [string] $Language = $null,
         ###############################################################################
         [parameter(
             Mandatory = $false,
@@ -67,7 +95,7 @@ function Open-Timeline {
         ###############################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Overwrite the css-color-style for painting the focused node's (in center) background"
+            HelpMessage = "Overwrite the css-color-style for painting the focused node's (In center) background"
         )]
         [string]$FocusedNodeBackground = $null,
         ###############################################################################
@@ -79,7 +107,7 @@ function Open-Timeline {
         ###############################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Overwrite the css-color-style for painting the focused node's (in center) background"
+            HelpMessage = "Overwrite the css-color-style for painting the focused node's (In center) background"
         )]
         [string]$UnFocusedNodeBackground = $null,
         ###############################################################################
@@ -111,7 +139,7 @@ function Open-Timeline {
             Mandatory = $false,
             HelpMessage = "Overwrite the default width for the background rotation delay"
         )]
-        [int] $RotationDelaySeconds = 20
+        [int] $RotationDelaySeconds = 15
     )
 
     DynamicParam {
@@ -123,13 +151,41 @@ function Open-Timeline {
 
         [string] $queryParams = "?BorderWidth=$BorderWidth&RotationDelaySeconds=$RotationDelaySeconds"
 
-        if ([String]::IsNullOrWhiteSpace($FocusedNodeBackground) -eq $false) { $queryParams += "&FocusedNodeBackground=$FocusedNodeBackground"; }
-        if ([String]::IsNullOrWhiteSpace($FocusedNodeForeground) -eq $false) { $queryParams += "&FocusedNodeForeground=$FocusedNodeForeground"; }
-        if ([String]::IsNullOrWhiteSpace($UnFocusedNodeBackground) -eq $false) { $queryParams += "&UnFocusedNodeBackground=$UnFocusedNodeBackground"; }
-        if ([String]::IsNullOrWhiteSpace($UnFocusedNodeForeground) -eq $false) { $queryParams += "&UnFocusedNodeForeground=$UnFocusedNodeForeground"; }
-        if ([String]::IsNullOrWhiteSpace($BorderLightColor) -eq $false) { $queryParams += "&BorderLightColor=$BorderLightColor"; }
-        if ([String]::IsNullOrWhiteSpace($BorderDarkColor) -eq $false) { $queryParams += "&BorderDarkColor=$BorderDarkColor"; }
-        if ([String]::IsNullOrWhiteSpace($DragedNodeBackground) -eq $false) { $queryParams += "&DragedNodeBackground=$DragedNodeBackground"; }
+        if (-not [String]::IsNullOrWhiteSpace($Language)) {
+
+            $supportedPrimaryLanguageNames = '[
+                { code: "en", name: "English" },
+                { code: "avk", name: "Kotava" },
+                { code: "ar", name: "Arabic" },
+                { code: "de", name: "German" },
+                { code: "es", name: "Spanish" },
+                { code: "fr", name: "French" },
+                { code: "it", name: "Italian" },
+                { code: "ja", name: "Japanese" },
+                { code: "ko", name: "Korean" },
+                { code: "nl", name: "Dutch" },
+                { code: "pl", name: "Polish" },
+                { code: "pt", name: "Portuguese" },
+                { code: "ru", name: "Russian" },
+                { code: "th", name: "Thai" },
+                { code: "tr", name: "Turkish" },
+                { code: "uk", name: "Ukrainian" },
+                { code: "vi", name: "Vietnamese" },
+                { code: "yi", name: "Yiddish" },
+                { code: "zh", name: "Chinese" }
+            ]' | ConvertFrom-Json
+
+            $langCode = $supportedPrimaryLanguageNames | Where-Object { $_.name -eq $Language } | Select-Object -ExpandProperty code
+
+            $queryParams += "&lang=$langCode";
+        }
+        if (-not [String]::IsNullOrWhiteSpace($FocusedNodeBackground)) { $queryParams += "&FocusedNodeBackground=$FocusedNodeBackground"; }
+        if (-not [String]::IsNullOrWhiteSpace($FocusedNodeForeground)) { $queryParams += "&FocusedNodeForeground=$FocusedNodeForeground"; }
+        if (-not [String]::IsNullOrWhiteSpace($UnFocusedNodeBackground)) { $queryParams += "&UnFocusedNodeBackground=$UnFocusedNodeBackground"; }
+        if (-not [String]::IsNullOrWhiteSpace($UnFocusedNodeForeground)) { $queryParams += "&UnFocusedNodeForeground=$UnFocusedNodeForeground"; }
+        if (-not [String]::IsNullOrWhiteSpace($BorderLightColor)) { $queryParams += "&BorderLightColor=$BorderLightColor"; }
+        if (-not [String]::IsNullOrWhiteSpace($BorderDarkColor)) { $queryParams += "&BorderDarkColor=$BorderDarkColor"; }
+        if (-not [String]::IsNullOrWhiteSpace($DragedNodeBackground)) { $queryParams += "&DragedNodeBackground=$DragedNodeBackground"; }
 
         $Url = "https://genxdev.net/projects/timeline/$queryParams#$Theme";
 
@@ -162,6 +218,8 @@ function Open-Timeline {
             $PSBoundParameters.Add("-NewWindow", $true);
         }
 
+
+        if ($PSBoundParameters.ContainsKey("Language")) { $PSBoundParameters.Remove("Language") | Out-Null }
         if ($PSBoundParameters.ContainsKey("Theme")) { $PSBoundParameters.Remove("Theme") | Out-Null }
         if ($PSBoundParameters.ContainsKey("DragedNodeBackground")) { $PSBoundParameters.Remove("DragedNodeBackground") | Out-Null }
         if ($PSBoundParameters.ContainsKey("FocusedNodeBackground")) { $PSBoundParameters.Remove("FocusedNodeBackground") | Out-Null }
@@ -263,6 +321,86 @@ function Open-GameOfLife {
     }
 }
 
+
+###############################################################################
+
+function Open-GenXdevAppCatalog {
+
+    # DESCRIPTION Open-GenXdevAppCatalog: Opens the catalog with published GenXdev progressive webapps
+
+    [Alias("appcatalog")]
+
+    Param(
+        ###############################################################################
+
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = $Global:DefaultSecondaryMonitor,
+        ###############################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Don't open webbrowser, just return the url"
+        )]
+        [switch] $ReturnURL,
+        ###############################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "After opening webbrowser, return the url"
+        )]
+        [switch] $ReturnOnlyURL
+    )
+
+    DynamicParam {
+
+        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+    }
+
+    process {
+
+        $Url = "https://genxdev.net/projects/catalog/";
+
+        if ($ReturnOnlyURL) {
+
+            Write-Output $Url
+            return;
+        }
+
+        $PSBoundParameters.Add("Url", $Url) | Out-Null;
+
+        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+
+            $PSBoundParameters.Add("ApplicationMode", $true);
+        }
+        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+
+            $PSBoundParameters.Add("Fullscreen", $true);
+        }
+        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+
+            $PSBoundParameters.Add("RestoreFocus", $true);
+        }
+        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+
+            $PSBoundParameters.Add("-NewWindow", $true);
+        }
+
+        if ($PSBoundParameters.ContainsKey("ReturnUrl")) { $PSBoundParameters.Remove("ReturnUrl") | Out-Null }
+
+        Open-Webbrowser @PSBoundParameters
+
+        if ($ReturnURL) {
+
+            Write-Output $Url
+        }
+    }
+}
 ###############################################################################
 
 function Open-ViralSimulation {

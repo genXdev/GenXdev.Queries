@@ -16,24 +16,7 @@ window.oayv = window["oayv"] || (function () {
     result.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
     result.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
     result.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
-
-    result.fakeClick = function (anchorObj, event) {
-        try {
-
-            if (anchorObj.click) {
-                anchorObj.click()
-            } else if (document.createEvent) {
-                if (!event || event.target !== anchorObj) {
-                    var evt = document.createEvent("MouseEvents");
-                    evt.initMouseEvent("click", true, true, window,
-                        0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    var allowDefault = anchorObj.dispatchEvent(evt);
-                }
-            }
-        } catch (e) {
-            debugger;
-        }
-    }
+    result.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
 
     if (typeof document.hidden !== "undefined") { } else if (typeof document["msHidden"] !== "undefined") {
         result.nowHidden = "msHidden";
@@ -70,6 +53,102 @@ window.oayv = window["oayv"] || (function () {
     result.initializePage = function (dataObj) {
 
         data = dataObj;
+
+        window.fakeClick = function (anchorObj, event) {
+            try {
+
+                if (!!anchorObj.click && !!anchorObj.mousedown() && !!anchorObj.mouseup && !!anchorObj.tap) {
+                    try { anchorObj.touchStart(); } catch (e) { }
+                    try { anchorObj.mousedown(); } catch (e) { }
+                    try { anchorObj.mouseup(); } catch (e) { }
+                    try { anchorObj.touchEnd(); } catch (e) { }
+                    try { anchorObj.click(); } catch (e) { }
+                    try { anchorObj.tap(); } catch (e) { }
+                } else if (document.createEvent) {
+                    if (!event || event.target !== anchorObj) {
+                        try {
+                            let evt = document.createEvent("TouchEvents");
+                            evt.initMouseEvent("touchstart", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                        try {
+                            let evt = document.createEvent("MouseEvents");
+                            evt.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                        try {
+                            let evt = document.createEvent("MouseEvents");
+                            evt.initMouseEvent("mouseup", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                        try {
+                            let evt = document.createEvent("TouchEvents");
+                            evt.initMouseEvent("touchend", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                        try {
+                            let evt = document.createEvent("MouseEvents");
+                            evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                        try {
+                            let evt = document.createEvent("MouseEvents");
+                            evt.initMouseEvent("tap", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                            let allowDefault = anchorObj.dispatchEvent(evt);
+                        } catch (e) { }
+                    }
+                }
+            } catch (e) { }
+        };
+
+        window.togglePauseVideo = function () {
+            window.video = document.getElementsByTagName('video')[0];
+            if (window.video.paused) {
+                window.video.play();
+            }
+            else {
+                window.video.pause();
+            }
+            data.playing = !window.video.paused;
+            data.position = window.video.currentTime;
+            data.duration = window.video.duration;
+        };
+
+        window.toggleSubscribeToChannel = function () {
+            fakeClick(document.querySelector('ytd-subscribe-button-renderer'));
+            fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'));
+            fakeClick(document.querySelector('tp-yt-paper-button[dialog-confirm]'));
+        };
+
+        window.setVideoPosition = function (n) {
+            window.video = document.getElementsByTagName('video')[0];
+            window.video.currentTime = Math.round(window.video.duration * (n / 10));
+            window.video.play();
+            data.playing = !window.video.paused;
+            data.position = window.video.currentTime;
+            data.duration = window.video.duration;
+        };
+
+        window.backwardsInVideo = function () {
+
+            window.video = document.getElementsByTagName('video')[0];
+            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime - 20);
+            window.video.play();
+            data.playing = !window.video.paused;
+            data.position = window.video.currentTime;
+            data.duration = window.video.duration;
+        };
+
+        window.forwardInVideo = function () {
+            window.video = document.getElementsByTagName('video')[0];
+            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime + 20);
+            window.video.play();
+            data.playing = !window.video.paused;
+            data.position = window.video.currentTime;
+            data.duration = window.video.duration;
+        };
+
         result.vid = document.getElementsByTagName("video")[0];
         result.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
         result.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
@@ -77,9 +156,10 @@ window.oayv = window["oayv"] || (function () {
         result.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
         result.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
         result.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
+        result.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
 
         if (!!result.vid) {
-
+            if (!result.originalSource) result.originalSource = result.vid.currentSrc;
             result.vid.onended = () => { window.close() };
             result.vid.loop = false;
             result.vid.volume = 1;
@@ -123,7 +203,7 @@ window.oayv = window["oayv"] || (function () {
                     }
                 }
             }
-            if (result.isSuggestionPage || result.isSearchPage || result.isSubscriptionsPage || result.isWatchLaterPage) {
+            if (result.isSuggestionPage || result.isSearchPage || result.isSubscriptionsPage || result.isWatchLaterPage || result.isTrendingPage) {
 
                 data.more = result.queueUrls.length > 0;
                 let a = document.getElementsByTagName('span');
@@ -178,7 +258,7 @@ window.oayv = window["oayv"] || (function () {
 
         data = dataObj;
 
-        if (((result.isViewPage || result.isShortsPage) && !result.vid) || ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage) && doneUrls.length + result.queueUrls.length === 0)) {
+        if (((result.isViewPage || result.isShortsPage) && !result.vid) || ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage || result.isTrendingPage) && doneUrls.length + result.queueUrls.length === 0)) {
             result.vid = document.getElementsByTagName("video")[0];
             if (!!result.vid) {
                 window.oayvInitialized = false;
@@ -186,7 +266,7 @@ window.oayv = window["oayv"] || (function () {
             }
         }
 
-        if ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage) &&
+        if ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage || result.isTrendingPage) &&
             doneUrls.length + result.queueUrls.length === 0) {
             window.oayvInitialized = false;
             result.initializePage(data);
@@ -199,7 +279,8 @@ window.oayv = window["oayv"] || (function () {
                 result.isSuggestionPage ? 'Recommended' :
                     result.isSubscriptionsPage ? 'Subscriptions' :
                         result.isShortsPage ? 'Shorts' :
-                            result.isWatchLaterPage ? 'Watch later' : 'Unknown page';
+                            result.isWatchLaterPage ? 'Watch later' :
+                                result.isTrendingPage ? "Trending" : 'Unknown page';
             data.subscribeTitle = '         ';
             data.playing = false;
             data.position = 0;
@@ -246,23 +327,26 @@ window.oayv = window["oayv"] || (function () {
                 data.playing = !result.vid.paused;
                 data.position = result.vid.currentTime;
                 data.duration = result.vid.duration;
+                data.originalSource = result.originalSource;
+                data.currentSource = result.vid.currentSrc;
 
                 if (isNaN(data.duration)) {
 
                     if (!data.timer) {
                         data.timer = setTimeout(() => {
                             window.close();
-                        }, 35000);
+                        }, 60000);
                     }
                 }
                 else {
 
                     if (!isNaN(data.duration) && data.playing && data.duration - data.position < 3) {
-
-                        if (!data.timer) {
-                            data.timer = setTimeout(() => {
-                                window.close();
-                            }, 3500);
+                        if (data.originalSource == data.currentSource) {
+                            if (!data.timer) {
+                                data.timer = setTimeout(() => {
+                                    window.close();
+                                }, 3500);
+                            }
                         }
                     }
                     else {
@@ -281,7 +365,7 @@ window.oayv = window["oayv"] || (function () {
 
             try { data.description = document.querySelector('#content').querySelector('#description').innerText; } catch { data.description = ''; }
             try { data.title = document.title; } catch { data.title = ''; }
-            try { data.subscribeTitle = document.querySelector('#subscribe-button').innerText.trim(); } catch { data.subscribeTitle = '           ' }
+            try { data.subscribeTitle = document.querySelectorAll('#subscribe-button span.yt-core-attributed-string.yt-core-attributed-string--white-space-no-wrap[role="text"]')[1].innerText.trim(); } catch { data.subscribeTitle = '           ' }
         }
     }
 
