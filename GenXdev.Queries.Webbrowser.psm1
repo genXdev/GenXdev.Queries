@@ -510,7 +510,7 @@ Requires the Windows 10+ Operating System
 function Open-AllYoutubeVideos {
 
     [CmdletBinding()]
-    [Alias("qvideos")]
+    [Alias("qvideos", "qyt")]
 
     param(
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -626,7 +626,7 @@ function Open-AllYoutubeVideos {
                 }
             }
 
-            Select-WebbrowserTab -Name "*youtube*" | Out-Null
+            Select-WebbrowserTab -Name "*youtube*" -Force | Out-Null
 
             $job = [System.IO.File]::ReadAllText("$PSScriptRoot\Open-AllYoutubeVideos.js");
             Invoke-WebbrowserEvaluation "window.oayvInitialized = false; $job"
@@ -733,23 +733,23 @@ function Open-AllYoutubeVideos {
 
                             " " {
 
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                 Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
                                 Start-Sleep 1
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                 $LastVideo = "";
                             }
 
                             "s" {
 
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                 Invoke-WebbrowserEvaluation "toggleSubscribeToChannel();" -ErrorAction SilentlyContinue | Out-Null
                             }
 
                             "p" {
 
                                 $LastVideo = "";
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                 Invoke-WebbrowserEvaluation "togglePauseVideo();" -ErrorAction SilentlyContinue | Out-Null
                             }
 
@@ -758,19 +758,19 @@ function Open-AllYoutubeVideos {
                                 [int] $n = 0;
                                 if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
 
-                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                     Invoke-WebbrowserEvaluation "setVideoPosition($n);" -ErrorAction SilentlyContinue | Out-Null;
                                 }
                                 else {
                                     if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
-                                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                         Invoke-WebbrowserEvaluation "forwardInVideo();" -ErrorAction SilentlyContinue | Out-Null;
                                     }
                                     else {
                                         if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
-                                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
                                             Invoke-WebbrowserEvaluation "backwardsInVideo();" -ErrorAction SilentlyContinue | Out-Null;
                                         }
                                     }
@@ -783,7 +783,7 @@ function Open-AllYoutubeVideos {
                         }
                     }
 
-                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue | Out-Null
+                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
 
                     if (($Global:chromeSessions.Count -eq 0) -or ($null -eq $Global:chrome)) {
 
@@ -808,6 +808,17 @@ function Open-AllYoutubeVideos {
                 return;
             }
 
+            if ($Queries.Count -gt 0) {
+
+                foreach ($Query in $Queries) {
+
+                    if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
+
+                        go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
+                    }
+                }
+            }
+
             if ($Subscriptions -eq $true) {
 
                 go "https://www.youtube.com/feed/subscriptions"
@@ -828,16 +839,7 @@ function Open-AllYoutubeVideos {
                 go "https://www.youtube.com/feed/trending"
             }
 
-            if ($Queries.Count -gt 0) {
 
-                foreach ($Query in $Queries) {
-
-                    if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
-
-                        go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))"
-                    }
-                }
-            }
         }
         finally {
             Clear-Host
@@ -1490,28 +1492,29 @@ function Open-BingChatQuery {
             $PSBoundParameters.Add("Right", $true);
         }
 
-        $url = "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx";
+        $url = "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx";
         $PSBoundParameters["Url"] = $url;
-        $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
+        $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force | Select-Object -First 1);
 
         if ($null -eq $currentTabs) {
 
             Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
             Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
-            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
+            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
         }
         elseif ($currentTabs[0] -is [char]) {
 
             Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
             Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
-            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
+            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
         }
 
         $bingTab = $currentTabs | Where-Object -Property A -EQ "*" | Select-Object -First 1
 
         if ($null -ne $bingTab) {
 
-            $Queries | ForEach-Object {
+            $Queries | ForEach-Object { n
+
 
                 $text = $PSItem.trim();
                 if ([string]::IsNullOrWhiteSpace($text)) { return; }
