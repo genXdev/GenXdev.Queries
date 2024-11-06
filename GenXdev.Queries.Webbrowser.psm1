@@ -626,7 +626,20 @@ function Open-AllYoutubeVideos {
                 }
             }
 
-            Select-WebbrowserTab -Name "*youtube*" -Force | Out-Null
+            $s = $null
+            try {
+                $s = $Global:chrome.GetAvailableSessions();
+                Select-WebbrowserTab -Name $Name -Force | Out-Null
+            }
+            Catch {
+
+                if ($Force -and ($null -eq $ByReference)) {
+
+                    Close-Webbrowser -Chrome:$Chrome -Edge:$Edge -Force
+                    go $Url
+                    return;
+                }
+            }
 
             $job = [System.IO.File]::ReadAllText("$PSScriptRoot\Open-AllYoutubeVideos.js");
             Invoke-WebbrowserEvaluation "window.oayvInitialized = false; $job"
@@ -1498,13 +1511,6 @@ function Open-BingChatQuery {
 
         if ($null -eq $currentTabs) {
 
-            Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
-            Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
-            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
-        }
-        elseif ($currentTabs[0] -is [char]) {
-
-            Close-Webbrowser -Force -Chrome:($PSBoundParameters['Chrome']) -Edge:($PSBoundParameters['Edge'])
             Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
             $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
         }

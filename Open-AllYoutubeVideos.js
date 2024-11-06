@@ -182,6 +182,7 @@ window.oayv = window["oayv"] || (function () {
 
             document.removeEventListener("visibilitychange", result.onVisibilityChanged);
             document.addEventListener("visibilitychange", result.onVisibilityChanged, { passive: false });
+            doneUrls = !!localStorage["oaytDone"] ? JSON.parse(localStorage["oaytDone"]) : JSON.parse((localStorage["oaytDone"] = JSON.stringify([])));
 
             let a = document.getElementsByClassName("ytd-thumbnail");
             let t = 0;
@@ -217,12 +218,17 @@ window.oayv = window["oayv"] || (function () {
 
                 for (let b of list) {
 
-                    doneUrls.push(b);
-                    window.open(b);
-                }
+                    let c = b;
+                    if (c.indexOf("?") < 0) {
+                        c = c + "?myref=" + encodeURIComponent(b);
+                    }
+                    else {
+                        c = c + "&myref=" + encodeURIComponent(b);
+                    }
 
-                while (doneUrls.length > 1000) doneUrls.splice(0, 1);
-                localStorage["oaytDone"] = JSON.stringify(doneUrls);
+                    doneUrls.push(b);
+                    window.open(c);
+                }
 
                 if (result.queueUrls.length === 0) {
 
@@ -289,6 +295,15 @@ window.oayv = window["oayv"] || (function () {
 
             if (result.vid && (result.isViewPage || result.isShortsPage)) {
 
+                let myref = new URLSearchParams(window.location.search).get('myref');
+                if (!!myref && myref.length > 0) {
+
+                    doneUrls = !!localStorage["oaytDone"] ? JSON.parse(localStorage["oaytDone"]) : JSON.parse((localStorage["oaytDone"] = JSON.stringify([])));
+                    doneUrls.push(myref);
+                    while (doneUrls.length > 1000) doneUrls.splice(0, 1);
+                    localStorage["oaytDone"] = JSON.stringify(doneUrls);
+                }
+
                 result.vid.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:99999;min-width:100%;min-height:100%');
                 try {
                     document.querySelector("#secondary").setAttribute("style", "display:none;opacity:0;");
@@ -314,15 +329,6 @@ window.oayv = window["oayv"] || (function () {
                     }
 
                 } catch (e) { }
-                // if (!document.getElementById('genxbackground')) {
-
-                //     let div = document.createElement('div');
-                //     document.body.appendChild(div);
-                //     div.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:9999;width:100vw;height:100vh;background-color:black;');
-                //     div.setAttribute('id', 'genxbackground');
-                //     document.body.appendChild(result.vid);
-                //     document.body.setAttribute('style', 'overflow:hidden');
-                // }
 
                 data.playing = !result.vid.paused;
                 data.position = result.vid.currentTime;
