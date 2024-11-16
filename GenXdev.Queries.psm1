@@ -225,7 +225,7 @@ function Open-AllPossibleTextQueries {
                                         $safeUrl = $safeUrl.Replace($using:Uri.Query, "");
                                     }
 
-                                    $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-HostSiteSummary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
+                                    $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-HostSiteSummary".Length) + ":`r`n";
                                     $line = $line + (Invoke-Expression "$PSItemsafeUrl") + "`r`n"
 
                                     Write-Output $line;
@@ -253,7 +253,7 @@ function Open-AllPossibleTextQueries {
 
                     try {
 
-                        $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-Summary".Length).Replace("Gpt3", "Generative Pre-trained Transformer 3 (GPT-3) - ") + ":`r`n";
+                        $line = "`r`n" + $PSItem.SubString("Get-".Length, $PSItem.Length - "Get-Summary".Length) + ":`r`n";
                         $line = $line + (Invoke-Expression "$PSItem $using:Query") + "`r`n"
 
                         Write-Output $line;

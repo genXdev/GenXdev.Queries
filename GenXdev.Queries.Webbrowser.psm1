@@ -571,6 +571,7 @@ function Open-AllYoutubeVideos {
         function go($Url = $null) {
 
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
+            $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
             Clear-Host
             Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
             $browser = $null;
@@ -651,6 +652,12 @@ function Open-AllYoutubeVideos {
 
                 try {
 
+                    $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
+                    if ($newsize -ne $size) {
+
+                        $size = $newsize;
+                        $LastVideo = $null;
+                    }
                     $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
                     $sub = "";
                     $pause = " [P]ause |";

@@ -6,7 +6,7 @@
     RootModule           = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.50.2024'
+    ModuleVersion        = '1.52.2024'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -38,7 +38,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules      = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.50.2024' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.50.2024' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.50.2024' })
+    RequiredModules      = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.52.2024' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.52.2024' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.52.2024' })
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies   = @(
@@ -103,7 +103,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags                     = 'Google', 'Searchengine', 'gpt3', 'openai', 'GenXdev'
+            Tags                     = 'Google', 'Searchengine', 'GenXdev'
 
             # A URL to the license for this module.
             LicenseUri               = 'https://raw.githubusercontent.com/genXdev/GenXdev.Queries/main/LICENSE'
