@@ -187,7 +187,7 @@ function Open-Timeline {
         if (-not [String]::IsNullOrWhiteSpace($BorderDarkColor)) { $queryParams += "&BorderDarkColor=$BorderDarkColor"; }
         if (-not [String]::IsNullOrWhiteSpace($DragedNodeBackground)) { $queryParams += "&DragedNodeBackground=$DragedNodeBackground"; }
 
-        $Url = "https://genxdev.net/projects/timeline/$queryParams#$Theme";
+        $Url = "https://timeline.genxdev.net/$queryParams#$Theme";
 
         if ($ReturnOnlyURL) {
 
@@ -279,7 +279,7 @@ function Open-GameOfLife {
 
     process {
 
-        $Url = "https://genxdev.net/projects/conway/";
+        $Url = "https://conway.genxdev.net/";
 
         if ($ReturnOnlyURL) {
 
@@ -360,7 +360,7 @@ function Open-GenXdevAppCatalog {
 
     process {
 
-        $Url = "https://genxdev.net/projects/catalog/";
+        $Url = "https://genxdev.net/";
 
         if ($ReturnOnlyURL) {
 
@@ -439,7 +439,7 @@ function Open-ViralSimulation {
 
     process {
 
-        $Url = "https://genxdev.net/projects/viral/";
+        $Url = "https://viral.genxdev.net/";
 
         if ($ReturnOnlyURL) {
 
@@ -523,7 +523,7 @@ function Open-Yab {
 
     process {
 
-        $Url = "https://genxdev.net/projects/yab/#/single/$($SpectateOnly ? "spectate": "marathon")/";
+        $Url = "https://yab.genxdev.net/#/single/$($SpectateOnly ? "spectate": "marathon")/";
 
         if ($ReturnOnlyURL) {
 
@@ -615,7 +615,7 @@ function Open-YabAIBattle {
 
     process {
 
-        $Url = "https://genxdev.net/projects/yab/#/ai/$($SpectateOnly ? "spectate": "battle")/";
+        $Url = "https://yab.genxdev.net/#/ai/$($SpectateOnly ? "spectate": "battle")/";
 
         if ($ReturnOnlyURL) {
 
