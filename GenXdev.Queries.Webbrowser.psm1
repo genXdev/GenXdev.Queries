@@ -580,18 +580,18 @@ function Open-AllYoutubeVideos {
 
                 if ($PowershellWindow.Count -gt 0) {
 
-                    $PowershellScreen = [System.Windows.Forms.Screen]::FromPoint($PowershellWindow.Position());
-                    $PowershellScreenIndex = [System.Windows.Forms.Screen]::AllScreens.IndexOf($PowershellScreen) + 1;
+                    $PowershellScreen = [WpfScreenHelper.Screen]::FromPoint($PowershellWindow.Position());
+                    $PowershellScreenIndex = [WpfScreenHelper.Screen]::AllScreens.IndexOf($PowershellScreen) + 1;
 
                     [int] $defaultMonitor = 1;
 
                     if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
 
-                        $Monitor = $defaultMonitor % ([System.Windows.Forms.Screen]::AllScreens.Length + 1);
+                        $Monitor = $defaultMonitor % ([WpfScreenHelper.Screen]::AllScreens.Length + 1);
                     }
                     else {
 
-                        $Monitor = 2 % ([System.Windows.Forms.Screen]::AllScreens.Length + 1);
+                        $Monitor = 2 % ([WpfScreenHelper.Screen]::AllScreens.Length + 1);
                     }
 
                     if ($monitor -lt 1) {
@@ -602,7 +602,7 @@ function Open-AllYoutubeVideos {
                         }
                         else {
 
-                            $monitor = [System.Windows.Forms.Screen]::AllScreens.IndexOf([System.Windows.Forms.Screen]::PrimaryScreen) + 1;
+                            $monitor = [WpfScreenHelper.Screen]::AllScreens.IndexOf([WpfScreenHelper.Screen]::PrimaryScreen) + 1;
                         }
                     }
 
