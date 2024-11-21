@@ -1,3 +1,6 @@
+## Todoos- [ ] 20241119 --> queries heeft gare content en ook open-bingquery
+
+
 <hr/>
 
 <img src="powershell.jpg" alt="GenXdev" width="50%"/>
