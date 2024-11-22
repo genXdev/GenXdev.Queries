@@ -580,7 +580,7 @@ function Open-AllYoutubeVideos {
 
                 if ($PowershellWindow.Count -gt 0) {
 
-                    $PowershellScreen = [WpfScreenHelper.Screen]::FromPoint($PowershellWindow.Position());
+                    $PowershellScreen = [WpfScreenHelper.Screen]::FromPoint(@{X = $PowershellWindow.Position().X; Y = $PowershellWindow.Position().Y });
                     $PowershellScreenIndex = [WpfScreenHelper.Screen]::AllScreens.IndexOf($PowershellScreen) + 1;
 
                     [int] $defaultMonitor = 1;
