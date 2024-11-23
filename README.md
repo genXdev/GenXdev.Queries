@@ -269,8 +269,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -426,8 +426,8 @@ Invoke-WebbrowserTabPollingScript
 
 ### SYNTAX
 ````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] 
-[-Callback <ScriptBlock>] [<CommonParameters>]
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback 
+<ScriptBlock>] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -3139,8 +3139,7 @@ Open-BingChatQuery                   --> ask, bc
 
 ### SYNTAX
 ````PowerShell
-Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] 
-[<CommonParameters>]
+Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -3183,27 +3182,27 @@ Open-GoogleQuery                     --> q
 ````PowerShell
 Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
 Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
-Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan 
-| Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian 
-| Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
-Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | 
-Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | 
-Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | 
-Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio 
-(Sierra Leone) | Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | 
-Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | 
-Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | 
-Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
-Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese 
-(Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic 
-| Serbian | Serbo-Croatian | Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | 
-Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | 
-Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | 
-Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh 
-| Wolof | Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | 
+Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian | 
+Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
+Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani 
+| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
+Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
+Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
+Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
+Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
+| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 
+Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua 
+| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | 
+Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | 
+Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil 
+| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | 
+Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | 
+Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4160,9 +4159,9 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -4402,8 +4401,8 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] 
-[-Recommended] [-Trending] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+[-Trending] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -4578,8 +4577,8 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] 
-[-Recommended] [-Trending] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+[-Trending] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -4653,27 +4652,27 @@ Open-GoogleQuery                     --> q
 ````PowerShell
 Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
 Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
-Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan 
-| Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian 
-| Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
-Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | 
-Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | 
-Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | 
-Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio 
-(Sierra Leone) | Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | 
-Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | 
-Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | 
-Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
-Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese 
-(Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic 
-| Serbian | Serbo-Croatian | Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | 
-Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | Sundanese | 
-Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | 
-Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh 
-| Wolof | Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | 
+Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian | 
+Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
+Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani 
+| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
+Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
+Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
+Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
+Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
+| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 
+Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua 
+| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | 
+Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | 
+Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil 
+| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | 
+Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | 
+Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] 
+[-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -5025,8 +5024,7 @@ Open-BingChatQuery                   --> ask, bc
 
 ### SYNTAX
 ````PowerShell
-Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] 
-[<CommonParameters>]
+Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -5580,9 +5578,9 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -8238,8 +8236,8 @@ Open-Yab                             --> yab
 ### SYNTAX
 ````PowerShell
 Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
 [-PassThrough] [<CommonParameters>]
 ````
 
@@ -8336,8 +8334,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8558,8 +8556,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8996,9 +8994,9 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
 [-PassThrough] [<CommonParameters>]
 ````
 
@@ -9095,8 +9093,8 @@ Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Privat
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9308,8 +9306,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9423,8 +9421,8 @@ Open-YabAIBattle                     --> yabbattle
 ### SYNTAX
 ````PowerShell
 Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
-[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
 [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -9521,8 +9519,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10067,8 +10065,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10181,9 +10179,9 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
 [-PassThrough] [<CommonParameters>]
 ````
 
@@ -10280,8 +10278,8 @@ Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Privat
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10493,8 +10491,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10608,8 +10606,8 @@ Open-Yab                             --> yab
 ### SYNTAX
 ````PowerShell
 Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
-[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
 [-PassThrough] [<CommonParameters>]
 ````
 
@@ -10706,8 +10704,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10830,8 +10828,8 @@ Open-YabAIBattle                     --> yabbattle
 ### SYNTAX
 ````PowerShell
 Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
-[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
 [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -10928,8 +10926,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 
-        = Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
