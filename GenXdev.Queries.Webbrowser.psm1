@@ -570,6 +570,7 @@ function Open-AllYoutubeVideos {
 
         function go($Url = $null) {
 
+            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | ForEach-Object { $_ });
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
             $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
             Clear-Host
@@ -581,17 +582,17 @@ function Open-AllYoutubeVideos {
                 if ($PowershellWindow.Count -gt 0) {
 
                     $PowershellScreen = [WpfScreenHelper.Screen]::FromPoint(@{X = $PowershellWindow.Position().X; Y = $PowershellWindow.Position().Y });
-                    $PowershellScreenIndex = [WpfScreenHelper.Screen]::AllScreens.IndexOf($PowershellScreen) + 1;
+                    $PowershellScreenIndex = $AllScreens.IndexOf($PowershellScreen) + 1;
 
                     [int] $defaultMonitor = 1;
 
                     if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
 
-                        $Monitor = $defaultMonitor % ([WpfScreenHelper.Screen]::AllScreens.Length + 1);
+                        $Monitor = $defaultMonitor % ($AllScreens.Length + 1);
                     }
                     else {
 
-                        $Monitor = 2 % ([WpfScreenHelper.Screen]::AllScreens.Length + 1);
+                        $Monitor = 2 % ($AllScreens.AllScreens.Length + 1);
                     }
 
                     if ($monitor -lt 1) {
@@ -602,7 +603,7 @@ function Open-AllYoutubeVideos {
                         }
                         else {
 
-                            $monitor = [WpfScreenHelper.Screen]::AllScreens.IndexOf([WpfScreenHelper.Screen]::PrimaryScreen) + 1;
+                            $monitor = $AllScreens.IndexOf([WpfScreenHelper.Screen]::PrimaryScreen) + 1;
                         }
                     }
 
