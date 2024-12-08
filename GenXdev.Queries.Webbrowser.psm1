@@ -201,7 +201,7 @@ function Get-GoogleSearchResultUrls {
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
         $LangKey = "&hl=en";
 
         if (![string]::IsNullOrWhiteSpace($Language)) {
@@ -441,7 +441,7 @@ function Open-AllGoogleLinks {
 
     begin {
 
-        $Query = Build-InvocationArguments $MyInvocation $Queries -SingleString
+        $Query = "$Query"
         $LangKey = "&hl=en";
 
         if (![string]::IsNullOrWhiteSpace($Language)) {
@@ -547,7 +547,7 @@ function Open-AllYoutubeVideos {
     begin {
 
         $LastVideo = "";
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
         $PowershellProcess = Get-PowershellMainWindowProcess
         $PowershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($PowershellProcess);
     }
@@ -1054,12 +1054,12 @@ function Open-GoogleQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1112,7 +1112,7 @@ PS D:\Downloads>
     mkdir pdfs;
     cd pdfs;
 
-    Copy-PDFsFromGoogleQuery scientific paper co2
+    Copy-PDFsFromGoogleQuery scientific, paper, co2
 .EXAMPLE
 PS D:\Downloads>
 
@@ -1308,7 +1308,7 @@ function Copy-PDFsFromGoogleQuery {
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1389,12 +1389,12 @@ function Open-WikipediaQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1467,12 +1467,12 @@ function Open-BingChatQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor", "NewWindow", "Force"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor", "NewWindow", "Force"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1506,21 +1506,21 @@ function Open-BingChatQuery {
             $PSBoundParameters.Remove("NewTopic");
         }
 
-        Set-WindowPosition -Left -Monitor -1;
+        # Set-WindowPosition -Left -Monitor -1;
 
-        if ($PSBoundParameters.ContainsKey("Right") -eq $false) {
+        # if ($PSBoundParameters.ContainsKey("Right") -eq $false) {
 
-            $PSBoundParameters.Add("Right", $true);
-        }
+        #     $PSBoundParameters.Add("Right", $true);
+        # }
 
-        $url = "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx";
+        $url = "https://copilot.microsoft.com";
         $PSBoundParameters["Url"] = $url;
-        $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force | Select-Object -First 1);
+        $currentTabs = (Select-WebbrowserTab -Name "https://copilot.microsoft.com" -Force | Select-Object -First 1);
 
         if ($null -eq $currentTabs) {
 
-            Open-Webbrowser -Url $url -Right -NewWindow -RestoreFocus -Monitor -1
-            $currentTabs = (Select-WebbrowserTab -Name "https://www.bing.com/chat?q=Bing+AI&showconv=1&FORM=hpcodx" -Force);
+            Open-Webbrowser -Url $url -NewWindow -RestoreFocus -Monitor -1 -Force
+            $currentTabs = (Select-WebbrowserTab -Name "https://copilot.microsoft.com" -Force);
         }
 
         $bingTab = $currentTabs | Where-Object -Property A -EQ "*" | Select-Object -First 1
@@ -1528,7 +1528,6 @@ function Open-BingChatQuery {
         if ($null -ne $bingTab) {
 
             $Queries | ForEach-Object { n
-
 
                 $text = $PSItem.trim();
                 if ([string]::IsNullOrWhiteSpace($text)) { return; }
@@ -1655,12 +1654,12 @@ function Open-BingQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1719,12 +1718,12 @@ function Open-WikipediaNLQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1783,12 +1782,12 @@ function Open-YoutubeQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1847,12 +1846,12 @@ function Open-IMDBQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1911,12 +1910,12 @@ function Open-InstantStreetViewQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -1975,12 +1974,12 @@ function Open-StackOverflowQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2039,12 +2038,12 @@ function Open-WolframAlphaQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2107,12 +2106,12 @@ function Open-GithubQuery {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2185,12 +2184,12 @@ function Open-GoogleSiteInfo {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2237,12 +2236,12 @@ function Open-BuiltWithSiteInfo {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2301,12 +2300,12 @@ function Open-WhoisHostSiteInfo {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2365,12 +2364,12 @@ function Open-WaybackMachineSiteInfo {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2429,12 +2428,12 @@ function Open-MovieQuote {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -2493,12 +2492,12 @@ function Open-SimularWebSiteInfo {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Monitor"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
     }
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {

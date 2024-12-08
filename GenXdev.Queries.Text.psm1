@@ -29,7 +29,7 @@ function Get-WikipediaSummary {
 
     begin {
 
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
+
     }
 
     process {
@@ -129,50 +129,6 @@ function Get-NextAffirmations {
     }
 
     Write-Output $affirmation
-}
-
-###############################################################################
-<#
-.SYNOPSIS
-Translates a text to English
-
-.DESCRIPTION
-Translates a text to English
-
-.PARAMETER Queries
-The query to perform
-#>
-function Get-Translation {
-
-    [CmdletBinding()]
-    [Alias("translate")]
-
-    param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
-        [Parameter(
-            Mandatory = $True,
-            Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
-        )]
-        [string[]] $Queries
-    )
-
-    begin {
-
-        $Queries = Build-InvocationArguments $MyInvocation $Queries
-    }
-
-    process {
-        foreach ($Query in $Queries) {
-
-            $urlPart = [Uri]::EscapeUriString($Query.Replace("-", " "))
-            $url = ("https://translate.google.com/?sl=auto&tl=en&text=$urlPart&op=translate");
-
-            Open-Webbrowser -NewWindow -Url $url
-        }
-    }
 }
 
 ################################################################################

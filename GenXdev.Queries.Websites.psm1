@@ -144,7 +144,7 @@ function Open-Timeline {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
@@ -274,7 +274,7 @@ function Open-GameOfLife {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
@@ -355,7 +355,7 @@ function Open-GenXdevAppCatalog {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
@@ -434,7 +434,7 @@ function Open-ViralSimulation {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
@@ -518,7 +518,7 @@ function Open-Yab {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
@@ -610,7 +610,7 @@ function Open-YabAIBattle {
 
     DynamicParam {
 
-        Copy-OpenWebbrowserParameters -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Fullscreen", "RestoreFocus", "Monitor", "ApplicationMode", "NewWindow"
     }
 
     process {
