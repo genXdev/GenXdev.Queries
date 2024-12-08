@@ -47,95 +47,92 @@ Update-Module
 
 # Cmdlet Index
 ### GenXdev.Queries<hr/>
-| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                     |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [Open-AllPossibleQueries](#Open-AllPossibleQueries)                                                           | qq                                                            | Open-AllPossibleQueries: Executes all Cmdlets that handle webpage queries       |
-| [Open-AllPossibleTextQueries](#Open-AllPossibleTextQueries)                                                   | qqq                                                           | Executes all Text query Cmdlets in parallel and shows the results               |
-| [Invoke-WebbrowserTabPollingScript](#Invoke-WebbrowserTabPollingScript)                                       |                                                               | Executes a background polling script in a previously selected webbrowser tab.   |
-| [Build-InvocationArguments](#Build-InvocationArguments)                                                       |                                                               | Helper function for allowing different commandline parsing for query parameters |
+| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| --- | --- | --- |
+| [Open-AllPossibleQueries](#Open-AllPossibleQueries) | qq | Open-AllPossibleQueries: Executes all Cmdlets that handle webpage queries |
+| [Open-AllPossibleTextQueries](#Open-AllPossibleTextQueries) | qqq | Executes all Text query Cmdlets in parallel and shows the results |
+| [Invoke-WebbrowserTabPollingScript](#Invoke-WebbrowserTabPollingScript) |  | Executes a background polling script in a previously selected webbrowser tab. |
 
 <hr/>
 &nbsp;
 
 ### GenXdev.Queries.Text</hr>
-| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                               |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------- |
-| [Get-Translation](#Get-Translation)                                                                           | translate                                                     | Translates a text to English              |
-| [Get-WikipediaSummary](#Get-WikipediaSummary)                                                                 | wikitxt                                                       | Performs a "Wikipedia summary" text query |
-| [Get-NextAffirmations](#Get-NextAffirmations)                                                                 | WhatAboutIt                                                   | Returns a random affirmation text         |
-| [Get-WikipediaSummary](#Get-WikipediaSummary)                                                                 | wikitxt                                                       | Performs a "Wikipedia summary" text query |
-| [Get-NextAffirmations](#Get-NextAffirmations)                                                                 | WhatAboutIt                                                   | Returns a random affirmation text         |
-| [Get-Translation](#Get-Translation)                                                                           | translate                                                     | Translates a text to English              |
+| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| --- | --- | --- |
+| [Get-NextAffirmations](#Get-NextAffirmations) | WhatAboutIt | Returns a random affirmation text |
+| [Get-WikipediaSummary](#Get-WikipediaSummary) | wikitxt | Performs a "Wikipedia summary" text query |
+| [Get-WikipediaSummary](#Get-WikipediaSummary) | wikitxt | Performs a "Wikipedia summary" text query |
+| [Get-NextAffirmations](#Get-NextAffirmations) | WhatAboutIt | Returns a random affirmation text |
 
 <hr/>
 &nbsp;
 
 ### GenXdev.Queries.Webbrowser</hr>
-| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Open-YoutubeQuery](#Open-YoutubeQuery)                                                                       | youtube                                                       | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                          |
-| [Open-MovieQuote](#Open-MovieQuote)                                                                           | moviequote                                                    | Opens a video of a movie quote                                                                                                                                                                                       |
-| [Open-WolframAlphaQuery](#Open-WolframAlphaQuery)                                                             | qalpha                                                        | Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                  |
-| [Open-WikipediaQuery](#Open-WikipediaQuery)                                                                   | wiki                                                          | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-WikipediaNLQuery](#Open-WikipediaNLQuery)                                                               | wikinl                                                        | Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches                                                                                                    |
-| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo)                                                             |                                                               | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                 |
-| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo)                                                   | wayback                                                       | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                   |
-| [Open-StackOverflowQuery](#Open-StackOverflowQuery)                                                           | qso                                                           | Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                 |
-| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo)                                                           | simularsite                                                   | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                    |
-| [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery)                                                   | isv                                                           | Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                              |
-| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo)                                                                   |                                                               | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                |
-| [Open-BingChatQuery](#Open-BingChatQuery)                                                                     | ask, bc                                                       | Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-GoogleQuery](#Open-GoogleQuery)                                                                         | q                                                             | Opens a google query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                           |
-| [Open-GithubQuery](#Open-GithubQuery)                                                                         | qgit                                                          | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                           |
-| [Copy-PDFsFromGoogleQuery](#Copy-PDFsFromGoogleQuery)                                                         |                                                               | Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory                                                                                               |
-| [Get-GoogleSearchResultUrls](#Get-GoogleSearchResultUrls)                                                     | qlinksget                                                     | Performs a google search and returns the links                                                                                                                                                                       |
-| [Get-WebLanguageDictionary](#Get-WebLanguageDictionary)                                                       |                                                               | Returns a reversed dictionary for all languages supported by Google Search                                                                                                                                           |
-| [Open-AllGoogleLinks](#Open-AllGoogleLinks)                                                                   | qlinks                                                        | Performs a google search .Opens 10 tabs each times, pauses until initial tab is revisitedClose initial tab to stop                                                                                                   |
-| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo)                                                             |                                                               | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-BingQuery](#Open-BingQuery)                                                                             | bq                                                            | Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                             |
-| [Open-IMDBQuery](#Open-IMDBQuery)                                                                             | imdb                                                          | Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                        |
-| [Open-AllYoutubeVideos](#Open-AllYoutubeVideos)                                                               | qvideos, qyt                                                  | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
-| [Get-GoogleSearchResultUrls](#Get-GoogleSearchResultUrls)                                                     | qlinksget                                                     | Performs a google search and returns the links                                                                                                                                                                       |
-| [Open-AllGoogleLinks](#Open-AllGoogleLinks)                                                                   | qlinks                                                        | Performs a google search .Opens 10 tabs each times, pauses until initial tab is revisitedClose initial tab to stop                                                                                                   |
-| [Open-AllYoutubeVideos](#Open-AllYoutubeVideos)                                                               | qvideos, qyt                                                  | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
-| [Open-GoogleQuery](#Open-GoogleQuery)                                                                         | q                                                             | Opens a google query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                           |
-| [Copy-PDFsFromGoogleQuery](#Copy-PDFsFromGoogleQuery)                                                         |                                                               | Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory                                                                                               |
-| [Open-WikipediaQuery](#Open-WikipediaQuery)                                                                   | wiki                                                          | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-BingChatQuery](#Open-BingChatQuery)                                                                     | ask, bc                                                       | Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-BingQuery](#Open-BingQuery)                                                                             | bq                                                            | Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                             |
-| [Open-WikipediaNLQuery](#Open-WikipediaNLQuery)                                                               | wikinl                                                        | Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches                                                                                                    |
-| [Open-YoutubeQuery](#Open-YoutubeQuery)                                                                       | youtube                                                       | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                          |
-| [Open-IMDBQuery](#Open-IMDBQuery)                                                                             | imdb                                                          | Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                        |
-| [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery)                                                   | isv                                                           | Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                              |
-| [Open-StackOverflowQuery](#Open-StackOverflowQuery)                                                           | qso                                                           | Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                 |
-| [Open-WolframAlphaQuery](#Open-WolframAlphaQuery)                                                             | qalpha                                                        | Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                  |
-| [Open-GithubQuery](#Open-GithubQuery)                                                                         | qgit                                                          | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                           |
-| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo)                                                                   |                                                               | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                |
-| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo)                                                             |                                                               | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                        |
-| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo)                                                             |                                                               | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                 |
-| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo)                                                   | wayback                                                       | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                   |
-| [Open-MovieQuote](#Open-MovieQuote)                                                                           | moviequote                                                    | Opens a video of a movie quote                                                                                                                                                                                       |
-| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo)                                                           | simularsite                                                   | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches                                                                                                                    |
-| [Get-WebLanguageDictionary](#Get-WebLanguageDictionary)                                                       |                                                               | Returns a reversed dictionary for all languages supported by Google Search                                                                                                                                           |
+| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| --- | --- | --- |
+| [Open-MovieQuote](#Open-MovieQuote) | moviequote | Opens a video of a movie quote |
+| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) | simularsite | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-StackOverflowQuery](#Open-StackOverflowQuery) | qso | Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo) |  | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Copy-PDFsFromGoogleQuery](#Copy-PDFsFromGoogleQuery) |  | Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory |
+| [Open-WikipediaQuery](#Open-WikipediaQuery) | wiki | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WolframAlphaQuery](#Open-WolframAlphaQuery) | qalpha | Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery) | isv | Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-YoutubeQuery](#Open-YoutubeQuery) | youtube | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WikipediaNLQuery](#Open-WikipediaNLQuery) | wikinl | Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-IMDBQuery](#Open-IMDBQuery) | imdb | Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo) | wayback | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-GoogleQuery](#Open-GoogleQuery) | q | Opens a google query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo) |  | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Get-WebLanguageDictionary](#Get-WebLanguageDictionary) |  | Returns a reversed dictionary for all languages supported by Google Search |
+| [Open-AllGoogleLinks](#Open-AllGoogleLinks) | qlinks | Performs a google search .Opens 10 tabs each times, pauses until initial tab is revisitedClose initial tab to stop |
+| [Open-AllYoutubeVideos](#Open-AllYoutubeVideos) | qvideos, qyt | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
+| [Open-BingChatQuery](#Open-BingChatQuery) | ask, bc | Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BingQuery](#Open-BingQuery) | bq | Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches |
+| [Get-GoogleSearchResultUrls](#Get-GoogleSearchResultUrls) | qlinksget | Performs a google search and returns the links |
+| [Open-GithubQuery](#Open-GithubQuery) | qgit | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo) |  | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches |
+| [Get-GoogleSearchResultUrls](#Get-GoogleSearchResultUrls) | qlinksget | Performs a google search and returns the links |
+| [Open-AllGoogleLinks](#Open-AllGoogleLinks) | qlinks | Performs a google search .Opens 10 tabs each times, pauses until initial tab is revisitedClose initial tab to stop |
+| [Open-AllYoutubeVideos](#Open-AllYoutubeVideos) | qvideos, qyt | Performs an infinite auto opening youtube search in a new fullscreen browser window on second monitor.The console window will show info about the video and keyboard shortcuts for controlling current playing video |
+| [Open-GoogleQuery](#Open-GoogleQuery) | q | Opens a google query in a webbrowser, in a configurable manner, using commandline switches |
+| [Copy-PDFsFromGoogleQuery](#Copy-PDFsFromGoogleQuery) |  | Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory |
+| [Open-WikipediaQuery](#Open-WikipediaQuery) | wiki | Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BingChatQuery](#Open-BingChatQuery) | ask, bc | Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BingQuery](#Open-BingQuery) | bq | Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WikipediaNLQuery](#Open-WikipediaNLQuery) | wikinl | Opens a 'Wikipedia - The Netherlands' query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-YoutubeQuery](#Open-YoutubeQuery) | youtube | Opens a Youtube query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-IMDBQuery](#Open-IMDBQuery) | imdb | Opens a "Internet Movie Database" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-InstantStreetViewQuery](#Open-InstantStreetViewQuery) | isv | Opens a "InstantStreetView" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-StackOverflowQuery](#Open-StackOverflowQuery) | qso | Opens a "Stack Overflow" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WolframAlphaQuery](#Open-WolframAlphaQuery) | qalpha | Opens a "Wolfram Alpha" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-GithubQuery](#Open-GithubQuery) | qgit | Opens a Github query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-GoogleSiteInfo](#Open-GoogleSiteInfo) |  | Opens a "Google siteinfo" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-BuiltWithSiteInfo](#Open-BuiltWithSiteInfo) |  | Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WhoisHostSiteInfo](#Open-WhoisHostSiteInfo) |  | Opens a "Whois HostInfo" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-WaybackMachineSiteInfo](#Open-WaybackMachineSiteInfo) | wayback | Opens a Waybackmachine query in a webbrowser, in a configurable manner, using commandline switches |
+| [Open-MovieQuote](#Open-MovieQuote) | moviequote | Opens a video of a movie quote |
+| [Open-SimularWebSiteInfo](#Open-SimularWebSiteInfo) | simularsite | Opens a "Simular web" query in a webbrowser, in a configurable manner, using commandline switches |
+| [Get-WebLanguageDictionary](#Get-WebLanguageDictionary) |  | Returns a reversed dictionary for all languages supported by Google Search |
 
 <hr/>
 &nbsp;
 
 ### GenXdev.Queries.Websites</hr>
-| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                       |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [Open-Yab](#Open-Yab)                                                                                         | yab                                                           | Opens an interactive block-falling-game in single playermode                      |
-| [Open-ViralSimulation](#Open-ViralSimulation)                                                                 | viral                                                         | Opens a very simple, interactive infection simulation                             |
-| [Open-Timeline](#Open-Timeline)                                                                               | timeline                                                      | Opens an interactive timeline, showing the current time, date, centery, millenium |
-| [Open-GenXdevAppCatalog](#Open-GenXdevAppCatalog)                                                             | appcatalog                                                    | Opens the catalog with published GenXdev progressive webapps                      |
-| [Open-GameOfLife](#Open-GameOfLife)                                                                           | conway, gameoflife                                            | Opens an interactive game-of-life simulation                                      |
-| [Open-YabAIBattle](#Open-YabAIBattle)                                                                         | yabbattle                                                     | Opens an interactive block-falling-game in battle AI mode                         |
-| [Open-Timeline](#Open-Timeline)                                                                               | timeline                                                      | Opens an interactive timeline, showing the current time, date, centery, millenium |
-| [Open-GameOfLife](#Open-GameOfLife)                                                                           | conway, gameoflife                                            | Opens an interactive game-of-life simulation                                      |
-| [Open-GenXdevAppCatalog](#Open-GenXdevAppCatalog)                                                             | appcatalog                                                    | Opens the catalog with published GenXdev progressive webapps                      |
-| [Open-ViralSimulation](#Open-ViralSimulation)                                                                 | viral                                                         | Opens a very simple, interactive infection simulation                             |
-| [Open-Yab](#Open-Yab)                                                                                         | yab                                                           | Opens an interactive block-falling-game in single playermode                      |
-| [Open-YabAIBattle](#Open-YabAIBattle)                                                                         | yabbattle                                                     | Opens an interactive block-falling-game in battle AI mode                         |
+| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
+| --- | --- | --- |
+| [Open-YabAIBattle](#Open-YabAIBattle) | yabbattle | Opens an interactive block-falling-game in battle AI mode |
+| [Open-Yab](#Open-Yab) | yab | Opens an interactive block-falling-game in single playermode |
+| [Open-ViralSimulation](#Open-ViralSimulation) | viral | Opens a very simple, interactive infection simulation |
+| [Open-Timeline](#Open-Timeline) | timeline | Opens an interactive timeline, showing the current time, date, centery, millenium |
+| [Open-GenXdevAppCatalog](#Open-GenXdevAppCatalog) | appcatalog | Opens the catalog with published GenXdev progressive webapps |
+| [Open-GameOfLife](#Open-GameOfLife) | conway, gameoflife | Opens an interactive game-of-life simulation |
+| [Open-Timeline](#Open-Timeline) | timeline | Opens an interactive timeline, showing the current time, date, centery, millenium |
+| [Open-GameOfLife](#Open-GameOfLife) | conway, gameoflife | Opens an interactive game-of-life simulation |
+| [Open-GenXdevAppCatalog](#Open-GenXdevAppCatalog) | appcatalog | Opens the catalog with published GenXdev progressive webapps |
+| [Open-ViralSimulation](#Open-ViralSimulation) | viral | Opens a very simple, interactive infection simulation |
+| [Open-Yab](#Open-Yab) | yab | Opens an interactive block-falling-game in single playermode |
+| [Open-YabAIBattle](#Open-YabAIBattle) | yabbattle | Opens an interactive block-falling-game in battle AI mode |
 
 <br/><hr/><hr/><br/>
 
@@ -152,10 +149,11 @@ Open-AllPossibleQueries              --> qq
 
 ### SYNTAX
 ````PowerShell
-Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -232,7 +230,7 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -269,8 +267,8 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -380,7 +378,7 @@ Open-AllPossibleQueries [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -405,14 +403,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         The query to perform
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -426,8 +424,8 @@ Invoke-WebbrowserTabPollingScript
 
 ### SYNTAX
 ````PowerShell
-Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] [-Callback
-<ScriptBlock>] [<CommonParameters>]
+Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>] 
+[-Callback <ScriptBlock>] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -438,27 +436,27 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [-InitialUrl <String>]
         The scripts to load
         Required?                    false
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -InitialUrl <String>
         Required?                    false
         Position?                    named
-        Default value
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
     -Callback <ScriptBlock>
         A scriptblock that gets executed each time the tab has been polled
         Required?                    false
         Position?                    named
-        Default value
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### NOTES
 ````PowerShell
@@ -467,82 +465,38 @@ Requires the Windows 10+ Operating System
 
 <br/><hr/><hr/><br/>
 
-##	Build-InvocationArguments
-````PowerShell
-Build-InvocationArguments
-````
-
-### SYNOPSIS
-    Helper function for allowing different commandline parsing for query parameters
-
-### SYNTAX
-````PowerShell
-Build-[-InvocationInfo] <Object> [[-Arguments] <String[]>]
-[[-SingleString]] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Helper function for allowing different commandline parsing for query parameters
-
-### PARAMETERS
-    -InvocationInfo <Object>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Arguments <String[]>
-        Required?                    false
-        Position?                    2
-        Default value                @()
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -SingleString [<SwitchParameter>]
-        Required?                    false
-        Position?                    3
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/>
 
-##	Get-Translation
+##	Get-NextAffirmations
 ````PowerShell
-Get-Translation                      --> translate
+Get-NextAffirmations                 --> WhatAboutIt
 ````
 
 ### SYNOPSIS
-    Translates a text to English
+    Returns a random affirmation text
 
 ### SYNTAX
 ````PowerShell
-Get-Translation [-Queries] <String[]> [<CommonParameters>]
+Get-NextAffirmations [[-Speak]] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Translates a text to English
+    Returns a random affirmation text
 
 ### PARAMETERS
-    -Queries <String[]>
-        The query to perform
-        Required?                    true
+    -Speak [<SwitchParameter>]
+        Use text-to-speech to speak out affirmation
+        Required?                    false
         Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Default value                False
+        Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -567,14 +521,46 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         The query to perform
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Get-WikipediaSummary
+````PowerShell
+Get-WikipediaSummary                 --> wikitxt
+````
+
+### SYNOPSIS
+    Performs a "Wikipedia summary" text query
+
+### SYNTAX
+````PowerShell
+Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Performs a "Wikipedia summary" text query
+
+### PARAMETERS
+    -Queries <String[]>
+        The query to perform
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -606,347 +592,13 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Get-WikipediaSummary
-````PowerShell
-Get-WikipediaSummary                 --> wikitxt
-````
-
-### SYNOPSIS
-    Performs a "Wikipedia summary" text query
-
-### SYNTAX
-````PowerShell
-Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Performs a "Wikipedia summary" text query
-
-### PARAMETERS
-    -Queries <String[]>
-        The query to perform
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Get-NextAffirmations
-````PowerShell
-Get-NextAffirmations                 --> WhatAboutIt
-````
-
-### SYNOPSIS
-    Returns a random affirmation text
-
-### SYNTAX
-````PowerShell
-Get-NextAffirmations [[-Speak]] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Returns a random affirmation text
-
-### PARAMETERS
-    -Speak [<SwitchParameter>]
-        Use text-to-speech to speak out affirmation
-        Required?                    false
-        Position?                    1
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Get-Translation
-````PowerShell
-Get-Translation                      --> translate
-````
-
-### SYNOPSIS
-    Translates a text to English
-
-### SYNTAX
-````PowerShell
-Get-Translation [-Queries] <String[]> [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Translates a text to English
-
-### PARAMETERS
-    -Queries <String[]>
-        The query to perform
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/>
 
-##	Open-YoutubeQuery
-````PowerShell
-Open-YoutubeQuery                    --> youtube
-````
-
-### SYNTAX
-````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
 ##	Open-MovieQuote
 ````PowerShell
 Open-MovieQuote                      --> moviequote
@@ -954,9 +606,9 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -1034,7 +686,7 @@ Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edg
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -1181,21 +833,22 @@ Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edg
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
-##	Open-WolframAlphaQuery
+##	Open-SimularWebSiteInfo
 ````PowerShell
-Open-WolframAlphaQuery               --> qalpha
+Open-SimularWebSiteInfo              --> simularsite
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1272,7 +925,7 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -1419,7 +1072,552 @@ Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-StackOverflowQuery
+````PowerShell
+Open-StackOverflowQuery              --> qso
+````
+
+### SYNTAX
+````PowerShell
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-WhoisHostSiteInfo
+````PowerShell
+Open-WhoisHostSiteInfo
+````
+
+### SYNTAX
+````PowerShell
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Copy-PDFsFromGoogleQuery
+````PowerShell
+Copy-PDFsFromGoogleQuery
+````
+
+### SYNOPSIS
+    Performs a Google query in the previously selected webbrowser tab, and download all 
+    found pdf's into current directory
+
+### SYNTAX
+````PowerShell
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
+````
+
+### DESCRIPTION
+    Performs a Google query in the previously selected webbrowser tab, and download all 
+    found pdf's into current directory
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Max <Int32>
+        The maximum number of results to obtain, defaults to 200
+        Required?                    false
+        Position?                    named
+        Default value                200
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Language <String>
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### NOTES
+````PowerShell
+    Requires the Windows 10+ Operating System
+-------------------------- EXAMPLE 1 --------------------------
+PS D:\Downloads> 
+Open-Webbrowser
+    Select-WebbrowserTab
+    mkdir pdfs;
+    cd pdfs;
+    Copy-PDFsFromGoogleQuery scientific, paper, co2
+-------------------------- EXAMPLE 2 --------------------------
+PS D:\Downloads> 
+Open-Webbrowser
+    Select-WebbrowserTab
+    mkdir pdfs;
+    cd pdfs;
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | 
+Open-Webbrowser
+````
 
 <br/><hr/><hr/><br/>
 
@@ -1437,14 +1635,14 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
 ````
 
 ### DESCRIPTION
-    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline
+    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline 
     switches
 
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Monitor <Int32>
@@ -1457,497 +1655,21 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
-##	Open-WikipediaNLQuery
+##	Open-WolframAlphaQuery
 ````PowerShell
-Open-WikipediaNLQuery                --> wikinl
+Open-WolframAlphaQuery               --> qalpha
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-WhoisHostSiteInfo
-````PowerShell
-Open-WhoisHostSiteInfo
-````
-
-### SYNTAX
-````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-WaybackMachineSiteInfo
-````PowerShell
-Open-WaybackMachineSiteInfo          --> wayback
-````
-
-### SYNTAX
-````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2025,7 +1747,7 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -2172,483 +1894,7 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-StackOverflowQuery
-````PowerShell
-Open-StackOverflowQuery              --> qso
-````
-
-### SYNTAX
-````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-SimularWebSiteInfo
-````PowerShell
-Open-SimularWebSiteInfo              --> simularsite
-````
-
-### SYNTAX
-````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -2659,10 +1905,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -2740,7 +1986,7 @@ Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -2887,20 +2133,20 @@ Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
-##	Open-GoogleSiteInfo
+##	Open-YoutubeQuery
 ````PowerShell
-Open-GoogleSiteInfo
+Open-YoutubeQuery                    --> youtube
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -2978,7 +2224,7 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -3125,84 +2371,21 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
-##	Open-BingChatQuery
+##	Open-WikipediaNLQuery
 ````PowerShell
-Open-BingChatQuery                   --> ask, bc
-````
-
-### SYNOPSIS
-    Opens a Bing chat query in a webbrowser
-
-### SYNTAX
-````PowerShell
-Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline
-    switches
-
-### PARAMETERS
-    -Queries <String[]>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Monitor <Int32>
-        Required?                    false
-        Position?                    named
-        Default value                -1
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -NewTopic [<SwitchParameter>]
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-GoogleQuery
-````PowerShell
-Open-GoogleQuery                     --> q
+Open-WikipediaNLQuery                --> wikinl
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan |
-Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba |
-Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan |
-Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian |
-Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese |
-Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani
-| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian |
-Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese |
-Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) |
-Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian |
-Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori |
-Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin
-| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto |
-Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua
-| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian |
-Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian |
-Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil
-| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi |
-Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba |
-Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen]
-[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow]
-[-PassThrough] [<CommonParameters>]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3279,7 +2462,742 @@ Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Ful
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-IMDBQuery
+````PowerShell
+Open-IMDBQuery                       --> imdb
+````
+
+### SYNTAX
+````PowerShell
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-WaybackMachineSiteInfo
+````PowerShell
+Open-WaybackMachineSiteInfo          --> wayback
+````
+
+### SYNTAX
+````PowerShell
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-GoogleQuery
+````PowerShell
+Open-GoogleQuery                     --> q
+````
+
+### SYNTAX
+````PowerShell
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
+Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | 
+Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican 
+| Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe 
+| Faroese | Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | 
+Greek | Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi 
+| Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | 
+Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio 
+(Sierra Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | 
+Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam 
+| Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | 
+Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
+Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese 
+(Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots 
+Gaelic | Serbian | Serbo-Croatian | Sesotho | Setswana | Seychellois Creole | Shona | 
+Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | 
+Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga 
+| Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | 
+Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -3435,7 +3353,528 @@ Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Ful
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-GoogleSiteInfo
+````PowerShell
+Open-GoogleSiteInfo
+````
+
+### SYNTAX
+````PowerShell
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Get-WebLanguageDictionary
+````PowerShell
+Get-WebLanguageDictionary
+````
+
+### SYNOPSIS
+    Returns a reversed dictionary for all languages supported by Google Search
+
+### SYNTAX
+````PowerShell
+Get-WebLanguageDictionary [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Returns a reversed dictionary for all languages supported by Google Search
+
+### PARAMETERS
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-AllGoogleLinks
+````PowerShell
+Open-AllGoogleLinks                  --> qlinks
+````
+
+### SYNOPSIS
+    Performs an infinite auto opening google search .
+
+### SYNTAX
+````PowerShell
+Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Performs a google search .
+    Opens 10 tabs each times, pauses until initial tab is revisited
+    Close initial tab to stop
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Language <String>
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### NOTES
+````PowerShell
+    Requires the Windows 10+ Operating System
+-------------------------- EXAMPLE 1 --------------------------
+PS C:\> 
+Open-AllGoogleLinks "site:github.com PowerShell module"
+````
+
+<br/><hr/><hr/><br/>
+
+##	Open-AllYoutubeVideos
+````PowerShell
+Open-AllYoutubeVideos                --> qvideos, qyt
+````
+
+### SYNOPSIS
+    Performs an infinite auto opening youtube search in a new fullscreen browser window on 
+    second monitor.
+
+### SYNTAX
+````PowerShell
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] 
+[-Recommended] [-Trending] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Performs an infinite auto opening youtube search in a new fullscreen browser window on 
+    second monitor.
+    The console window will show info about the video and keyboard shortcuts for controlling 
+    current playing video
+
+### PARAMETERS
+    -Queries <String[]>
+        Opens all videos of each searchterm provided
+        Required?                    false
+        Position?                    1
+        Default value                @("")
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Subscriptions [<SwitchParameter>]
+        Opens all videos of subscribed channels
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -WatchLater [<SwitchParameter>]
+        Opens all videos of the watch-later playlist
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Recommended [<SwitchParameter>]
+        Opens all videos that youtube recommends
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Trending [<SwitchParameter>]
+        Opens all videos that are currently trending on youtube
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### NOTES
+````PowerShell
+    Requires the Windows 10+ Operating System
+-------------------------- EXAMPLE 1 --------------------------
+PS C:\> 
+Open-AllYoutubeVideos "PowerShell Windows Terminal"
+-------------------------- EXAMPLE 2 --------------------------
+PS C:\> 
+qvideos PowerShell tutorial, vscode tips
+    qvideos -Queries "PowerShell tutorials", "vscode tips"
+````
+
+<br/><hr/><hr/><br/>
+
+##	Open-BingChatQuery
+````PowerShell
+Open-BingChatQuery                   --> ask, bc
+````
+
+### SYNOPSIS
+    Opens a Bing chat query in a webbrowser
+
+### SYNTAX
+````PowerShell
+Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] 
+[<CommonParameters>]
+````
+
+### DESCRIPTION
+    Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline 
+    switches
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Monitor <Int32>
+        Required?                    false
+        Position?                    named
+        Default value                -1
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -NewTopic [<SwitchParameter>]
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-BingQuery
+````PowerShell
+Open-BingQuery                       --> bq
+````
+
+### SYNOPSIS
+    Opens a Bing query in a webbrowser
+
+### SYNTAX
+````PowerShell
+Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+````
+
+### DESCRIPTION
+    Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Monitor <Int32>
+        Required?                    false
+        Position?                    named
+        Default value                -1
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Get-GoogleSearchResultUrls
+````PowerShell
+Get-GoogleSearchResultUrls           --> qlinksget
+````
+
+### SYNOPSIS
+    Performs a google search and returns the links
+
+### SYNTAX
+````PowerShell
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
+````
+
+### DESCRIPTION
+    Performs a google search and returns the links
+
+### PARAMETERS
+    -Queries <String[]>
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Accept wildcard characters?  false
+    -Max <Int32>
+        The maximum number of results to obtain, defaults to 200
+        Required?                    false
+        Position?                    named
+        Default value                200
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    -Language <String>
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### NOTES
+````PowerShell
+    Requires the Windows 10+ Operating System
+-------------------------- EXAMPLE 1 --------------------------
+PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
+````
 
 <br/><hr/><hr/><br/>
 
@@ -3446,10 +3885,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private]
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>]
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -3527,7 +3966,7 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -3682,198 +4121,7 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Copy-PDFsFromGoogleQuery
-````PowerShell
-Copy-PDFsFromGoogleQuery
-````
-
-### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found
-    pdf's into current directory
-
-### SYNTAX
-````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
-[<CommonParameters>]
-````
-
-### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found
-    pdf's into current directory
-
-### PARAMETERS
-    -Queries <String[]>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Max <Int32>
-        The maximum number of results to obtain, defaults to 200
-        Required?                    false
-        Position?                    named
-        Default value                200
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Language <String>
-        Required?                    false
-        Position?                    named
-        Default value
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-### NOTES
-````PowerShell
-    Requires the Windows 10+ Operating System
--------------------------- EXAMPLE 1 --------------------------
-PS D:\Downloads>
-Open-Webbrowser
-    Select-WebbrowserTab
-    mkdir pdfs;
-    cd pdfs;
-    Copy-PDFsFromGoogleQuery scientific paper co2
--------------------------- EXAMPLE 2 --------------------------
-PS D:\Downloads>
-Open-Webbrowser
-    Select-WebbrowserTab
-    mkdir pdfs;
-    cd pdfs;
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 |
-Open-Webbrowser
-````
-
-<br/><hr/><hr/><br/>
-
-##	Get-GoogleSearchResultUrls
-````PowerShell
-Get-GoogleSearchResultUrls           --> qlinksget
-````
-
-### SYNOPSIS
-    Performs a google search and returns the links
-
-### SYNTAX
-````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
-[<CommonParameters>]
-````
-
-### DESCRIPTION
-    Performs a google search and returns the links
-
-### PARAMETERS
-    -Queries <String[]>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Max <Int32>
-        The maximum number of results to obtain, defaults to 200
-        Required?                    false
-        Position?                    named
-        Default value                200
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Language <String>
-        Required?                    false
-        Position?                    named
-        Default value
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-### NOTES
-````PowerShell
-    Requires the Windows 10+ Operating System
--------------------------- EXAMPLE 1 --------------------------
-PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls
-````
-
-<br/><hr/><hr/><br/>
-
-##	Get-WebLanguageDictionary
-````PowerShell
-Get-WebLanguageDictionary
-````
-
-### SYNOPSIS
-    Returns a reversed dictionary for all languages supported by Google Search
-
-### SYNTAX
-````PowerShell
-Get-WebLanguageDictionary [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Returns a reversed dictionary for all languages supported by Google Search
-
-### PARAMETERS
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-AllGoogleLinks
-````PowerShell
-Open-AllGoogleLinks                  --> qlinks
-````
-
-### SYNOPSIS
-    Performs an infinite auto opening google search .
-
-### SYNTAX
-````PowerShell
-Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Performs a google search .
-    Opens 10 tabs each times, pauses until initial tab is revisited
-    Close initial tab to stop
-
-### PARAMETERS
-    -Queries <String[]>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Language <String>
-        Required?                    false
-        Position?                    named
-        Default value
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-### NOTES
-````PowerShell
-    Requires the Windows 10+ Operating System
--------------------------- EXAMPLE 1 --------------------------
-PS C:\>
-Open-AllGoogleLinks "site:github.com PowerShell module"
-````
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -3884,10 +4132,11 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3964,7 +4213,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -4111,359 +4360,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-BingQuery
-````PowerShell
-Open-BingQuery                       --> bq
-````
-
-### SYNOPSIS
-    Opens a Bing query in a webbrowser
-
-### SYNTAX
-````PowerShell
-Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Opens a Bing query in a webbrowser, in a configurable manner, using commandline switches
-
-### PARAMETERS
-    -Queries <String[]>
-        Required?                    true
-        Position?                    1
-        Default value
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Monitor <Int32>
-        Required?                    false
-        Position?                    named
-        Default value                -1
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-IMDBQuery
-````PowerShell
-Open-IMDBQuery                       --> imdb
-````
-
-### SYNTAX
-````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome]
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-AllYoutubeVideos
-````PowerShell
-Open-AllYoutubeVideos                --> qvideos, qyt
-````
-
-### SYNOPSIS
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on
-    second monitor.
-
-### SYNTAX
-````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended]
-[-Trending] [<CommonParameters>]
-````
-
-### DESCRIPTION
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on
-    second monitor.
-    The console window will show info about the video and keyboard shortcuts for controlling
-    current playing video
-
-### PARAMETERS
-    -Queries <String[]>
-        Opens all videos of each searchterm provided
-        Required?                    false
-        Position?                    1
-        Default value                @("")
-        Accept pipeline input?       true (ByValue, ByPropertyName)
-        Accept wildcard characters?  false
-    -Subscriptions [<SwitchParameter>]
-        Opens all videos of subscribed channels
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -WatchLater [<SwitchParameter>]
-        Opens all videos of the watch-later playlist
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Recommended [<SwitchParameter>]
-        Opens all videos that youtube recommends
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    -Trending [<SwitchParameter>]
-        Opens all videos that are currently trending on youtube
-        Required?                    false
-        Position?                    named
-        Default value                False
-        Accept pipeline input?       false
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-### NOTES
-````PowerShell
-    Requires the Windows 10+ Operating System
--------------------------- EXAMPLE 1 --------------------------
-PS C:\>
-Open-AllYoutubeVideos "PowerShell Windows Terminal"
--------------------------- EXAMPLE 2 --------------------------
-PS C:\>
-qvideos PowerShell tutorial, vscode tips
-    qvideos -Queries "PowerShell tutorials", "vscode tips"
-````
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -4477,7 +4374,7 @@ Get-GoogleSearchResultUrls           --> qlinksget
 
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
 [<CommonParameters>]
 ````
 
@@ -4488,7 +4385,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Max <Int32>
@@ -4501,14 +4398,14 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### NOTES
 ````PowerShell
@@ -4541,26 +4438,26 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS C:\>
+PS C:\> 
 Open-AllGoogleLinks "site:github.com PowerShell module"
 ````
 
@@ -4572,19 +4469,19 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 ````
 
 ### SYNOPSIS
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on
+    Performs an infinite auto opening youtube search in a new fullscreen browser window on 
     second monitor.
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended]
-[-Trending] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] 
+[-Recommended] [-Trending] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Performs an infinite auto opening youtube search in a new fullscreen browser window on
+    Performs an infinite auto opening youtube search in a new fullscreen browser window on 
     second monitor.
-    The console window will show info about the video and keyboard shortcuts for controlling
+    The console window will show info about the video and keyboard shortcuts for controlling 
     current playing video
 
 ### PARAMETERS
@@ -4627,16 +4524,16 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS C:\>
+PS C:\> 
 Open-AllYoutubeVideos "PowerShell Windows Terminal"
 -------------------------- EXAMPLE 2 --------------------------
-PS C:\>
+PS C:\> 
 qvideos PowerShell tutorial, vscode tips
     qvideos -Queries "PowerShell tutorials", "vscode tips"
 ````
@@ -4650,29 +4547,30 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan |
-Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba |
-Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan |
-Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian |
-Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese |
-Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani
-| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian |
-Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese |
-Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) |
-Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian |
-Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori |
-Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin
-| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto |
-Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua
-| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian |
-Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian |
-Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil
-| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi |
-Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba |
-Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen]
-[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow]
-[-PassThrough] [<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
+Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | 
+Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican 
+| Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe 
+| Faroese | Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | 
+Greek | Guarani | Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi 
+| Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | 
+Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio 
+(Sierra Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | 
+Lingala | Lithuanian | Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam 
+| Maltese | Maori | Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | 
+Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
+Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese 
+(Portugal) | Punjabi | Quechua | Romanian | Romansh | Runyakitara | Russian | Scots 
+Gaelic | Serbian | Serbo-Croatian | Sesotho | Setswana | Seychellois Creole | Shona | 
+Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish (Latin American) | 
+Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga 
+| Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | 
+Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4749,7 +4647,7 @@ Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Ful
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -4905,7 +4803,7 @@ Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Ful
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -4915,24 +4813,24 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found
-    pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all 
+    found pdf's into current directory
 
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
 [<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found
-    pdf's into current directory
+    Performs a Google query in the previously selected webbrowser tab, and download all 
+    found pdf's into current directory
 
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Max <Int32>
@@ -4945,32 +4843,32 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value
+        Default value                
         Accept pipeline input?       false
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS D:\Downloads>
+PS D:\Downloads> 
 Open-Webbrowser
     Select-WebbrowserTab
     mkdir pdfs;
     cd pdfs;
-    Copy-PDFsFromGoogleQuery scientific paper co2
+    Copy-PDFsFromGoogleQuery scientific, paper, co2
 -------------------------- EXAMPLE 2 --------------------------
-PS D:\Downloads>
+PS D:\Downloads> 
 Open-Webbrowser
     Select-WebbrowserTab
     mkdir pdfs;
     cd pdfs;
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 |
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | 
 Open-Webbrowser
 ````
 
@@ -4990,14 +4888,14 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
 ````
 
 ### DESCRIPTION
-    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline
+    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline 
     switches
 
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Monitor <Int32>
@@ -5010,7 +4908,7 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5024,18 +4922,19 @@ Open-BingChatQuery                   --> ask, bc
 
 ### SYNTAX
 ````PowerShell
-Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] [<CommonParameters>]
+Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline
+    Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline 
     switches
 
 ### PARAMETERS
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Monitor <Int32>
@@ -5054,7 +4953,7 @@ Open-BingChatQuery [-Queries] <String[]> [-Monitor <Int32>] [-NewTopic] [<Common
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5078,7 +4977,7 @@ Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value
+        Default value                
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Accept wildcard characters?  false
     -Monitor <Int32>
@@ -5091,7 +4990,7 @@ Open-BingQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5102,9 +5001,9 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -5182,7 +5081,7 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -5329,7 +5228,7 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5340,9 +5239,9 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -5420,7 +5319,7 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-E
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -5567,7 +5466,7 @@ Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-E
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5578,9 +5477,9 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome]
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -5658,7 +5557,7 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -5805,7 +5704,7 @@ Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -5816,10 +5715,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -5897,7 +5796,7 @@ Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -6044,7 +5943,7 @@ Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -6055,486 +5954,10 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-WolframAlphaQuery
-````PowerShell
-Open-WolframAlphaQuery               --> qalpha
-````
-
-### SYNTAX
-````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-GithubQuery
-````PowerShell
-Open-GithubQuery                     --> qgit
-````
-
-### SYNTAX
-````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private]
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>]
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -6612,7 +6035,485 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-WolframAlphaQuery
+````PowerShell
+Open-WolframAlphaQuery               --> qalpha
+````
+
+### SYNTAX
+````PowerShell
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-GithubQuery
+````PowerShell
+Open-GithubQuery                     --> qgit
+````
+
+### SYNTAX
+````PowerShell
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -6767,7 +6668,7 @@ Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-P
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -6778,9 +6679,9 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -6858,7 +6759,7 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -7005,7 +6906,7 @@ Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -7016,486 +6917,10 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-WhoisHostSiteInfo
-````PowerShell
-Open-WhoisHostSiteInfo
-````
-
-### SYNTAX
-````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ApplicationMode
-        Hide the browser controls
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      a, app, appmode
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -FullScreen
-        Opens in fullscreen mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      fs, f
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NewWindow
-        Do not re-use existing browser window, instead, create a new one
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      nw, new
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Queries <string[]>
-        Required?                    true
-        Position?                    0
-        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
-        Parameter set name           (All)
-        Aliases                      q, Value, Name, Text, Query
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -RestoreFocus
-        Restore PowerShell window focus
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      bg
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-WaybackMachineSiteInfo
-````PowerShell
-Open-WaybackMachineSiteInfo          --> wayback
-````
-
-### SYNTAX
-````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
 [<CommonParameters>]
 ````
 
@@ -7573,7 +6998,7 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -7720,7 +7145,485 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-WhoisHostSiteInfo
+````PowerShell
+Open-WhoisHostSiteInfo
+````
+
+### SYNTAX
+````PowerShell
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-WaybackMachineSiteInfo
+````PowerShell
+Open-WaybackMachineSiteInfo          --> wayback
+````
+
+### SYNTAX
+````PowerShell
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ApplicationMode
+        Hide the browser controls
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      a, app, appmode
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -FullScreen
+        Opens in fullscreen mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      fs, f
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NewWindow
+        Do not re-use existing browser window, instead, create a new one
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      nw, new
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Queries <string[]>
+        Required?                    true
+        Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName, FromRemainingArguments)
+        Parameter set name           (All)
+        Aliases                      q, Value, Name, Text, Query
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -RestoreFocus
+        Restore PowerShell window focus
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      bg
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -7731,9 +7634,9 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
 [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -7811,7 +7714,7 @@ Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edg
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -7958,7 +7861,7 @@ Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edg
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -7969,10 +7872,11 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
-[-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] [<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-RestoreFocus] [-NewWindow] [-PassThrough] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8049,7 +7953,7 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -8196,7 +8100,7 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Forc
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -8221,24 +8125,24 @@ Get-WebLanguageDictionary [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/>
 
-##	Open-Yab
+##	Open-YabAIBattle
 ````PowerShell
-Open-Yab                             --> yab
+Open-YabAIBattle                     --> yabbattle
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private]
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8306,7 +8210,7 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -8334,8 +8238,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8446,21 +8350,21 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
-##	Open-ViralSimulation
+##	Open-Yab
 ````PowerShell
-Open-ViralSimulation                 --> viral
+Open-Yab                             --> yab
 ````
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8528,7 +8432,7 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -8556,8 +8460,230 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    0
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ReturnOnlyURL
+        After opening webbrowser, return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -ReturnURL
+        Do not open webbrowser, just return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -SpectateOnly
+        Do not start a new game, just watch the AI play
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-ViralSimulation
+````PowerShell
+Open-ViralSimulation                 --> viral
+````
+
+### SYNTAX
+````PowerShell
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8659,7 +8785,7 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -8670,20 +8796,20 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams |
-KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves |
-KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance |
-VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours |
-GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German |
-Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian |
-Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>]
-[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground
-<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>]
-[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor
-<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough]
-[<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | 
+KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | 
+KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | 
+VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
+GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | 
+Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | 
+Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] 
+[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground 
+<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
+[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor 
+<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8796,7 +8922,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -FocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the focused node's (in center) foreground
+        Overwrite the css-color-style for painting the focused node's (in center) foreground 
         text
         Required?                    false
         Position?                    Named
@@ -8806,7 +8932,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -8825,8 +8951,8 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     true
         Accept wildcard characters?  false
     -Language <string>
-        Override default browser language, or select [All] for rotation of all languages every
-        minute
+        Override default browser language, or select [All] for rotation of all languages 
+        every minute
         Required?                    false
         Position?                    1
         Accept pipeline input?       false
@@ -8943,8 +9069,8 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground
-        text
+        Overwrite the css-color-style for painting the unfocused node's (in center) 
+        foreground text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -8983,7 +9109,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -8994,435 +9120,9 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
-        Required?                    false
-        Position?                    0
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ReturnOnlyURL
-        After opening webbrowser, return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -ReturnURL
-        Do not open webbrowser, just return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-GameOfLife
-````PowerShell
-Open-GameOfLife                      --> conway, gameoflife
-````
-
-### SYNTAX
-````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
-        Required?                    false
-        Position?                    0
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ReturnOnlyURL
-        After opening webbrowser, return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -ReturnURL
-        Do not open webbrowser, just return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-YabAIBattle
-````PowerShell
-Open-YabAIBattle                     --> yabbattle
-````
-
-### SYNTAX
-````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
 [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -9491,7 +9191,7 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -9519,8 +9219,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9582,14 +9282,218 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Aliases                      None
         Dynamic?                     true
         Accept wildcard characters?  false
-    -SpectateOnly
-        Do not start a new game, just watch the AI play
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-GameOfLife
+````PowerShell
+Open-GameOfLife                      --> conway, gameoflife
+````
+
+### SYNTAX
+````PowerShell
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    0
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ReturnOnlyURL
+        After opening webbrowser, return the url
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
         Parameter set name           (All)
         Aliases                      None
         Dynamic?                     false
+        Accept wildcard characters?  false
+    -ReturnURL
+        Do not open webbrowser, just return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
         Accept wildcard characters?  false
     -Top
         Place browser window on the top side of the screen
@@ -9631,7 +9535,7 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -9642,20 +9546,20 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams |
-KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves |
-KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance |
-VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours |
-GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German |
-Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian |
-Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>]
-[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground
-<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>]
-[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor
-<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge]
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y
-<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-PassThrough]
-[<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | 
+KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | 
+KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | 
+VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
+GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | 
+Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | 
+Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] 
+[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground 
+<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
+[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor 
+<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-PassThrough] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9768,7 +9672,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -FocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the focused node's (in center) foreground
+        Overwrite the css-color-style for painting the focused node's (in center) foreground 
         text
         Required?                    false
         Position?                    Named
@@ -9778,7 +9682,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -9797,8 +9701,8 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     true
         Accept wildcard characters?  false
     -Language <string>
-        Override default browser language, or select [All] for rotation of all languages every
-        minute
+        Override default browser language, or select [All] for rotation of all languages 
+        every minute
         Required?                    false
         Position?                    1
         Accept pipeline input?       false
@@ -9915,8 +9819,8 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         Dynamic?                     false
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground
-        text
+        Overwrite the css-color-style for painting the unfocused node's (in center) 
+        foreground text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -9955,7 +9859,7 @@ Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor 
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -9966,9 +9870,9 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
 [-PassThrough] [<CommonParameters>]
 ````
 
@@ -10037,7 +9941,7 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -10065,8 +9969,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10168,7 +10072,7 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
 
@@ -10179,657 +10083,9 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
-        Required?                    false
-        Position?                    0
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ReturnOnlyURL
-        After opening webbrowser, return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -ReturnURL
-        Do not open webbrowser, just return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-ViralSimulation
-````PowerShell
-Open-ViralSimulation                 --> viral
-````
-
-### SYNTAX
-````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force]
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>]
-[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
-        Required?                    false
-        Position?                    0
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ReturnOnlyURL
-        After opening webbrowser, return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -ReturnURL
-        Do not open webbrowser, just return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-Yab
-````PowerShell
-Open-Yab                             --> yab
-````
-
-### SYNTAX
-````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private]
-[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X
-<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions]
-[-PassThrough] [<CommonParameters>]
-````
-
-### PARAMETERS
-    -All
-        Opens in all registered modern browsers
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Bottom
-        Place browser window on the bottom side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Centered
-        Place browser window in the center of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chrome
-        Opens in Google Chrome
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ch
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Chromium
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      c
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Edge
-        Opens in Microsoft Edge
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      e
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Firefox
-        Opens in Firefox
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      ff
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
-        opened browser processes
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Height <int>
-        The initial height of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Left
-        Place browser window on the left side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
-        Required?                    false
-        Position?                    0
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      m, mon
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -NoBrowserExtensions
-        Prevent loading of browser extensions
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      de, ne, NoExtensions
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -PassThrough
-        Returns a [System.Diagnostics.Process] object of the browserprocess
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Private
-        Opens in incognito-/in-private browsing- mode
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      incognito, inprivate
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -ReturnOnlyURL
-        After opening webbrowser, return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -ReturnURL
-        Do not open webbrowser, just return the url
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Right
-        Place browser window on the right side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -SpectateOnly
-        Do not start a new game, just watch the AI play
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-    -Top
-        Place browser window on the top side of the screen
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Width <int>
-        The initial width of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -X <int>
-        The initial X position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    -Y <int>
-        The initial Y position of the webbrowser window
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     true
-        Accept wildcard characters?  false
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<br/><hr/><hr/><br/>
-
-##	Open-YabAIBattle
-````PowerShell
-Open-YabAIBattle                     --> yabbattle
-````
-
-### SYNTAX
-````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height
-<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
 [-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
 ````
 
@@ -10898,7 +10154,7 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Force
-        Enforced that the debugging port is enabled, even if that means stopping all already
+        Enforced that the debugging port is enabled, even if that means stopping all already 
         opened browser processes
         Required?                    false
         Position?                    Named
@@ -10926,8 +10182,434 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 =
-        Configured secondary monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    0
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ReturnOnlyURL
+        After opening webbrowser, return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -ReturnURL
+        Do not open webbrowser, just return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-ViralSimulation
+````PowerShell
+Open-ViralSimulation                 --> viral
+````
+
+### SYNTAX
+````PowerShell
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    0
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ReturnOnlyURL
+        After opening webbrowser, return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -ReturnURL
+        Do not open webbrowser, just return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-Yab
+````PowerShell
+Open-Yab                             --> yab
+````
+
+### SYNTAX
+````PowerShell
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] 
+[-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -11038,6 +10720,228 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+
+<br/><hr/><hr/><br/>
+
+##	Open-YabAIBattle
+````PowerShell
+Open-YabAIBattle                     --> yabbattle
+````
+
+### SYNTAX
+````PowerShell
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-PassThrough] [<CommonParameters>]
+````
+
+### PARAMETERS
+    -All
+        Opens in all registered modern browsers
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Bottom
+        Place browser window on the bottom side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Centered
+        Place browser window in the center of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chrome
+        Opens in Google Chrome
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ch
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Chromium
+        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      c
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Edge
+        Opens in Microsoft Edge
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      e
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Firefox
+        Opens in Firefox
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      ff
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Force
+        Enforced that the debugging port is enabled, even if that means stopping all already 
+        opened browser processes
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Height <int>
+        The initial height of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Left
+        Place browser window on the left side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Monitor <int>
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, 
+        -2 = Configured secondary monitor
+        Required?                    false
+        Position?                    0
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      m, mon
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -NoBrowserExtensions
+        Prevent loading of browser extensions
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      de, ne, NoExtensions
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -PassThrough
+        Returns a [System.Diagnostics.Process] object of the browserprocess
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Private
+        Opens in incognito-/in-private browsing- mode
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      incognito, inprivate
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -ReturnOnlyURL
+        After opening webbrowser, return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -ReturnURL
+        Do not open webbrowser, just return the url
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Right
+        Place browser window on the right side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -SpectateOnly
+        Do not start a new game, just watch the AI play
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     false
+        Accept wildcard characters?  false
+    -Top
+        Place browser window on the top side of the screen
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Width <int>
+        The initial width of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -X <int>
+        The initial X position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    -Y <int>
+        The initial Y position of the webbrowser window
+        Required?                    false
+        Position?                    Named
+        Accept pipeline input?       false
+        Parameter set name           (All)
+        Aliases                      None
+        Dynamic?                     true
+        Accept wildcard characters?  false
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 <br/><hr/><hr/><br/>
