@@ -1,3 +1,6 @@
+###############################################################################
+
+
 
 ###############################################################################
 
@@ -8,13 +11,13 @@ function Open-AllPossibleQueries {
     [Alias("qq")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -46,7 +49,7 @@ function Open-AllPossibleQueries {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -70,7 +73,9 @@ function Open-AllPossibleQueries {
 
                     Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
                     ForEach-Object Name |
-                    ForEach-Object -Process {
+                    ForEach-Object {
+
+                        if ($PSItem -like "Open-WebsiteAndPerformQuery") { return }
 
                         if ($isUri -and $PSItem.EndsWith("SiteInfo") -and $PSItem.StartsWith("Open-")) {
 
@@ -86,7 +91,7 @@ function Open-AllPossibleQueries {
                                 }
 
                                 try {
-                                    if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+                                    if (-not $PSBoundParameters.ContainsKey("Url")) {
 
                                         $PSBoundParameters.Add("Url", $safeUrl) | Out-Null;
                                     }
@@ -97,8 +102,8 @@ function Open-AllPossibleQueries {
                                 }
                                 Catch {
                                     Write-Warning "
-                                      $($_.Exception) $($_.InvocationInfo.PositionMessage)
-                                      $($_.InvocationInfo.Line)
+                                      $($PSItem.Exception) $($PSItem.InvocationInfo.PositionMessage)
+                                      $($PSItem.InvocationInfo.Line)
                                   "
                                 }
 
@@ -121,6 +126,8 @@ function Open-AllPossibleQueries {
             ForEach-Object Name |
             ForEach-Object -Process {
 
+                if ($PSItem -like "Open-WebsiteAndPerformQuery") { return }
+
                 if ($PSItem.EndsWith("Query") -and $PSItem.StartsWith("Open-")) {
 
                     $Query = $Query.Replace("`"", "```"");
@@ -136,8 +143,8 @@ function Open-AllPossibleQueries {
                     }
                     Catch {
                         Write-Warning "
-                          $($_.Exception) $($_.InvocationInfo.PositionMessage)
-                          $($_.InvocationInfo.Line)
+                          $($PSItem.Exception) $($PSItem.InvocationInfo.PositionMessage)
+                          $($PSItem.InvocationInfo.Line)
                       "
                     }
                 }
@@ -164,13 +171,13 @@ function Open-AllPossibleTextQueries {
     [Alias("qqq")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries
     )
@@ -302,8 +309,8 @@ function Invoke-WebbrowserTabPollingScript {
             Position = 0,
             Mandatory = $false,
             HelpMessage = "A string containing javascript, a url or a file reference to a javascript file",
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true)
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName)
         ]
         [Alias('FullName')]
         [object[]] $Scripts,
@@ -361,4 +368,41 @@ function Invoke-WebbrowserTabPollingScript {
 ################################################################################
 ################################################################################
 ################################################################################
+
+<#
+.SYNOPSIS
+Parses strings for any valid URI.
+.DESCRIPTION
+Parses one or more strings to find any valid URI, including custom schemes like magnet: or about:, and returns Uri objects.
+.PARAMETER Text
+Text input that can contain URIs.
+.NOTES
+Works on Windows 10+ required for module logic.
+#>
+function ConvertTo-Uris {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory=$false, ValueFromPipeline=$true)]
+        [string[]] $Text
+    )
+
+    begin {
+        $regex = '(?<scheme>[A-Za-z][A-Za-z0-9+\.\-]*):[^\s""]+'
+    }
+
+    process {
+        foreach ($line in $Text) {
+            foreach ($match in [System.Text.RegularExpressions.Regex]::Matches($line, $regex)) {
+                try {
+                    [Uri] $uri = New-Object Uri($match.Value)
+                    Write-Output $uri
+                } catch {
+                    # Ignore invalid matches
+                }
+            }
+        }
+    }
+}
+
+# ...existing code...
 

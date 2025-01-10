@@ -1,8 +1,8 @@
-data.done = !!data.done ? data.done : [];
-data.urls = [];
+let currentData = sessionStorage["data"] ? JSON.parse(sessionStorage["data"]) : ((this || window)["data"]) || { more: false, done: {}, urls: [], source: { url: document.location.href, page: 1 } };
+//---------------
+currentData.urls = [];
 
 let a = document.getElementsByTagName('a');
-let c = '';
 for (let i = 0; i < a.length; i++) {
 
     try {
@@ -10,60 +10,37 @@ for (let i = 0; i < a.length; i++) {
 
         if (!!b && (typeof b === 'string') && b !== '' && b.substr(0, 1) !== '#' && b.indexOf('google') < 0) {
 
-            if (b.indexOf('/search?') === 0  && b.indexOf('reCAPTCHA') === 0) {
+            if (b.indexOf('/search?') === 0) continue;
+            if (currentData.done[b]) continue;
 
-                if (data.done.indexOf(b) < 0 && b.indexOf(encodeURIComponent(data.query)) > 0) {
-
-                    c = "https://www.google.com" + b;
-                }
-
-                continue;
-            }
-
-            data.urls.push(b);
+            currentData.done[b] = true;
+            currentData.urls.push(b);
         }
     } catch (e) {
 
     }
 }
 
-function fakeClick(anchorObj, event) {
-    try {
+//---------------
 
-        if (anchorObj.click) {
-            anchorObj.click()
-        } else if (document.createEvent) {
-            if (!event || event.target !== anchorObj) {
-                var evt = document.createEvent("MouseEvents");
-                evt.initMouseEvent("click", true, true, window,
-                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                var allowDefault = anchorObj.dispatchEvent(evt);
-            }
-        }
-    } catch (e) { }
+let fetchNext = function () {
+
+    currentData.source.page++;
+
+    setTimeout(() => {
+
+        document.location.href = currentData.source.url + "&start=" + (currentData.source.page * 10);
+
+    }, 100);
 }
 
-a = document.getElementsByTagName('span');
-for (let i = 0; i < a.length; i++) {
+setInterval(fetchNext, 1100);
 
-    if (a[i].innerText === "Next" || a[i].innerText === "Volgende") {
+fetchNext();
 
-        fakeClick(a[i]);
-        data.more = true;
-        c = null;
-        break;
-    }
-}
+//---------------
 
-if (c !== null) {
+currentData.more = currentData.urls.length > 0;
+sessionStorage["data"] = JSON.stringify(currentData);
 
-    if (c !== '') {
-
-        data.more = true;
-        data.done.push(c);
-        document.location.href = c;
-    } else {
-
-        data.more = false;
-    }
-}
+data = currentData;

@@ -1,187 +1,189 @@
-data.more = false;
-data.done = !!data.done ? data.done : [];
+let first = !window["oayv"];
 
-window.oayv = window["oayv"] || (function () {
+window.oayv = window["oayv"] || (function (data) {
 
-    let data = {};
-    let result = {};
+    let tmpResult = {};
+    data = data || {};
 
-    result.queueUrls = [];
+    tmpResult.queueUrls = [];
     let doneUrls = !!localStorage["oaytDone"] ? JSON.parse(localStorage["oaytDone"]) : JSON.parse((localStorage["oaytDone"] = JSON.stringify([])));
-    result.nowHidden = null;
+    tmpResult.nowHidden = null;
 
-    result.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
-    result.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
-    result.isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
-    result.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
-    result.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
-    result.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
-    result.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
-
-    if (typeof document.hidden !== "undefined") { } else if (typeof document["msHidden"] !== "undefined") {
-        result.nowHidden = "msHidden";
-    } else if (typeof document["webkitHidden"] !== "undefined") {
-        result.nowHidden = "webkitHidden";
-    }
-
-    let visibilityChange = null;
+    tmpResult.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
+    tmpResult.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
+    tmpResult.isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
+    tmpResult.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
+    tmpResult.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
+    tmpResult.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
+    tmpResult.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
 
     if (typeof document.hidden !== "undefined") {
-        visibilityChange = "visibilitychange";
+        tmpResult.nowHidden = document.hidden;
     } else if (typeof document["msHidden"] !== "undefined") {
-        visibilityChange = "msvisibilitychange";
+        tmpResult.nowHidden = document.msHidden;
     } else if (typeof document["webkitHidden"] !== "undefined") {
-        visibilityChange = "webkitvisibilitychange";
+        tmpResult.nowHidden = document.webkitHidden;
     }
 
-    result.onVisibilityChanged = function (e) {
+    visibilityChange = "hidden";
 
-        if (document.hidden) {
+    if (typeof document.visibilitychange !== "undefined") {
+        visibilityChange = "visibilitychange";
+    } else if (typeof document["msvisibilitychange"] !== "undefined") {
+        visibilityChange = "msvisibilitychange";
+    } else if (typeof document["webkitvisibilitychange"] !== "undefined") {
+        visibilityChange = "webkitvisibilitychange";
+    } else if (typeof document["msvisibilitychange"] !== "undefined") {
+        visibilityChange = "msvisibilitychange";
+    } else if (typeof document["webkitHidden"] !== "undefined") {
+        visibilityChange = "webkitHidden";
+    }
 
-            if (!!result.vid && !result.vid.paused) {
+    document.addEventListener(visibilityChange, function (e) {
 
-                result.vid.pause();
+        if (document[visibilityChange]) {
+            let vid = document.querySelector('video');
+            if (!!vid && !vid.paused) {
+
+                vid.pause();
             }
 
         } else {
 
             window.oayvInitialized = false;
-            result.initializePage(data);
+            window.oayv.initializePage(data);
         }
-    }
+    }, false);
+    tmpResult.fakeClick = function (anchorObj, event) {
+        try {
 
-    result.initializePage = function (dataObj) {
+            if (!!anchorObj.click && !!anchorObj.mousedown() && !!anchorObj.mouseup && !!anchorObj.tap) {
+                try { anchorObj.touchStart(); } catch (e) { }
+                try { anchorObj.mousedown(); } catch (e) { }
+                try { anchorObj.mouseup(); } catch (e) { }
+                try { anchorObj.touchEnd(); } catch (e) { }
+                try { anchorObj.click(); } catch (e) { }
+                try { anchorObj.tap(); } catch (e) { }
+            } else if (document.createEvent) {
+                if (!event || event.target !== anchorObj) {
+                    try {
+                        let evt = document.createEvent("TouchEvents");
+                        evt.initMouseEvent("touchstart", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
+                    try {
+                        let evt = document.createEvent("MouseEvents");
+                        evt.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
+                    try {
+                        let evt = document.createEvent("MouseEvents");
+                        evt.initMouseEvent("mouseup", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
+                    try {
+                        let evt = document.createEvent("TouchEvents");
+                        evt.initMouseEvent("touchend", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
+                    try {
+                        let evt = document.createEvent("MouseEvents");
+                        evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 
-        data = dataObj;
-
-        window.fakeClick = function (anchorObj, event) {
-            try {
-
-                if (!!anchorObj.click && !!anchorObj.mousedown() && !!anchorObj.mouseup && !!anchorObj.tap) {
-                    try { anchorObj.touchStart(); } catch (e) { }
-                    try { anchorObj.mousedown(); } catch (e) { }
-                    try { anchorObj.mouseup(); } catch (e) { }
-                    try { anchorObj.touchEnd(); } catch (e) { }
-                    try { anchorObj.click(); } catch (e) { }
-                    try { anchorObj.tap(); } catch (e) { }
-                } else if (document.createEvent) {
-                    if (!event || event.target !== anchorObj) {
-                        try {
-                            let evt = document.createEvent("TouchEvents");
-                            evt.initMouseEvent("touchstart", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                        try {
-                            let evt = document.createEvent("MouseEvents");
-                            evt.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                        try {
-                            let evt = document.createEvent("MouseEvents");
-                            evt.initMouseEvent("mouseup", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                        try {
-                            let evt = document.createEvent("TouchEvents");
-                            evt.initMouseEvent("touchend", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                        try {
-                            let evt = document.createEvent("MouseEvents");
-                            evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                        try {
-                            let evt = document.createEvent("MouseEvents");
-                            evt.initMouseEvent("tap", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                            let allowDefault = anchorObj.dispatchEvent(evt);
-                        } catch (e) { }
-                    }
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
+                    try {
+                        let evt = document.createEvent("MouseEvents");
+                        evt.initMouseEvent("tap", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        let allowDefault = anchorObj.dispatchEvent(evt);
+                    } catch (e) { }
                 }
-            } catch (e) { }
-        };
-
-        window.togglePauseVideo = function () {
-            window.video = document.getElementsByTagName('video')[0];
-            if (window.video.paused) {
-                window.video.play();
             }
-            else {
-                window.video.pause();
-            }
-            data.playing = !window.video.paused;
-            data.position = window.video.currentTime;
-            data.duration = window.video.duration;
-        };
+        } catch (e) { }
+    };
+    tmpResult.togglePauseVideo = function () {
 
-        window.toggleSubscribeToChannel = function () {
-            fakeClick(document.querySelector('ytd-subscribe-button-renderer'));
-            fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'));
-            fakeClick(document.querySelector('tp-yt-paper-button[dialog-confirm]'));
-        };
-
-        window.setVideoPosition = function (n) {
-            window.video = document.getElementsByTagName('video')[0];
-            window.video.currentTime = Math.round(window.video.duration * (n / 10));
-            window.video.play();
-            data.playing = !window.video.paused;
-            data.position = window.video.currentTime;
-            data.duration = window.video.duration;
-        };
-
-        window.backwardsInVideo = function () {
-
-            window.video = document.getElementsByTagName('video')[0];
-            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime - 20);
-            window.video.play();
-            data.playing = !window.video.paused;
-            data.position = window.video.currentTime;
-            data.duration = window.video.duration;
-        };
-
-        window.forwardInVideo = function () {
-            window.video = document.getElementsByTagName('video')[0];
-            window.video.currentTime = Math.min(window.video.duration, window.video.currentTime + 20);
-            window.video.play();
-            data.playing = !window.video.paused;
-            data.position = window.video.currentTime;
-            data.duration = window.video.duration;
-        };
-
-        result.vid = document.getElementsByTagName("video")[0];
-        result.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
-        result.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
-        result.isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
-        result.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
-        result.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
-        result.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
-        result.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
-
-        if (!!result.vid) {
-            if (!result.originalSource) result.originalSource = result.vid.currentSrc;
-            result.vid.onended = () => { window.close() };
-            result.vid.loop = false;
-            result.vid.volume = 1;
-            result.vid.onprogress = (event) => {
-
-                let position = result.vid.currentTime;
-                let duration = result.vid.duration;
-                let left = duration - position;
-
-                if (left < 2) {
-
-                    window.close();
-                }
-            };
+        let video = document.querySelector('video');
+        if (video.paused) {
+            video.play();
         }
+        else {
+            video.pause();
+        }
+        data.playing = !video.paused;
+        data.position = video.currentTime;
+        data.duration = video.duration;
+    };
+
+    tmpResult.toggleSubscribeToChannel = function () {
+
+        window.oayv.fakeClick(document.querySelector('ytd-subscribe-button-renderer'));
+        window.oayv.fakeClick(document.querySelector('#confirm-button tp-yt-paper-button'));
+        window.oayv.fakeClick(document.querySelector('tp-yt-paper-button[dialog-confirm]'));
+    };
+
+    tmpResult.setVideoPosition = function (n) {
+
+        let video = document.querySelector('video');
+        video.currentTime = Math.round(video.duration * (n / 10));
+        video.play();
+        data.playing = !video.paused;
+        data.position = video.currentTime;
+        data.duration = video.duration;
+    };
+
+    tmpResult.backwardsInVideo = function () {
+
+        let video = document.querySelector('video');
+        video.currentTime = Math.min(video.duration, video.currentTime - 20);
+        video.play();
+        data.playing = !video.paused;
+        data.position = video.currentTime;
+        data.duration = video.duration;
+    };
+
+    tmpResult.forwardInVideo = function () {
+        let video = document.querySelector('video');
+        video.currentTime = Math.min(video.duration, video.currentTime + 20);
+        video.play();
+        data.playing = !video.paused;
+        data.position = video.currentTime;
+        data.duration = video.duration;
+    };
+
+    tmpResult.initializePage = function (data) {
+
+        data.isSuggestionPage = window.location.href === 'https://www.youtube.com/';
+        data.isSubscriptionsPage = window.location.href.indexOf('https://www.youtube.com/feed/subscriptions') === 0;
+        data.isViewPage = window.location.href.indexOf('https://www.youtube.com/watch?v') === 0;
+        data.isSearchPage = window.location.href.indexOf('https://www.youtube.com/results?search_query=') === 0;
+        data.isWatchLaterPage = window.location.href.indexOf('https://www.youtube.com/playlist?list=WL') === 0;
+        data.isShortsPage = window.location.href.indexOf('https://www.youtube.com/shorts/') === 0;
+        data.isTrendingPage = window.location.href.indexOf('https://www.youtube.com/feed/trending') === 0;
+
+        let vid = document.querySelector('video');
+        if (!data.originalSource) data.originalSource = vid.currentSrc;
+        vid.onended = () => { window.close() };
+        vid.loop = false;
+        vid.volume = 1;
+        vid.onprogress = (event) => {
+
+            let position = vid.currentTime;
+            let duration = vid.duration;
+            let left = duration - position;
+
+            if (left < 2) {
+
+                window.close();
+            }
+        };
 
         if (!window.oayvInitialized) {
 
             window.oayvInitialized = true;
 
-            document.removeEventListener("visibilitychange", result.onVisibilityChanged);
-            document.addEventListener("visibilitychange", result.onVisibilityChanged, { passive: false });
+            document.removeEventListener("visibilitychange", tmpResult.onVisibilityChanged);
+            document.addEventListener("visibilitychange", tmpResult.onVisibilityChanged, { passive: false });
             doneUrls = !!localStorage["oaytDone"] ? JSON.parse(localStorage["oaytDone"]) : JSON.parse((localStorage["oaytDone"] = JSON.stringify([])));
 
             let a = document.getElementsByClassName("ytd-thumbnail");
@@ -197,22 +199,22 @@ window.oayv = window["oayv"] || (function () {
 
                         c = "https://www.youtube.com" + c.replace("https://www.youtube.com", "");
 
-                        if ((result.queueUrls.indexOf(c) < 0) && (doneUrls.indexOf(c) < 0)) {
+                        if ((tmpResult.queueUrls.indexOf(c) < 0) && (doneUrls.indexOf(c) < 0)) {
 
-                            result.queueUrls.push(c);
+                            tmpResult.queueUrls.push(c);
                         }
                     }
                 }
             }
-            if (result.isSuggestionPage || result.isSearchPage || result.isSubscriptionsPage || result.isWatchLaterPage || result.isTrendingPage) {
+            if (tmpResult.isSuggestionPage || tmpResult.isSearchPage || tmpResult.isSubscriptionsPage || tmpResult.isWatchLaterPage || tmpResult.isTrendingPage) {
 
-                data.more = result.queueUrls.length > 0;
+                data.more = tmpResult.queueUrls.length > 0;
                 let a = document.getElementsByTagName('span');
                 let i2 = 0;
                 let list = [];
-                while (result.queueUrls.length > 0 && i2++ < 5) {
+                while (tmpResult.queueUrls.length > 0 && i2++ < 5) {
 
-                    let item = result.queueUrls.splice(0, 1)[0];
+                    let item = tmpResult.queueUrls.splice(0, 1)[0];
                     list.splice(0, 0, item);
                 }
 
@@ -230,7 +232,7 @@ window.oayv = window["oayv"] || (function () {
                     window.open(c);
                 }
 
-                if (result.queueUrls.length === 0) {
+                if (tmpResult.queueUrls.length === 0) {
 
                     if (!!document.scrollingElement && document.scrollingElement.scrollTop !== document.scrollingElement.scrollHeight) {
 
@@ -238,62 +240,63 @@ window.oayv = window["oayv"] || (function () {
 
                         setTimeout(function () {
                             window.oayvInitialized = false;
-                            result.initializePage(data);
+                            tmpResult.initializePage(data);
                         }, 1000);
                     }
                 }
 
-                data.more = result.queueUrls.length > 0;
+                data.more = tmpResult.queueUrls.length > 0;
 
-            } else if (result.isViewPage || result.isShortsPage) {
+            } else if (tmpResult.isViewPage || tmpResult.isShortsPage) {
 
-                if (!!result.vid) {
+                let vid = document.querySelector('video');
+                if (!!vid) {
 
-                    if (result.vid.paused) {
+                    if (vid.paused) {
 
-                        result.vid.play();
+                        vid.play();
                     }
 
-                    result.vid.volume = 1;
+                    vid.volume = 1;
                 }
             }
         }
     }
 
-    result.updatePage = function (dataObj) {
+    tmpResult.updatePage = function (dataObj) {
 
         data = dataObj;
-
-        if (((result.isViewPage || result.isShortsPage) && !result.vid) || ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage || result.isTrendingPage) && doneUrls.length + result.queueUrls.length === 0)) {
-            result.vid = document.getElementsByTagName("video")[0];
-            if (!!result.vid) {
+        let vid = document.querySelector('video');
+        if (((tmpResult.isViewPage || tmpResult.isShortsPage) && !vid) || ((tmpResult.isSearchPage || tmpResult.isSubscriptionsPage || tmpResult.isSuggestionPage || tmpResult.isWatchLaterPage || tmpResult.isTrendingPage) && doneUrls.length + tmpResult.queueUrls.length === 0)) {
+            vid = document.querySelector('video');
+            if (!!vid) {
                 window.oayvInitialized = false;
-                result.initializePage(data);
+                tmpResult.initializePage(data);
             }
         }
 
-        if ((result.isSearchPage || result.isSubscriptionsPage || result.isSuggestionPage || result.isWatchLaterPage || result.isTrendingPage) &&
-            doneUrls.length + result.queueUrls.length === 0) {
+        if ((tmpResult.isSearchPage || tmpResult.isSubscriptionsPage || tmpResult.isSuggestionPage || tmpResult.isWatchLaterPage || tmpResult.isTrendingPage) &&
+            doneUrls.length + tmpResult.queueUrls.length === 0) {
             window.oayvInitialized = false;
-            result.initializePage(data);
+            tmpResult.initializePage(data);
         }
 
-        if (!(result.isViewPage || result.isShortsPage)) {
+        if (!(tmpResult.isViewPage || tmpResult.isShortsPage)) {
 
             data.description = document.title;
-            data.title = result.isSearchPage ? 'Search page' :
-                result.isSuggestionPage ? 'Recommended' :
-                    result.isSubscriptionsPage ? 'Subscriptions' :
-                        result.isShortsPage ? 'Shorts' :
-                            result.isWatchLaterPage ? 'Watch later' :
-                                result.isTrendingPage ? "Trending" : 'Unknown page';
+            data.title = tmpResult.isSearchPage ? 'Search page' :
+                tmpResult.isSuggestionPage ? 'Recommended' :
+                    tmpResult.isSubscriptionsPage ? 'Subscriptions' :
+                        tmpResult.isShortsPage ? 'Shorts' :
+                            tmpResult.isWatchLaterPage ? 'Watch later' :
+                                tmpResult.isTrendingPage ? "Trending" : 'Unknown page';
             data.subscribeTitle = '         ';
             data.playing = false;
             data.position = 0;
             data.duration = 0;
         } else {
 
-            if (result.vid && (result.isViewPage || result.isShortsPage)) {
+            if (vid && (tmpResult.isViewPage || tmpResult.isShortsPage)) {
 
                 let myref = new URLSearchParams(window.location.search).get('myref');
                 if (!!myref && myref.length > 0) {
@@ -304,14 +307,15 @@ window.oayv = window["oayv"] || (function () {
                     localStorage["oaytDone"] = JSON.stringify(doneUrls);
                 }
 
-                result.vid.setAttribute('style', 'position:fixed;left:0;top:0;bottom:0;right:0;z-index:99999;min-width:100%;min-height:100%');
+                vid.setAttribute('style', 'position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:99999;width:100vw;height:100vh;object-fit:contain;background-color:black;');
+
                 try {
                     document.querySelector("#secondary").setAttribute("style", "display:none;opacity:0;");
                     document.querySelector("#masthead").setAttribute("style", "display:none;opacity:0;");
                     document.querySelector("#below").setAttribute("style", "display:none;opacity:0;");
-                    document.body.setAttribute("style", "overflow:hidden;")
+                    document.body.setAttribute("style", "overflow:hidden;color:black;")
                     // Assuming 'e' is your element
-                    let e = result.vid;
+                    let e = vid;
 
                     // Get the parent of the element
                     let parent = e.parentNode.parentNode;
@@ -330,11 +334,11 @@ window.oayv = window["oayv"] || (function () {
 
                 } catch (e) { }
 
-                data.playing = !result.vid.paused;
-                data.position = result.vid.currentTime;
-                data.duration = result.vid.duration;
-                data.originalSource = result.originalSource;
-                data.currentSource = result.vid.currentSrc;
+                data.playing = !vid.paused;
+                data.position = vid.currentTime;
+                data.duration = vid.duration;
+                data.originalSource = tmpResult.originalSource;
+                data.currentSource = vid.currentSrc;
 
                 if (isNaN(data.duration)) {
 
@@ -375,7 +379,15 @@ window.oayv = window["oayv"] || (function () {
         }
     }
 
-    return result;
-})();
+    tmpResult.initializePage(data);
 
-window.oayv.initializePage(data);
+    return tmpResult;
+})(data);
+
+while (first && !data.done) {
+
+    await new Promise(r => setTimeout(r, 100));
+    window.oayv.updatePage(data);
+
+    yield data;
+}

@@ -1,3 +1,130 @@
+################################################################################
+<#
+.SYNOPSIS
+Opens a webpage in a webbrowser and performs a query
+
+.DESCRIPTION
+Opens a website by Url in the webbrowser, it types in a query and presses enter.
+
+.PARAMETER Url
+The url of the website to open
+
+.PARAMETER Queries
+The query to perform
+
+#>
+function Open-WebsiteAndPerformQuery {
+
+    [CmdletBinding()]
+
+    param(
+        ###############################################################################
+        [Alias("u", "uri", "link", "address", "site")]
+        [parameter(
+            Mandatory,
+            Position = 0,
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The url of the website to open"
+        )]
+        [string] $Url,
+        ###############################################################################
+        [parameter(
+            Mandatory,
+            Position = 0,
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
+        )]
+        [string[]] $Queries,
+        ###############################################################################
+        [Alias("m", "mon")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+        )]
+        [int] $Monitor = -1
+        ###############################################################################
+    )
+
+    DynamicParam {
+
+        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor", "RestoreFocus"
+    }
+
+    begin {
+
+        if ($PSBoundParameters.ContainsKey("Queries")) {
+
+            $PSBoundParameters.Remove("Queries") | Out-Null;
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
+
+            $PSBoundParameters.Add("Url", "Url") | Out-Null;
+        }
+        else {
+
+            $PSBoundParameters["Url"] = "Url";
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
+
+            $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+        else {
+
+            $PSBoundParameters["Monitor"] = $Monitor;
+        }
+
+        if ($PSBoundParameters.ContainsKey("PassThru") -eq $true) {
+
+            $PSBoundParameters.Add("PassThru", $true);
+        }
+        else {
+
+            $PSBoundParameters.Add("PassThru", $true) | Out-Null;
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
+
+            $PSBoundParameters.Add("RestoreFocus", $false) | Out-Null;
+        }
+        else {
+
+            $PSBoundParameters["RestoreFocus"] = $false;
+        }
+    }
+
+    process {
+
+        foreach ($Query in $Queries) {
+
+            $PSBoundParameters["Url"] = $Url;
+
+            $p = Open-Webbrowser @PSBoundParameters | Select-Object -First 1
+
+            Start-Sleep 6 | Out-Null
+
+            if ($null -ne $p) {
+
+                # [Console]::WriteLine("Process found: {0}", $p.Id)
+                Set-ForegroundWindow ($p.MainWindowHandle) | Out-Null
+                Send-Keys -Keys $Query -Escape -ShiftEnter
+            }
+            else {
+
+                # [Console]::WriteLine("No Process found");
+                Send-Keys -Keys $Query -Escape -ShiftEnter
+            }
+
+            Send-Keys "{ENTER}";
+        }
+    }
+}
+
 ###############################################################################
 
 <#
@@ -25,13 +152,13 @@ function Get-GoogleSearchResultUrls {
     [Alias("qlinksget")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -214,19 +341,25 @@ function Get-GoogleSearchResultUrls {
 
         foreach ($Query in $Queries) {
 
-            $Global:Data = @{
-
-                urls  = @();
-                query = $Query
-            }
-
             $Query = "$([Uri]::EscapeUriString($Query))"
             $Url = "https://www.google.com/search?q=$Query$LangKey"
 
-            Invoke-WebbrowserEvaluation "document.location.href='$Url'" | Out-Null
+            $Global:Data = @{
+
+                urls   = @();
+                query  = $Query;
+                more   = $false;
+                done   = @{};
+                source = @{
+                    url = $Url
+                }
+            }
+
+
+            Set-WebbrowserTabLocation $Url
 
             do {
-                Start-Sleep 5 | Out-Null
+                Start-Sleep 10 | Out-Null
 
                 Invoke-WebbrowserEvaluation -Scripts @("$PSScriptRoot\Get-GoogleSearchResultUrls.js") | Out-Null
 
@@ -239,7 +372,7 @@ function Get-GoogleSearchResultUrls {
                 }
             }
 
-            while ($Global:data.more -and ($Max-- -gt 0))
+            while ($Global:data.more -and ($Max -gt 0))
         }
     }
 }
@@ -272,13 +405,13 @@ function Open-AllGoogleLinks {
     [Alias("qlinks")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -517,9 +650,9 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName
         )]
         [string[]] $Queries = @(""),
 
@@ -541,7 +674,24 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false
         )]
-        [switch] $Trending
+        [switch] $Trending,
+        ###############################################################################
+
+        [Alias("e")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Select in Microsoft Edge"
+        )]
+        [switch] $Edge,
+        ###############################################################################
+
+        [Alias("ch")]
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Select in Google Chrome"
+        )]
+        [switch] $Chrome
+        ###############################################################################
     )
 
     begin {
@@ -567,10 +717,9 @@ function Open-AllYoutubeVideos {
             duration       = 0;
             position       = 0;
         }
-
         function go($Url = $null) {
 
-            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | ForEach-Object { $_ });
+            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | ForEach-Object { $PSItem });
             $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
             $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
             Clear-Host
@@ -612,211 +761,249 @@ function Open-AllYoutubeVideos {
                         if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
 
                             Set-WindowPosition -Left -Monitor $Monitor
-                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Right -Url $Url -PassThrough
+                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Right -Url $Url -PassThru -Force
                         }
                         else {
 
                             Set-WindowPosition -Bottom -Monitor $Monitor
-                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Top -Url $Url -PassThrough
+                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Top -Url $Url -PassThru -Force
                         }
                     }
                 }
 
                 if ($null -eq $browser) {
 
-                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Url $Url -PassThrough
+                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Url $Url -PassThru -Force
                 }
             }
 
             $s = $null
             try {
                 $s = $Global:chrome.GetAvailableSessions();
-                Select-WebbrowserTab -Name $Name -Force | Out-Null
+                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome -Force | Out-Null
             }
             Catch {
 
                 if ($Force -and ($null -eq $ByReference)) {
 
-                    Close-Webbrowser -Chrome:$Chrome -Edge:$Edge -Force
+                    Close-Webbrowser -Chromium -Edge:$Edge -Chrome:$Chrome -Force
                     go $Url
                     return;
                 }
             }
 
+            $completed = $false;
             $job = [System.IO.File]::ReadAllText("$PSScriptRoot\Open-AllYoutubeVideos.js");
-            Invoke-WebbrowserEvaluation "window.oayvInitialized = false; $job"
-
             [int] $scrollPosition = -1;
             [int] $scrollPosition2 = -1;
 
-            while ($true) {
+            while (-not $completed) {
 
                 try {
 
-                    $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
-                    if ($newsize -ne $size) {
+                    Invoke-WebbrowserEvaluation "$job" -Edge:$Edge -Chrome:$Chrome | ForEach-Object {
 
-                        $size = $newsize;
-                        $LastVideo = $null;
-                    }
-                    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                    $sub = "";
-                    $pause = " [P]ause |";
-                    $header = "[Q]uit |$sub$pause SPACE=Next | [0]..[9] = skip | ◀ -20sec | +20sec ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
-                    if ($header.Length -gt $hostInfo.WindowSize.Width) {
+                        if ($completed) { return; }
 
-                        $scrollPosition = ($scrollPosition + 1) % $header.length;
                         try {
-                            $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
-                        }
-                        catch {
-                            try {
-                                $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+
+                            $Global:data = $PSItem;
+
+                            $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
+                            if ($newsize -ne $size) {
+
+                                $size = $newsize;
+                                $LastVideo = $null;
                             }
-                            catch {
-                            }
-                        }
-                    }
+                            $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
+                            $sub = "";
+                            $pause = " [P]ause | ";
+                            $header = "[Q]uit | $sub$pause SPACE=Next | [0]..[9] = skip | ◀ -20sec | +20sec ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
+                            if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
-                    $scrollPosition = -1;
-                    $scrollPosition2 = -1;
-                    $videoInfo = "$($Global:data.title)$($Global:data.description)"
-
-                    if ($videoInfo -ne $LastVideo) {
-
-                        Clear-Host;
-                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
-                        $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
-                        if ($header.Length -gt $hostInfo.WindowSize.Width) {
-
-                            $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
-                            try {
-                                $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
-                            }
-                            catch {
+                                $scrollPosition = ($scrollPosition + 1) % $header.length;
                                 try {
-                                    $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                                    $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
                                 }
                                 catch {
+                                    try {
+                                        $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                                    }
+                                    catch {
+                                    }
                                 }
                             }
-                        }
 
-                        Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
-                        [int] $nn = 0;
-                        $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
-                        Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
-                                        if ([string]::IsNullOrWhiteSpace($PSItem)) {
-                                            $nn = $nn + 1;
+                            $scrollPosition = -1;
+                            $scrollPosition2 = -1;
+                            $videoInfo = "$($Global:data.title)$($Global:data.description)"
+
+                            if ($videoInfo -ne $LastVideo) {
+
+                                Clear-Host;
+                                Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                                $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
+                                if ($header.Length -gt $hostInfo.WindowSize.Width) {
+
+                                    $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
+                                    try {
+                                        $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                                    }
+                                    catch {
+                                        try {
+                                            $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                                        }
+                                        catch {
+                                        }
+                                    }
+                                }
+
+                                Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
+                                [int] $nn = 0;
+                                $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
+                                Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
+                                                if ([string]::IsNullOrWhiteSpace($PSItem)) {
+                                                    $nn = $nn + 1;
+                                                }
+                                                else {
+                                                    $nn = 0
+                                                }
+                                                if ($nn -lt 2) {
+                                                    $s = $PSItem.Trim();
+                                                    for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
+
+                                                        $s = $s.substring(0, $i) + "`r" + $s.substring($i);
+                                                    }
+
+                                                    $s
+                                                }
+                                            }
+                                        ) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+
+                                $LastVideo = $videoInfo
+                            }
+
+                            [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
+                            [Console]::BackgroundColor = [ConsoleColor]::Blue;
+                            [Console]::ForegroundColor = [ConsoleColor]::Yellow;
+                            try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
+                            [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
+                            try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
+                            [Console]::SetCursorPosition(0, 0);
+                            [Console]::ResetColor();
+
+                            while ([Console]::KeyAvailable) {
+
+                                [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
+                                $c = [Console]::ReadKey();
+
+                                switch ("$($c.KeyChar)".ToLowerInvariant()) {
+
+                                    "q" {
+                                        $completed = $true;
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host "Quiting..".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                        if ($null -ne $browser) {
+
+                                            $browser.CloseMainWindow() | Out-Null
+                                        }
+                                        return;
+                                    }
+
+                                    " " {
+
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host "Skipping to next video".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                        Invoke-WebbrowserEvaluation "window.close(); data.done = true; window.oayv.data.done = true; return; " -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null
+                                        Start-Sleep 1 | Out-Null
+                                        Select-WebbrowserTab -Name "* youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome -Force | Out-Null
+                                        $LastVideo = "";
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                                    }
+
+                                    "s" {
+
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host "Toggling subscription".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                        Invoke-WebbrowserEvaluation "window.oayv.toggleSubscribeToChannel(); return data;" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null
+
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                                    }
+
+                                    "p" {
+
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host "Toggling pause video".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                        $LastVideo = "";
+                                        Invoke-WebbrowserEvaluation "window.oayv.togglePauseVideo(); return data; " -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null
+
+                                        [Console]::SetCursorPosition(0, 0);
+                                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                                    }
+
+                                    default {
+
+                                        [int] $n = 0;
+                                        if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
+
+                                            [Console]::SetCursorPosition(0, 0);
+                                            Write-Host "Skipping to position".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                            Invoke-WebbrowserEvaluation "window.oayv.setVideoPosition($n); return data;" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null;
+
+                                            [Console]::SetCursorPosition(0, 0);
+                                            Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                         }
                                         else {
-                                            $nn = 0
-                                        }
-                                        if ($nn -lt 2) {
-                                            $s = $PSItem.Trim();
-                                            for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
+                                            if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
-                                                $s = $s.substring(0, $i) + "`r" + $s.substring($i);
+                                                [Console]::SetCursorPosition(0, 0);
+                                                Write-Host "Skipping 20 seconds forward".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+                                                Invoke-WebbrowserEvaluation "window.oayv.forwardInVideo(); return data;" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null;
+
+                                                [Console]::SetCursorPosition(0, 0);
+                                                Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                             }
+                                            else {
+                                                if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
-                                            $s
+                                                    [Console]::SetCursorPosition(0, 0);
+                                                    Write-Host "Skipping 20 seconds backwards".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+                                                    Invoke-WebbrowserEvaluation "window.oayv.backwardsInVideo(); return data;" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null;
+
+                                                    [Console]::SetCursorPosition(0, 0);
+                                                    Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                                                }
+                                            }
                                         }
                                     }
-                                ) -Join "`r" -Split "`r" | Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
-
-                        $LastVideo = $videoInfo
-                    }
-
-                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
-                    [Console]::BackgroundColor = [ConsoleColor]::Blue;
-                    [Console]::ForegroundColor = [ConsoleColor]::Yellow;
-                    try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
-                    [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
-                    try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
-                    [Console]::SetCursorPosition(0, 0);
-                    [Console]::ResetColor();
-
-                    if ([Console]::KeyAvailable) {
-
-                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
-                        $c = [Console]::ReadKey();
-
-                        switch ("$($c.KeyChar)".ToLowerInvariant()) {
-
-                            "q" {
-                                Clear-Host;
-                                if ($null -ne $browser) {
-
-                                    $browser.CloseMainWindow();
                                 }
+                            }
+                        }
+                        catch {
+                            if ($LastVideo -ne "") {
+                                $completed = $true;
                                 return;
                             }
-
-                            " " {
-
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                Invoke-WebbrowserEvaluation "window.close()" -ErrorAction SilentlyContinue | Out-Null
-                                Start-Sleep 1
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                $LastVideo = "";
-                            }
-
-                            "s" {
-
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                Invoke-WebbrowserEvaluation "toggleSubscribeToChannel();" -ErrorAction SilentlyContinue | Out-Null
-                            }
-
-                            "p" {
-
-                                $LastVideo = "";
-                                Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                Invoke-WebbrowserEvaluation "togglePauseVideo();" -ErrorAction SilentlyContinue | Out-Null
-                            }
-
-                            default {
-
-                                [int] $n = 0;
-                                if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
-
-                                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                    Invoke-WebbrowserEvaluation "setVideoPosition($n);" -ErrorAction SilentlyContinue | Out-Null;
-                                }
-                                else {
-                                    if ($c.Key -eq [ConsoleKey]::RightArrow) {
-
-                                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                        Invoke-WebbrowserEvaluation "forwardInVideo();" -ErrorAction SilentlyContinue | Out-Null;
-                                    }
-                                    else {
-                                        if ($c.Key -eq [ConsoleKey]::LeftArrow) {
-
-                                            Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-                                            Invoke-WebbrowserEvaluation "backwardsInVideo();" -ErrorAction SilentlyContinue | Out-Null;
-                                        }
-                                    }
-                                }
-                            }
                         }
-                        while ([Console]::KeyAvailable) {
 
-                            [Console]::ReadKey() | Out-Null
+                        Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome | Out-Null
+
+                        if ((@($Global:chromeSessions).Count -eq 0) -or ($null -eq $Global:chrome)) {
+
+                            throw "No active session"
                         }
                     }
-
-                    Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Force | Out-Null
-
-                    if (($Global:chromeSessions.Count -eq 0) -or ($null -eq $Global:chrome)) {
-
-                        throw "No active session"
-                    }
-
-                    Invoke-WebbrowserEvaluation "$job ;`r`n debugger; window.oayv.updatePage(data);" -ErrorAction SilentlyContinue | Out-Null;
                 }
                 catch {
-                    if ($LastVideo -ne "") {
-                        return;
-                    }
+
+                    $completed = $true;
                 }
             }
         }
@@ -859,8 +1046,6 @@ function Open-AllYoutubeVideos {
 
                 go "https://www.youtube.com/feed/trending"
             }
-
-
         }
         finally {
             Clear-Host
@@ -869,7 +1054,6 @@ function Open-AllYoutubeVideos {
 }
 
 ###############################################################################
-
 function Open-GoogleQuery {
 
     # DESCRIPTION Open-GoogleQuery: Opens a google query in a webbrowser, in a configurable manner, using commandline switches
@@ -877,13 +1061,13 @@ function Open-GoogleQuery {
     [Alias("q")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1069,19 +1253,26 @@ function Open-GoogleQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
 
         foreach ($Query in $Queries) {
 
-            $PSBoundParameters["Url"] = "https://www.google.com/search?q=$([Uri]::EscapeUriString($Query))";
+            $code = "www"
+
+            if (-not [string]::IsNullOrWhiteSpace($Language)) {
+
+                $code = (Get-WebLanguageDictionary)[$Language]
+            }
+
+            $PSBoundParameters["Url"] = "https://$code.google.com/search?q=$([Uri]::EscapeUriString($Query))";
 
             Open-Webbrowser @PSBoundParameters
         }
@@ -1132,13 +1323,13 @@ function Copy-PDFsFromGoogleQuery {
     [CmdletBinding()]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1332,7 +1523,7 @@ function Copy-PDFsFromGoogleQuery {
                         (
                             [IO.Path]::ChangeExtension(
                                 [Uri]::UnescapeDataString(
-                                    [IO.Path]::GetFileName($_).Split("#")[0].Split("?")[0]
+                                    [IO.Path]::GetFileName($PSItem).Split("#")[0].Split("?")[0]
                                 ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_") +
                                 "_$([DateTime]::UtcNow.Ticks)_$([System.Threading.Thread]::CurrentThread.ManagedThreadId)",
                                 ".pdf"
@@ -1340,7 +1531,7 @@ function Copy-PDFsFromGoogleQuery {
                         )
                     );
 
-                    Invoke-WebRequest -Uri $_ -OutFile $destination
+                    Invoke-WebRequest -Uri $PSItem -OutFile $destination
 
                     Get-ChildItem $destination
                 }
@@ -1368,13 +1559,13 @@ function Open-WikipediaQuery {
     [Alias("wiki")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1403,12 +1594,12 @@ function Open-WikipediaQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1418,202 +1609,6 @@ function Open-WikipediaQuery {
             $PSBoundParameters["Url"] = "https://en.wikipedia.org/wiki/Special:Search?search=$([Uri]::EscapeUriString($Query))";
 
             Open-Webbrowser @PSBoundParameters
-        }
-    }
-}
-
-###############################################################################
-<#
-.SYNOPSIS
-Opens a Bing chat query in a webbrowser
-
-.DESCRIPTION
-Opens a Bing chat query in a webbrowser, in a configurable manner, using commandline switches
-
-.PARAMETER Force
-Enforced that the debugging port is enabled, even if that means stopping all already opened browser processes
-#>
-function Open-BingChatQuery {
-
-    [CmdletBinding()]
-    [Alias("bc", "ask")]
-
-    param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
-        [parameter(
-            Mandatory = $true,
-            Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
-        )]
-        [string[]] $Queries,
-        ###############################################################################
-
-        [Alias("m", "mon")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
-        )]
-        [int] $Monitor = -1,
-        ###############################################################################
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Creates a new topic"
-        )]
-        [switch] $NewTopic
-        ###############################################################################
-    )
-
-    DynamicParam {
-
-        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor", "NewWindow", "Force"
-    }
-
-    begin {
-
-
-    }
-
-    process {
-        if ($PSBoundParameters.ContainsKey("Queries")) {
-
-            $PSBoundParameters.Remove("Queries") | Out-Null;
-        }
-
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
-
-            $PSBoundParameters.Add("Url", "Url") | Out-Null;
-        }
-
-        if ($PSBoundParameters.ContainsKey("NewWindow") -eq $false) {
-
-            $PSBoundParameters.Add("NewWindow", $true);
-        }
-
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
-
-            $PSBoundParameters.Add("Monitor", $Monitor);
-        }
-
-        if ($PSBoundParameters.ContainsKey("Force") -eq $false) {
-
-            $PSBoundParameters.Add("Force", $true);
-        }
-
-        if ($PSBoundParameters.ContainsKey("NewTopic")) {
-
-            $PSBoundParameters.Remove("NewTopic");
-        }
-
-        # Set-WindowPosition -Left -Monitor -1;
-
-        # if ($PSBoundParameters.ContainsKey("Right") -eq $false) {
-
-        #     $PSBoundParameters.Add("Right", $true);
-        # }
-
-        $url = "https://copilot.microsoft.com";
-        $PSBoundParameters["Url"] = $url;
-        $currentTabs = (Select-WebbrowserTab -Name "https://copilot.microsoft.com" -Force | Select-Object -First 1);
-
-        if ($null -eq $currentTabs) {
-
-            Open-Webbrowser -Url $url -NewWindow -RestoreFocus -Monitor -1 -Force
-            $currentTabs = (Select-WebbrowserTab -Name "https://copilot.microsoft.com" -Force);
-        }
-
-        $bingTab = $currentTabs | Where-Object -Property A -EQ "*" | Select-Object -First 1
-
-        if ($null -ne $bingTab) {
-
-            $Queries | ForEach-Object { n
-
-                $text = $PSItem.trim();
-                if ([string]::IsNullOrWhiteSpace($text)) { return; }
-
-                $script = "
-(function() {
-    let text = JSON.parse("+ ($text | ConvertTo-Json -Compress | ConvertTo-Json -Compress) + ");
-    let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
-    let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
-
-    function setText(b, force) {
-
-        if (force || b.value === '') {
-
-            b.value = text;
-            b.dispatchEvent(new Event('paste', {'bubbles': true, 'cancelable': true}));
-            b.dispatchEvent(new Event('change', {'bubbles': true, 'cancelable': true}));
-
-            return true;
-        }
-
-        return false;
-    }
-
-    let c = a.querySelector(`"button[aria-label='Submit']`");
-    debugger;
-    let done = false;
-
-    function callSubmit() {
-
-        let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
-
-        if (!!a) {
-
-            let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
-            let c = a.querySelector(`"button[aria-label='Submit']`");
-            setText(b);
-
-            setTimeout(function() {
-
-                let a = document.querySelector('cib-serp').shadowRoot.querySelector('#cib-action-bar-main').shadowRoot;
-
-                if (!!a) {
-
-                    let b = a.querySelector('cib-text-input').shadowRoot.querySelector('textarea');
-                    let c = a.querySelector(`"button[aria-label='Submit']`");
-
-                    if (!!c && !c.hasAttribute('disabled') && setText(b)) {
-
-                        if ($(($NewTopic -eq $true).ToString().ToLowerInvariant()) && !done) {
-
-                            done = true;
-                            let d = a.querySelector(`"button[aria-label='New topic']`");
-                            d.dispatchEvent(new Event('click', {'bubbles': true, 'cancelable': true}));
-                            d.dispatchEvent(new Event('tap', {'bubbles': true, 'cancelable': true}));
-                            d.dispatchEvent(new Event('mousedown', {'bubbles': true, 'cancelable': true}));
-                            d.dispatchEvent(new Event('mouseup', {'bubbles': true, 'cancelable': true}));
-                        }
-
-                        setText(b, true);
-
-                        c.dispatchEvent(new Event('click', {'bubbles': true, 'cancelable': true}));
-                        c.dispatchEvent(new Event('tap', {'bubbles': true, 'cancelable': true}));
-                        c.dispatchEvent(new Event('mousedown', {'bubbles': true, 'cancelable': true}));
-                        c.dispatchEvent(new Event('mouseup', {'bubbles': true, 'cancelable': true}));
-                        c.setAttribute(`"disabled`", `"`");
-
-                        return true;
-                    }
-                }
-            }, 25);
-
-            return;
-        }
-
-        setTimeout(callSubmit, 1000);
-    }
-
-   callSubmit();
-})();
-                ";
-
-                $script | Set-Clipboard
-                Invoke-WebbrowserEvaluation -Scripts $script -NoAutoSelectTab
-
-            }
         }
     }
 }
@@ -1633,13 +1628,13 @@ function Open-BingQuery {
     [Alias("bq")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1668,12 +1663,12 @@ function Open-BingQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1697,13 +1692,13 @@ function Open-WikipediaNLQuery {
     [Alias("wikinl")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1733,12 +1728,12 @@ function Open-WikipediaNLQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1761,13 +1756,13 @@ function Open-YoutubeQuery {
     [Alias("youtube")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1797,12 +1792,12 @@ function Open-YoutubeQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1825,13 +1820,13 @@ function Open-IMDBQuery {
     [Alias("imdb")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1861,12 +1856,12 @@ function Open-IMDBQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1889,13 +1884,13 @@ function Open-InstantStreetViewQuery {
     [Alias("isv")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1925,12 +1920,12 @@ function Open-InstantStreetViewQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -1953,13 +1948,13 @@ function Open-StackOverflowQuery {
     [Alias("qso")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -1989,12 +1984,12 @@ function Open-StackOverflowQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2017,13 +2012,13 @@ function Open-WolframAlphaQuery {
     [Alias("qalpha")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2053,12 +2048,12 @@ function Open-WolframAlphaQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2081,13 +2076,13 @@ function Open-GithubQuery {
     [Alias("qgit")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         [parameter(
@@ -2135,12 +2130,12 @@ function Open-GithubQuery {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2163,13 +2158,13 @@ function Open-GoogleSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2194,7 +2189,7 @@ function Open-GoogleSiteInfo {
 
     process {
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2215,13 +2210,13 @@ function Open-BuiltWithSiteInfo {
     # DESCRIPTION Open-BuiltWithSiteInfo: Opens a BuildWith query in a webbrowser, in a configurable manner, using commandline switches
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2251,12 +2246,12 @@ function Open-BuiltWithSiteInfo {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2279,13 +2274,13 @@ function Open-WhoisHostSiteInfo {
     [Alias()]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2315,12 +2310,12 @@ function Open-WhoisHostSiteInfo {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2343,13 +2338,13 @@ function Open-WaybackMachineSiteInfo {
     [Alias("wayback")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2379,12 +2374,12 @@ function Open-WaybackMachineSiteInfo {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2407,13 +2402,13 @@ function Open-MovieQuote {
     [Alias("moviequote")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2443,12 +2438,12 @@ function Open-MovieQuote {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
@@ -2471,13 +2466,13 @@ function Open-SimularWebSiteInfo {
     [Alias("simularsite")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
         [parameter(
-            Mandatory = $true,
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
         ###############################################################################
@@ -2507,12 +2502,12 @@ function Open-SimularWebSiteInfo {
             $PSBoundParameters.Remove("Queries") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Url") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $PSBoundParameters.Add("Url", "Url") | Out-Null;
         }
 
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }

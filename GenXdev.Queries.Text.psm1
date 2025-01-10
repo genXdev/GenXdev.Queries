@@ -16,13 +16,13 @@ function Get-WikipediaSummary {
     [Alias("wikitxt")]
 
     param(
-        [Alias("q", "Value", "Name", "Text", "Query")]
-        [Parameter(
-            Mandatory = $True,
+        [parameter(
+            Mandatory,
             Position = 0,
-            ValueFromRemainingArguments = $true,
-            ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
+            ValueFromRemainingArguments,
+            ValueFromPipeline,
+            ValueFromPipelineByPropertyName,
+            HelpMessage = "The query to perform"
         )]
         [string[]] $Queries
     )
@@ -37,7 +37,7 @@ function Get-WikipediaSummary {
 
             $input | ForEach-Object -Process {
 
-                $i = $_.IndexOf("(")
+                $i = $PSItem.IndexOf("(")
 
                 if ($i -lt 150) {
 
@@ -47,13 +47,13 @@ function Get-WikipediaSummary {
                     }
                     else {
 
-                        $end = $_.IndexOf(")", $i);
+                        $end = $PSItem.IndexOf(")", $i);
 
-                        $result = $_.Substring(0, $i)
+                        $result = $PSItem.Substring(0, $i)
 
-                        if ($end -lt $_.Length) {
+                        if ($end -lt $PSItem.Length) {
 
-                            $result = $result + $_.Substring($end + 1)
+                            $result = $result + $PSItem.Substring($end + 1)
                         }
 
                         Write-Output $result.Replace("  ", " ");

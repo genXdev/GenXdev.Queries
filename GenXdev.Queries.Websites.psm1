@@ -175,7 +175,7 @@ function Open-Timeline {
                 { code: "zh", name: "Chinese" }
             ]' | ConvertFrom-Json
 
-            $langCode = $supportedPrimaryLanguageNames | Where-Object { $_.name -eq $Language } | Select-Object -ExpandProperty code
+            $langCode = $supportedPrimaryLanguageNames | Where-Object { $PSItem.name -eq $Language } | Select-Object -ExpandProperty code
 
             $queryParams += "&lang=$langCode";
         }
@@ -197,23 +197,23 @@ function Open-Timeline {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
@@ -289,23 +289,23 @@ function Open-GameOfLife {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
@@ -370,23 +370,23 @@ function Open-GenXdevAppCatalog {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
@@ -449,23 +449,23 @@ function Open-ViralSimulation {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
@@ -533,23 +533,23 @@ function Open-Yab {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
@@ -625,23 +625,23 @@ function Open-YabAIBattle {
 
         $PSBoundParameters.Add("Url", $Url) | Out-Null;
 
-        if ($PSBoundParameters.ContainsKey("ApplicationMode") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("ApplicationMode")) {
 
             $PSBoundParameters.Add("ApplicationMode", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Fullscreen") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Fullscreen")) {
 
             $PSBoundParameters.Add("Fullscreen", $true);
         }
-        if ($PSBoundParameters.ContainsKey("RestoreFocus") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
             $PSBoundParameters.Add("RestoreFocus", $true);
         }
-        if ($PSBoundParameters.ContainsKey("Monitor") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
             $PSBoundParameters.Add("Monitor", $Monitor);
         }
-        if ($PSBoundParameters.ContainsKey("-NewWindow") -eq $false) {
+        if (-not $PSBoundParameters.ContainsKey("-NewWindow")) {
 
             $PSBoundParameters.Add("-NewWindow", $true);
         }
