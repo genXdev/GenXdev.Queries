@@ -6,7 +6,7 @@
     RootModule           = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.90.2025'
+    ModuleVersion        = '1.94.2025'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -26,19 +26,19 @@
     Description          = 'A Windows PowerShell module for finding resources and information on the internet'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion    = '7.4.6'
+    PowerShellVersion    = '7.5.0'
 
     # # Intended for PowerShell Core
     CompatiblePSEditions = 'Core'
 
     # # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    ClrVersion           = '8.0.10'
+    ClrVersion           = '9.0.1'
 
     # Processor architecture (None, X86, Amd64) required by this module
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules      = @(@{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.90.2025' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.90.2025' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.90.2025' })
+    RequiredModules      = @(@{ModuleName = 'GenXdev.Data'; ModuleVersion = '1.94.2025' }, @{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.94.2025' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.94.2025' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.94.2025' })
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies   = @()
@@ -77,6 +77,46 @@
     FileList             = @(
 
 
+  ".\\Functions\\GenXdev.Queries\\ConvertTo-Uris.ps1",
+  ".\\Functions\\GenXdev.Queries\\Invoke-WebbrowserTabPollingScript.ps1",
+  ".\\Functions\\GenXdev.Queries\\Open-AllPossibleQueries.ps1",
+  ".\\Functions\\GenXdev.Queries\\Open-AllPossibleTextQueries.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-BingCopilotQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-ChatGPTQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-GithubCopilotQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-GoogleGeminiQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-XGrokQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Text\\Get-NextAffirmations.ps1",
+  ".\\Functions\\GenXdev.Queries.Text\\Get-WikipediaSummary.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Clear-YoutubeWatched.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Copy-PDFsFromGoogleQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Get-GoogleSearchResultUrls.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Get-WebLanguageDictionary.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-AllGoogleLinks.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-AllYoutubeVideos.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-BingQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-BuiltWithSiteInfo.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-GithubQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-GoogleQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-GoogleSiteInfo.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-IMDBQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-InstantStreetViewQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-MovieQuote.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-SimularWebSiteInfo.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-StackOverflowQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WaybackMachineSiteInfo.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WebsiteAndPerformQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WhoisHostSiteInfo.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WikipediaNLQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WikipediaQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-WolframAlphaQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Webbrowser\\Open-YoutubeQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-GameOfLife.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-GenXdevAppCatalog.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-Timeline.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-ViralSimulation.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-Yab.ps1",
+  ".\\Functions\\GenXdev.Queries.Websites\\Open-YabAIBattle.ps1",
   ".\\GenXdev.Queries.AI.psm1",
   ".\\GenXdev.Queries.psd1",
   ".\\GenXdev.Queries.psm1",
