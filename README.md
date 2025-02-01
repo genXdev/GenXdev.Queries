@@ -297,7 +297,8 @@ Open-BingCopilotQuery [-Queries] <String[]> [<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Opens a Bing CoPilot (ChatGPT-4) query in the webbrowser, it types in the query and presses enter.
+    Opens a Bing CoPilot (ChatGPT-4) query in the webbrowser, it types in the query and presses 
+    enter.
 
 ### PARAMETERS
     -Queries <String[]>
@@ -368,8 +369,8 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Edge] 
-[-Chrome] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+[-Trending] [-Edge] [-Chrome] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -526,7 +527,8 @@ Get-GoogleSearchResultUrls           --> qlinksget
 
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>]
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -576,17 +578,18 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found 
+    pdf's into current directory
 
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>]
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found 
+    pdf's into current directory
 
 ### PARAMETERS
     -Queries <String[]>
@@ -633,7 +636,8 @@ Open-Webbrowser
     Select-WebbrowserTab
     mkdir pdfs;
     cd pdfs;
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | Open-Webbrowser
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | 
+Open-Webbrowser
 ````
 
 <br/><hr/><hr/><br/>
@@ -882,7 +886,8 @@ Open-BingCopilotQuery [-Queries] <String[]> [<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Opens a Bing CoPilot (ChatGPT-4) query in the webbrowser, it types in the query and presses enter.
+    Opens a Bing CoPilot (ChatGPT-4) query in the webbrowser, it types in the query and presses 
+    enter.
 
 ### PARAMETERS
     -Queries <String[]>
@@ -911,9 +916,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1017,8 +1023,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -1143,10 +1149,11 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1390,9 +1397,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -1645,25 +1653,29 @@ Open-GoogleQuery
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic 
-| Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | 
-Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | 
-Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | 
-Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian 
-Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | 
-Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra 
-Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda 
-| Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | Moldavian | 
-Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
-Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | 
-Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho | 
-Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish 
-(Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | 
-Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | 
-Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
-[<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
+Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | 
+Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian | 
+Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
+Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani 
+| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
+Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
+Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
+Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
+Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
+| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 
+Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua 
+| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | 
+Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | 
+Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil 
+| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | 
+Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | 
+Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] 
+[-RestoreFocus] [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -1916,10 +1928,11 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2166,9 +2179,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2272,8 +2286,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -2386,17 +2400,20 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | 
-PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | KlimtKaleidoscope | MiroMirage | RothkoRhythms | 
-SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | 
-CezanneContours | GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | Spanish | 
-French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | Thai | Turkish | Ukrainian | 
-Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground 
-<string>] [-FocusedNodeBackground <string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
-[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor <string>] [-BorderWidth <int>] 
-[-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
-[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | 
+KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | 
+KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | 
+VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
+GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | 
+Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | 
+Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] 
+[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground 
+<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
+[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor 
+<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang 
+<string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2518,7 +2535,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -FocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text
+        Overwrite the css-color-style for painting the focused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2545,7 +2563,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     true
         Accept wildcard characters?  false
     -Language <string>
-        Override default browser language, or select [All] for rotation of all languages every minute
+        Override default browser language, or select [All] for rotation of all languages every 
+        minute
         Required?                    false
         Position?                    1
         Accept pipeline input?       false
@@ -2662,7 +2681,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text
+        Overwrite the css-color-style for painting the unfocused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -2712,9 +2732,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -2818,8 +2839,8 @@ Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Privat
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -2932,9 +2953,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3038,8 +3060,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -3155,10 +3177,11 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3402,10 +3425,11 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3656,7 +3680,8 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
 ````
 
 ### DESCRIPTION
-    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches
+    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline 
+    switches
 
 ### PARAMETERS
     -Queries <String[]>
@@ -3691,9 +3716,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -3797,8 +3823,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -3923,10 +3949,11 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4173,7 +4200,8 @@ Open-WebsiteAndPerformQuery
 
 ### SYNTAX
 ````PowerShell
-Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [-Monitor <Int32>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -4218,9 +4246,10 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -4465,10 +4494,11 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4712,10 +4742,11 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -4959,10 +4990,11 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -5206,9 +5238,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -5453,10 +5486,11 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] 
-[-PassThru] [<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -5700,10 +5734,11 @@ Open-WhoisHostSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -5950,9 +5985,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -6056,8 +6092,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -6170,17 +6206,20 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | 
-PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | KlimtKaleidoscope | MiroMirage | RothkoRhythms | 
-SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | 
-CezanneContours | GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | Spanish | 
-French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | Thai | Turkish | Ukrainian | 
-Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground 
-<string>] [-FocusedNodeBackground <string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
-[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor <string>] [-BorderWidth <int>] 
-[-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
-[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | 
+KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | 
+KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | 
+VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
+GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | 
+Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | 
+Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] 
+[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground 
+<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
+[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor 
+<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang 
+<string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -6302,7 +6341,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -FocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text
+        Overwrite the css-color-style for painting the focused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -6329,7 +6369,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     true
         Accept wildcard characters?  false
     -Language <string>
-        Override default browser language, or select [All] for rotation of all languages every minute
+        Override default browser language, or select [All] for rotation of all languages every 
+        minute
         Required?                    false
         Position?                    1
         Accept pipeline input?       false
@@ -6446,7 +6487,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text
+        Overwrite the css-color-style for painting the unfocused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -6496,9 +6538,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -6602,8 +6645,8 @@ Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Privat
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -6719,10 +6762,11 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] 
-[-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] 
-[-PassThru] [<CommonParameters>]
+Open-IMDBQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
+[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -6966,10 +7010,11 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-GoogleSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -7213,25 +7258,29 @@ Open-GoogleQuery
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | Albanian | Amharic | Arabic 
-| Armenian | Azerbaijani | Basque | Belarusian | Bemba | Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | 
-Bulgarian | Cambodian | Catalan | Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | 
-Croatian | Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | Filipino | 
-Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani | Gujarati | Hacker | Haitian 
-Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | Icelandic | Igbo | Indonesian | Interlingua | Irish | 
-Italian | Japanese | Javanese | Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra 
-Leone) | Kurdish | Kurdish (Soranî) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | Lozi | Luganda 
-| Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | Marathi | Mauritian Creole | Moldavian | 
-Mongolian | Montenegrin | Nepali | Nigerian Pidgin | Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | 
-Oriya | Oromo | Pashto | Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | 
-Quechua | Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | Sesotho | 
-Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | Somali | Spanish | Spanish 
-(Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil | Tatar | Telugu | Thai | Tigrinya | Tonga | 
-Tshiluba | Tumbuka | Turkish | Turkmen | Twi | Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | 
-Xhosa | Yiddish | Yoruba | Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
-[<CommonParameters>]
+Open-GoogleQuery [-Queries] <string[]> [-Monitor <int>] [-Language {Afrikaans | Akan | 
+Albanian | Amharic | Arabic | Armenian | Azerbaijani | Basque | Belarusian | Bemba | 
+Bengali | Bihari | Bork, bork, bork! | Bosnian | Breton | Bulgarian | Cambodian | Catalan | 
+Cherokee | Chichewa | Chinese (Simplified) | Chinese (Traditional) | Corsican | Croatian | 
+Czech | Danish | Dutch | Elmer Fudd | English | Esperanto | Estonian | Ewe | Faroese | 
+Filipino | Finnish | French | Frisian | Ga | Galician | Georgian | German | Greek | Guarani 
+| Gujarati | Hacker | Haitian Creole | Hausa | Hawaiian | Hebrew | Hindi | Hungarian | 
+Icelandic | Igbo | Indonesian | Interlingua | Irish | Italian | Japanese | Javanese | 
+Kannada | Kazakh | Kinyarwanda | Kirundi | Klingon | Kongo | Korean | Krio (Sierra Leone) | 
+Kurdish | Kurdish (Soran∩┐╜) | Kyrgyz | Laothian | Latin | Latvian | Lingala | Lithuanian | 
+Lozi | Luganda | Luo | Macedonian | Malagasy | Malay | Malayalam | Maltese | Maori | 
+Marathi | Mauritian Creole | Moldavian | Mongolian | Montenegrin | Nepali | Nigerian Pidgin 
+| Northern Sotho | Norwegian | Norwegian (Nynorsk) | Occitan | Oriya | Oromo | Pashto | 
+Persian | Pirate | Polish | Portuguese (Brazil) | Portuguese (Portugal) | Punjabi | Quechua 
+| Romanian | Romansh | Runyakitara | Russian | Scots Gaelic | Serbian | Serbo-Croatian | 
+Sesotho | Setswana | Seychellois Creole | Shona | Sindhi | Sinhalese | Slovak | Slovenian | 
+Somali | Spanish | Spanish (Latin American) | Sundanese | Swahili | Swedish | Tajik | Tamil 
+| Tatar | Telugu | Thai | Tigrinya | Tonga | Tshiluba | Tumbuka | Turkish | Turkmen | Twi | 
+Uighur | Ukrainian | Urdu | Uzbek | Vietnamese | Welsh | Wolof | Xhosa | Yiddish | Yoruba | 
+Zulu}] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] 
+[-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] 
+[-RestoreFocus] [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -7484,9 +7533,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-GithubQuery [-Queries] <string[]> [-Language <string>] [-Monitor <int>] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] 
+[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -7739,10 +7789,11 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-BuiltWithSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8028,8 +8079,8 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Edge] 
-[-Chrome] [<CommonParameters>]
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+[-Trending] [-Edge] [-Chrome] [<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -8109,9 +8160,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-InstantStreetViewQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -8408,7 +8460,8 @@ Get-GoogleSearchResultUrls           --> qlinksget
 
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>]
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -8458,17 +8511,18 @@ Copy-PDFsFromGoogleQuery
 ````
 
 ### SYNOPSIS
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found 
+    pdf's into current directory
 
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>]
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
-    Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current 
-    directory
+    Performs a Google query in the previously selected webbrowser tab, and download all found 
+    pdf's into current directory
 
 ### PARAMETERS
     -Queries <String[]>
@@ -8515,7 +8569,8 @@ Open-Webbrowser
     Select-WebbrowserTab
     mkdir pdfs;
     cd pdfs;
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | Open-Webbrowser
+    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | 
+Open-Webbrowser
 ````
 
 <br/><hr/><hr/><br/>
@@ -8719,9 +8774,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -8825,8 +8881,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -8951,10 +9007,11 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-MovieQuote [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9198,10 +9255,11 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-StackOverflowQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9448,9 +9506,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9554,8 +9613,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9668,9 +9727,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -9774,8 +9834,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -9897,9 +9957,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] 
+[-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10003,8 +10064,8 @@ Open-Yab [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Priv
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10126,9 +10187,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10232,8 +10294,8 @@ Open-ViralSimulation [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private]
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10346,17 +10408,20 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | KandinskyKaleidoscope | 
-PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | KlimtKaleidoscope | MiroMirage | RothkoRhythms | 
-SeuratStipples | RembrandtRadiance | VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | 
-CezanneContours | GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | Spanish | 
-French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | Thai | Turkish | Ukrainian | 
-Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground 
-<string>] [-FocusedNodeBackground <string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
-[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor <string>] [-BorderWidth <int>] 
-[-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] 
-[-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
-[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods | PicassoPulse | DaliDreams | 
+KandinskyKaleidoscope | PollockPoints | HokusaiWaves | EscherEchoes | WarholWaves | 
+KlimtKaleidoscope | MiroMirage | RothkoRhythms | SeuratStipples | RembrandtRadiance | 
+VermeerVisions | BoschBizarre | TurnerTwilight | FridaFeelings | CezanneContours | 
+GauguinGlow | RenoirReflections}] [[-Language] {English | Kotava | Arabic | German | 
+Spanish | French | Italian | Japanese | Korean | Dutch | Polish | Portuguese | Russian | 
+Thai | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] 
+[-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground <string>] [-FocusedNodeBackground 
+<string>] [-FocusedNodeForeground <string>] [-UnFocusedNodeBackground <string>] 
+[-UnFocusedNodeForeground <string>] [-BorderLightColor <string>] [-BorderDarkColor 
+<string>] [-BorderWidth <int>] [-RotationDelaySeconds <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y 
+<int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang 
+<string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10478,7 +10543,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -FocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text
+        Overwrite the css-color-style for painting the focused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -10505,7 +10571,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     true
         Accept wildcard characters?  false
     -Language <string>
-        Override default browser language, or select [All] for rotation of all languages every minute
+        Override default browser language, or select [All] for rotation of all languages every 
+        minute
         Required?                    false
         Position?                    1
         Accept pipeline input?       false
@@ -10622,7 +10689,8 @@ Vietnamese | Yiddish | Chinese | [All]}] [-Monitor <int>] [-ReturnURL] [-ReturnO
         Dynamic?                     false
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <string>
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text
+        Overwrite the css-color-style for painting the unfocused node's (in center) foreground 
+        text
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
@@ -10672,9 +10740,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10778,8 +10847,8 @@ Open-GenXdevAppCatalog [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Privat
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -10892,9 +10961,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] 
+[-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] 
+[-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -10998,8 +11068,8 @@ Open-GameOfLife [[-Monitor] <int>] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Fo
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
@@ -11115,10 +11185,11 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-SimularWebSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -11401,10 +11472,11 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-YoutubeQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -11648,10 +11720,11 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WolframAlphaQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -11902,7 +11975,8 @@ Open-WikipediaQuery [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>
 ````
 
 ### DESCRIPTION
-    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline switches
+    Opens a Wikipedia query in a webbrowser, in a configurable manner, using commandline 
+    switches
 
 ### PARAMETERS
     -Queries <String[]>
@@ -11934,10 +12008,11 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WikipediaNLQuery [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -12181,10 +12256,11 @@ Open-WhoisHostSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] 
-[-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
-[-NewWindow] [-PassThru] [<CommonParameters>]
+Open-WhoisHostSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] 
+[-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X 
+<int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+[<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -12431,7 +12507,8 @@ Open-WebsiteAndPerformQuery
 
 ### SYNTAX
 ````PowerShell
-Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [-Monitor <Int32>] [<CommonParameters>]
+Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [-Monitor <Int32>] 
+[<CommonParameters>]
 ````
 
 ### DESCRIPTION
@@ -12476,9 +12553,10 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
+Open-WaybackMachineSiteInfo [-Queries] <string[]> [-Monitor <int>] [-Private] [-Force] 
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <string>] [-RestoreFocus] 
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -12762,9 +12840,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] 
-[-Top] [-Bottom] [-Centered] [-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
+Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] 
+[-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Width <int>] [-Height 
+<int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
+[-NoBrowserExtensions] [-AcceptLang <string>] [-PassThru] [<CommonParameters>]
 ````
 
 ### PARAMETERS
@@ -12868,8 +12947,8 @@ Open-YabAIBattle [[-Monitor] <int>] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL
         Dynamic?                     true
         Accept wildcard characters?  false
     -Monitor <int>
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = Configured secondary 
-        monitor
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, -2 = 
+        Configured secondary monitor
         Required?                    false
         Position?                    0
         Accept pipeline input?       false
