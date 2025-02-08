@@ -1,16 +1,15 @@
-###############################################################################
+################################################################################
 
 <#
 .SYNOPSIS
 Opens and controls YouTube videos in a browser window with keyboard shortcuts.
 
 .DESCRIPTION
-Performs an infinite auto opening YouTube search in a new fullscreen browser
-window on second monitor. The console window shows video info and keyboard
-shortcuts for controlling currently playing video.
+Opens YouTube videos matching search terms or from various YouTube sections in a
+browser window. Provides keyboard controls for video playback and navigation.
 
 .PARAMETER Queries
-The search terms to find videos for. Opens all videos matching each term.
+YouTube search terms to find videos for. Opens all videos matching each term.
 
 .PARAMETER Subscriptions
 Opens all videos from subscribed channels.
@@ -19,28 +18,27 @@ Opens all videos from subscribed channels.
 Opens all videos from the watch-later playlist.
 
 .PARAMETER Recommended
-Opens all videos that YouTube recommends.
+Opens all recommended videos from YouTube homepage.
 
 .PARAMETER Trending
-Opens all videos currently trending on YouTube.
+Opens all currently trending videos on YouTube.
 
 .PARAMETER Edge
-Use Microsoft Edge browser.
+Use Microsoft Edge browser instead of default.
 
 .PARAMETER Chrome
-Use Google Chrome browser.
+Use Google Chrome browser instead of default.
 
 .EXAMPLE
 Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
 
 .EXAMPLE
-qvideos PowerShell tutorial, vscode tips
+qvideos "PowerShell tutorial" -e
 #>
 function Open-AllYoutubeVideos {
 
     [CmdletBinding()]
     [Alias("qvideos", "qyt")]
-
     param(
         ########################################################################
         [parameter(
@@ -54,35 +52,30 @@ function Open-AllYoutubeVideos {
         [Alias("q", "Value", "Name", "Text", "Query")]
         [string[]] $Queries = @(""),
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Open videos from subscribed channels"
         )]
         [switch] $Subscriptions,
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Open videos from watch later playlist"
         )]
         [switch] $WatchLater,
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Open recommended videos"
         )]
         [switch] $Recommended,
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Open trending videos"
         )]
         [switch] $Trending,
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Use Microsoft Edge browser"
@@ -90,7 +83,6 @@ function Open-AllYoutubeVideos {
         [Alias("e")]
         [switch] $Edge,
         ########################################################################
-
         [parameter(
             Mandatory = $false,
             HelpMessage = "Use Google Chrome browser"
@@ -101,29 +93,27 @@ function Open-AllYoutubeVideos {
     )
 
     begin {
-
+        # tracks which video was last displayed to avoid redrawing unchanged content
         $lastVideo = ""
 
-        # get the main powershell window for positioning
+        # obtain main powershell window handle for proper window positioning
         $powershellProcess = Get-PowershellMainWindowProcess
-        $powershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow(
-            $powershellProcess)
+        $powershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($powershellProcess)
 
         Write-Verbose "Starting YouTube video browser"
     }
 
     process {
-
-        # fix casing consistency
+        # determine if we're working with current tab or need to open new one
         [bool] $currentTab = ($Recommended -ne $true) -and
             ($Subscriptions -ne $true) -and
             ($Trending -ne $true) -and
             ($WatchLater -ne $true) -and
             (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]))
 
-
+        # internal function that handles video navigation and control interface
         function go($Url = $null, $Query) {
-
+            # initialize state tracking for current video session
             $Global:data = @{
                 query          = $Query
                 urls           = @()
@@ -135,9 +125,13 @@ function Open-AllYoutubeVideos {
                 position       = 0
             }
 
-            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | ForEach-Object { $PSItem });
-            $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-            $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
+            # detect and configure multi-monitor setup
+            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | ForEach-Object { $PSItem })
+
+            # get console dimensions for UI layout
+            $hostInfo = & { $H = Get-Host; $H.ui.rawui }
+            $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)"
+
             Clear-Host
             Write-Host "Hold on.. launching query".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
             $browser = $null;
@@ -215,15 +209,18 @@ function Open-AllYoutubeVideos {
                 $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
             }
 
-            $completed = $false;
-            $job = [System.IO.File]::ReadAllText("$PSScriptRoot\..\..\Open-AllYoutubeVideos.js");
-            [int] $scrollPosition = -1;
-            [int] $scrollPosition2 = -1;
+            # loads and executes the JavaScript controller code
+            $job = [System.IO.File]::ReadAllText("$PSScriptRoot\..\..\Open-AllYoutubeVideos.js")
 
+            # track scroll positions for header animations
+            [int] $scrollPosition = -1
+            [int] $scrollPosition2 = -1
+
+            # get chrome automation interfaces
             $page = $Global:chromeController
             $reference = Get-ChromiumSessionReference
 
-            # Add error handling for async operations
+            # handles asynchronous tab opening and video pausing
             function checkOpened() {
 
                 $opened = $false
@@ -257,70 +254,73 @@ function Open-AllYoutubeVideos {
                 if ($opened) {
 
                     $Global:data.open = @();
-                    # $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome -Force
-                    # $null = Stop-WebbrowserVideos
-                    # $page = $Global:chromeController
-                    # $reference = Get-ChromiumSessionReference
                     $null = Set-ForegroundWindow ($powershellWindow.handle)
                 }
             }
 
+            # main event loop - handles UI updates and keyboard input
             while ((-not $completed) -and ($null -ne $page) -and ($null -ne $reference)) {
 
                 try {
-                    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2); [Console]::ResetColor();
+                    # reset cursor position and colors for status line
+                    $hostInfo = & { $H = Get-Host; $H.ui.rawui }
+                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+                    [Console]::ResetColor()
 
-                    $null = Invoke-WebbrowserEvaluation "$job;" -Page $Page -ByReference $reference;
+                    # execute JavaScript controller code
+                    $null = Invoke-WebbrowserEvaluation "$job;" -Page $Page -ByReference $reference
 
+                    # process any pending tab operations
                     checkOpened
 
-                    if ($completed) { return; }
+                    if ($completed) { return }
 
                     try {
 
-                        $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)";
+                        # handle console window resizing
+                        $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)"
                         if ($newsize -ne $size) {
-
-                            $size = $newsize;
-                            $LastVideo = $null;
+                            $size = $newsize
+                            $LastVideo = $null
                         }
-                        $sub = "";
-                        $pause = " [P]ause | ";
-                        $header = "[Q]uit | $sub$pause SPACE=Next | S = $(($data.subscribeTitle)) | F = Toggle fullscreen | [0]..[9] = skip | ◀ -20s | +20s ▶ | ".PadRight($hostInfo.WindowSize.Width, " ");
+
+                        # construct and display control header
+                        $sub = ""
+                        $pause = " [P]ause | "
+                        $header = "[Q]uit | $sub$pause SPACE=Next | S = $(($data.subscribeTitle)) | F = Toggle fullscreen | [0]..[9] = skip | ◀ -20s | +20s ▶ | ".PadRight($hostInfo.WindowSize.Width, " ")
 
                         if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
-                            $scrollPosition = ($scrollPosition + 1) % $header.length;
+                            $scrollPosition = ($scrollPosition + 1) % $header.length
                             try {
-                                $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                                $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width)
                             }
                             catch {
                                 try {
-                                    $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                                    $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width)
                                 }
                                 catch {
                                 }
                             }
                         }
 
-                        $scrollPosition = -1;
-                        $scrollPosition2 = -1;
+                        $scrollPosition = -1
+                        $scrollPosition2 = -1
                         $videoInfo = "$($Global:data.title)$($Global:data.description)"
 
                         if ($videoInfo -ne $LastVideo) {
-                            Clear-Host;
+                            Clear-Host
                             Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
-                            $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ");
+                            $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ")
                             if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
-                                $scrollPosition2 = ($scrollPosition2 + 1) % $header.length;
+                                $scrollPosition2 = ($scrollPosition2 + 1) % $header.length
                                 try {
-                                    $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width);
+                                    $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width)
                                 }
                                 catch {
                                     try {
-                                        $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width);
+                                        $header = "$header $header".Substring(0, $hostInfo.WindowSize.Width)
                                     }
                                     catch {
                                     }
@@ -328,26 +328,26 @@ function Open-AllYoutubeVideos {
                             }
 
                             Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
-                            [int] $nn = 0;
+                            [int] $nn = 0
 
                             if ($Global:data.description.Contains("\n1")) {
 
                                 $Global:data.description = "loading.."
                             }
 
-                            $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim();
+                            $txt = "$($Global:data.description)".Replace("Show less", "").Replace("Show more", "").Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim()
                             Write-Host ((($txt -Split "`r"  | ForEach-Object -ErrorAction SilentlyContinue {
                                             if ([string]::IsNullOrWhiteSpace($PSItem)) {
-                                                $nn = $nn + 1;
+                                                $nn = $nn + 1
                                             }
                                             else {
                                                 $nn = 0
                                             }
                                             if ($nn -lt 2) {
-                                                $s = $PSItem.Trim();
+                                                $s = $PSItem.Trim()
                                                 for ([int] $i = $hostInfo.WindowSize.Width - 1; $i -lt $s.length - 1; $i += $hostInfo.WindowSize.Width - 3) {
 
-                                                    $s = $s.substring(0, $i) + "`r" + $s.substring($i);
+                                                    $s = $s.substring(0, $i) + "`r" + $s.substring($i)
                                                 }
 
                                                 $s
@@ -358,121 +358,130 @@ function Open-AllYoutubeVideos {
                             $LastVideo = $videoInfo
                         }
 
-                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1);
-                        [Console]::BackgroundColor = [ConsoleColor]::Blue;
-                        [Console]::ForegroundColor = [ConsoleColor]::Yellow;
+                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1)
+                        [Console]::BackgroundColor = [ConsoleColor]::Blue
+                        [Console]::ForegroundColor = [ConsoleColor]::Yellow
                         try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
-                        [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1);
+                        [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1)
                         try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
-                        $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
-                        [Console]::ResetColor();
+                        $hostInfo = & { $H = Get-Host; $H.ui.rawui }
+                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+                        [Console]::ResetColor()
 
+                        # process keyboard input when available
                         while ([Console]::KeyAvailable) {
 
-                            [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
-                            $c = [Console]::ReadKey();
+                            [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+                            $c = [Console]::ReadKey()
 
                             switch ("$($c.KeyChar)".ToLowerInvariant()) {
 
                                 "q" {
-                                    $completed = $true;
-                                    [Console]::SetCursorPosition(0, 0);
+                                    $completed = $true
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host "Quiting..".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
 
                                     if ($null -ne $browser) {
 
                                         $browser.CloseMainWindow() | Out-Null
                                     }
-                                    return;
+                                    return
                                 }
 
                                 " " {
 
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host "Skipping to next video".PadRight($hostInfo.WindowSize.Width - 2, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2);
+                                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
                                     $Page.CloseAsync().Wait()
                                     $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
                                     $page = $Global:chromeController
                                     $reference = Get-ChromiumSessionReference
-                                    $LastVideo = "";
-                                    [Console]::SetCursorPosition(0, 0);
+                                    $LastVideo = ""
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
-                                    continue;
+                                    continue
                                 }
 
                                 "s" {
 
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host "Toggling subscription".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
                                     $null = Invoke-WebbrowserEvaluation "$job;await toggleSubscribeToChannel();" -Page $Page -ByReference $reference | Out-Null
                                     $null = Start-Sleep 1
                                     checkOpened
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
+                                    break;
                                 }
 
                                 "f" {
 
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host "Toggling fullscreen".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
                                     $null = Invoke-WebbrowserEvaluation "$job;await toggleFullscreenVideo();" -Page $Page -ByReference $reference | Out-Null
                                     $null = Start-Sleep 1
                                     checkOpened
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
+                                    break;
                                 }
 
                                 "p" {
 
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host "Toggling pause video".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                    $LastVideo = "";
+                                    $LastVideo = ""
                                     $null = Invoke-WebbrowserEvaluation "$job;await togglePauseVideo();" -Page $Page -ByReference $reference | Out-Null
                                     $null = Start-Sleep 1
                                     checkOpened
-                                    [Console]::SetCursorPosition(0, 0);
+                                    [Console]::SetCursorPosition(0, 0)
                                     Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
+                                    break;
                                 }
 
                                 default {
 
-                                    [int] $n = 0;
+                                    [int] $n = 0
                                     if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
 
-                                        [Console]::SetCursorPosition(0, 0);
+                                        [Console]::SetCursorPosition(0, 0)
                                         Write-Host "Skipping to position".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
                                         $null = Invoke-WebbrowserEvaluation "$job;await setVideoPosition($n);" -Page $Page -ByReference $reference | Out-Null
                                         $null = Start-Sleep 1
                                         checkOpened
-                                        [Console]::SetCursorPosition(0, 0);
+                                        [Console]::SetCursorPosition(0, 0)
                                         Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                     }
                                     else {
                                         if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
-                                            [Console]::SetCursorPosition(0, 0);
+                                            [Console]::SetCursorPosition(0, 0)
                                             Write-Host "Skipping 20 seconds forward".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
                                             $null = Invoke-WebbrowserEvaluation "$job;await forwardInVideo();" -Page $Page -ByReference $reference | Out-Null
                                             $null = Start-Sleep 1
                                             checkOpened
-                                            [Console]::SetCursorPosition(0, 0);
+                                            [Console]::SetCursorPosition(0, 0)
                                             Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                         }
                                         else {
                                             if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
-                                                [Console]::SetCursorPosition(0, 0);
+                                                [Console]::SetCursorPosition(0, 0)
                                                 Write-Host "Skipping 20 seconds backwards".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
                                                 $null = Invoke-WebbrowserEvaluation "$job;await backwardsInVideo();" -Page $Page -ByReference $reference | Out-Null
                                                 $null = Start-Sleep 1
                                                 checkOpened
-                                                [Console]::SetCursorPosition(0, 0);
+                                                [Console]::SetCursorPosition(0, 0)
                                                 Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                             }
                                         }
                                     }
+
+                                    break;
                                 }
                             }
                         }
@@ -480,66 +489,65 @@ function Open-AllYoutubeVideos {
                     catch {
 
                         if ($LastVideo -ne "") {
-                            $completed = $true;
-                            return;
+                            $completed = $true
+                            return
                         }
                     }
-                    $hostInfo = & { $H = Get-Host; $H.ui.rawui; }
-                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2); [Console]::ResetColor();
+
+                    # refresh chrome automation interfaces
+                    $hostInfo = & { $H = Get-Host; $H.ui.rawui }
+                    [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+                    [Console]::ResetColor()
                     $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
                     $page = $Global:chromeController
                     $reference = Get-ChromiumSessionReference
 
+                    # verify chrome session is still active
                     if ((@($Global:chromeSessions).Count -eq 0) -or ($null -eq $Global:chrome)) {
-
                         throw "No active session"
                     }
                 }
                 catch {
 
-                    $completed = $true;
+                    $completed = $true
                 }
             }
         }
 
+        # suppress verbose output during video playback
         $OldVerbosePreference = $VerbosePreference
         $VerbosePreference = 'SilentlyContinue'
+
         try {
-
+            # handle different video source scenarios based on parameters
             if ($currentTab) {
-
                 go
-                return;
+                return
             }
 
+            # process search queries if provided
             if ($Queries.Count -gt 0) {
-
                 foreach ($Query in $Queries) {
-
                     if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
-
-                        go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($Query))" $Query
+                        go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($query))" $Query
                     }
                 }
             }
 
+            # handle special feed types
             if ($Subscriptions -eq $true) {
-
                 go "https://www.youtube.com/feed/subscriptions"
             }
 
             if ($Recommended -eq $true) {
-
                 go "https://www.youtube.com/"
             }
 
             if ($WatchLater -eq $true) {
-
                 go "https://www.youtube.com/playlist?list=WL"
             }
 
             if ($Trending -eq $true) {
-
                 go "https://www.youtube.com/feed/trending"
             }
         }
@@ -553,3 +561,5 @@ function Open-AllYoutubeVideos {
         Write-Verbose "YouTube video browser session ended"
     }
 }
+
+################################################################################

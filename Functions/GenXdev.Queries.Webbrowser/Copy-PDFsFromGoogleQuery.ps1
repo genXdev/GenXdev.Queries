@@ -2,63 +2,56 @@
 
 <#
 .SYNOPSIS
-Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+Downloads PDF files found through Google search results.
 
 .DESCRIPTION
-Performs a Google query in the previously selected webbrowser tab, and download all found pdf's into current directory
+Performs a Google query in the previously selected webbrowser tab and downloads
+all found PDF files into the current directory. Supports multiple queries and
+language filtering.
 
-.PARAMETER Query
-Parameter description
+.PARAMETER Queries
+The search terms to query Google for PDF files.
 
 .PARAMETER Max
-The maximum number of results to obtain, defaults to 200
+Maximum number of results to retrieve (default: 200).
+
+.PARAMETER Language
+Optional language filter for search results.
 
 .EXAMPLE
-PS D:\Downloads>
-
-    Open-Webbrowser
-    Select-WebbrowserTab
-
-    mkdir pdfs;
-    cd pdfs;
-
-    Copy-PDFsFromGoogleQuery scientific, paper, co2
-.EXAMPLE
-PS D:\Downloads>
-
-    Open-Webbrowser
-    Select-WebbrowserTab
-
-    mkdir pdfs;
-    cd pdfs;
-
-    Copy-PDFsFromGoogleQuery -Query "scientific paper co2" | Select-Object -First 10 | Open-Webbrowser
-
-.NOTES
-Requires the Windows 10+ Operating System
+Open-Webbrowser
+Select-WebbrowserTab
+$null = New-Item -ItemType Directory -Name pdfs
+Set-Location pdfs
+Copy-PDFsFromGoogleQuery "scientific paper co2" -Max 50 -Language "English"
 #>
 function Copy-PDFsFromGoogleQuery {
 
     [CmdletBinding()]
-
     param(
+        ########################################################################
         [parameter(
-            Mandatory,
+            Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments,
-            ValueFromPipeline,
-            ValueFromPipelineByPropertyName,
-            HelpMessage = "The query to perform"
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = "The search terms to query Google for PDF files"
         )]
         [string[]] $Queries,
-        ###############################################################################
-
+        ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The maximum number of results to obtain, defaults to 200"
+            Position = 1,
+            HelpMessage = "Maximum number of results to retrieve (default: 200)"
         )]
         [int] $Max = 200,
-        ###############################################################################
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            Position = 2,
+            HelpMessage = "Optional language filter for search results"
+        )]
         [ValidateSet(
             "Afrikaans",
             "Akan",
@@ -208,56 +201,62 @@ function Copy-PDFsFromGoogleQuery {
             "Xhosa",
             "Yiddish",
             "Yoruba",
-            "Zulu")]
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "The language of the returned search results"
+            "Zulu"
         )]
-        [string] $Language = $null
+        [string] $Language
+        ########################################################################
     )
 
     begin {
-
-
+        Write-Verbose "Starting PDF download operation"
     }
 
     process {
+        foreach ($query in $Queries) {
+            Write-Verbose "Processing query: $query"
 
-        foreach ($Query in $Queries) {
+            # construct search query with pdf filter
+            $searchQuery = "filetype:pdf $query"
 
-            if ([string]::IsNullOrWhiteSpace($Language)) {
-
-                $list = Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query"
+            # get search results
+            $urls = if ($Language) {
+                Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery -Language $Language
             }
             else {
-                $list = Get-GoogleSearchResultUrls -Max $Max -Query "filetype:pdf $Query" -Language $Language
+                Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery
             }
 
-            $list | ForEach-Object -ThrottleLimit 64 -Parallel {
+            Write-Verbose "Found $($urls.Count) PDF URLs to process"
 
+            # process urls in parallel
+            $urls | ForEach-Object -ThrottleLimit 64 -Parallel {
                 try {
+                    # construct safe filename
+                    $safeName = [Uri]::UnescapeDataString(
+                        [IO.Path]::GetFileName($PSItem)
+                    ).Split("#")[0].Split("?")[0]
 
-                    $destination = [IO.Path]::Combine(
-                        $PWD,
-                        (
-                            [IO.Path]::ChangeExtension(
-                                [Uri]::UnescapeDataString(
-                                    [IO.Path]::GetFileName($PSItem).Split("#")[0].Split("?")[0]
-                                ).Replace("\", "_").Replace("/", "_").Replace("?", "_").Replace("*", "_").Replace(" ", "_").Replace("__", "_") +
-                                "_$([DateTime]::UtcNow.Ticks)_$([System.Threading.Thread]::CurrentThread.ManagedThreadId)",
-                                ".pdf"
-                            )
-                        )
-                    );
+                    $safeName = $safeName -replace '[\\/:*?"<>|\s]', '_'
 
-                    Invoke-WebRequest -Uri $PSItem -OutFile $destination
+                    # create unique filename
+                    $destination = Join-Path $using:PWD (
+                        "{0}_{1}_{2}.pdf" -f $safeName,
+                        [DateTime]::UtcNow.Ticks,
+                        [Threading.Thread]::CurrentThread.ManagedThreadId
+                    )
 
-                    Get-ChildItem $destination
+                    Write-Verbose "Downloading to: $destination"
+
+                    # download pdf
+                    $null = Invoke-WebRequest -Uri $PSItem -OutFile $destination
+
+                    Get-Item $destination
                 }
                 catch {
-
+                    Write-Warning "Failed to download: $PSItem"
                 }
             }
         }
     }
 }
+################################################################################

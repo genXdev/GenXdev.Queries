@@ -1,203 +1,40 @@
 ################################################################################
 <#
 .SYNOPSIS
-Opens a Google query in a web browser with configurable settings.
+Opens a X Grok query in a webbrowser
 
 .DESCRIPTION
-Opens one or more Google queries in a web browser, supporting multiple languages
-and monitor selection.
+Opens a X Grok query in the webbrowser, types in the query and presses enter to
+execute the search.
 
 .PARAMETER Queries
-The search terms to query on Google.
-
-.PARAMETER Monitor
-The monitor to display the browser on. 0 = default, -1 = discard,
--2 = configured secondary monitor.
-
-.PARAMETER Language
-The language for Google search results.
+One or more queries to perform on DeepSearch.
 
 .EXAMPLE
-Open-GoogleQuery -Query "PowerShell scripting" -Language "English" -Monitor 0
+Open-XGrokQuery -Queries "powershell function"
 
 .EXAMPLE
-q "PowerShell scripting" -m 0
+aixg "powershell function"
 #>
-function Open-GoogleQuery {
+function Open-DeepSearchQuery {
 
     [CmdletBinding()]
-    [Alias("q")]
+    [Alias("aids", "askdeepsearch")]
 
     param(
-        ########################################################################
-        [Alias("q", "Value", "Name", "Text", "Query")]
-        [Parameter(
+        ###############################################################################
+        [parameter(
             Mandatory = $true,
             Position = 0,
             ValueFromRemainingArguments = $true,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The query to execute.'
+            HelpMessage = "One or more queries to perform on DeepSearch"
         )]
+        [ValidateNotNullOrEmpty()]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [string[]] $Queries,
         ###############################################################################
-        [ValidateSet(
-            "Afrikaans",
-            "Akan",
-            "Albanian",
-            "Amharic",
-            "Arabic",
-            "Armenian",
-            "Azerbaijani",
-            "Basque",
-            "Belarusian",
-            "Bemba",
-            "Bengali",
-            "Bihari",
-            "Bork, bork, bork!",
-            "Bosnian",
-            "Breton",
-            "Bulgarian",
-            "Cambodian",
-            "Catalan",
-            "Cherokee",
-            "Chichewa",
-            "Chinese (Simplified)",
-            "Chinese (Traditional)",
-            "Corsican",
-            "Croatian",
-            "Czech",
-            "Danish",
-            "Dutch",
-            "Elmer Fudd",
-            "English",
-            "Esperanto",
-            "Estonian",
-            "Ewe",
-            "Faroese",
-            "Filipino",
-            "Finnish",
-            "French",
-            "Frisian",
-            "Ga",
-            "Galician",
-            "Georgian",
-            "German",
-            "Greek",
-            "Guarani",
-            "Gujarati",
-            "Hacker",
-            "Haitian Creole",
-            "Hausa",
-            "Hawaiian",
-            "Hebrew",
-            "Hindi",
-            "Hungarian",
-            "Icelandic",
-            "Igbo",
-            "Indonesian",
-            "Interlingua",
-            "Irish",
-            "Italian",
-            "Japanese",
-            "Javanese",
-            "Kannada",
-            "Kazakh",
-            "Kinyarwanda",
-            "Kirundi",
-            "Klingon",
-            "Kongo",
-            "Korean",
-            "Krio (Sierra Leone)",
-            "Kurdish",
-            "Kurdish (Soranî)",
-            "Kyrgyz",
-            "Laothian",
-            "Latin",
-            "Latvian",
-            "Lingala",
-            "Lithuanian",
-            "Lozi",
-            "Luganda",
-            "Luo",
-            "Macedonian",
-            "Malagasy",
-            "Malay",
-            "Malayalam",
-            "Maltese",
-            "Maori",
-            "Marathi",
-            "Mauritian Creole",
-            "Moldavian",
-            "Mongolian",
-            "Montenegrin",
-            "Nepali",
-            "Nigerian Pidgin",
-            "Northern Sotho",
-            "Norwegian",
-            "Norwegian (Nynorsk)",
-            "Occitan",
-            "Oriya",
-            "Oromo",
-            "Pashto",
-            "Persian",
-            "Pirate",
-            "Polish",
-            "Portuguese (Brazil)",
-            "Portuguese (Portugal)",
-            "Punjabi",
-            "Quechua",
-            "Romanian",
-            "Romansh",
-            "Runyakitara",
-            "Russian",
-            "Scots Gaelic",
-            "Serbian",
-            "Serbo-Croatian",
-            "Sesotho",
-            "Setswana",
-            "Seychellois Creole",
-            "Shona",
-            "Sindhi",
-            "Sinhalese",
-            "Slovak",
-            "Slovenian",
-            "Somali",
-            "Spanish",
-            "Spanish (Latin American)",
-            "Sundanese",
-            "Swahili",
-            "Swedish",
-            "Tajik",
-            "Tamil",
-            "Tatar",
-            "Telugu",
-            "Thai",
-            "Tigrinya",
-            "Tonga",
-            "Tshiluba",
-            "Tumbuka",
-            "Turkish",
-            "Turkmen",
-            "Twi",
-            "Uighur",
-            "Ukrainian",
-            "Urdu",
-            "Uzbek",
-            "Vietnamese",
-            "Welsh",
-            "Wolof",
-            "Xhosa",
-            "Yiddish",
-            "Yoruba",
-            "Zulu")]
-        [parameter(
-            Mandatory = $false,
-            Position = 1,
-            HelpMessage = "The language of the returned search results"
-        )]
-        [string] $Language = $null,
-        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Opens in incognito/private browsing mode"
@@ -255,9 +92,9 @@ function Open-GoogleQuery {
         [Alias("m", "mon")]
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found"
         )]
-        [int] $Monitor = -1,
+        [int] $Monitor = -2,
 
         ###############################################################################
         [Alias("fs", "f")]
@@ -375,65 +212,27 @@ function Open-GoogleQuery {
             Mandatory = $false,
             HelpMessage = "Returns a [System.Diagnostics.Process] object of the browserprocess"
         )]
-        [switch] $PassThru,
-        ########################################################################
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "Don't open webbrowser, just return the url"
-        )]
-        [switch] $ReturnURL,
-        ########################################################################
-        [parameter(
-            Mandatory = $false,
-            HelpMessage = "After opening webbrowser, return the url"
-        )]
-        [switch] $ReturnOnlyURL
-        ########################################################################
+        [switch] $PassThru
     )
 
     begin {
-
-        Write-Verbose "Initializing query handler"
-
-        # prepare parameters for Open-Webbrowser
+        $null = $PSBoundParameters.Add("Url", "https://chat.deepseek.com/")
+        $null = $PSBoundParameters.Add("Query", "")
         $null = $PSBoundParameters.Remove("Queries")
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
-        }
-
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
-
-            $null = $PSBoundParameters.Remove("ReturnUrl")
-        }
     }
 
     process {
 
-        # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            $null = $PSBoundParameters["Query"] = $query
 
-            # determine google domain based on language
-            $code = "www"
-            if (-not [string]::IsNullOrWhiteSpace($Language)) {
-                $code = (Get-WebLanguageDictionary)[$Language]
-            }
-
-            # construct and encode the google search url
-            $PSBoundParameters["Url"] = "https://$code.google.com/search?q=$([Uri]::EscapeUriString($query))"
-
-            # open search in browser with inherited parameters
-            Open-Webbrowser @PSBoundParameters
+            Open-WebsiteAndPerformQuery @PSBoundParameters
         }
     }
 
     end {
+        Write-Verbose "Query operation completed"
     }
 }
 ################################################################################

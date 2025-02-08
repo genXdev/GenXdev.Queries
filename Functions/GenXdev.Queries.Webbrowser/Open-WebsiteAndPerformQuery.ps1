@@ -1,96 +1,264 @@
 ################################################################################
 <#
 .SYNOPSIS
-Opens a webpage in a webbrowser and performs a query
+Opens a webpage in a webbrowser and performs one or more queries.
 
 .DESCRIPTION
-Opens a website by Url in the webbrowser, it types in a query and presses enter.
+Opens a website by URL in the default web browser, enters one or more queries
+and submits them. Supports monitor selection and window positioning.
 
 .PARAMETER Url
-The url of the website to open
+The URL of the website to open.
 
-.PARAMETER Queries
-The query to perform
+.PARAMETER Query
+One or more queries to perform on the opened website.
 
+.PARAMETER Monitor
+The monitor to display the browser on. 0 = default, -1 = discard,
+-2 = configured secondary monitor.
+
+.EXAMPLE
+Open-WebsiteAndPerformQuery -Url "https://www.google.com" -Query "PowerShell"
+
+.EXAMPLE
+owaq google.com "PowerShell tutorials" -Monitor 0
 #>
 function Open-WebsiteAndPerformQuery {
 
     [CmdletBinding()]
+    [Alias("owaq")]
 
     param(
-        ###############################################################################
+        ########################################################################
         [Alias("u", "uri", "link", "address", "site")]
         [parameter(
-            Mandatory,
+            Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments,
-            ValueFromPipeline,
-            ValueFromPipelineByPropertyName,
-            HelpMessage = "The url of the website to open"
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = "The URL of the website to open"
         )]
+        [ValidateNotNullOrEmpty()]
         [string] $Url,
-        ###############################################################################
+        ########################################################################
         [parameter(
-            Mandatory,
-            Position = 0,
-            ValueFromRemainingArguments,
-            ValueFromPipeline,
-            ValueFromPipelineByPropertyName,
-            HelpMessage = "The query to perform"
+            Mandatory = $true,
+            Position = 1,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = "The queries to perform"
         )]
-        [string[]] $Queries,
+        [ValidateNotNullOrEmpty()]
+        [string] $Query,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in incognito/private browsing mode"
+        )]
+        [Alias("incognito", "inprivate")]
+        [switch] $Private,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Force enable debugging port, stopping existing browsers if needed"
+        )]
+        [switch] $Force,
+
+        ###############################################################################
+        [Alias("e")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Microsoft Edge"
+        )]
+        [switch] $Edge,
+
+        ###############################################################################
+        [Alias("ch")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Google Chrome"
+        )]
+        [switch] $Chrome,
+
+        ###############################################################################
+        [Alias("c")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Microsoft Edge or Google Chrome, depending on what the default browser is"
+        )]
+        [switch] $Chromium,
+
+        ###############################################################################
+        [Alias("ff")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Firefox"
+        )]
+        [switch] $Firefox,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in all registered modern browsers"
+        )]
+        [switch] $All,
+
         ###############################################################################
         [Alias("m", "mon")]
-        [parameter(
+        [Parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found"
         )]
-        [int] $Monitor = -1
+        [int] $Monitor = -2,
+
         ###############################################################################
+        [Alias("fs", "f")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial width of the webbrowser window"
+        )]
+        [int] $Width = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial height of the webbrowser window"
+        )]
+        [int] $Height = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial X position of the webbrowser window"
+        )]
+        [int] $X = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial Y position of the webbrowser window"
+        )]
+        [int] $Y = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the left side of the screen"
+        )]
+        [switch] $Left,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the right side of the screen"
+        )]
+        [switch] $Right,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the top side of the screen"
+        )]
+        [switch] $Top,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the bottom side of the screen"
+        )]
+        [switch] $Bottom,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window in the center of the screen"
+        )]
+        [switch] $Centered,
+
+        ###############################################################################
+        [Alias("a", "app", "appmode")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode,
+
+        ###############################################################################
+        [Alias("de", "ne", "NoExtensions")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Prevent loading of browser extensions"
+        )]
+        [switch] $NoBrowserExtensions,
+
+        ###############################################################################
+        [Alias("lang", "locale")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Set the browser accept-lang http header"
+        )]
+        [string] $AcceptLang = $null,
+
+        ###############################################################################
+        [Alias("bg")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Restore PowerShell window focus"
+        )]
+        [switch] $RestoreFocus,
+
+        ###############################################################################
+        [Alias("nw", "new")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Don't re-use existing browser window, instead, create a new one"
+        )]
+        [switch] $NewWindow,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Returns a [System.Diagnostics.Process] object of the browserprocess"
+        )]
+        [switch] $PassThru
     )
 
-    DynamicParam {
-
-        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor", "RestoreFocus"
-    }
 
     begin {
 
-        if ($PSBoundParameters.ContainsKey("Queries")) {
+        if (-not $PSBoundParameters.ContainsKey("PassThru")) {
 
-            $PSBoundParameters.Remove("Queries") | Out-Null;
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-
-            $PSBoundParameters.Add("Url", "Url") | Out-Null;
-        }
-        else {
-
-            $PSBoundParameters["Url"] = "Url";
+            $null = $PSBoundParameters.Add("PassThru", $true);
         }
 
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
 
-            $PSBoundParameters.Add("Monitor", $Monitor);
+            $null = $PSBoundParameters.Add("Monitor", $Monitor);
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("PassThru")) {
+
+            $null = $PSBoundParameters.Add("PassThru", $true);
         }
         else {
 
-            $PSBoundParameters["Monitor"] = $Monitor;
+            $PSBoundParameters["PassThru"] = $true
         }
 
-        if ($PSBoundParameters.ContainsKey("PassThru") -eq $true) {
+        if ($PSBoundParameters.ContainsKey("Query")) {
 
-            $PSBoundParameters.Add("PassThru", $true);
-        }
-        else {
-
-            $PSBoundParameters.Add("PassThru", $true) | Out-Null;
+            $null = $PSBoundParameters.Remove("Query");
         }
 
         if (-not $PSBoundParameters.ContainsKey("RestoreFocus")) {
 
-            $PSBoundParameters.Add("RestoreFocus", $false) | Out-Null;
+            $null = $PSBoundParameters.Add("RestoreFocus", $false)
         }
         else {
 
@@ -100,27 +268,45 @@ function Open-WebsiteAndPerformQuery {
 
     process {
 
-        foreach ($Query in $Queries) {
+        $process = Open-Webbrowser @PSBoundParameters | Select-Object -First 1
 
-            $PSBoundParameters["Url"] = $Url;
+        Start-Sleep 6 | Out-Null
 
-            $p = Open-Webbrowser @PSBoundParameters | Select-Object -First 1
+        if ($null -ne $process) {
 
-            Start-Sleep 6 | Out-Null
+            # [Console]::WriteLine("Process found: {0}", $p.Id)
+            Set-ForegroundWindow ($process.MainWindowHandle) | Out-Null
+            Send-Keys -Keys $Query -Escape -ShiftEnter
+        }
+        else {
 
-            if ($null -ne $p) {
+            # [Console]::WriteLine("No Process found");
+            Send-Keys -Keys $Query -Escape -ShiftEnter
+        }
 
-                # [Console]::WriteLine("Process found: {0}", $p.Id)
-                Set-ForegroundWindow ($p.MainWindowHandle) | Out-Null
-                Send-Keys -Keys $Query -Escape -ShiftEnter
+        Send-Keys "{ENTER}";
+
+        if ($PassThru) {
+
+            return $process
+        }
+    }
+
+    end {
+        if ($RestoreFocus) {
+
+            try {
+                $pw = Get-PowershellMainWindow
+
+                $pw.SetForegroundWindow()
+
+                $null = Set-ForegroundWindow -WindowHandle $pw.MainWindowHandle
             }
-            else {
+            catch {
 
-                # [Console]::WriteLine("No Process found");
-                Send-Keys -Keys $Query -Escape -ShiftEnter
+                Write-Warning "Failed to restore focus to PowerShell window"
             }
-
-            Send-Keys "{ENTER}";
         }
     }
 }
+################################################################################

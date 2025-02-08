@@ -1,81 +1,273 @@
-###############################################################################
+################################################################################
+<#
+.SYNOPSIS
+Opens a Github repository search query in a web browser.
 
+.DESCRIPTION
+Opens a Github query in a webbrowser, allowing configuration through various
+parameters. Supports searching by language and monitor selection.
+
+.PARAMETER Queries
+The search queries to perform on Github repositories.
+
+.PARAMETER Language
+Optional programming language filter for the search.
+
+.PARAMETER Monitor
+The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
+
+.EXAMPLE
+Open-GithubQuery -Queries "powershell module" -Language "PowerShell"
+
+.EXAMPLE
+qgit "azure functions" -mon 0
+#>
 function Open-GithubQuery {
 
-    # DESCRIPTION Open-GithubQuery: Opens a Github query in a webbrowser, in a configurable manner, using commandline switches
-
+    [CmdletBinding()]
     [Alias("qgit")]
-
     param(
-        [parameter(
-            Mandatory,
+        ########################################################################
+        [Alias("q", "Value", "Name", "Text", "Query")]
+        [Parameter(
+            Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments,
-            ValueFromPipeline,
-            ValueFromPipelineByPropertyName,
-            HelpMessage = "The query to perform"
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The query to execute.'
         )]
         [string[]] $Queries,
-        [parameter(
-            Mandatory = $false
-        )]
-        [string] $Language = "",
         ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in incognito/private browsing mode"
+        )]
+        [Alias("incognito", "inprivate")]
+        [switch] $Private,
 
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Force enable debugging port, stopping existing browsers if needed"
+        )]
+        [switch] $Force,
+
+        ###############################################################################
+        [Alias("e")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Microsoft Edge"
+        )]
+        [switch] $Edge,
+
+        ###############################################################################
+        [Alias("ch")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Google Chrome"
+        )]
+        [switch] $Chrome,
+
+        ###############################################################################
+        [Alias("c")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Microsoft Edge or Google Chrome, depending on what the default browser is"
+        )]
+        [switch] $Chromium,
+
+        ###############################################################################
+        [Alias("ff")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Firefox"
+        )]
+        [switch] $Firefox,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in all registered modern browsers"
+        )]
+        [switch] $All,
+
+        ###############################################################################
         [Alias("m", "mon")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
+        )]
+        [int] $Monitor = -1,
+
+        ###############################################################################
+        [Alias("fs", "f")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial width of the webbrowser window"
+        )]
+        [int] $Width = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial height of the webbrowser window"
+        )]
+        [int] $Height = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial X position of the webbrowser window"
+        )]
+        [int] $X = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial Y position of the webbrowser window"
+        )]
+        [int] $Y = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the left side of the screen"
+        )]
+        [switch] $Left,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the right side of the screen"
+        )]
+        [switch] $Right,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the top side of the screen"
+        )]
+        [switch] $Top,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the bottom side of the screen"
+        )]
+        [switch] $Bottom,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window in the center of the screen"
+        )]
+        [switch] $Centered,
+
+        ###############################################################################
+        [Alias("a", "app", "appmode")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode,
+
+        ###############################################################################
+        [Alias("de", "ne", "NoExtensions")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Prevent loading of browser extensions"
+        )]
+        [switch] $NoBrowserExtensions,
+
+        ###############################################################################
+        [Alias("lang", "locale")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Set the browser accept-lang http header"
+        )]
+        [string] $AcceptLang = $null,
+
+        ###############################################################################
+        [Alias("bg")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Restore PowerShell window focus"
+        )]
+        [switch] $RestoreFocus,
+
+        ###############################################################################
+        [Alias("nw", "new")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Don't re-use existing browser window, instead, create a new one"
+        )]
+        [switch] $NewWindow,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Returns a [System.Diagnostics.Process] object of the browserprocess"
+        )]
+        [switch] $PassThru,
+        ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor"
+            HelpMessage = "Don't open webbrowser, just return the url"
         )]
-        [int] $Monitor = -1
+        [switch] $ReturnURL,
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "After opening webbrowser, return the url"
+        )]
+        [switch] $ReturnOnlyURL
+        ########################################################################
     )
-
-    DynamicParam {
-
-        Copy-CommandParameters -CommandName "Open-Webbrowser" -ParametersToSkip "Url", "Monitor"
-    }
 
     begin {
 
+        Write-Verbose "Initializing query handler"
 
+        # prepare parameters for Open-Webbrowser
+        $null = $PSBoundParameters.Remove("Queries")
+
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
+            $null = $PSBoundParameters.Add("Url", "Url")
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
+            $null = $PSBoundParameters.Add("Monitor", $Monitor)
+        }
+
+        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
+
+            $null = $PSBoundParameters.Remove("ReturnUrl")
+        }
     }
 
     process {
 
-        if ([string]::IsNullOrWhiteSpace($Language)) {
+        # process each search query
+        foreach ($query in $Queries) {
 
-            $Language = ""
-        }
-        else {
+            Write-Verbose "Processing query: $query"
 
-            $Language = "l=$([Uri]::EscapeUriString($Language))&"
-        }
+            $PSBoundParameters["Url"] = "https://github.com/search?q=$([Uri]::EscapeUriString($query))$Language&type=repositories"
 
-        if ($PSBoundParameters.ContainsKey("Language")) {
-
-            $PSBoundParameters.Remove("Language") | Out-Null;
-        }
-
-        if ($PSBoundParameters.ContainsKey("Queries")) {
-
-            $PSBoundParameters.Remove("Queries") | Out-Null;
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-
-            $PSBoundParameters.Add("Url", "Url") | Out-Null;
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-
-            $PSBoundParameters.Add("Monitor", $Monitor);
-        }
-
-        foreach ($Query in $Queries) {
-
-            $PSBoundParameters["Url"] = "https://github.com/search?q=$([Uri]::EscapeUriString($Query))$Language&type=repositories"
-
+            # open search in browser with inherited parameters
             Open-Webbrowser @PSBoundParameters
         }
     }
+
+    end {
+    }
 }
+################################################################################

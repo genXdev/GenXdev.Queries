@@ -1,34 +1,72 @@
-###############################################################################
+################################################################################
 
 <#
 .SYNOPSIS
-Returns a random affirmation text
+Returns a random affirmation text from affirmations.dev API.
 
 .DESCRIPTION
-Returns a random affirmation text
+Retrieves an affirmation from the affirmations.dev API and optionally speaks it
+using text-to-speech.
 
 .PARAMETER Speak
-Use text-to-speech to speak out affirmation
+When specified, uses text-to-speech to speak the affirmation out loud.
+
+.EXAMPLE
+Get-NextAffirmations
+
+.EXAMPLE
+WhatAboutIt -Speak
 #>
 function Get-NextAffirmations {
 
     [CmdletBinding()]
-    [Alias("WhatAboutIt")]
+    [Alias("WhatAboutIt", "Get-NextAffirmation")]
 
     param(
+        #######################################################################
         [Parameter(
-            Mandatory = $False,
-            Position = 0
+            Mandatory = $false,
+            Position = 0,
+            HelpMessage = "Use text-to-speech to speak the affirmation"
         )]
         [Switch] $Speak
+        #######################################################################
     )
 
-    $affirmation = (Invoke-RestMethod https://www.affirmations.dev/ -TimeoutSec 2).affirmation;
+    begin {
 
-    if ($Speak -eq $true) {
-
-        Start-TextToSpeech $affirmation
+        # initialize api endpoint
+        $apiEndpoint = "https://www.affirmations.dev/"
+        Write-Verbose "Using API endpoint: $apiEndpoint"
     }
 
-    Write-Output $affirmation
+    process {
+
+        try {
+            # fetch affirmation from the api with timeout
+            Write-Verbose "Fetching affirmation from API..."
+            $response = Invoke-RestMethod -Uri $apiEndpoint `
+                -TimeoutSec 2
+
+            # extract affirmation text
+            $affirmation = $response.affirmation
+
+            # if speak parameter is true, use text-to-speech
+            if ($Speak) {
+                Write-Verbose "Speaking affirmation using text-to-speech"
+                Start-TextToSpeech $affirmation
+            }
+
+            # output the affirmation text
+            Write-Output $affirmation
+
+        } catch {
+            Write-Error "Failed to retrieve affirmation: $_"
+        }
+    }
+
+    end {
+    }
 }
+
+################################################################################

@@ -6,7 +6,7 @@
     RootModule           = 'GenXdev.Queries.psm1'
 
     # Version number of this module.
-    ModuleVersion        = '1.102.2025'
+    ModuleVersion        = '1.104.2025'
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
@@ -38,7 +38,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules      = @(@{ModuleName = 'GenXdev.Data'; ModuleVersion = '1.102.2025' }, @{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.102.2025' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.102.2025' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.102.2025' })
+    RequiredModules      = @(@{ModuleName = 'GenXdev.Data'; ModuleVersion = '1.104.2025' }, @{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.104.2025' }, @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.104.2025' }, @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.104.2025' })
 
     # Assemblies that must be loaded prior to importing this module
     RequiredAssemblies   = @()
@@ -83,6 +83,7 @@
   ".\\Functions\\GenXdev.Queries\\Open-AllPossibleTextQueries.ps1",
   ".\\Functions\\GenXdev.Queries.AI\\Open-BingCopilotQuery.ps1",
   ".\\Functions\\GenXdev.Queries.AI\\Open-ChatGPTQuery.ps1",
+  ".\\Functions\\GenXdev.Queries.AI\\Open-DeepSearchQuery.ps1",
   ".\\Functions\\GenXdev.Queries.AI\\Open-GithubCopilotQuery.ps1",
   ".\\Functions\\GenXdev.Queries.AI\\Open-GoogleGeminiQuery.ps1",
   ".\\Functions\\GenXdev.Queries.AI\\Open-XGrokQuery.ps1",

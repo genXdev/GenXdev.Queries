@@ -1,97 +1,102 @@
-###############################################################################
-
+################################################################################
 <#
 .SYNOPSIS
-Performs a "Wikipedia summary" text query
+Retrieves a summary of a topic from Wikipedia.
 
 .DESCRIPTION
-Performs a "Wikipedia summary" text query
+Queries the Wikipedia API to get a concise summary of the specified topic,
+removing parenthetical content for improved readability.
 
 .PARAMETER Queries
-The query to perform
+One or more search terms to look up on Wikipedia.
+
+.EXAMPLE
+Get-WikipediaSummary -Queries "PowerShell"
+
+.EXAMPLE
+wikitxt "PowerShell", "Typescript", "C#"
 #>
 function Get-WikipediaSummary {
 
     [CmdletBinding()]
     [Alias("wikitxt")]
-
     param(
+        ########################################################################
         [parameter(
-            Mandatory,
+            Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments,
-            ValueFromPipeline,
-            ValueFromPipelineByPropertyName,
+            ValueFromRemainingArguments = $true,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = "The query to perform"
         )]
         [string[]] $Queries
+        ########################################################################
     )
 
     begin {
+        # helper function to clean up wikipedia text by removing parentheticals
+        function Remove-ParentheticalContent {
+            param([string]$Text)
 
+            $i = $Text.IndexOf("(")
+            if ($i -ge 150) { return $Text }
 
+            if ($i -eq $Text.Length - 1) {
+                return $Text.Substring(0, $i).Replace("  ", " ")
+            }
+
+            $end = $Text.IndexOf(")", $i)
+            $result = $Text.Substring(0, $i)
+
+            if ($end -lt $Text.Length) {
+                $result += $Text.Substring($end + 1)
+            }
+
+            return $result.Replace("  ", " ")
+        }
     }
 
     process {
-        function fixWiki ([string]$text) {
+        foreach ($query in $Queries) {
 
-            $input | ForEach-Object -Process {
+            Write-Verbose "Searching Wikipedia for: $query"
 
-                $i = $PSItem.IndexOf("(")
-
-                if ($i -lt 150) {
-
-                    if ($result.Length - 1 -eq $i) {
-
-                        Write-Output $result.SubString(0, $i).Replace("  ", " ");
-                    }
-                    else {
-
-                        $end = $PSItem.IndexOf(")", $i);
-
-                        $result = $PSItem.Substring(0, $i)
-
-                        if ($end -lt $PSItem.Length) {
-
-                            $result = $result + $PSItem.Substring($end + 1)
-                        }
-
-                        Write-Output $result.Replace("  ", " ");
-                    }
-                }
-            }
-        }
-
-        foreach ($Query in $Queries) {
-
-            $urlPart = [Uri]::EscapeUriString($Query.Replace("-", " "))
-
-            $url = ("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=" + $urlPart)
-
-            $r = (Invoke-WebRequest -Uri $url -MaximumRedirection 20).Content | ConvertFrom-Json
-
-            $memberName = ($r.query.pages | Get-Member | Where-Object -Property "MemberType" -EQ "NoteProperty" | Select-Object -ExpandProperty "Name" | Select-Object -First 1)
-
-            $value = ($r.query.pages | Select-Object -ExpandProperty $memberName)
-
-            $result = $value.extract
-
-            if ((!$result) -or ($result -eq "")) {
-
-                "Nothing found on `"$Query`".."
-                continue;
-            }
+            # prepare the url-encoded query
+            $urlPart = [Uri]::EscapeUriString($query.Replace("-", " "))
+            $url = "https://en.wikipedia.org/w/api.php?format=json&action=query" + `
+                   "&prop=extracts&exintro=1&explaintext=1&titles=$urlPart"
 
             try {
+                # fetch and parse the wikipedia api response
+                $response = Invoke-WebRequest -Uri $url -MaximumRedirection 20
+                $data = $response.Content | ConvertFrom-Json
 
-                $result = ($result | fixWiki)
+                # extract the page content
+                $pageId = ($data.query.pages |
+                    Get-Member -MemberType NoteProperty |
+                    Select-Object -ExpandProperty Name -First 1)
+                $extract = $data.query.pages.$pageId.extract
+
+                if ([string]::IsNullOrEmpty($extract)) {
+                    Write-Warning "No Wikipedia content found for '$query'"
+                    continue
+                }
+
+                # clean up and output the result
+                Write-Verbose "Found content, cleaning up response"
+                try {
+                    Remove-ParentheticalContent -Text $extract
+                }
+                catch {
+                    Write-Verbose "Failed to clean content, returning raw extract"
+                    $extract
+                }
             }
             catch {
-
-                $result = $value.extract
+                Write-Error "Failed to retrieve Wikipedia content: $_"
             }
-
-            $result
         }
     }
 }
+################################################################################

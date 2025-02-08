@@ -214,7 +214,7 @@ function Get-GoogleSearchResultUrls {
 
         foreach ($Query in $Queries) {
 
-            $Query = "$([Uri]::EscapeUriString($Query))"
+            $Query = "$([Uri]::EscapeUriString($query))"
             $Url = "https://www.google.com/search?q=$Query$LangKey"
 
             $Global:Data = @{
