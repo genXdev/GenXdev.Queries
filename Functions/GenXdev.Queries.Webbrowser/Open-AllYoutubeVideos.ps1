@@ -44,7 +44,7 @@ function Open-AllYoutubeVideos {
         [parameter(
             Mandatory = $false,
             Position = 0,
-            ValueFromRemainingArguments = $true,
+            ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "YouTube search terms to find videos"

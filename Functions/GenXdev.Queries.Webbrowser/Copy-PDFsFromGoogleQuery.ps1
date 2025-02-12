@@ -33,7 +33,7 @@ function Copy-PDFsFromGoogleQuery {
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true,
+            ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "The search terms to query Google for PDF files"

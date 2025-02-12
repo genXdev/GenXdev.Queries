@@ -26,7 +26,7 @@ function Open-XGrokQuery {
         [parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true,
+            ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "One or more queries to perform on X Grok"

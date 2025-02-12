@@ -31,7 +31,7 @@ function Open-AllPossibleQueries {
         [Parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true,
+            ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The query to execute.'
@@ -354,7 +354,7 @@ Line: $($PSItem.InvocationInfo.Line)
                         }
 
                         & $PSItem @PSBoundParameters
-                        
+
                         $PSBoundParameters.Remove("Queries") | Out-Null;
                     }
                     Catch {

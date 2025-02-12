@@ -34,7 +34,7 @@ function Open-WikipediaQuery {
         [Parameter(
             Mandatory = $true,
             Position = 0,
-            ValueFromRemainingArguments = $true,
+            ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The query to execute.'
