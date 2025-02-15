@@ -40,6 +40,163 @@ function Open-WolframAlphaQuery {
         )]
         [string[]] $Queries,
         ###############################################################################
+        [ValidateSet(
+            "Afrikaans",
+            "Akan",
+            "Albanian",
+            "Amharic",
+            "Arabic",
+            "Armenian",
+            "Azerbaijani",
+            "Basque",
+            "Belarusian",
+            "Bemba",
+            "Bengali",
+            "Bihari",
+            "Bork, bork, bork!",
+            "Bosnian",
+            "Breton",
+            "Bulgarian",
+            "Cambodian",
+            "Catalan",
+            "Cherokee",
+            "Chichewa",
+            "Chinese (Simplified)",
+            "Chinese (Traditional)",
+            "Corsican",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Elmer Fudd",
+            "English",
+            "Esperanto",
+            "Estonian",
+            "Ewe",
+            "Faroese",
+            "Filipino",
+            "Finnish",
+            "French",
+            "Frisian",
+            "Ga",
+            "Galician",
+            "Georgian",
+            "German",
+            "Greek",
+            "Guarani",
+            "Gujarati",
+            "Hacker",
+            "Haitian Creole",
+            "Hausa",
+            "Hawaiian",
+            "Hebrew",
+            "Hindi",
+            "Hungarian",
+            "Icelandic",
+            "Igbo",
+            "Indonesian",
+            "Interlingua",
+            "Irish",
+            "Italian",
+            "Japanese",
+            "Javanese",
+            "Kannada",
+            "Kazakh",
+            "Kinyarwanda",
+            "Kirundi",
+            "Klingon",
+            "Kongo",
+            "Korean",
+            "Krio (Sierra Leone)",
+            "Kurdish",
+            "Kurdish (Soranî)",
+            "Kyrgyz",
+            "Laothian",
+            "Latin",
+            "Latvian",
+            "Lingala",
+            "Lithuanian",
+            "Lozi",
+            "Luganda",
+            "Luo",
+            "Macedonian",
+            "Malagasy",
+            "Malay",
+            "Malayalam",
+            "Maltese",
+            "Maori",
+            "Marathi",
+            "Mauritian Creole",
+            "Moldavian",
+            "Mongolian",
+            "Montenegrin",
+            "Nepali",
+            "Nigerian Pidgin",
+            "Northern Sotho",
+            "Norwegian",
+            "Norwegian (Nynorsk)",
+            "Occitan",
+            "Oriya",
+            "Oromo",
+            "Pashto",
+            "Persian",
+            "Pirate",
+            "Polish",
+            "Portuguese (Brazil)",
+            "Portuguese (Portugal)",
+            "Punjabi",
+            "Quechua",
+            "Romanian",
+            "Romansh",
+            "Runyakitara",
+            "Russian",
+            "Scots Gaelic",
+            "Serbian",
+            "Serbo-Croatian",
+            "Sesotho",
+            "Setswana",
+            "Seychellois Creole",
+            "Shona",
+            "Sindhi",
+            "Sinhalese",
+            "Slovak",
+            "Slovenian",
+            "Somali",
+            "Spanish",
+            "Spanish (Latin American)",
+            "Sundanese",
+            "Swahili",
+            "Swedish",
+            "Tajik",
+            "Tamil",
+            "Tatar",
+            "Telugu",
+            "Thai",
+            "Tigrinya",
+            "Tonga",
+            "Tshiluba",
+            "Tumbuka",
+            "Turkish",
+            "Turkmen",
+            "Twi",
+            "Uighur",
+            "Ukrainian",
+            "Urdu",
+            "Uzbek",
+            "Vietnamese",
+            "Welsh",
+            "Wolof",
+            "Xhosa",
+            "Yiddish",
+            "Yoruba",
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            Position = 2,
+            HelpMessage = "The language of the returned search results"
+        )]
+        [string] $Language = $null,
+        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Opens in incognito/private browsing mode"
@@ -69,7 +226,6 @@ function Open-WolframAlphaQuery {
             HelpMessage = "Opens in Google Chrome"
         )]
         [switch] $Chrome,
-
         ###############################################################################
         [Alias("c")]
         [Parameter(
@@ -85,7 +241,6 @@ function Open-WolframAlphaQuery {
             HelpMessage = "Opens in Firefox"
         )]
         [switch] $Firefox,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -100,7 +255,6 @@ function Open-WolframAlphaQuery {
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
         )]
         [int] $Monitor = -1,
-
         ###############################################################################
         [Alias("fs", "f")]
         [Parameter(
@@ -108,49 +262,42 @@ function Open-WolframAlphaQuery {
             HelpMessage = "Opens in fullscreen mode"
         )]
         [switch] $FullScreen,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial width of the webbrowser window"
         )]
         [int] $Width = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial height of the webbrowser window"
         )]
         [int] $Height = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial X position of the webbrowser window"
         )]
         [int] $X = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial Y position of the webbrowser window"
         )]
         [int] $Y = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the left side of the screen"
         )]
         [switch] $Left,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the right side of the screen"
         )]
         [switch] $Right,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -231,6 +378,7 @@ function Open-WolframAlphaQuery {
         )]
         [switch] $ReturnOnlyURL
         ########################################################################
+
     )
 
     begin {
@@ -247,11 +395,6 @@ function Open-WolframAlphaQuery {
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
             $null = $PSBoundParameters.Add("Monitor", $Monitor)
         }
-
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
-
-            $null = $PSBoundParameters.Remove("ReturnUrl")
-        }
     }
 
     process {
@@ -261,12 +404,41 @@ function Open-WolframAlphaQuery {
 
             Write-Verbose "Processing query: $query"
 
-            # construct wolfram alpha url with properly escaped query
-            $PSBoundParameters["Url"] = "https://www.wolframalpha.com/input/?i=" + `
+            # determine google domain based on language
+            $code = "www"
+            if (-not [string]::IsNullOrWhiteSpace($Language)) {
+                $code = (Get-WebLanguageDictionary)[$Language]
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $PSBoundParameters.Add("AcceptLang", $code)
+                }
+            }
+
+            # construct and encode the google search url
+            $invocationArguments = Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+            $invocationArguments."Url" = "https://www.wolframalpha.com/input/?i=" + `
                 [Uri]::EscapeUriString($query)
 
-            # open search in browser with inherited parameters
-            Open-Webbrowser @PSBoundParameters
+            # handle return url only scenario
+            if ($ReturnOnlyURL) {
+
+                Write-Output ($invocationArguments.Url)
+                continue
+            }
+
+            # launch browser
+            Open-Webbrowser @invocationArguments
+
+            # return url if requested
+            if ($ReturnURL) {
+
+                Write-Output ($invocationArguments.Url)
+            }
         }
     }
 

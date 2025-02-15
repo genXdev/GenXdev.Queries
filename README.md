@@ -16,6 +16,10 @@
 
     * ✅ Query and control Youtube from PowerShell
 
+    * ✅ use, q "any topic" to query any of the popular searchengines
+
+    * ✅ use, Ask "anything" to query any of the popular LLM's
+
 ### NOTES
 
     In your PowerShell profile script,
@@ -267,10 +271,10 @@ Open-BingCopilotQuery                --> aibc, ask
 
 ### SYNTAX
 ````PowerShell
-Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -283,183 +287,183 @@ Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         The query text to submit to Bing Copilot.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -476,10 +480,10 @@ Open-BingQuery                       --> bq
 
 ### SYNTAX
 ````PowerShell
-Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -492,58 +496,58 @@ Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         The search queries to perform on Bing.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on:
@@ -554,139 +558,139 @@ Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -700,7 +704,7 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended]
 [-Trending] [-Edge] [-Chrome] [<CommonParameters>]
 ````
 
@@ -715,7 +719,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    1
         Default value                @("")
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Subscriptions [<SwitchParameter>]
         Opens all videos from subscribed channels.
@@ -723,7 +727,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -WatchLater [<SwitchParameter>]
         Opens all videos from the watch-later playlist.
@@ -731,7 +735,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Recommended [<SwitchParameter>]
         Opens all recommended videos from YouTube homepage.
@@ -739,7 +743,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Trending [<SwitchParameter>]
         Opens all currently trending videos on YouTube.
@@ -747,7 +751,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Use Microsoft Edge browser instead of default.
@@ -755,7 +759,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Use Google Chrome browser instead of default.
@@ -763,13 +767,13 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -795,28 +799,28 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS C:\> 
+PS C:\>
 Open-AllGoogleLinks "site:github.com PowerShell module"
 ````
 
@@ -843,7 +847,7 @@ Get-WebLanguageDictionary [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -857,7 +861,7 @@ Get-GoogleSearchResultUrls           --> qlinksget
 
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
 [<CommonParameters>]
 ````
 
@@ -868,9 +872,9 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -878,20 +882,20 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ### NOTES
 ````PowerShell
@@ -912,7 +916,7 @@ Copy-PDFsFromGoogleQuery
 
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] 
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>]
 [<CommonParameters>]
 ````
 
@@ -926,9 +930,9 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         The search terms to query Google for PDF files.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Max <Int32>
         Maximum number of results to retrieve (default: 200).
@@ -936,21 +940,21 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         Position?                    2
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Optional language filter for search results.
         Required?                    false
         Position?                    3
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -978,7 +982,7 @@ Clear-YoutubeWatched [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -992,10 +996,10 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -1008,58 +1012,58 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         The website URLs or domains to query on BuiltWith.com.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -1068,139 +1072,139 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -1229,15 +1233,15 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         One or more search terms to look up on Wikipedia.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -1254,10 +1258,10 @@ Open-XGrokQuery                      --> aixg, askxgrok
 
 ### SYNTAX
 ````PowerShell
-Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [<CommonParameters>]
 ````
 
@@ -1270,183 +1274,183 @@ Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         One or more queries to perform on X Grok.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -1460,10 +1464,10 @@ Open-GoogleGeminiQuery               --> aigg, askgemini
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -1476,183 +1480,183 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         One or more queries to submit to Google Gemini.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -1666,10 +1670,10 @@ Open-GithubCopilotQuery              --> aigc, askghcopilot
 
 ### SYNTAX
 ````PowerShell
-Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -1682,183 +1686,183 @@ Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         One or more queries to perform in Github CoPilot
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -1872,10 +1876,10 @@ Open-DeepSearchQuery                 --> aids, askdeepsearch
 
 ### SYNTAX
 ````PowerShell
-Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -1888,183 +1892,183 @@ Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
         One or more queries to perform on DeepSearch.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -2078,10 +2082,10 @@ Open-ChatGPTQuery                    --> aicgpt, askchatgpt
 
 ### SYNTAX
 ````PowerShell
-Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [<CommonParameters>]
 ````
 
@@ -2096,183 +2100,183 @@ Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         pipeline input.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -2286,10 +2290,10 @@ Open-BingCopilotQuery                --> aibc, ask
 
 ### SYNTAX
 ````PowerShell
-Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -2302,183 +2306,183 @@ Open-BingCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         The query text to submit to Bing Copilot.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -2495,10 +2499,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -2513,7 +2517,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -2521,7 +2525,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -2529,7 +2533,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -2537,7 +2541,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -2545,7 +2549,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -2553,7 +2557,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -2561,7 +2565,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -2570,7 +2574,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -2578,7 +2582,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -2586,7 +2590,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -2594,7 +2598,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -2602,7 +2606,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -2610,7 +2614,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -2618,7 +2622,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -2626,7 +2630,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -2634,7 +2638,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -2642,7 +2646,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -2650,7 +2654,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -2658,7 +2662,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -2666,15 +2670,15 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -2682,7 +2686,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, instead, create a new one.
@@ -2690,7 +2694,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -2698,7 +2702,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -2706,7 +2710,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -2714,7 +2718,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -2722,13 +2726,13 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -2759,13 +2763,13 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -2782,10 +2786,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor] 
-<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y] 
-<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor]
+<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y]
+<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -2800,7 +2804,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -2808,7 +2812,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -2816,7 +2820,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -2824,7 +2828,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -2832,7 +2836,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -2840,7 +2844,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -2848,7 +2852,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -2857,7 +2861,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -2865,7 +2869,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -2873,7 +2877,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -2881,7 +2885,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -2889,7 +2893,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -2897,7 +2901,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -2905,7 +2909,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -2913,7 +2917,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -2921,7 +2925,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -2929,7 +2933,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -2937,7 +2941,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -2945,7 +2949,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -2953,15 +2957,15 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -2969,7 +2973,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -2977,7 +2981,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browser process.
@@ -2985,7 +2989,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -2993,7 +2997,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -3001,7 +3005,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -3009,13 +3013,13 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -3032,10 +3036,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -3048,58 +3052,58 @@ Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-C
         The search queries to perform on Github repositories.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
@@ -3107,139 +3111,139 @@ Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-C
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -3253,10 +3257,10 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -3269,58 +3273,58 @@ Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
         The domain names to query for site information.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -3329,139 +3333,139 @@ Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -3478,10 +3482,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -3496,7 +3500,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -3504,7 +3508,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -3512,7 +3516,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -3520,7 +3524,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -3528,7 +3532,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -3536,7 +3540,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -3544,7 +3548,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor.
@@ -3552,7 +3556,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -3560,7 +3564,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -3568,7 +3572,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -3576,7 +3580,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -3584,7 +3588,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -3592,7 +3596,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -3600,7 +3604,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -3608,7 +3612,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -3616,7 +3620,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -3624,7 +3628,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -3632,7 +3636,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -3640,7 +3644,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -3648,15 +3652,15 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -3664,7 +3668,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -3672,7 +3676,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -3680,7 +3684,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -3688,7 +3692,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -3696,7 +3700,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -3704,13 +3708,13 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -3724,14 +3728,14 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor 
-<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] 
-[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] 
-[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] 
-[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] 
-[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground 
-<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] 
-[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] 
+Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor
+<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>]
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions]
+[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>]
+[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground
+<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>]
+[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>]
 [-RotationDelaySeconds <Int32>] [<CommonParameters>]
 ````
 
@@ -3745,49 +3749,49 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
@@ -3795,126 +3799,126 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url
@@ -3922,7 +3926,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url
@@ -3930,7 +3934,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Theme <String>
         Select theme for visualization (default = PicassoPulse)
@@ -3938,84 +3942,84 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    1
         Default value                [All]
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Override default browser language or select [All] for rotation
         Required?                    false
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -DragedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderLightColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderDarkColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderWidth <Int32>
         Required?                    false
         Position?                    named
         Default value                1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RotationDelaySeconds <Int32>
         Required?                    false
         Position?                    named
         Default value                15
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -4029,10 +4033,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -4046,49 +4050,49 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -4097,126 +4101,126 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Switch to return the URL without opening the browser.
@@ -4224,7 +4228,7 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Switch to open the browser and also return the URL.
@@ -4232,13 +4236,13 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -4252,10 +4256,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -4269,49 +4273,49 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the game on.
@@ -4322,126 +4326,126 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         When specified, returns the URL without opening the browser.
@@ -4449,7 +4453,7 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         When specified, opens the browser and also returns the URL.
@@ -4457,13 +4461,13 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -4480,10 +4484,10 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -4498,58 +4502,58 @@ Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         browser instance.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display the browser on:
@@ -4561,139 +4565,139 @@ Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -4707,10 +4711,10 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -4723,58 +4727,58 @@ Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         The search queries to perform on Wolfram Alpha. Accepts multiple queries.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display results on:
@@ -4785,139 +4789,139 @@ Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -4931,10 +4935,10 @@ Open-WikipediaQuery                  --> wiki
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] 
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width 
-<Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] 
+Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width
+<Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom]
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>]
 [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -4949,9 +4953,9 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         separate browser instances.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         The Wikipedia language to use for searches. Defaults to English.
@@ -4959,56 +4963,56 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         Position?                    2
         Default value                English
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to use (0=default, -1=discard, -2=secondary)
@@ -5016,139 +5020,139 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -5162,10 +5166,10 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] 
-[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge]
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>]
+[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -5178,66 +5182,66 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         The search terms to query on Google.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         The language for Google search results.
         Required?                    false
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -5246,139 +5250,139 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -5392,10 +5396,10 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -5409,58 +5413,58 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         One or more search terms to look up on Dutch Wikipedia.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Monitor to display browser on (0=default, -1=discard, -2=secondary).
@@ -5468,139 +5472,139 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -5614,10 +5618,10 @@ Open-WebsiteAndPerformQuery          --> owaq
 
 ### SYNTAX
 ````PowerShell
-Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] 
-[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force] [-Edge]
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>]
+[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -5630,66 +5634,66 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force
         The URL of the website to open.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Query <String>
         One or more queries to perform on the opened website.
         Required?                    true
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       true (ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -5698,125 +5702,125 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -5830,10 +5834,10 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -5846,58 +5850,58 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         The URL or website addresses to search in the Wayback Machine.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. Default is -1.
@@ -5908,139 +5912,139 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -6054,10 +6058,10 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -6070,58 +6074,58 @@ Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         The search queries to perform on Stack Overflow.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on:
@@ -6132,139 +6136,139 @@ Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -6278,10 +6282,10 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -6294,58 +6298,58 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         The website URLs to analyze on SimilarWeb.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use for displaying the browser window.
@@ -6354,139 +6358,139 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -6500,10 +6504,10 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -6516,58 +6520,58 @@ Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         The movie quote or phrase to search for.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -6576,139 +6580,139 @@ Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -6722,10 +6726,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -6738,58 +6742,58 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         The location queries to view in InstantStreetView.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
@@ -6797,139 +6801,139 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -6943,10 +6947,10 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -6959,58 +6963,58 @@ Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         The search terms to query on IMDB.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 is discard,
@@ -7019,139 +7023,139 @@ Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -7165,10 +7169,10 @@ Open-WhoisHostSiteInfo               --> whois
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -7182,58 +7186,58 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Accepts pipeline input.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display results on:
@@ -7244,139 +7248,139 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -7393,10 +7397,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -7411,7 +7415,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -7419,7 +7423,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -7427,7 +7431,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -7435,7 +7439,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -7443,7 +7447,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -7451,7 +7455,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -7459,7 +7463,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor.
@@ -7467,7 +7471,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -7475,7 +7479,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -7483,7 +7487,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -7491,7 +7495,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -7499,7 +7503,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -7507,7 +7511,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -7515,7 +7519,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -7523,7 +7527,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -7531,7 +7535,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -7539,7 +7543,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -7547,7 +7551,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -7555,7 +7559,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -7563,15 +7567,15 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -7579,7 +7583,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -7587,7 +7591,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -7595,7 +7599,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -7603,7 +7607,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -7611,7 +7615,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -7619,13 +7623,13 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -7639,14 +7643,14 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor 
-<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] 
-[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] 
-[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] 
-[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] 
-[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground 
-<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] 
-[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] 
+Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor
+<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>]
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions]
+[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>]
+[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground
+<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>]
+[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>]
 [-RotationDelaySeconds <Int32>] [<CommonParameters>]
 ````
 
@@ -7660,49 +7664,49 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
@@ -7710,126 +7714,126 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url
@@ -7837,7 +7841,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url
@@ -7845,7 +7849,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Theme <String>
         Select theme for visualization (default = PicassoPulse)
@@ -7853,84 +7857,84 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    1
         Default value                [All]
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Override default browser language or select [All] for rotation
         Required?                    false
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -DragedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderLightColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderDarkColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderWidth <Int32>
         Required?                    false
         Position?                    named
         Default value                1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RotationDelaySeconds <Int32>
         Required?                    false
         Position?                    named
         Default value                15
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -7944,10 +7948,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -7961,49 +7965,49 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -8012,126 +8016,126 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Switch to return the URL without opening the browser.
@@ -8139,7 +8143,7 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Switch to open the browser and also return the URL.
@@ -8147,13 +8151,13 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -8170,10 +8174,10 @@ Open-GoogleSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -8186,58 +8190,58 @@ Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
         The domain names to query for site information.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -8246,139 +8250,139 @@ Open-GoogleSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -8392,10 +8396,10 @@ Open-GoogleQuery                     --> q
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] 
-[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge]
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>]
+[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -8408,66 +8412,66 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         The search terms to query on Google.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         The language for Google search results.
         Required?                    false
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -8476,139 +8480,139 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -8622,10 +8626,10 @@ Open-GithubQuery                     --> qgit
 
 ### SYNTAX
 ````PowerShell
-Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -8638,58 +8642,58 @@ Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-C
         The search queries to perform on Github repositories.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
@@ -8697,139 +8701,139 @@ Open-GithubQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-C
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -8843,10 +8847,10 @@ Open-BuiltWithSiteInfo
 
 ### SYNTAX
 ````PowerShell
-Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -8859,58 +8863,58 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         The website URLs or domains to query on BuiltWith.com.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -8919,139 +8923,139 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9065,10 +9069,10 @@ Open-BingQuery                       --> bq
 
 ### SYNTAX
 ````PowerShell
-Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -9081,58 +9085,58 @@ Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         The search queries to perform on Bing.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on:
@@ -9143,139 +9147,139 @@ Open-BingQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9289,7 +9293,7 @@ Open-AllYoutubeVideos                --> qvideos, qyt
 
 ### SYNTAX
 ````PowerShell
-Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] 
+Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended]
 [-Trending] [-Edge] [-Chrome] [<CommonParameters>]
 ````
 
@@ -9304,7 +9308,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    1
         Default value                @("")
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Subscriptions [<SwitchParameter>]
         Opens all videos from subscribed channels.
@@ -9312,7 +9316,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -WatchLater [<SwitchParameter>]
         Opens all videos from the watch-later playlist.
@@ -9320,7 +9324,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Recommended [<SwitchParameter>]
         Opens all recommended videos from YouTube homepage.
@@ -9328,7 +9332,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Trending [<SwitchParameter>]
         Opens all currently trending videos on YouTube.
@@ -9336,7 +9340,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Use Microsoft Edge browser instead of default.
@@ -9344,7 +9348,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Use Google Chrome browser instead of default.
@@ -9352,13 +9356,13 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9384,28 +9388,28 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ### NOTES
 ````PowerShell
     Requires the Windows 10+ Operating System
 -------------------------- EXAMPLE 1 --------------------------
-PS C:\> 
+PS C:\>
 Open-AllGoogleLinks "site:github.com PowerShell module"
 ````
 
@@ -9421,10 +9425,10 @@ Open-IMDBQuery                       --> imdb
 
 ### SYNTAX
 ````PowerShell
-Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -9437,58 +9441,58 @@ Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         The search terms to query on IMDB.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 is discard,
@@ -9497,139 +9501,139 @@ Open-IMDBQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chr
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9654,7 +9658,7 @@ Get-WebLanguageDictionary [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9668,7 +9672,7 @@ Copy-PDFsFromGoogleQuery
 
 ### SYNTAX
 ````PowerShell
-Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] 
+Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>]
 [<CommonParameters>]
 ````
 
@@ -9682,9 +9686,9 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         The search terms to query Google for PDF files.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Max <Int32>
         Maximum number of results to retrieve (default: 200).
@@ -9692,21 +9696,21 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         Position?                    2
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Optional language filter for search results.
         Required?                    false
         Position?                    3
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9734,7 +9738,7 @@ Clear-YoutubeWatched [<CommonParameters>]
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9751,10 +9755,10 @@ Open-XGrokQuery                      --> aixg, askxgrok
 
 ### SYNTAX
 ````PowerShell
-Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [<CommonParameters>]
 ````
 
@@ -9767,183 +9771,183 @@ Open-XGrokQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         One or more queries to perform on X Grok.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -9957,10 +9961,10 @@ Open-GoogleGeminiQuery               --> aigg, askgemini
 
 ### SYNTAX
 ````PowerShell
-Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -9973,183 +9977,183 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         One or more queries to submit to Google Gemini.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -10163,10 +10167,10 @@ Open-GithubCopilotQuery              --> aigc, askghcopilot
 
 ### SYNTAX
 ````PowerShell
-Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -10179,183 +10183,183 @@ Open-GithubCopilotQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         One or more queries to perform in Github CoPilot
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -10369,10 +10373,10 @@ Open-DeepSearchQuery                 --> aids, askdeepsearch
 
 ### SYNTAX
 ````PowerShell
-Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -10385,183 +10389,183 @@ Open-DeepSearchQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
         One or more queries to perform on DeepSearch.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -10575,10 +10579,10 @@ Open-ChatGPTQuery                    --> aicgpt, askchatgpt
 
 ### SYNTAX
 ````PowerShell
-Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [<CommonParameters>]
 ````
 
@@ -10593,183 +10597,183 @@ Open-ChatGPTQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         pipeline input.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Required?                    false
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -10786,7 +10790,7 @@ Get-GoogleSearchResultUrls           --> qlinksget
 
 ### SYNTAX
 ````PowerShell
-Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] 
+Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>]
 [<CommonParameters>]
 ````
 
@@ -10797,9 +10801,9 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     -Queries <String[]>
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Max <Int32>
         The maximum number of results to obtain, defaults to 200
@@ -10807,20 +10811,20 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         Position?                    named
         Default value                200
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ### NOTES
 ````PowerShell
@@ -10841,10 +10845,10 @@ Open-InstantStreetViewQuery          --> isv
 
 ### SYNTAX
 ````PowerShell
-Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -10857,58 +10861,58 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         The location queries to view in InstantStreetView.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on. 0 = default, -1 = discard, -2 = secondary.
@@ -10916,139 +10920,139 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -11062,10 +11066,10 @@ Open-MovieQuote                      --> moviequote
 
 ### SYNTAX
 ````PowerShell
-Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -11078,58 +11082,58 @@ Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         The movie quote or phrase to search for.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -11138,139 +11142,139 @@ Open-MovieQuote [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Ch
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -11284,10 +11288,10 @@ Open-SimularWebSiteInfo              --> simularsite
 
 ### SYNTAX
 ````PowerShell
-Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -11300,58 +11304,58 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         The website URLs to analyze on SimilarWeb.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use for displaying the browser window.
@@ -11360,139 +11364,139 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -11509,10 +11513,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -11526,49 +11530,49 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the game on.
@@ -11579,126 +11583,126 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         When specified, returns the URL without opening the browser.
@@ -11706,7 +11710,7 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         When specified, opens the browser and also returns the URL.
@@ -11714,13 +11718,13 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -11734,10 +11738,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -11752,7 +11756,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -11760,7 +11764,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -11768,7 +11772,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -11776,7 +11780,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -11784,7 +11788,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -11792,7 +11796,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -11800,7 +11804,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -11809,7 +11813,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -11817,7 +11821,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -11825,7 +11829,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -11833,7 +11837,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -11841,7 +11845,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -11849,7 +11853,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -11857,7 +11861,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -11865,7 +11869,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -11873,7 +11877,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -11881,7 +11885,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -11889,7 +11893,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -11897,7 +11901,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -11905,15 +11909,15 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -11921,7 +11925,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, instead, create a new one.
@@ -11929,7 +11933,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -11937,7 +11941,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -11945,7 +11949,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -11953,7 +11957,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -11961,13 +11965,13 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -11981,10 +11985,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor] 
-<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y] 
-<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor]
+<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y]
+<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -11999,7 +12003,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -12007,7 +12011,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -12015,7 +12019,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -12023,7 +12027,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -12031,7 +12035,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -12039,7 +12043,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -12047,7 +12051,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -12056,7 +12060,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -12064,7 +12068,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -12072,7 +12076,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -12080,7 +12084,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -12088,7 +12092,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -12096,7 +12100,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -12104,7 +12108,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -12112,7 +12116,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -12120,7 +12124,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -12128,7 +12132,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -12136,7 +12140,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -12144,7 +12148,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -12152,15 +12156,15 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -12168,7 +12172,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -12176,7 +12180,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browser process.
@@ -12184,7 +12188,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -12192,7 +12196,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -12200,7 +12204,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -12208,13 +12212,13 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -12228,10 +12232,10 @@ Open-ViralSimulation                 --> viral
 
 ### SYNTAX
 ````PowerShell
-Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -12246,7 +12250,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -12254,7 +12258,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -12262,7 +12266,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -12270,7 +12274,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -12278,7 +12282,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -12286,7 +12290,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -12294,7 +12298,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor.
@@ -12302,7 +12306,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -12310,7 +12314,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -12318,7 +12322,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -12326,7 +12330,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -12334,7 +12338,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -12342,7 +12346,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -12350,7 +12354,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -12358,7 +12362,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -12366,7 +12370,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -12374,7 +12378,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -12382,7 +12386,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -12390,7 +12394,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -12398,15 +12402,15 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -12414,7 +12418,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -12422,7 +12426,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -12430,7 +12434,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -12438,7 +12442,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -12446,7 +12450,7 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -12454,13 +12458,13 @@ Open-ViralSimulation [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -12474,14 +12478,14 @@ Open-Timeline                        --> timeline
 
 ### SYNTAX
 ````PowerShell
-Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor 
-<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] 
-[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] 
-[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] 
-[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] 
-[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground 
-<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] 
-[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] 
+Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor
+<Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>]
+[-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions]
+[-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+[-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>]
+[-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground
+<String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>]
+[-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>]
 [-RotationDelaySeconds <Int32>] [<CommonParameters>]
 ````
 
@@ -12495,49 +12499,49 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor
@@ -12545,126 +12549,126 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url
@@ -12672,7 +12676,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url
@@ -12680,7 +12684,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Theme <String>
         Select theme for visualization (default = PicassoPulse)
@@ -12688,84 +12692,84 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Position?                    1
         Default value                [All]
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         Override default browser language or select [All] for rotation
         Required?                    false
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -DragedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeBackground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -UnFocusedNodeForeground <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderLightColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderDarkColor <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BorderWidth <Int32>
         Required?                    false
         Position?                    named
         Default value                1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RotationDelaySeconds <Int32>
         Required?                    false
         Position?                    named
         Default value                15
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -12779,10 +12783,10 @@ Open-GenXdevAppCatalog               --> appcatalog
 
 ### SYNTAX
 ````PowerShell
-Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -12796,49 +12800,49 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -12847,126 +12851,126 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Switch to return the URL without opening the browser.
@@ -12974,7 +12978,7 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Switch to open the browser and also return the URL.
@@ -12982,13 +12986,13 @@ Open-GenXdevAppCatalog [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firef
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13002,10 +13006,10 @@ Open-GameOfLife                      --> conway, gameoflife
 
 ### SYNTAX
 ````PowerShell
-Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -13019,49 +13023,49 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the game on.
@@ -13072,126 +13076,126 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         When specified, returns the URL without opening the browser.
@@ -13199,7 +13203,7 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         When specified, opens the browser and also returns the URL.
@@ -13207,13 +13211,13 @@ Open-GameOfLife [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-A
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13242,15 +13246,15 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         One or more search terms to look up on Wikipedia.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13278,13 +13282,13 @@ Get-NextAffirmations [[-Speak]] [<CommonParameters>]
         Position?                    1
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13301,10 +13305,10 @@ Open-YoutubeQuery                    --> youtube
 
 ### SYNTAX
 ````PowerShell
-Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] 
-[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X 
-<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] 
-[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+[-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X
+<Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode]
+[-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -13319,58 +13323,58 @@ Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         browser instance.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display the browser on:
@@ -13382,139 +13386,139 @@ Open-YoutubeQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13528,10 +13532,10 @@ Open-WolframAlphaQuery               --> qalpha
 
 ### SYNTAX
 ````PowerShell
-Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -13544,58 +13548,58 @@ Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         The search queries to perform on Wolfram Alpha. Accepts multiple queries.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display results on:
@@ -13606,139 +13610,139 @@ Open-WolframAlphaQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13752,10 +13756,10 @@ Open-WikipediaQuery                  --> wiki
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] 
-[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width 
-<Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] 
-[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] 
+Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
+[-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width
+<Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom]
+[-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>]
 [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -13770,9 +13774,9 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         separate browser instances.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Language <String>
         The Wikipedia language to use for searches. Defaults to English.
@@ -13780,56 +13784,56 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         Position?                    2
         Default value                English
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to use (0=default, -1=discard, -2=secondary)
@@ -13837,139 +13841,139 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -13983,10 +13987,10 @@ Open-WikipediaNLQuery                --> wikinl
 
 ### SYNTAX
 ````PowerShell
-Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -14000,58 +14004,58 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         One or more search terms to look up on Dutch Wikipedia.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Monitor to display browser on (0=default, -1=discard, -2=secondary).
@@ -14059,139 +14063,139 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -14205,10 +14209,10 @@ Open-WhoisHostSiteInfo               --> whois
 
 ### SYNTAX
 ````PowerShell
-Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -14222,58 +14226,58 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Accepts pipeline input.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         Specifies which monitor to display results on:
@@ -14284,139 +14288,139 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrom
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -14430,10 +14434,10 @@ Open-WebsiteAndPerformQuery          --> owaq
 
 ### SYNTAX
 ````PowerShell
-Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force] [-Edge] 
-[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] 
-[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force] [-Edge]
+[-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>]
+[-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [<CommonParameters>]
 ````
 
@@ -14446,66 +14450,66 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force
         The URL of the website to open.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Query <String>
         One or more queries to perform on the opened website.
         Required?                    true
         Position?                    2
-        Default value                
+        Default value
         Accept pipeline input?       true (ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. 0 = default, -1 = discard,
@@ -14514,125 +14518,125 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Query] <String> [-Private] [-Force
         Position?                    named
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -14646,10 +14650,10 @@ Open-WaybackMachineSiteInfo          --> wayback
 
 ### SYNTAX
 ````PowerShell
-Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -14662,58 +14666,58 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         The URL or website addresses to search in the Wayback Machine.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display the browser on. Default is -1.
@@ -14724,139 +14728,139 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [-Private] [-Force] [-Edge] [-
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -14870,10 +14874,10 @@ Open-StackOverflowQuery              --> qso
 
 ### SYNTAX
 ````PowerShell
-Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] 
-[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height 
-<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] 
-[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus] 
+Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome]
+[-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height
+<Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+[-ApplicationMode] [-NoBrowserExtensions] [-AcceptLang <String>] [-RestoreFocus]
 [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -14886,58 +14890,58 @@ Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         The search queries to perform on Stack Overflow.
         Required?                    true
         Position?                    1
-        Default value                
+        Default value
         Accept pipeline input?       true (ByValue, ByPropertyName)
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Private [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to display results on:
@@ -14948,139 +14952,139 @@ Open-StackOverflowQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chro
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -FullScreen [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         Required?                    false
         Position?                    named
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         Required?                    false
         Position?                    named
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ApplicationMode [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoBrowserExtensions [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Required?                    false
         Position?                    named
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         Required?                    false
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -15097,10 +15101,10 @@ Open-Yab                             --> yab
 
 ### SYNTAX
 ````PowerShell
-Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor] 
-<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y] 
-<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-Monitor]
+<Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] [[-Y]
+<Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -15115,7 +15119,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -15123,7 +15127,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -15131,7 +15135,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -15139,7 +15143,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -15147,7 +15151,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -15155,7 +15159,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -15163,7 +15167,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -15172,7 +15176,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -15180,7 +15184,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -15188,7 +15192,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -15196,7 +15200,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -15204,7 +15208,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -15212,7 +15216,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -15220,7 +15224,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -15228,7 +15232,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -15236,7 +15240,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -15244,7 +15248,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -15252,7 +15256,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -15260,7 +15264,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -15268,15 +15272,15 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -15284,7 +15288,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, create a new one.
@@ -15292,7 +15296,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browser process.
@@ -15300,7 +15304,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -15308,7 +15312,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -15316,7 +15320,7 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -15324,13 +15328,13 @@ Open-Yab [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [[-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>
 
@@ -15344,10 +15348,10 @@ Open-YabAIBattle                     --> yabbattle
 
 ### SYNTAX
 ````PowerShell
-Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] 
-[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>] 
-[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] 
-[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru] 
+Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All]
+[[-Monitor] <Int32>] [-NoFullScreen] [[-Width] <Int32>] [[-Height] <Int32>] [[-X] <Int32>]
+[[-Y] <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode]
+[-BrowserExtensions] [[-AcceptLang] <String>] [-RestoreFocus] [-NewWindow] [-PassThru]
 [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>]
 ````
 
@@ -15362,7 +15366,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Force [<SwitchParameter>]
         Force enable debugging port, stopping existing browsers if needed.
@@ -15370,7 +15374,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Edge [<SwitchParameter>]
         Opens in Microsoft Edge.
@@ -15378,7 +15382,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chrome [<SwitchParameter>]
         Opens in Google Chrome.
@@ -15386,7 +15390,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Chromium [<SwitchParameter>]
         Opens in Microsoft Edge or Google Chrome, depending on default browser.
@@ -15394,7 +15398,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Firefox [<SwitchParameter>]
         Opens in Firefox.
@@ -15402,7 +15406,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -All [<SwitchParameter>]
         Opens in all registered modern browsers.
@@ -15410,7 +15414,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Monitor <Int32>
         The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
@@ -15419,7 +15423,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    1
         Default value                -2
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoFullScreen [<SwitchParameter>]
         Do not open in fullscreen mode.
@@ -15427,7 +15431,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Width <Int32>
         The initial width of the webbrowser window.
@@ -15435,7 +15439,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    2
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Height <Int32>
         The initial height of the webbrowser window.
@@ -15443,7 +15447,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    3
         Default value                -1
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -X <Int32>
         The initial X position of the webbrowser window.
@@ -15451,7 +15455,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    4
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Y <Int32>
         The initial Y position of the webbrowser window.
@@ -15459,7 +15463,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    5
         Default value                -999999
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Left [<SwitchParameter>]
         Place browser window on the left side of the screen.
@@ -15467,7 +15471,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Right [<SwitchParameter>]
         Place browser window on the right side of the screen.
@@ -15475,7 +15479,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Top [<SwitchParameter>]
         Place browser window on the top side of the screen.
@@ -15483,7 +15487,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Bottom [<SwitchParameter>]
         Place browser window on the bottom side of the screen.
@@ -15491,7 +15495,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -Centered [<SwitchParameter>]
         Place browser window in the center of the screen.
@@ -15499,7 +15503,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NoApplicationMode [<SwitchParameter>]
         Do show the browser controls.
@@ -15507,7 +15511,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -BrowserExtensions [<SwitchParameter>]
         Do not prevent loading of browser extensions.
@@ -15515,15 +15519,15 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -AcceptLang <String>
         Set the browser accept-lang http header.
         Required?                    false
         Position?                    6
-        Default value                
+        Default value
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -RestoreFocus [<SwitchParameter>]
         Restore PowerShell window focus.
@@ -15531,7 +15535,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -NewWindow [<SwitchParameter>]
         Do not re-use existing browser window, instead, create a new one.
@@ -15539,7 +15543,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -PassThru [<SwitchParameter>]
         Returns a [System.Diagnostics.Process] object of the browserprocess.
@@ -15547,7 +15551,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -SpectateOnly [<SwitchParameter>]
         Do not start a new game, just watch the AI play.
@@ -15555,7 +15559,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnURL [<SwitchParameter>]
         Do not open webbrowser, just return the url.
@@ -15563,7 +15567,7 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     -ReturnOnlyURL [<SwitchParameter>]
         After opening webbrowser, return the url.
@@ -15571,12 +15575,12 @@ Open-YabAIBattle [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-
         Position?                    named
         Default value                False
         Accept pipeline input?       false
-        Aliases                      
+        Aliases
         Accept wildcard characters?  false
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 <br/><hr/><hr/><br/>

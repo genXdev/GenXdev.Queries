@@ -40,12 +40,7 @@ function Open-WikipediaQuery {
             HelpMessage = 'The query to execute.'
         )]
         [string[]] $Queries,
-        ########################################################################
-        [parameter(
-            Mandatory = $false,
-            Position = 1,
-            HelpMessage = "Wikipedia language to use"
-        )]
+        ###############################################################################
         [ValidateSet(
             "Afrikaans",
             "Akan",
@@ -195,10 +190,14 @@ function Open-WikipediaQuery {
             "Xhosa",
             "Yiddish",
             "Yoruba",
-            "Zulu"
+            "Zulu")]
+        [parameter(
+            Mandatory = $false,
+            Position = 2,
+            HelpMessage = "The language of the returned search results"
         )]
-        [string] $Language = "English",
-        ###############################################################################
+        [string] $Language = $null,
+        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Opens in incognito/private browsing mode"
@@ -228,7 +227,6 @@ function Open-WikipediaQuery {
             HelpMessage = "Opens in Google Chrome"
         )]
         [switch] $Chrome,
-
         ###############################################################################
         [Alias("c")]
         [Parameter(
@@ -244,7 +242,6 @@ function Open-WikipediaQuery {
             HelpMessage = "Opens in Firefox"
         )]
         [switch] $Firefox,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -259,7 +256,6 @@ function Open-WikipediaQuery {
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
         )]
         [int] $Monitor = -1,
-
         ###############################################################################
         [Alias("fs", "f")]
         [Parameter(
@@ -267,49 +263,42 @@ function Open-WikipediaQuery {
             HelpMessage = "Opens in fullscreen mode"
         )]
         [switch] $FullScreen,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial width of the webbrowser window"
         )]
         [int] $Width = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial height of the webbrowser window"
         )]
         [int] $Height = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial X position of the webbrowser window"
         )]
         [int] $X = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial Y position of the webbrowser window"
         )]
         [int] $Y = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the left side of the screen"
         )]
         [switch] $Left,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the right side of the screen"
         )]
         [switch] $Right,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -390,8 +379,8 @@ function Open-WikipediaQuery {
         )]
         [switch] $ReturnOnlyURL
         ########################################################################
-    )
 
+    )
 
     begin {
 
@@ -407,19 +396,6 @@ function Open-WikipediaQuery {
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
             $null = $PSBoundParameters.Add("Monitor", $Monitor)
         }
-
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
-
-            $null = $PSBoundParameters.Remove("ReturnUrl")
-        }
-
-        # get language code from dictionary
-        $languageCode = (Get-WebLanguageDictionary)[$Language]
-
-        if ($PSBoundParameters.ContainsKey("Language")) {
-
-            $null = $PSBoundParameters.Remove("Language")
-        }
     }
 
     process {
@@ -429,12 +405,41 @@ function Open-WikipediaQuery {
 
             Write-Verbose "Processing query: $query"
 
-            # construct wiki search url with language code
-            $PSBoundParameters["Url"] = "https://$languageCode.wikipedia.org/wiki/Special:" + `
+            # determine google domain based on language
+            $code = "www"
+            if (-not [string]::IsNullOrWhiteSpace($Language)) {
+                $code = (Get-WebLanguageDictionary)[$Language]
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $PSBoundParameters.Add("AcceptLang", $code)
+                }
+            }
+
+            # construct and encode the google search url
+            $invocationArguments = Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+            $invocationArguments."Url" = "https://$code.wikipedia.org/wiki/Special:" + `
                 "Search?search=$([Uri]::EscapeUriString($query))"
 
-            # open search in browser with inherited parameters
-            Open-Webbrowser @PSBoundParameters
+            # handle return url only scenario
+            if ($ReturnOnlyURL) {
+
+                Write-Output ($invocationArguments.Url)
+                continue
+            }
+
+            # launch browser
+            Open-Webbrowser @invocationArguments
+
+            # return url if requested
+            if ($ReturnURL) {
+
+                Write-Output ($invocationArguments.Url)
+            }
         }
     }
 

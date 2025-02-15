@@ -21,3 +21,4 @@
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-WikipediaQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-WolframAlphaQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-YoutubeQuery.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\q.ps1"

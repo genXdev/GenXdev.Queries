@@ -75,20 +75,122 @@ function Open-AllYoutubeVideos {
             HelpMessage = "Open trending videos"
         )]
         [switch] $Trending,
-        ########################################################################
-        [parameter(
+        ###############################################################################
+        [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use Microsoft Edge browser"
+            HelpMessage = "Opens in incognito/private browsing mode"
         )]
+        [Alias("incognito", "inprivate")]
+        [switch] $Private,
+
+        ###############################################################################
         [Alias("e")]
-        [switch] $Edge,
-        ########################################################################
-        [parameter(
+        [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use Google Chrome browser"
+            HelpMessage = "Opens in Microsoft Edge"
         )]
+        [switch] $Edge,
+
+        ###############################################################################
         [Alias("ch")]
-        [switch] $Chrome
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in Google Chrome"
+        )]
+        [switch] $Chrome,
+
+        ###############################################################################
+        [Alias("m", "mon")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found"
+        )]
+        [int] $Monitor = -2,
+
+        ###############################################################################
+        [Alias("fs", "f")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Opens in fullscreen mode"
+        )]
+        [switch] $FullScreen,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial width of the webbrowser window"
+        )]
+        [int] $Width = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial height of the webbrowser window"
+        )]
+        [int] $Height = -1,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial X position of the webbrowser window"
+        )]
+        [int] $X = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The initial Y position of the webbrowser window"
+        )]
+        [int] $Y = -999999,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the left side of the screen"
+        )]
+        [switch] $Left,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the right side of the screen"
+        )]
+        [switch] $Right,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the top side of the screen"
+        )]
+        [switch] $Top,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window on the bottom side of the screen"
+        )]
+        [switch] $Bottom,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Place browser window in the center of the screen"
+        )]
+        [switch] $Centered,
+        ###############################################################################
+        [Alias("a", "app", "appmode")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Hide the browser controls"
+        )]
+        [switch] $ApplicationMode,
+        ###############################################################################
+        [Alias("lang", "locale")]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Set the browser accept-lang http header"
+        )]
+        [string] $AcceptLang = $null
         ########################################################################
     )
 
@@ -101,6 +203,8 @@ function Open-AllYoutubeVideos {
         $powershellWindow = [GenXdev.Helpers.WindowObj]::GetMainWindow($powershellProcess)
 
         Write-Verbose "Starting YouTube video browser"
+
+        $boundParams = $PSBoundParameters
     }
 
     process {
@@ -113,6 +217,7 @@ function Open-AllYoutubeVideos {
 
         # internal function that handles video navigation and control interface
         function go($Url = $null, $Query) {
+
             # initialize state tracking for current video session
             $Global:data = @{
                 query          = $Query
@@ -145,13 +250,16 @@ function Open-AllYoutubeVideos {
 
                     [int] $defaultMonitor = 1;
 
-                    if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
+                    if ($Monitor -eq -2) {
 
-                        $Monitor = $defaultMonitor % ($AllScreens.Length + 1);
-                    }
-                    else {
+                        if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
 
-                        $Monitor = 2 % ($AllScreens.AllScreens.Length + 1);
+                            $Monitor = $defaultMonitor % ($AllScreens.Length + 1);
+                        }
+                        else {
+
+                            $Monitor = 2 % ($AllScreens.AllScreens.Length + 1);
+                        }
                     }
 
                     if ($monitor -lt 1) {
@@ -171,26 +279,84 @@ function Open-AllYoutubeVideos {
                         if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
 
                             Set-WindowPosition -Left -Monitor $Monitor
-                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Right -Url $Url -PassThru -Force -NoBrowserExtensions
+                            $FullScreen = $true
+                            $invocationParams = Copy-IdenticalParamValues `
+                                -BoundParameters $boundParams `
+                                -FunctionName "Open-Webbrowser" `
+                                -DefaultValues @(Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                            $invocationParams.Chromium = $true
+                            $invocationParams.Url = $Url
+                            $invocationParams.PassThru = $true
+                            $invocationParams.Force = $true
+                            $invocationParams.NewWindow = $true
+                            $invocationParams.RestoreFocus = $true
+                            $invocationParams.Right = $true
+                            $invocationParams.NoBrowserExtensions = $true
+                            $browser = Open-Webbrowser @invocationParams
                             $null = Start-Sleep 1
                             $Global:chrome = $null
                         }
                         else {
 
                             Set-WindowPosition -Bottom -Monitor $Monitor
-                            $browser = Open-Webbrowser -NewWindow -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Top -Url $Url -PassThru -Force -NoBrowserExtensions
+                            $invocationParams = Copy-IdenticalParamValues `
+                                -BoundParameters $boundParams `
+                                -FunctionName "Open-Webbrowser" `
+                                -DefaultValues @(Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                            $invocationParams.Chromium = $true
+                            $invocationParams.Url = $Url
+                            $invocationParams.PassThru = $true
+                            $invocationParams.Force = $true
+                            $invocationParams.NewWindow = $true
+                            $invocationParams.RestoreFocus = $true
+                            $invocationParams.Top = $true
+                            $invocationParams.NoBrowserExtensions = $true
+                            $browser = Open-Webbrowser @invocationParams
                             $null = Start-Sleep 1
                             $Global:chrome = $null
                         }
                     }
                 }
+                try {
+                    $null = Select-WebbrowserTab -Edge:$Edge -Chrome:$Chrome
+                }
+                catch {
+
+                    $null = Close-Webbrowser -Chromium -Edge:$Edge -Chrome:$Chrome -Force
+                }
 
                 if ($null -eq $browser) {
 
-                    $browser = Open-Webbrowser -NewWindow -FullScreen -RestoreFocus -Chromium -Edge:$Edge -Chrome:$Chrome -Url $Url -PassThru -Force -NoBrowserExtensions
+                    $FullScreen = $false
+                    $invocationParams = Copy-IdenticalParamValues `
+                        -BoundParameters $boundParams `
+                        -FunctionName "Open-Webbrowser" `
+                        -DefaultValues @(Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                    $invocationParams.Chromium = $true
+                    $invocationParams.Url = $Url
+                    $invocationParams.PassThru = $true
+                    $invocationParams.Force = $true
+                    $invocationParams.NewWindow = $true
+                    $invocationParams.RestoreFocus = $false
+                    $invocationParams.NoBrowserExtensions = $true
+                    $browser = Open-Webbrowser @invocationParams
                     $null = Start-Sleep 1
-                    $Global:chrome = $null
 
+                    # restore it
+                    $PowerShellWindow = Get-PowershellMainWindow
+
+                    if ($null -ne $PowerShellWindow) {
+
+                        # wait a little
+                        [System.Threading.Thread]::Sleep(500) | Out-Null
+
+                        $PowerShellWindow.Show() | Out-Null;
+                        $PowerShellWindow.SetForeground() | Out-Null;
+
+                        Set-ForegroundWindow ($PowerShellWindow.Handle) | Out-Null;
+                    }
+
+                    $Global:chrome = $null
                 }
 
                 try {
@@ -204,9 +370,9 @@ function Open-AllYoutubeVideos {
                 $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
             }
             else {
-
                 $Global:chrome = $null
                 $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
+                $null = Stop-WebbrowserVideos;
             }
 
             # loads and executes the JavaScript controller code
@@ -245,6 +411,7 @@ function Open-AllYoutubeVideos {
                             }
                         }
                     }
+
                 }
                 catch {
 
@@ -272,6 +439,20 @@ function Open-AllYoutubeVideos {
 
                     # process any pending tab operations
                     checkOpened
+                    if ($Global:data.isViewPage -and $Global:data.position -gt 0 -and ($Global:data.position -gt $Global:data.duration - 2)) {
+
+                        [Console]::SetCursorPosition(0, 0)
+                        Write-Host "Skipping to next video".PadRight($hostInfo.WindowSize.Width - 2, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+                        [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+                        $Page.CloseAsync().Wait()
+                        $null = Select-WebbrowserTab -Name "*youtube*" -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
+                        $page = $Global:chromeController
+                        $reference = Get-ChromiumSessionReference
+                        $LastVideo = ""
+                        [Console]::SetCursorPosition(0, 0)
+                        Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+                        continue
+                    }
 
                     if ($completed) { return }
 
@@ -309,6 +490,28 @@ function Open-AllYoutubeVideos {
                         $videoInfo = "$($Global:data.title)$($Global:data.description)"
 
                         if ($videoInfo -ne $LastVideo) {
+
+                            if ($Global:data.isViewPage) {
+
+                                if (-not $Global:data.playing) {
+
+                                    [Console]::SetCursorPosition(0, 0)
+                                    Write-Host "Starting video playback".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+                                    $LastVideo = ""
+                                    $null = Invoke-WebbrowserEvaluation "$job;resumeVideo();" -Page $Page -ByReference $reference | Out-Null
+                                    $null = Start-Sleep 1
+                                    checkOpened
+                                }
+                            }
+                            else {
+                                [Console]::SetCursorPosition(0, 0)
+                                Write-Host "Scanning for videos".PadRight($hostInfo.WindowSize.Width, " ") -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+                                $LastVideo = ""
+                                $null = Invoke-WebbrowserEvaluation "$job;pageScanned = false; scanPageForLinks();" -Page $Page -ByReference $reference | Out-Null
+                                $null = Start-Sleep 1
+                                checkOpened
+                            }
+
                             Clear-Host
                             Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                             $header = "$($Global:data.title)".Replace("`r", "").Replace("`n", "`r").Replace("`t", " ").Trim().PadRight($hostInfo.WindowSize.Width, " ")
@@ -514,10 +717,6 @@ function Open-AllYoutubeVideos {
             }
         }
 
-        # suppress verbose output during video playback
-        $OldVerbosePreference = $VerbosePreference
-        $VerbosePreference = 'SilentlyContinue'
-
         try {
             # handle different video source scenarios based on parameters
             if ($currentTab) {
@@ -553,7 +752,6 @@ function Open-AllYoutubeVideos {
         }
         finally {
             Clear-Host
-            $VerbosePreference = $OldVerbosePreference
         }
     }
 

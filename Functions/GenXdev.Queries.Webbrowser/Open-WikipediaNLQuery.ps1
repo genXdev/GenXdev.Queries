@@ -36,14 +36,13 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'The query to execute.'
         )]
         [string[]] $Queries,
-        ###############################################################################
+        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Opens in incognito/private browsing mode"
         )]
         [Alias("incognito", "inprivate")]
         [switch] $Private,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -66,7 +65,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = "Opens in Google Chrome"
         )]
         [switch] $Chrome,
-
         ###############################################################################
         [Alias("c")]
         [Parameter(
@@ -82,7 +80,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = "Opens in Firefox"
         )]
         [switch] $Firefox,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -97,7 +94,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
         )]
         [int] $Monitor = -1,
-
         ###############################################################################
         [Alias("fs", "f")]
         [Parameter(
@@ -105,49 +101,42 @@ function Open-WikipediaNLQuery {
             HelpMessage = "Opens in fullscreen mode"
         )]
         [switch] $FullScreen,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial width of the webbrowser window"
         )]
         [int] $Width = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial height of the webbrowser window"
         )]
         [int] $Height = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial X position of the webbrowser window"
         )]
         [int] $X = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial Y position of the webbrowser window"
         )]
         [int] $Y = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the left side of the screen"
         )]
         [switch] $Left,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the right side of the screen"
         )]
         [switch] $Right,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -228,15 +217,53 @@ function Open-WikipediaNLQuery {
         )]
         [switch] $ReturnOnlyURL
         ########################################################################
+
     )
 
     begin {
-        $null = $PSBoundParameters.Add("Language", "Dutch")
+
+        Write-Verbose "Initializing query handler"
+
+        # prepare parameters for Open-Webbrowser
+        $null = $PSBoundParameters.Remove("Queries")
+
+        if (-not $PSBoundParameters.ContainsKey("Url")) {
+            $null = $PSBoundParameters.Add("Url", "Url")
+        }
+
+        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
+            $null = $PSBoundParameters.Add("Monitor", $Monitor)
+        }
     }
 
     process {
 
-        Open-WikipediaQuery @PSBoundParameters
+        # process each search query
+        foreach ($query in $Queries) {
+
+            Write-Verbose "Processing query: $query"
+
+            # determine google domain based on language
+            $code = "www"
+            if (-not [string]::IsNullOrWhiteSpace($Language)) {
+                $code = (Get-WebLanguageDictionary)[$Language]
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $PSBoundParameters.Add("AcceptLang", $code)
+                }
+            }
+
+            # construct and encode the google search url
+            $invocationArguments = Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Queries\Open-WikipediaQuery" `
+                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+            $invocationArguments."Language" = "Dutch"
+
+            Open-WikipediaQuery @invocationArguments
+        }
     }
 
     end {

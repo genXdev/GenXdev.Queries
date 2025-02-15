@@ -423,7 +423,6 @@ function Open-Timeline {
 
         $Url = "https://timeline.genxdev.net/$queryParams#$Theme";
 
-
         # handle return url only scenario
         if ($ReturnOnlyURL) {
             Write-Output $url
@@ -467,18 +466,17 @@ function Open-Timeline {
             $null = $PSBoundParameters.Remove("BrowserExtensions")
         }
 
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
-
-            $null = $PSBoundParameters.Remove("ReturnUrl")
-        }
-
         if (-not $PSBoundParameters.ContainsKey("Url")) {
 
             $null = $PSBoundParameters.Add("Url", $url)
         }
 
-        # launch browser
-        Open-Webbrowser @PSBoundParameters
+        $invocationArguments = Copy-IdenticalParamValues `
+            -BoundParameters $PSBoundParameters `
+            -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+        Open-Webbrowser @invocationArguments
 
         # return url if requested
         if ($ReturnURL) {

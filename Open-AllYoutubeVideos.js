@@ -13,14 +13,17 @@ const YOUTUBE_BASE_URL = document.location.protocol + '//' + document.location.h
 const STORAGE_KEYS = {
     QUEUED: 'oaytvQueued',
     DONE: 'oaytvDone',
+    LOCALDONE: 'oaytvLocalDone',
     RESUMED: 'oayvresumed',
     INITIALIZED: 'oayv',
-    VIDEO_INITIALIZED: 'oayvvc'
+    VIDEO_INITIALIZED: 'oayvvc',
+    PAGESCANNED: 'oayvps'
 };
 
 // Script initialization state management
 let first = sessionStorage[STORAGE_KEYS.INITIALIZED] !== "true";
-sessionStorage[STORAGE_KEYS.INITIALIZED] = "true";
+let pageScanned = sessionStorage[STORAGE_KEYS.PAGESCANNED] === "true";
+sessionStorage[STORAGE_KEYS.PAGESCANNED] = "true";
 
 // Script initialization state management
 let second = !first && sessionStorage[STORAGE_KEYS.RESUMED] !== "true";
@@ -50,6 +53,7 @@ let queueUrls = [], doneUrls = []; localDoneUrls = [];
 try {
     queueUrls = JSON.parse(sessionStorage[STORAGE_KEYS.QUEUED] || '[]');
     doneUrls = JSON.parse(localStorage[STORAGE_KEYS.DONE] || '[]');
+    localDoneUrls = JSON.parse(localStorage[STORAGE_KEYS.LOCALDONE] || '[]');
 } catch (e) {
     console.error('Storage parsing error:', e);
     queueUrls = [];
@@ -287,57 +291,63 @@ async function forwardInVideo() {
  * and completed videos while handling pagination
  */
 function scanPageForLinks() {
+
     // console.log('scanPageForLinks');
     if (data.isSuggestionPage || data.isSearchPage || data.isSubscriptionsPage || data.isWatchLaterPage || data.isTrendingPage) {
 
-        let a = document.getElementsByClassName("ytd-thumbnail");
-        let t = 0;
-        let i2 = 0;
-        let list = [];
-        for (let i = 0; i < a.length; i++) {
-            let b = a[i];
-            if (b.id === "thumbnail") {
-                let c = b.getAttribute("href");
-                if (!!c && typeof c === "string" &&
-                    (c.indexOf("/watch?v") >= 0 || c.indexOf("/short/") >= 0)) {
+        try {
+            if (!pageScanned) {
 
-                    c = YOUTUBE_BASE_URL + c.replace(YOUTUBE_BASE_URL, "");
+                let a = document.getElementsByClassName("ytd-thumbnail");
+                let t = 0;
+                let i2 = 0;
+                let list = [];
+                for (let i = 0; i < a.length; i++) {
+                    let b = a[i];
+                    if (b.id === "thumbnail") {
+                        let c = b.getAttribute("href");
+                        if (!!c && typeof c === "string" &&
+                            (c.indexOf("/watch?v") >= 0 || c.indexOf("/short/") >= 0)) {
 
-                    if ((queueUrls.indexOf(c) < 0) && (doneUrls.indexOf(c) < 0) && (localDoneUrls.indexOf(c) < 0)) {
+                            c = YOUTUBE_BASE_URL + c.replace(YOUTUBE_BASE_URL, "");
 
-                        queueUrls.push(c);
+                            if ((queueUrls.indexOf(c) < 0) && (doneUrls.indexOf(c) < 0) && (localDoneUrls.indexOf(c) < 0)) {
+
+                                queueUrls.push(c);
+                            }
+                        }
                     }
                 }
+
+                data.more = queueUrls.length > 0;
+                a = document.getElementsByTagName('span');
+                while (queueUrls.length > 0 && i2++ < 5) {
+
+                    let item = queueUrls.splice(0, 1)[0];
+                    list.splice(0, 0, item);
+                }
+
+                for (let b of list) {
+
+                    localDoneUrls.push(b);
+                    data.open.push(b);
+                }
             }
-        }
 
-        data.more = queueUrls.length > 0;
-        a = document.getElementsByTagName('span');
-        while (queueUrls.length > 0 && i2++ < 5) {
+            if (queueUrls.length === 0) {
 
-            let item = queueUrls.splice(0, 1)[0];
-            list.splice(0, 0, item);
-        }
-
-        for (let b of list) {
-
-            localDoneUrls.push(b);
-            data.open.push(b);
-        }
-
-        if (queueUrls.length === 0) {
-
-            if (!!document.scrollingElement &&
-                document.scrollingElement.scrollTop !==
-                document.scrollingElement.scrollHeight) {
-
-                window.scrollTo(0, 0);
-
+                window.scrollTo(0, document.querySelector('ytd-app').scrollHeight);
                 setTimeout(function () {
-                    first = false;
-                    window.scrollTo(0, document.body.scrollHeight);
-                }, 2);
+                    pageScanned = false;
+                    sessionStorage[STORAGE_KEYS.PAGESCANNED] = "false";
+                    scanPageForLinks();
+                }, 4000);
             }
+            
+        } finally {
+            sessionStorage[STORAGE_KEYS.QUEUED] = JSON.stringify(queueUrls);
+            localStorage[STORAGE_KEYS.DONE] = JSON.stringify(doneUrls);
+            localStorage[STORAGE_KEYS.LOCALDONE] = JSON.stringify(localDoneUrls);
         }
     }
 }
@@ -379,9 +389,6 @@ function initializePage() {
                 };
             }
         }
-
-        scanPageForLinks();
-
     }
 
     return true;
@@ -411,21 +418,8 @@ function updatePage() {
         }
     }
 
-    if ((data.isSearchPage || data.isSubscriptionsPage || data.isSuggestionPage || data.isWatchLaterPage || data.isTrendingPage)) {
 
-        scanPageForLinks();
-
-        if (doneUrls.length + queueUrls.length === 0 && data.open && data.open.length === 0) {
-            try {
-                if (document.scrollingElement.scrollTop !==
-                    document.scrollingElement.scrollHeight) {
-
-                    window.scrollTo(0, document.body.scrollHeight);
-                }
-            }
-            catch { }
-        }
-    }
+    scanPageForLinks();
 
     if (!(data.isViewPage || data.isShortsPage)) {
 
@@ -535,11 +529,17 @@ function setupVisibilityHandler() {
         const isHidden = document.hidden || document.msHidden || document.webkitHidden;
         const video = document.querySelector('video');
         // console.log('visibilityHandler');
+        if (!isHidden) {
+            pageScanned = false;
+            sessionStorage[STORAGE_KEYS.PAGESCANNED] = "false";
+            scanPageForLinks();
+        }
+
         if (!video) return;
 
         if (isHidden && !video.paused) {
             await pauseVideo();
-        } else if (!isHidden && video.paused) {
+        } else if (!isHidden && video && video.paused) {
             first = false;
             initializePage();
             await resumeVideo();

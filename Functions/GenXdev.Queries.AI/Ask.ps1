@@ -1,25 +1,7 @@
-################################################################################
-<#
-.SYNOPSIS
-Opens a Google Gemini query in a webbrowser
-
-.DESCRIPTION
-Opens a Google Gemini query in the webbrowser, automatically enters the query and
-submits it. This provides a quick way to interact with Google's Gemini AI.
-
-.PARAMETER Queries
-One or more queries to submit to Google Gemini.
-
-.EXAMPLE
-Open-GoogleGeminiQuery "What is PowerShell?"
-
-.EXAMPLE
-"How to use arrays?" | aigg
-#>
-function Open-GoogleGeminiQuery {
+function Ask {
 
     [CmdletBinding()]
-    [Alias("aigg", "askgemini")]
+
     param(
         ########################################################################
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -32,6 +14,21 @@ function Open-GoogleGeminiQuery {
             HelpMessage = 'The query to execute.'
         )]
         [string[]] $Queries,
+        ###############################################################################
+        [ValidateSet(
+            "BingCopilot",
+            "ChatGPT",
+            "DeepSearch",
+            "GithubCopilot",
+            "GoogleGemini",
+            "XGrok"
+        )]
+        [parameter(
+            Mandatory = $false,
+            Position = 1,
+            HelpMessage = "The enpoint to invoke the query on"
+        )]
+        [string] $EndPoint = "BingCopilot",
         ###############################################################################
         [ValidateSet(
             "Afrikaans",
@@ -357,60 +354,79 @@ function Open-GoogleGeminiQuery {
             Mandatory = $false,
             HelpMessage = "Returns a [System.Diagnostics.Process] object of the browserprocess"
         )]
-        [switch] $PassThru
+        [switch] $PassThru,
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Don't open webbrowser, just return the url"
+        )]
+        [switch] $ReturnURL,
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "After opening webbrowser, return the url"
+        )]
+        [switch] $ReturnOnlyURL
+        ########################################################################
     )
 
     begin {
 
-        Write-Verbose "Initializing query handler"
-
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
-        }
-
         # determine google domain based on language
         $code = "www"
-        if (-not [string]::IsNullOrWhiteSpace($Language)) {
+        if (-not[string]:: IsNullOrWhiteSpace($Language)) {
+
             $code = (Get-WebLanguageDictionary)[$Language]
 
-            if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+            if ($AcceptLang -eq $null) {
 
-                $null = $PSBoundParameters.Add("AcceptLang", $code)
+                $AcceptLang = $code
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $PSBoundParameters.Add("AcceptLang", $AcceptLang)
+                }
             }
         }
 
-        # construct and encode the google search url
+        # Access the dynamic parameter 'Endpoint'
+        $endpointValue = $Endpoint
+
+        # CommandInfo of function matching the 'Endpoint' value
+        $command = Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
+
         $invocationArguments = Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
+            -FunctionName "Open-$($endpointValue)Query" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        $invocationArguments.Url = "https://gemini.google.com/"
+        if (-not $PSBoundParameters.ContainsKey("Queries")) {
+
+            $null = $PSBoundParameters.Add("Queries", $Queries)
+        }
+        if (-not $PSBoundParameters.ContainsKey("Query")) {
+
+            $null = $PSBoundParameters.Add("Query", $null)
+        }
     }
 
     process {
 
-        # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            $PSBoundParameters["Queries"] = @($query)
+            $PSBoundParameters["Query"] = $query
 
-            $invocationArguments.Queries = @($query)
+            $invocationArguments = Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "Open-$($endpointValue)Query" `
+                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            Open-WebsiteAndPerformQuery @invocationArguments
+            & $command @invocationArguments
         }
     }
 
     end {
-        Write-Verbose "Query operation completed"
     }
 }
 ################################################################################

@@ -26,7 +26,6 @@ q "PowerShell scripting" -m 0
 function Open-GoogleQuery {
 
     [CmdletBinding()]
-    [Alias("q")]
 
     param(
         ########################################################################
@@ -193,7 +192,7 @@ function Open-GoogleQuery {
             "Zulu")]
         [parameter(
             Mandatory = $false,
-            Position = 1,
+            Position = 2,
             HelpMessage = "The language of the returned search results"
         )]
         [string] $Language = $null,
@@ -227,7 +226,6 @@ function Open-GoogleQuery {
             HelpMessage = "Opens in Google Chrome"
         )]
         [switch] $Chrome,
-
         ###############################################################################
         [Alias("c")]
         [Parameter(
@@ -243,7 +241,6 @@ function Open-GoogleQuery {
             HelpMessage = "Opens in Firefox"
         )]
         [switch] $Firefox,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -258,7 +255,6 @@ function Open-GoogleQuery {
             HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to -1, no positioning"
         )]
         [int] $Monitor = -1,
-
         ###############################################################################
         [Alias("fs", "f")]
         [Parameter(
@@ -266,49 +262,42 @@ function Open-GoogleQuery {
             HelpMessage = "Opens in fullscreen mode"
         )]
         [switch] $FullScreen,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial width of the webbrowser window"
         )]
         [int] $Width = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial height of the webbrowser window"
         )]
         [int] $Height = -1,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial X position of the webbrowser window"
         )]
         [int] $X = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "The initial Y position of the webbrowser window"
         )]
         [int] $Y = -999999,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the left side of the screen"
         )]
         [switch] $Left,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the right side of the screen"
         )]
         [switch] $Right,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -389,6 +378,7 @@ function Open-GoogleQuery {
         )]
         [switch] $ReturnOnlyURL
         ########################################################################
+
     )
 
     begin {
@@ -405,11 +395,6 @@ function Open-GoogleQuery {
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
             $null = $PSBoundParameters.Add("Monitor", $Monitor)
         }
-
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) {
-
-            $null = $PSBoundParameters.Remove("ReturnUrl")
-        }
     }
 
     process {
@@ -423,13 +408,36 @@ function Open-GoogleQuery {
             $code = "www"
             if (-not [string]::IsNullOrWhiteSpace($Language)) {
                 $code = (Get-WebLanguageDictionary)[$Language]
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $PSBoundParameters.Add("AcceptLang", $code)
+                }
             }
 
             # construct and encode the google search url
-            $PSBoundParameters["Url"] = "https://$code.google.com/search?q=$([Uri]::EscapeUriString($query))"
+            $invocationArguments = Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            # open search in browser with inherited parameters
-            Open-Webbrowser @PSBoundParameters
+            $invocationArguments."Url" = "https://$code.google.com/search?q=$([Uri]::EscapeUriString($query))"
+
+            # handle return url only scenario
+            if ($ReturnOnlyURL) {
+
+                Write-Output ($invocationArguments.Url)
+                continue
+            }
+
+            # launch browser
+            Open-Webbrowser @invocationArguments
+
+            # return url if requested
+            if ($ReturnURL) {
+
+                Write-Output ($invocationArguments.Url)
+            }
         }
     }
 
