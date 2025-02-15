@@ -12,13 +12,11 @@
 
 ### FEATURES
 
-    * ✅ Query multiple searchengines and content-providers at once with a single query
-
-    * ✅ Query and control Youtube from PowerShell
-
-    * ✅ use, q "any topic" to query any of the popular searchengines
-
     * ✅ use, Ask "anything" to query any of the popular LLM's
+    * ✅ search "any topic" on any of the popular searchengines using the 'q' cmdlet
+    * ✅ query multiple searchengines and content-providers at once with a single query using the 'qq' cmdlet
+    * ✅ query text from a variety of api providers, all at once with a single query using the 'qqq' cmdlet
+    * ✅ cool way of viewing and controlling youtube with 'qvideos' cmdlet
 
 ### NOTES
 

@@ -421,7 +421,7 @@ function Open-WolframAlphaQuery {
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            $invocationArguments."Url" = "https://www.wolframalpha.com/input/?i=" + `
+            $invocationArguments."Url" = "https://www.wolframalpha.com/input/?i=" +
                 [Uri]::EscapeUriString($query)
 
             # handle return url only scenario

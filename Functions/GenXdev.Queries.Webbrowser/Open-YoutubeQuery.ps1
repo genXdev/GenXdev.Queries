@@ -423,7 +423,7 @@ function Open-YoutubeQuery {
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            $invocationArguments."Url" = "https://www.youtube.com/results?search_query=" + `
+            $invocationArguments."Url" = "https://www.youtube.com/results?search_query=" +
                 [Uri]::EscapeUriString($query)
 
             # handle return url only scenario

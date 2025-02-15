@@ -418,7 +418,7 @@ function Open-IMDBQuery {
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            $invocationArguments."Url" = "https://www.imdb.com/find?q=" + `
+            $invocationArguments."Url" = "https://www.imdb.com/find?q=" +
                 [Uri]::EscapeUriString($query) + "&ref_=nv_sr_sm="
 
             # handle return url only scenario

@@ -419,7 +419,7 @@ function Open-MovieQuote {
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            $invocationArguments."Url" = "https://www.playphrase.me/#/search?q=" + `
+            $invocationArguments."Url" = "https://www.playphrase.me/#/search?q=" +
                 [Uri]::EscapeUriString($query)
 
             # handle return url only scenario

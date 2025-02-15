@@ -64,7 +64,7 @@ function Get-WikipediaSummary {
 
             # prepare the url-encoded query
             $urlPart = [Uri]::EscapeUriString($query.Replace("-", " "))
-            $url = "https://en.wikipedia.org/w/api.php?format=json&action=query" + `
+            $url = "https://en.wikipedia.org/w/api.php?format=json&action=query" +
                    "&prop=extracts&exintro=1&explaintext=1&titles=$urlPart"
 
             try {

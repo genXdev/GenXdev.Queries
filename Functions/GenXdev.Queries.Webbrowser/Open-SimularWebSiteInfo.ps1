@@ -418,7 +418,7 @@ function Open-SimularWebSiteInfo {
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-            $invocationArguments."Url" = "https://www.similarweb.com/website/" + `
+            $invocationArguments."Url" = "https://www.similarweb.com/website/" +
                 [Uri]::EscapeUriString($query)
 
             # handle return url only scenario
