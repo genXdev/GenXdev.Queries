@@ -1,7 +1,7 @@
-function Ask {
+function Open-CloudLLMChat {
 
     [CmdletBinding()]
-
+    [Alias("ask")]
     param(
         ########################################################################
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -28,7 +28,7 @@ function Ask {
             Position = 1,
             HelpMessage = "The enpoint to invoke the query on"
         )]
-        [string] $EndPoint = "BingCopilot",
+        [string] $EndPoint = "XGrok",
         ###############################################################################
         [ValidateSet(
             "Afrikaans",
@@ -371,7 +371,6 @@ function Ask {
     )
 
     begin {
-
         # determine google domain based on language
         $code = "www"
         if (-not[string]:: IsNullOrWhiteSpace($Language)) {
@@ -395,7 +394,7 @@ function Ask {
         # CommandInfo of function matching the 'Endpoint' value
         $command = Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
 
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "Open-$($endpointValue)Query" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
@@ -417,7 +416,7 @@ function Ask {
             $PSBoundParameters["Queries"] = @($query)
             $PSBoundParameters["Query"] = $query
 
-            $invocationArguments = Copy-IdenticalParamValues `
+            $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "Open-$($endpointValue)Query" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

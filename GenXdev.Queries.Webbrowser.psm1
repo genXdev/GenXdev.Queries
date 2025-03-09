@@ -12,6 +12,7 @@
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-IMDBQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-InstantStreetViewQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-MovieQuote.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-SearchEngine.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-SimularWebSiteInfo.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-StackOverflowQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-WaybackMachineSiteInfo.ps1"
@@ -21,4 +22,3 @@
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-WikipediaQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-WolframAlphaQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-YoutubeQuery.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\q.ps1"

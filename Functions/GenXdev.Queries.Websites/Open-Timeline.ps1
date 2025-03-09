@@ -459,7 +459,7 @@ function Open-Timeline {
 
         if (-not $PSBoundParameters.ContainsKey("BrowserExtensions")) {
 
-            $PSBoundParameters.Add("NoBrowserExtensions", $true);
+            $null = $PSBoundParameters.Add("NoBrowserExtensions", $true);
         }
         else {
 
@@ -471,7 +471,7 @@ function Open-Timeline {
             $null = $PSBoundParameters.Add("Url", $url)
         }
 
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

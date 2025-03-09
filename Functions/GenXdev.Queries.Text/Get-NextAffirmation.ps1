@@ -12,15 +12,15 @@ using text-to-speech.
 When specified, uses text-to-speech to speak the affirmation out loud.
 
 .EXAMPLE
-Get-NextAffirmations
+Get-NextAffirmation
 
 .EXAMPLE
 WhatAboutIt -Speak
 #>
-function Get-NextAffirmations {
+function Get-NextAffirmation {
 
     [CmdletBinding()]
-    [Alias("WhatAboutIt", "Get-NextAffirmation")]
+    [Alias("WhatAboutIt")]
 
     param(
         #######################################################################
@@ -34,7 +34,6 @@ function Get-NextAffirmations {
     )
 
     begin {
-
         # initialize api endpoint
         $apiEndpoint = "https://www.affirmations.dev/"
         Write-Verbose "Using API endpoint: $apiEndpoint"

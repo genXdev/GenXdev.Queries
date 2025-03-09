@@ -37,7 +37,14 @@ function Get-WikipediaSummary {
     begin {
         # helper function to clean up wikipedia text by removing parentheticals
         function Remove-ParentheticalContent {
-            param([string]$Text)
+
+            [OutputType([string])]
+            [CmdletBinding()]
+            [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
+            param(
+                [string] $Text
+            )
+            ########################################################################
 
             $i = $Text.IndexOf("(")
             if ($i -ge 150) { return $Text }
@@ -65,7 +72,7 @@ function Get-WikipediaSummary {
             # prepare the url-encoded query
             $urlPart = [Uri]::EscapeUriString($query.Replace("-", " "))
             $url = "https://en.wikipedia.org/w/api.php?format=json&action=query" +
-                   "&prop=extracts&exintro=1&explaintext=1&titles=$urlPart"
+            "&prop=extracts&exintro=1&explaintext=1&titles=$urlPart"
 
             try {
                 # fetch and parse the wikipedia api response

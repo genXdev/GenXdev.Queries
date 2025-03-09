@@ -380,19 +380,6 @@ function Open-MovieQuote {
     )
 
     begin {
-
-        Write-Verbose "Initializing query handler"
-
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
-        }
     }
 
     process {
@@ -403,24 +390,24 @@ function Open-MovieQuote {
             Write-Verbose "Processing query: $query"
 
             # determine google domain based on language
-            $code = "www"
-            if (-not [string]::IsNullOrWhiteSpace($Language)) {
-                $code = (Get-WebLanguageDictionary)[$Language]
-
-                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
-
-                    $null = $PSBoundParameters.Add("AcceptLang", $code)
-                }
-            }
-
             # construct and encode the google search url
-            $invocationArguments = Copy-IdenticalParamValues `
+            $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
+            if (-not [string]::IsNullOrWhiteSpace($Language)) {
+
+                $code = (Get-WebLanguageDictionary)[$Language]
+
+                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                    $null = $invocationArguments.AcceptLang = $code
+                }
+            }
+
             $invocationArguments."Url" = "https://www.playphrase.me/#/search?q=" +
-                [Uri]::EscapeUriString($query)
+            [Uri]::EscapeUriString($query)
 
             # handle return url only scenario
             if ($ReturnOnlyURL) {

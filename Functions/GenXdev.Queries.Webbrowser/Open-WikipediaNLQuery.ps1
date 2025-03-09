@@ -221,19 +221,6 @@ function Open-WikipediaNLQuery {
     )
 
     begin {
-
-        Write-Verbose "Initializing query handler"
-
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
-        }
     }
 
     process {
@@ -255,7 +242,7 @@ function Open-WikipediaNLQuery {
             }
 
             # construct and encode the google search url
-            $invocationArguments = Copy-IdenticalParamValues `
+            $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Queries\Open-WikipediaQuery" `
                 -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

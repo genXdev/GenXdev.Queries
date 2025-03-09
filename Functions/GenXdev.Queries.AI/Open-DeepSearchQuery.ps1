@@ -19,7 +19,7 @@ aixg "powershell function"
 function Open-DeepSearchQuery {
 
     [CmdletBinding()]
-    [Alias("aids", "askdeepsearch")]
+    [Alias("aideepseek", "askdeepsearch")]
 
     param(
         ########################################################################
@@ -362,7 +362,6 @@ function Open-DeepSearchQuery {
     )
 
     begin {
-
         Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
@@ -390,7 +389,7 @@ function Open-DeepSearchQuery {
         }
 
         # construct and encode the google search url
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

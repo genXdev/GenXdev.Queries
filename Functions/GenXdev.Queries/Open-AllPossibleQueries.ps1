@@ -24,6 +24,7 @@ function Open-AllPossibleQueries {
 
     [CmdletBinding()]
     [Alias("qq")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
 
     param(
         ########################################################################
@@ -379,7 +380,6 @@ function Open-AllPossibleQueries {
     )
 
     begin {
-
         Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
@@ -448,7 +448,7 @@ function Open-AllPossibleQueries {
                                 }
 
                                 try {
-                                    $invocationParams = Copy-IdenticalParamValues `
+                                    $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                                         -BoundParameters $PSBoundParameters `
                                         -FunctionName $PSItem `
                                         -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
@@ -484,7 +484,7 @@ Line: $($PSItem.InvocationInfo.Line)
                     $query = $query.Replace("`"", "```"");
                     try {
 
-                        $invocationParams = Copy-IdenticalParamValues `
+                        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                             -BoundParameters $PSBoundParameters `
                             -FunctionName $PSItem `
                             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

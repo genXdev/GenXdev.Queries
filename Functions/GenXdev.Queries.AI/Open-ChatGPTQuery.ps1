@@ -366,7 +366,6 @@ function Open-ChatGPTQuery {
     )
 
     begin {
-
         Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
@@ -393,7 +392,7 @@ function Open-ChatGPTQuery {
         }
 
         # construct and encode the google search url
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

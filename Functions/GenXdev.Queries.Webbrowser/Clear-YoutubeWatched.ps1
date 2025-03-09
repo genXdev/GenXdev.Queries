@@ -20,7 +20,6 @@ function Clear-YoutubeWatched {
     param()
 
     begin {
-
         # inform user that we're looking for a youtube tab
         Write-Verbose "Searching for an open YouTube browser tab..."
     }

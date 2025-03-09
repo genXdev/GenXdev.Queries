@@ -459,20 +459,6 @@ function Open-Yab {
     )
 
     begin {
-
-        Write-Verbose "Initializing query handler"
-
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
-
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
-
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
-        }
-
         # determine google domain based on language
         $code = "www"
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
@@ -514,7 +500,7 @@ function Open-Yab {
 
         if (-not $PSBoundParameters.ContainsKey("BrowserExtensions")) {
 
-            $PSBoundParameters.Add("NoBrowserExtensions", $true);
+            $null = $PSBoundParameters.Add("NoBrowserExtensions", $true);
         }
         else {
 
@@ -532,7 +518,7 @@ function Open-Yab {
         }
 
         # construct and encode the google search url
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

@@ -48,13 +48,14 @@ function ConvertTo-Uris {
         # process each input text line
         foreach ($line in $Text) {
 
-            Write-Verbose "Processing text line: $($line.Substring(0,
-                [Math]::Min(30, $line.Length)))..."
+            # get first 30 chars of line for logging
+            $previewText = $line.Substring(0, [Math]::Min(30, $line.Length))
+            Write-Verbose ("Processing text line: $previewText...")
 
             # find all URI matches in the current line
-            $matches = [regex]::Matches($line, $uriPattern)
+            $uriMatches = [regex]::Matches($line, $uriPattern)
 
-            foreach ($match in $matches) {
+            foreach ($match in $uriMatches) {
 
                 try {
                     # attempt to create Uri object from match
@@ -72,3 +73,5 @@ function ConvertTo-Uris {
     end {
     }
 }
+
+################################################################################

@@ -1,7 +1,7 @@
-function q {
+function Open-SearchEngine {
 
     [CmdletBinding()]
-
+    [Alias("q")]
     param(
         ########################################################################
         [Alias("q", "Value", "Name", "Text", "Query")]
@@ -376,7 +376,6 @@ function q {
     )
 
     begin {
-
         # determine google domain based on language
         $code = "www"
         if (-not[string]:: IsNullOrWhiteSpace($Language)) {
@@ -399,7 +398,7 @@ function q {
         # CommandInfo of function matching the 'Endpoint' value
         $command = Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
 
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "Open-$($endpointValue)Query" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)

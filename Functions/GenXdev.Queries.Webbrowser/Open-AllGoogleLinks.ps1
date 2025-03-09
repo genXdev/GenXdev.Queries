@@ -24,7 +24,9 @@ function Open-AllGoogleLinks {
 
     [CmdletBinding()]
     [Alias("qlinks")]
-
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
     param(
         [parameter(
             Mandatory,
@@ -194,7 +196,6 @@ function Open-AllGoogleLinks {
     )
 
     begin {
-
         $Query = "$Query"
         $LangKey = "&hl=en";
 

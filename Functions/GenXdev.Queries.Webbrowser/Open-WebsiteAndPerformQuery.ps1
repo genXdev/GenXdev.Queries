@@ -43,7 +43,7 @@ function Open-WebsiteAndPerformQuery {
         [Alias("q", "Value", "Name", "Text", "Query")]
         [Parameter(
             Mandatory = $true,
-            Position = 0,
+            Position = 1,
             ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -300,6 +300,12 @@ function Open-WebsiteAndPerformQuery {
         ###############################################################################
         [Parameter(
             Mandatory = $false,
+            HelpMessage = "The DOM element query selector to focus before entering the query"
+        )]
+        [string] $FocusElement = $null,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
             HelpMessage = "Place browser window on the left side of the screen"
         )]
         [switch] $Left,
@@ -315,21 +321,18 @@ function Open-WebsiteAndPerformQuery {
             HelpMessage = "Place browser window on the top side of the screen"
         )]
         [switch] $Top,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window on the bottom side of the screen"
         )]
         [switch] $Bottom,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Place browser window in the center of the screen"
         )]
         [switch] $Centered,
-
         ###############################################################################
         [Alias("a", "app", "appmode")]
         [Parameter(
@@ -337,7 +340,6 @@ function Open-WebsiteAndPerformQuery {
             HelpMessage = "Hide the browser controls"
         )]
         [switch] $ApplicationMode,
-
         ###############################################################################
         [Alias("de", "ne", "NoExtensions")]
         [Parameter(
@@ -345,7 +347,6 @@ function Open-WebsiteAndPerformQuery {
             HelpMessage = "Prevent loading of browser extensions"
         )]
         [switch] $NoBrowserExtensions,
-
         ###############################################################################
         [Alias("lang", "locale")]
         [Parameter(
@@ -353,7 +354,6 @@ function Open-WebsiteAndPerformQuery {
             HelpMessage = "Set the browser accept-lang http header"
         )]
         [string] $AcceptLang = $null,
-
         ###############################################################################
         [Alias("bg")]
         [Parameter(
@@ -361,7 +361,6 @@ function Open-WebsiteAndPerformQuery {
             HelpMessage = "Restore PowerShell window focus"
         )]
         [switch] $RestoreFocus,
-
         ###############################################################################
         [Alias("nw", "new")]
         [Parameter(
@@ -373,8 +372,7 @@ function Open-WebsiteAndPerformQuery {
 
 
     begin {
-
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
@@ -382,6 +380,8 @@ function Open-WebsiteAndPerformQuery {
         $invocationArguments.PassThru = $true
         $invocationArguments.RestoreFocus = $false;
         $invocationArguments.NewWindow = $true;
+
+        $previousClipboard = Get-Clipboard
     }
 
     process {
@@ -394,9 +394,15 @@ function Open-WebsiteAndPerformQuery {
 
             $query | Set-Clipboard
 
-            Send-Keys -Keys "^v"
+            if (-not [string]::IsNullOrWhiteSpace($FocusElement)) {
 
-            Send-Keys "{ENTER}";
+                $null = Select-WebbrowserTab "*$(([Uri] $invocationArguments.Url).Host)*"
+                $null = Get-WebbrowserTabDomNodes $FocusElement "e.focus()"
+            }
+
+            Send-Key -KeysToSend "^v"
+
+            Send-Key "{ENTER}";
 
             if ($PassThru) {
 
@@ -406,12 +412,13 @@ function Open-WebsiteAndPerformQuery {
     }
 
     end {
+        $null = Set-Clipboard -Value $previousClipboard
         if ($RestoreFocus) {
 
             try {
                 $pw = Get-PowershellMainWindow
 
-                $pw.SetForeground()
+                $null = $pw.SetForeground()
             }
             catch {
 

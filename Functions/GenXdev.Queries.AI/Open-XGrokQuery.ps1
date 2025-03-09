@@ -362,7 +362,6 @@ function Open-XGrokQuery {
     )
 
     begin {
-
         Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
@@ -390,7 +389,7 @@ function Open-XGrokQuery {
         }
 
         # construct and encode the google search url
-        $invocationArguments = Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
@@ -404,6 +403,7 @@ function Open-XGrokQuery {
         foreach ($query in $Queries) {
 
             $invocationArguments.Queries = @($query)
+            $invocationArguments.FocusElement = "textarea"
 
             Open-WebsiteAndPerformQuery @invocationArguments
         }

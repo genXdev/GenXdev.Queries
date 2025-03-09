@@ -378,18 +378,19 @@ function Open-InstantStreetViewQuery {
     )
 
     begin {
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -BoundParameters $PSBoundParameters `
+            -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        Write-Verbose "Initializing query handler"
+        if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
+            $code = (Get-WebLanguageDictionary)[$Language]
 
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
+            if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
+                $null = $invocationArguments.AcceptLang = $code
+            }
         }
     }
 
@@ -399,23 +400,6 @@ function Open-InstantStreetViewQuery {
         foreach ($query in $Queries) {
 
             Write-Verbose "Processing query: $query"
-
-            # determine google domain based on language
-            $code = "www"
-            if (-not [string]::IsNullOrWhiteSpace($Language)) {
-                $code = (Get-WebLanguageDictionary)[$Language]
-
-                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
-
-                    $null = $PSBoundParameters.Add("AcceptLang", $code)
-                }
-            }
-
-            # construct and encode the google search url
-            $invocationArguments = Copy-IdenticalParamValues `
-                -BoundParameters $PSBoundParameters `
-                -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
             $encodedQuery = [System.Web.HttpUtility]::UrlEncode($query)
             $url = "https://www.instantstreetview.com/s/$encodedQuery"

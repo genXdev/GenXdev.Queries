@@ -19,11 +19,13 @@ PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; 
 .NOTES
 Requires the Windows 10+ Operating System
 #>
+################################################################################
+
 function Get-GoogleSearchResultUrls {
 
     [CmdletBinding()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [Alias("qlinksget")]
-
     param(
         [parameter(
             Mandatory,
@@ -34,8 +36,7 @@ function Get-GoogleSearchResultUrls {
             HelpMessage = "The query to perform"
         )]
         [string[]] $Queries,
-        ###############################################################################
-
+        ################################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = "The maximum number of results to obtain, defaults to 200"
@@ -200,52 +201,57 @@ function Get-GoogleSearchResultUrls {
     )
 
     begin {
+        # initialize script-scoped data structure
+        $Script:searchData = @{
+            urls   = @()
+            query  = ""
+            more   = $false
+            done   = @{}
+            source = @{ url = "" }
+        }
 
-
-        $LangKey = "&hl=en";
-
+        # prepare language key for search URL
+        $langKey = "&hl=en"
         if (![string]::IsNullOrWhiteSpace($Language)) {
-
-            $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
+            $langKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString(
+                (Get-WebLanguageDictionary)[$Language]
+            ))"
         }
     }
 
     process {
-
         foreach ($Query in $Queries) {
 
-            $Query = "$([Uri]::EscapeUriString($query))"
-            $Url = "https://www.google.com/search?q=$Query$LangKey"
+            # prepare search URL
+            $encodedQuery = [Uri]::EscapeUriString($Query)
+            $url = "https://www.google.com/search?q=$encodedQuery$langKey"
 
-            $Global:Data = @{
+            # initialize search data for this query
+            $Script:searchData.urls = @()
+            $Script:searchData.query = $encodedQuery
+            $Script:searchData.more = $false
+            $Script:searchData.done = @{}
+            $Script:searchData.source.url = $url
 
-                urls   = @();
-                query  = $Query;
-                more   = $false;
-                done   = @{};
-                source = @{
-                    url = $Url
-                }
-            }
-
-
-            Set-WebbrowserTabLocation $Url
+            # navigate to search page
+            Set-WebbrowserTabLocation $url
 
             do {
-                Start-Sleep 10 | Out-Null
+                $null = Start-Sleep 10
 
-                Invoke-WebbrowserEvaluation -Scripts @("$PSScriptRoot\Get-GoogleSearchResultUrls.js") | Out-Null
+                # execute search result extraction script
+                $null = Invoke-WebbrowserEvaluation -Scripts @(
+                    "$PSScriptRoot\Get-GoogleSearchResultUrls.js"
+                )
 
-                $Global:data.urls | ForEach-Object -ErrorAction SilentlyContinue {
-
+                # output results while respecting max limit
+                $Script:searchData.urls | ForEach-Object -ErrorAction SilentlyContinue {
                     if ($Max-- -gt 0) {
-
-                        $_;
+                        $_
                     }
                 }
-            }
-
-            while ($Global:data.more -and ($Max -gt 0))
+            } while ($Script:searchData.more -and ($Max -gt 0))
         }
     }
 }
+################################################################################

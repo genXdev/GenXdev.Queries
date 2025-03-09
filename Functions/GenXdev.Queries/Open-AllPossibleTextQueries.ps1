@@ -20,7 +20,8 @@ qqq "https://github.com"
 #>
 function Open-AllPossibleTextQueries {
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = "Default")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [Alias("qqq")]
 
     param(
@@ -28,6 +29,7 @@ function Open-AllPossibleTextQueries {
         [parameter(
             Mandatory = $true,
             Position = 0,
+            ParameterSetName = "Default",
             ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -39,7 +41,6 @@ function Open-AllPossibleTextQueries {
     )
 
     begin {
-
         Write-Verbose "Starting Open-AllPossibleTextQueries with $($Queries.Count) queries"
     }
 
@@ -68,46 +69,46 @@ function Open-AllPossibleTextQueries {
 
                     # process url queries in parallel
                     Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-                        ForEach-Object Name |
-                        ForEach-Object -ThrottleLimit 64 -Parallel {
+                    ForEach-Object Name |
+                    ForEach-Object -ThrottleLimit 64 -Parallel {
 
-                            if ($using:isUri -and
-                                $PSItem.EndsWith("SiteSummary") -and
-                                $PSItem.StartsWith("Get-")) {
+                        if ($using:isUri -and
+                            $PSItem.EndsWith("SiteSummary") -and
+                            $PSItem.StartsWith("Get-")) {
 
-                                try {
-                                    # display query source name
-                                    $sourceName = $PSItem.SubString(
-                                        "Get-".Length,
-                                        $PSItem.Length - "Get-SiteSummary".Length)
+                            try {
+                                # display query source name
+                                $sourceName = $PSItem.SubString(
+                                    "Get-".Length,
+                                    $PSItem.Length - "Get-SiteSummary".Length)
 
-                                    Write-Host "`r`n$sourceName`:" -ForegroundColor "Blue"
+                                Write-Host "`r`n$sourceName`:" -ForegroundColor "Blue"
 
-                                    # execute query for hostname
-                                    $result = Invoke-Expression "$PSItem $($using:uri.DnsSafeHost)"
-                                    Write-Output $result
+                                # execute query for hostname
+                                $result = Invoke-Expression "$PSItem $($using:uri.DnsSafeHost)"
+                                Write-Output $result
 
-                                    # process full url if not host-only query
-                                    if ($PSItem.EndsWith("HostSiteSummary") -eq $false) {
+                                # process full url if not host-only query
+                                if ($PSItem.EndsWith("HostSiteSummary") -eq $false) {
 
-                                        $safeUrl = ($using:query).Split("#")[0]
-                                        if ($using:uri.Query.Length -gt 0) {
-                                            $safeUrl = $safeUrl.Replace($using:uri.Query, "")
-                                        }
-
-                                        $urlSourceName = $PSItem.SubString(
-                                            "Get-".Length,
-                                            $PSItem.Length - "Get-HostSiteSummary".Length)
-
-                                        $line = "`r`n$urlSourceName`:`r`n"
-                                        $line += (Invoke-Expression "$PSItem $safeUrl") + "`r`n"
-                                        Write-Output $line
+                                    $safeUrl = ($using:query).Split("#")[0]
+                                    if ($using:uri.Query.Length -gt 0) {
+                                        $safeUrl = $safeUrl.Replace($using:uri.Query, "")
                                     }
-                                }
-                                catch {
-                                    Write-Verbose "Error processing $PSItem`: $($_.Exception.Message)"
+
+                                    $urlSourceName = $PSItem.SubString(
+                                        "Get-".Length,
+                                        $PSItem.Length - "Get-HostSiteSummary".Length)
+
+                                    $line = "`r`n$urlSourceName`:`r`n"
+                                    $line += (Invoke-Expression "$PSItem $safeUrl") + "`r`n"
+                                    Write-Output $line
                                 }
                             }
+                            catch {
+                                Write-Verbose "Error processing $PSItem`: $($_.Exception.Message)"
+                            }
+                        }
                     }
                     return
                 }
@@ -118,23 +119,23 @@ function Open-AllPossibleTextQueries {
 
                 # execute text queries in parallel
                 Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-                    ForEach-Object Name |
-                    ForEach-Object -ThrottleLimit 64 -Parallel {
+                ForEach-Object Name |
+                ForEach-Object -ThrottleLimit 64 -Parallel {
 
-                        if ($PSItem.EndsWith("Summary") -and $PSItem.StartsWith("Get-")) {
-                            try {
-                                $sourceName = $PSItem.SubString(
-                                    "Get-".Length,
-                                    $PSItem.Length - "Get-Summary".Length)
+                    if ($PSItem.EndsWith("Summary") -and $PSItem.StartsWith("Get-")) {
+                        try {
+                            $sourceName = $PSItem.SubString(
+                                "Get-".Length,
+                                $PSItem.Length - "Get-Summary".Length)
 
-                                $line = "`r`n$sourceName`:`r`n"
-                                $line += (Invoke-Expression "$PSItem $using:query") + "`r`n"
-                                Write-Output $line
-                            }
-                            catch {
-                                Write-Verbose "Error processing $PSItem`: $($_.Exception.Message)"
-                            }
+                            $line = "`r`n$sourceName`:`r`n"
+                            $line += (Invoke-Expression "$PSItem $using:query") + "`r`n"
+                            Write-Output $line
                         }
+                        catch {
+                            Write-Verbose "Error processing $PSItem`: $($_.Exception.Message)"
+                        }
+                    }
                 } |
                 ForEach-Object {
                     $lines = $PSItem.Split("`r`n", [StringSplitOptions]::RemoveEmptyEntries)

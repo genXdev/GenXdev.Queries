@@ -126,8 +126,26 @@ async function fakeClick(anchorObj, event) {
  * while maintaining consistent state tracking
  */
 async function setFullscreenVideo() {
+
+    /*
+    window.video = document.getElementsByTagName('video')[0]; "+
+    "video.setAttribute('style','position:fixed;left:0;top:0;bottom:0;right:0;" +
+        "z-index:10000;width:100vw;height:100vh');" +
+        "document.body.appendChild(video);" +
+        "document.body.setAttribute('style', 'overflow:hidden');
+
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+right:0;
+z-index:10000;
+width:100vw;
+height:100vh
+    */
+
     // console.log('setFullscreenVideo');
-    const video = document.querySelector('video');
+    video = document.querySelector('video');
     if (!video || document.fullscreenElement) return;
 
     try {
@@ -143,6 +161,18 @@ async function setFullscreenVideo() {
     }
 
     data.isFullscreen = !!document.fullscreenElement;
+
+    if (data.isFullscreen) {
+        try {
+            let video = document.querySelectorAll('video');
+            for (let i = 0; i < video.length; i++) {
+                video[i].setAttribute('style', 'object-fit: contain;background-color: black;');
+            }
+
+        } catch (e) {
+
+        }
+    }
 }
 
 /**
@@ -343,7 +373,7 @@ function scanPageForLinks() {
                     scanPageForLinks();
                 }, 4000);
             }
-            
+
         } finally {
             sessionStorage[STORAGE_KEYS.QUEUED] = JSON.stringify(queueUrls);
             localStorage[STORAGE_KEYS.DONE] = JSON.stringify(doneUrls);

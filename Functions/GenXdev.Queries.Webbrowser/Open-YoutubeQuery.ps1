@@ -384,18 +384,23 @@ function Open-YoutubeQuery {
     )
 
     begin {
+        # determine google domain based on language
+        $code = "www"
 
-        Write-Verbose "Initializing query handler"
+        # construct and encode the google search url
+        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -BoundParameters $PSBoundParameters `
+            -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
+            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        # prepare parameters for Open-Webbrowser
-        $null = $PSBoundParameters.Remove("Queries")
+        if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-        if (-not $PSBoundParameters.ContainsKey("Url")) {
-            $null = $PSBoundParameters.Add("Url", "Url")
-        }
+            $code = (Get-WebLanguageDictionary)[$Language]
 
-        if (-not $PSBoundParameters.ContainsKey("Monitor")) {
-            $null = $PSBoundParameters.Add("Monitor", $Monitor)
+            if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
+
+                $null = $invocationArguments.AcceptLang = $code
+            }
         }
     }
 
@@ -406,25 +411,8 @@ function Open-YoutubeQuery {
 
             Write-Verbose "Processing query: $query"
 
-            # determine google domain based on language
-            $code = "www"
-            if (-not [string]::IsNullOrWhiteSpace($Language)) {
-                $code = (Get-WebLanguageDictionary)[$Language]
-
-                if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
-
-                    $null = $PSBoundParameters.Add("AcceptLang", $code)
-                }
-            }
-
-            # construct and encode the google search url
-            $invocationArguments = Copy-IdenticalParamValues `
-                -BoundParameters $PSBoundParameters `
-                -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
-
             $invocationArguments."Url" = "https://www.youtube.com/results?search_query=" +
-                [Uri]::EscapeUriString($query)
+            [Uri]::EscapeUriString($query)
 
             # handle return url only scenario
             if ($ReturnOnlyURL) {
