@@ -27,7 +27,7 @@ Requires Windows 10 or later.
 #>
 function Invoke-WebbrowserTabPollingScript {
 
-     [CmdletBinding()]
+    [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseUsingScopeModifierInNewRunspaces", "")]
     param(
@@ -86,12 +86,12 @@ function Invoke-WebbrowserTabPollingScript {
 
             # initialize global state
             $global:data = @{
-                urls = @()
+                urls  = @()
                 query = $Query
             }
 
             # select the target browser tab
-            Select-WebbrowserTab  -ByReference $reference
+            Select-WebbrowserTab -ByReference $reference
 
             # navigate to initial url if specified
             if (![string]::IsNullOrWhiteSpace($initialUrl)) {
@@ -101,7 +101,7 @@ function Invoke-WebbrowserTabPollingScript {
 
             # start polling loop
             do {
-                Start-Sleep -MilliSeconds 250
+                Start-Sleep -Milliseconds 250
 
                 # execute scripts in browser
                 $null = Invoke-WebbrowserEvaluation `
@@ -118,7 +118,7 @@ function Invoke-WebbrowserTabPollingScript {
                     }
 
                     # reselect browser tab after callback
-                    Select-WebbrowserTab  -ByReference $reference
+                    Select-WebbrowserTab -ByReference $reference
                 }
             }
             while ($global:data.more)

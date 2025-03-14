@@ -1,4 +1,3 @@
-
 ################################################################################
 Describe "Open-GenXdevAppCatalog" {
 
@@ -10,7 +9,7 @@ Describe "Open-GenXdevAppCatalog" {
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
- [string] $message = ""
+        [string] $message = ""
         $analyzerResults | ForEach-Object {
 
             $message = $message + @"

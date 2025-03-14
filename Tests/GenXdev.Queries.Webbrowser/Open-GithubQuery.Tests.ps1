@@ -1,4 +1,3 @@
-
 ################################################################################
 Describe "Open-GithubQuery" {
 
@@ -10,7 +9,7 @@ Describe "Open-GithubQuery" {
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
- [string] $message = ""
+        [string] $message = ""
         $analyzerResults | ForEach-Object {
 
             $message = $message + @"

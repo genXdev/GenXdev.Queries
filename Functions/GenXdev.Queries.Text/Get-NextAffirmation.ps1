@@ -59,7 +59,8 @@ function Get-NextAffirmation {
             # output the affirmation text
             Write-Output $affirmation
 
-        } catch {
+        }
+        catch {
             Write-Error "Failed to retrieve affirmation: $_"
         }
     }

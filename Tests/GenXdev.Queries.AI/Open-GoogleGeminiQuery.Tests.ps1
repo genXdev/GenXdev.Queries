@@ -1,16 +1,15 @@
+################################################################################
+Describe "Open-GoogleGeminiQuery" {
 
-    ################################################################################
-    Describe "Open-GoogleGeminiQuery" {
+    It "Should pass PSScriptAnalyzer rules" {
 
-        It "Should pass PSScriptAnalyzer rules" {
-
-            # get the script path for analysis
-            $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Queries.AI\Open-GoogleGeminiQuery.ps1"
+        # get the script path for analysis
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Queries.AI\Open-GoogleGeminiQuery.ps1"
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
- [string] $message = ""
+        [string] $message = ""
         $analyzerResults | ForEach-Object {
 
             $message = $message + @"
@@ -26,6 +25,6 @@ Message: $($_.Message)
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;
-}
     }
-    ################################################################################
+}
+################################################################################
