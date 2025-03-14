@@ -1,7 +1,6 @@
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Clear-YoutubeWatched.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Copy-PDFsFromGoogleQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Get-GoogleSearchResultUrls.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Get-WebLanguageDictionary.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-AllGoogleLinks.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-AllYoutubeVideos.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-BingQuery.ps1"
