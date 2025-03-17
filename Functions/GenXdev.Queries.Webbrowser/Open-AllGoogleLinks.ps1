@@ -36,6 +36,7 @@ function Open-AllGoogleLinks {
             ValueFromPipelineByPropertyName,
             HelpMessage = "The query to perform"
         )]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [string[]] $Queries,
         ###############################################################################
         [ValidateSet(
@@ -196,7 +197,6 @@ function Open-AllGoogleLinks {
     )
 
     begin {
-        $Query = "$Query"
         $LangKey = "&hl=en";
 
         if (![string]::IsNullOrWhiteSpace($Language)) {
@@ -207,12 +207,17 @@ function Open-AllGoogleLinks {
 
     process {
 
-        $Global:data = @{
+        foreach ($Query in $Queries) {
 
-            urls  = @();
-            query = $Query
+            $Query = "$Query"
+
+            $Global:data = @{
+
+                urls  = @();
+                query = $Query
+            }
+
+            Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\..\..\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($query))$LangKey"
         }
-
-        Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($query))$LangKey"
     }
 }

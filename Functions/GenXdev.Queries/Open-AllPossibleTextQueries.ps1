@@ -35,6 +35,7 @@ function Open-AllPossibleTextQueries {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "The query to perform"
         )]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [ValidateNotNullOrEmpty()]
         [string[]] $Queries
         #######################################################################

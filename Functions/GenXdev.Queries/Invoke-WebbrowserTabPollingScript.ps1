@@ -130,6 +130,12 @@ function Invoke-WebbrowserTabPollingScript {
             $Callback
         )
 
+        $null = Wait-Job -Job $job
+
+        Receive-Job -Job $job
+
+        $null = Remove-Job -Job $job
+
         Write-Verbose "Started polling job with ID: $($job.Id)"
     }
 

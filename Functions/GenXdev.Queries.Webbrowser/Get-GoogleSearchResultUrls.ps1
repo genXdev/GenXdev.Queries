@@ -25,6 +25,8 @@ function Get-GoogleSearchResultUrls {
 
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
     [Alias("qlinksget")]
     param(
         [parameter(
@@ -35,6 +37,7 @@ function Get-GoogleSearchResultUrls {
             ValueFromPipelineByPropertyName,
             HelpMessage = "The query to perform"
         )]
+        [Alias("q", "Value", "Name", "Text", "Query")]
         [string[]] $Queries,
         ################################################################################
         [parameter(
@@ -201,56 +204,90 @@ function Get-GoogleSearchResultUrls {
     )
 
     begin {
-        # initialize script-scoped data structure
-        $Script:searchData = @{
-            urls   = @()
-            query  = ""
-            more   = $false
-            done   = @{}
-            source = @{ url = "" }
-        }
-
-        # prepare language key for search URL
-        $langKey = "&hl=en"
-        if (![string]::IsNullOrWhiteSpace($Language)) {
-            $langKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString(
-                (Get-WebLanguageDictionary)[$Language]
-            ))"
-        }
+        [bool] $more = $true;
+        [int] $i = 0;
+        Write-Verbose "Starting Google search operation"
     }
 
     process {
         foreach ($Query in $Queries) {
+            Write-Verbose "Processing query: $Query"
+
+            # initialize script-scoped data structure
+            $Global:Data = @{
+                urls   = @()
+                query  = ""
+                more   = $false
+                done   = @{}
+                source = @{ url = "" }
+            }
+
+            # prepare language key for search URL
+            $langKey = "&hl=en"
+            if (![string]::IsNullOrWhiteSpace($Language)) {
+                $langKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString(
+                (Get-WebLanguageDictionary)[$Language]
+            ))"
+            }
 
             # prepare search URL
             $encodedQuery = [Uri]::EscapeUriString($Query)
             $url = "https://www.google.com/search?q=$encodedQuery$langKey"
-
-            # initialize search data for this query
-            $Script:searchData.urls = @()
-            $Script:searchData.query = $encodedQuery
-            $Script:searchData.more = $false
-            $Script:searchData.done = @{}
-            $Script:searchData.source.url = $url
+            $results = [System.Collections.Generic.List[System.Uri]]::new()
 
             # navigate to search page
+            Write-Verbose "Navigating to: $url"
             Set-WebbrowserTabLocation $url
-
             do {
-                $null = Start-Sleep 10
+                Write-Verbose "Scanning page for URLs..."
+                Get-WebbrowserTabDomNodes a "e.getAttribute('href')" | Where-Object { -not ("$PSItem" -like "*google*") } | Where-Object { "$PSItem" -like "http?://*" } |
+                ForEach-Object {
+                    try {
+                        Write-Verbose "Trying to parse url: $_"
+                        [System.Uri] $uri = [System.Uri]::new($_);
+                        Write-Verbose "Processing URL: $uri"
 
-                # execute search result extraction script
-                $null = Invoke-WebbrowserEvaluation -Scripts @(
-                    "$PSScriptRoot\Get-GoogleSearchResultUrls.js"
-                )
+                        if ($uri.IsAbsoluteUri) {
 
-                # output results while respecting max limit
-                $Script:searchData.urls | ForEach-Object -ErrorAction SilentlyContinue {
-                    if ($Max-- -gt 0) {
-                        $_
+                            [bool] $exists = @($results | Where-Object { $PSItem.AbsoluteUri -eq $uri.AbsoluteUri }).Count -gt 0
+
+                            if (-not $exists) {
+
+                                if ($Max-- -gt 0) {
+
+                                    Write-Verbose "Adding new unique URL: $uri"
+                                    $results.Add($uri)
+                                }
+                                else {
+                                    Write-Verbose "Reached maximum results limit"
+                                }
+                            }
+                            else {
+                                Write-Verbose "Skipping duplicate URL: $uri"
+                            }
+                        }
+                    }
+                    catch {
+                        Write-Verbose "Failed to process URL: $_"
                     }
                 }
-            } while ($Script:searchData.more -and ($Max -gt 0))
+
+
+                try {
+                    $Global:chromeController.GetByText("Next")[0].ClickAsync().Wait();
+                    $Global:chromeController.WaitForNavigationAsync().Wait();
+                    $more = $true
+                }
+                catch {
+                    $more = $i++ -gt 3;
+                }
+
+                Start-Sleep -Seconds 1
+
+            } while ($more -and ($Max -gt 0))
+
+            Write-Verbose "Found $($results.Count) unique URLs"
+            $results | ForEach-Object { $PSItem }
         }
     }
 }
