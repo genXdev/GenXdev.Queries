@@ -206,12 +206,12 @@ function Get-GoogleSearchResultUrls {
     begin {
         [bool] $more = $true;
         [int] $i = 0;
-        Write-Verbose "Starting Google search operation"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Google search operation"
     }
 
     process {
         foreach ($Query in $Queries) {
-            Write-Verbose "Processing query: $Query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $Query"
 
             # initialize script-scoped data structure
             $Global:Data = @{
@@ -226,7 +226,7 @@ function Get-GoogleSearchResultUrls {
             $langKey = "&hl=en"
             if (![string]::IsNullOrWhiteSpace($Language)) {
                 $langKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString(
-                (Get-WebLanguageDictionary)[$Language]
+                (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
             ))"
             }
 
@@ -236,39 +236,39 @@ function Get-GoogleSearchResultUrls {
             $results = [System.Collections.Generic.List[System.Uri]]::new()
 
             # navigate to search page
-            Write-Verbose "Navigating to: $url"
-            Set-WebbrowserTabLocation $url
+            Microsoft.PowerShell.Utility\Write-Verbose "Navigating to: $url"
+            GenXdev.Webbrowser\Set-WebbrowserTabLocation $url
             do {
-                Write-Verbose "Scanning page for URLs..."
-                Get-WebbrowserTabDomNodes a "e.getAttribute('href')" | Where-Object { -not ("$PSItem" -like "*google*") } | Where-Object { "$PSItem" -like "http?://*" } |
-                ForEach-Object {
+                Microsoft.PowerShell.Utility\Write-Verbose "Scanning page for URLs..."
+                GenXdev.Webbrowser\Get-WebbrowserTabDomNodes a "e.getAttribute('href')" | Microsoft.PowerShell.Core\Where-Object { -not ("$PSItem" -like "*google*") } | Microsoft.PowerShell.Core\Where-Object { "$PSItem" -like "http?://*" } |
+                Microsoft.PowerShell.Core\ForEach-Object {
                     try {
-                        Write-Verbose "Trying to parse url: $_"
+                        Microsoft.PowerShell.Utility\Write-Verbose "Trying to parse url: $_"
                         [System.Uri] $uri = [System.Uri]::new($_);
-                        Write-Verbose "Processing URL: $uri"
+                        Microsoft.PowerShell.Utility\Write-Verbose "Processing URL: $uri"
 
                         if ($uri.IsAbsoluteUri) {
 
-                            [bool] $exists = @($results | Where-Object { $PSItem.AbsoluteUri -eq $uri.AbsoluteUri }).Count -gt 0
+                            [bool] $exists = @($results | Microsoft.PowerShell.Core\Where-Object { $PSItem.AbsoluteUri -eq $uri.AbsoluteUri }).Count -gt 0
 
                             if (-not $exists) {
 
                                 if ($Max-- -gt 0) {
 
-                                    Write-Verbose "Adding new unique URL: $uri"
+                                    Microsoft.PowerShell.Utility\Write-Verbose "Adding new unique URL: $uri"
                                     $results.Add($uri)
                                 }
                                 else {
-                                    Write-Verbose "Reached maximum results limit"
+                                    Microsoft.PowerShell.Utility\Write-Verbose "Reached maximum results limit"
                                 }
                             }
                             else {
-                                Write-Verbose "Skipping duplicate URL: $uri"
+                                Microsoft.PowerShell.Utility\Write-Verbose "Skipping duplicate URL: $uri"
                             }
                         }
                     }
                     catch {
-                        Write-Verbose "Failed to process URL: $_"
+                        Microsoft.PowerShell.Utility\Write-Verbose "Failed to process URL: $_"
                     }
                 }
 
@@ -282,12 +282,12 @@ function Get-GoogleSearchResultUrls {
                     $more = $i++ -gt 3;
                 }
 
-                Start-Sleep -Seconds 1
+                Microsoft.PowerShell.Utility\Start-Sleep -Seconds 1
 
             } while ($more -and ($Max -gt 0))
 
-            Write-Verbose "Found $($results.Count) unique URLs"
-            $results | ForEach-Object { $PSItem }
+            Microsoft.PowerShell.Utility\Write-Verbose "Found $($results.Count) unique URLs"
+            $results | Microsoft.PowerShell.Core\ForEach-Object { $PSItem }
         }
     }
 }

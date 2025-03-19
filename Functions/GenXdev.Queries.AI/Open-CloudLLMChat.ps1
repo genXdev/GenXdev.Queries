@@ -375,7 +375,7 @@ function Open-CloudLLMChat {
         $code = "www"
         if (-not[string]:: IsNullOrWhiteSpace($Language)) {
 
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if ($AcceptLang -eq $null) {
 
@@ -391,14 +391,6 @@ function Open-CloudLLMChat {
         # Access the dynamic parameter 'Endpoint'
         $endpointValue = $Endpoint
 
-        # CommandInfo of function matching the 'Endpoint' value
-        $command = Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
-
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -BoundParameters $PSBoundParameters `
-            -FunctionName "Open-$($endpointValue)Query" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
-
         if (-not $PSBoundParameters.ContainsKey("Queries")) {
 
             $null = $PSBoundParameters.Add("Queries", $Queries)
@@ -407,6 +399,8 @@ function Open-CloudLLMChat {
 
             $null = $PSBoundParameters.Add("Query", $null)
         }
+
+        $command = Microsoft.PowerShell.Core\Get-Command -Name "GenXdev.Queries\Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
     }
 
     process {
@@ -418,8 +412,13 @@ function Open-CloudLLMChat {
 
             $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
-                -FunctionName "Open-$($endpointValue)Query" `
-                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+            if ($null -eq $command) {
+
+                Microsoft.PowerShell.Utility\Write-Error "The endpoint could not be found"
+            }
 
             & $command @invocationArguments
         }

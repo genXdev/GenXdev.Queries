@@ -68,7 +68,7 @@ function Get-WikipediaSummary {
     process {
         foreach ($query in $Queries) {
 
-            Write-Verbose "Searching Wikipedia for: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Searching Wikipedia for: $query"
 
             # prepare the url-encoded query
             $urlPart = [Uri]::EscapeUriString($query.Replace("-", " "))
@@ -77,32 +77,32 @@ function Get-WikipediaSummary {
 
             try {
                 # fetch and parse the wikipedia api response
-                $response = Invoke-WebRequest -Uri $url -MaximumRedirection 20
-                $data = $response.Content | ConvertFrom-Json
+                $response = Microsoft.PowerShell.Utility\Invoke-WebRequest -Uri $url -MaximumRedirection 20
+                $data = $response.Content | Microsoft.PowerShell.Utility\ConvertFrom-Json
 
                 # extract the page content
                 $pageId = ($data.query.pages |
-                    Get-Member -MemberType NoteProperty |
-                    Select-Object -ExpandProperty Name -First 1)
+                    Microsoft.PowerShell.Utility\Get-Member -MemberType NoteProperty |
+                    Microsoft.PowerShell.Utility\Select-Object -ExpandProperty Name -First 1)
                 $extract = $data.query.pages.$pageId.extract
 
                 if ([string]::IsNullOrEmpty($extract)) {
-                    Write-Warning "No Wikipedia content found for '$query'"
+                    Microsoft.PowerShell.Utility\Write-Warning "No Wikipedia content found for '$query'"
                     continue
                 }
 
                 # clean up and output the result
-                Write-Verbose "Found content, cleaning up response"
+                Microsoft.PowerShell.Utility\Write-Verbose "Found content, cleaning up response"
                 try {
                     Remove-ParentheticalContent -Text $extract
                 }
                 catch {
-                    Write-Verbose "Failed to clean content, returning raw extract"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Failed to clean content, returning raw extract"
                     $extract
                 }
             }
             catch {
-                Write-Error "Failed to retrieve Wikipedia content: $_"
+                Microsoft.PowerShell.Utility\Write-Error "Failed to retrieve Wikipedia content: $_"
             }
         }
     }

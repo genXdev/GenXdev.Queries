@@ -381,11 +381,11 @@ function Open-InstantStreetViewQuery {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -399,12 +399,12 @@ function Open-InstantStreetViewQuery {
         # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             $encodedQuery = [System.Web.HttpUtility]::UrlEncode($query)
             $url = "https://www.instantstreetview.com/s/$encodedQuery"
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             # construct the InstantStreetView URL with escaped query
             $invocationArguments."Url" = $url;
@@ -412,17 +412,17 @@ function Open-InstantStreetViewQuery {
             # handle return url only scenario
             if ($ReturnOnlyURL) {
 
-                Write-Output ($invocationArguments.Url)
+                Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
                 continue
             }
 
             # launch browser
-            Open-Webbrowser @invocationArguments
+            GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
             # return url if requested
             if ($ReturnURL) {
 
-                Write-Output ($invocationArguments.Url)
+                Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
             }
         }
     }

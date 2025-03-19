@@ -209,34 +209,34 @@ function Copy-PDFsFromGoogleQuery {
     )
 
     begin {
-        Write-Verbose "Starting PDF download operation in directory: $PWD"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting PDF download operation in directory: $PWD"
     }
 
     process {
         foreach ($query in $Queries) {
-            Write-Verbose "Processing query: $query with language: $($Language ?? 'default')"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query with language: $($Language ?? 'default')"
 
             # construct search query with pdf filter
             $searchQuery = "filetype:pdf $query"
-            Write-Verbose "Using search query: $searchQuery"
+            Microsoft.PowerShell.Utility\Write-Verbose "Using search query: $searchQuery"
 
             # get search results
             $urls = if ($Language) {
-                Write-Verbose "Searching with language filter: $Language"
-                Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery -Language $Language
+                Microsoft.PowerShell.Utility\Write-Verbose "Searching with language filter: $Language"
+                GenXdev.Queries\Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery -Language $Language
             }
             else {
-                Write-Verbose "Searching without language filter"
-                Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery
+                Microsoft.PowerShell.Utility\Write-Verbose "Searching without language filter"
+                GenXdev.Queries\Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery
             }
 
-            Write-Verbose "Found $($urls.Count) PDF URLs to process"
-            Write-Verbose "Starting parallel download with throttle limit: 64"
+            Microsoft.PowerShell.Utility\Write-Verbose "Found $($urls.Count) PDF URLs to process"
+            Microsoft.PowerShell.Utility\Write-Verbose "Starting parallel download with throttle limit: 64"
 
             # process urls in parallel
-            $urls | ForEach-Object -ThrottleLimit 64 -Parallel {
+            $urls | Microsoft.PowerShell.Core\ForEach-Object -ThrottleLimit 64 -Parallel {
                 try {
-                    Write-Verbose "Processing URL: $PSItem"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Processing URL: $PSItem"
 
                     # construct safe filename
                     $safeName = [Uri]::UnescapeDataString(
@@ -244,42 +244,42 @@ function Copy-PDFsFromGoogleQuery {
                     ).Split("#")[0].Split("?")[0]
 
                     $safeName = $safeName -replace '[\\/:*?"<>|\s]', '_'
-                    Write-Verbose "Sanitized filename: $safeName"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Sanitized filename: $safeName"
 
                     # create unique filename
-                    $destination = Join-Path $using:PWD (
+                    $destination = Microsoft.PowerShell.Management\Join-Path $using:PWD (
                         "{0}_{1}_{2}.pdf" -f $safeName,
                         [DateTime]::UtcNow.Ticks,
                         [Threading.Thread]::CurrentThread.ManagedThreadId
                     )
 
-                    Write-Verbose "Downloading to: $destination"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Downloading to: $destination"
 
                     # download pdf
-                    $response = Invoke-WebRequest -Uri $PSItem -OutFile $destination
-                    Write-Verbose "Download completed: $($response.StatusCode) - $($response.StatusDescription)"
+                    $response = Microsoft.PowerShell.Utility\Invoke-WebRequest -Uri $PSItem -OutFile $destination
+                    Microsoft.PowerShell.Utility\Write-Verbose "Download completed: $($response.StatusCode) - $($response.StatusDescription)"
 
-                    $fileInfo = Get-Item $destination
-                    Write-Verbose "Saved file: $($fileInfo.FullName) ($($fileInfo.Length) bytes)"
+                    $fileInfo = Microsoft.PowerShell.Management\Get-Item $destination
+                    Microsoft.PowerShell.Utility\Write-Verbose "Saved file: $($fileInfo.FullName) ($($fileInfo.Length) bytes)"
                     $fileInfo
                 }
                 catch {
-                    Write-Warning "Failed to download: $PSItem. Error: $($_.Exception.Message)"
+                    Microsoft.PowerShell.Utility\Write-Warning "Failed to download: $PSItem. Error: $($_.Exception.Message)"
                 }
             }
 
-            Get-ChildItem .\*.pdf | ForEach-Object {
+            Microsoft.PowerShell.Management\Get-ChildItem .\*.pdf | Microsoft.PowerShell.Core\ForEach-Object {
 
                 $newName = [System.Text.RegularExpressions.Regex]::Replace(($_.Name), "\.pdf_\d*_\d*\.pdf", ".pdf")
                 if ($newName -eq $_.Name) { return }
 
-                if ([IO.File]::Exists((Expand-Path ".\$newName"))) {
+                if ([IO.File]::Exists((GenXdev.FileSystem\Expand-Path ".\$newName"))) {
 
-                    $null = Remove-Item $_.FullName -Force
+                    $null = Microsoft.PowerShell.Management\Remove-Item $_.FullName -Force
                     return;
                 }
 
-                $null = Rename-Item $_ $newName -Force
+                $null = Microsoft.PowerShell.Management\Rename-Item $_ $newName -Force
             }
         }
     }

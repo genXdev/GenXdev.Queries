@@ -462,7 +462,7 @@ function Open-YabAIBattle {
         # determine google domain based on language
         $code = "www"
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -521,26 +521,26 @@ function Open-YabAIBattle {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         $url = "https://yab.genxdev.net/#/ai/$($SpectateOnly ? 'spectate': 'battle')/"
         $invocationArguments."Url" = $url
-        Write-Verbose "Game URL: $url"
+        Microsoft.PowerShell.Utility\Write-Verbose "Game URL: $url"
 
         # handle return url only scenario
         if ($ReturnOnlyURL) {
 
-            Write-Output $url
+            Microsoft.PowerShell.Utility\Write-Output $url
             return
         }
 
         # launch browser
-        Open-Webbrowser @invocationArguments
+        GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
         # return url if requested
         if ($ReturnURL) {
 
-            Write-Output $url
+            Microsoft.PowerShell.Utility\Write-Output $url
         }
     }
 

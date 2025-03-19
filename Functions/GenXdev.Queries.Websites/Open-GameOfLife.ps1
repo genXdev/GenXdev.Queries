@@ -391,7 +391,7 @@ function Open-GameOfLife {
         # determine google domain based on language
         $code = "www"
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -403,7 +403,7 @@ function Open-GameOfLife {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         $invocationArguments."Url" = "https://conway.genxdev.net/"
 
@@ -411,7 +411,7 @@ function Open-GameOfLife {
 
         if ($ReturnOnlyURL) {
 
-            Write-Output ($invocationArguments.Url)
+            Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
             return
         }
 
@@ -432,11 +432,11 @@ function Open-GameOfLife {
 
         if ($PSBoundParameters.ContainsKey("NoFullScreen")) {
 
-            $null = $PSBoundParameters.Remove("NoFullScreen") | Out-Null;
+            $null = $PSBoundParameters.Remove("NoFullScreen") | Microsoft.PowerShell.Core\Out-Null;
         }
         if ($PSBoundParameters.ContainsKey("NoFullScreen")) {
 
-            $null = $PSBoundParameters.Remove("NoFullScreen") | Out-Null;
+            $null = $PSBoundParameters.Remove("NoFullScreen") | Microsoft.PowerShell.Core\Out-Null;
         }
     }
 
@@ -444,17 +444,17 @@ function Open-GameOfLife {
 
         if ($ReturnOnlyURL) {
 
-            Write-Output ($invocationArguments.Url)
+            Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
             return
         }
 
         # launch browser
-        Open-Webbrowser @invocationArguments
+        GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
         # return url if requested
         if ($ReturnURL) {
 
-            Write-Output ($invocationArguments.Url)
+            Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
         }
     }
 

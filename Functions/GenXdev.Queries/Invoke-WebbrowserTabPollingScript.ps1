@@ -61,7 +61,7 @@ function Invoke-WebbrowserTabPollingScript {
     )
 
     begin {
-        Write-Verbose "Starting browser tab polling with $(
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting browser tab polling with $(
             $Scripts.Count) scripts"
 
         # validate scripts parameter if provided
@@ -78,8 +78,8 @@ function Invoke-WebbrowserTabPollingScript {
     process {
 
         # initialize thread job to run polling in background
-        $job = Start-ThreadJob `
-            -InitializationScript { Import-Module GenXdev.Queries } `
+        $job = ThreadJob\Start-ThreadJob `
+            -InitializationScript { Microsoft.PowerShell.Core\Import-Module GenXdev.Queries } `
             -ScriptBlock {
 
             param ($scripts, $reference, $initialUrl, $callback)
@@ -91,52 +91,52 @@ function Invoke-WebbrowserTabPollingScript {
             }
 
             # select the target browser tab
-            Select-WebbrowserTab -ByReference $reference
+            GenXdev.Webbrowser\Select-WebbrowserTab -ByReference $reference
 
             # navigate to initial url if specified
             if (![string]::IsNullOrWhiteSpace($initialUrl)) {
-                $null = Invoke-WebbrowserEvaluation `
+                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation `
                     "document.location.href='$initialUrl'" -NoAutoSelectTab
             }
 
             # start polling loop
             do {
-                Start-Sleep -Milliseconds 250
+                Microsoft.PowerShell.Utility\Start-Sleep -Milliseconds 250
 
                 # execute scripts in browser
-                $null = Invoke-WebbrowserEvaluation `
+                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation `
                     -Scripts $scripts -NoAutoSelectTab
 
                 # process results via callback if provided
                 if ($null -ne $callback) {
                     try {
-                        Invoke-Command -ScriptBlock $callback `
+                        Microsoft.PowerShell.Core\Invoke-Command -ScriptBlock $callback `
                             -ErrorAction SilentlyContinue
                     }
                     catch {
-                        Write-Warning $PSItem.Exception
+                        Microsoft.PowerShell.Utility\Write-Warning $PSItem.Exception
                     }
 
                     # reselect browser tab after callback
-                    Select-WebbrowserTab -ByReference $reference
+                    GenXdev.Webbrowser\Select-WebbrowserTab -ByReference $reference
                 }
             }
             while ($global:data.more)
 
         } -ArgumentList @(
             $Scripts,
-            (Get-ChromiumSessionReference),
+            (GenXdev.Webbrowser\Get-ChromiumSessionReference),
             $InitialUrl,
             $Callback
         )
 
-        $null = Wait-Job -Job $job
+        $null = Microsoft.PowerShell.Core\Wait-Job -Job $job
 
-        Receive-Job -Job $job
+        Microsoft.PowerShell.Core\Receive-Job -Job $job
 
-        $null = Remove-Job -Job $job
+        $null = Microsoft.PowerShell.Core\Remove-Job -Job $job
 
-        Write-Verbose "Started polling job with ID: $($job.Id)"
+        Microsoft.PowerShell.Utility\Write-Verbose "Started polling job with ID: $($job.Id)"
     }
 
     end {

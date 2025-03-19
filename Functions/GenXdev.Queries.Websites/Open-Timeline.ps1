@@ -365,18 +365,18 @@ function Open-Timeline {
             @{ code = "zh"; name = "Chinese" }
         )
 
-        if ($PSBoundParameters.ContainsKey("Language")) { $PSBoundParameters.Remove("Language") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("Theme")) { $PSBoundParameters.Remove("Theme") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("DragedNodeBackground")) { $PSBoundParameters.Remove("DragedNodeBackground") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("FocusedNodeBackground")) { $PSBoundParameters.Remove("FocusedNodeBackground") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("FocusedNodeForeground")) { $PSBoundParameters.Remove("FocusedNodeForeground") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("UnFocusedNodeBackground")) { $PSBoundParameters.Remove("UnFocusedNodeBackground") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("UnFocusedNodeForeground")) { $PSBoundParameters.Remove("UnFocusedNodeForeground") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("BorderLightColor")) { $PSBoundParameters.Remove("BorderLightColor") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("BorderDarkColor")) { $PSBoundParameters.Remove("BorderDarkColor") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("BorderWidth")) { $PSBoundParameters.Remove("BorderWidth") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("RotationDelaySeconds")) { $PSBoundParameters.Remove("RotationDelaySeconds") | Out-Null }
-        if ($PSBoundParameters.ContainsKey("ReturnUrl")) { $PSBoundParameters.Remove("ReturnUrl") | Out-Null }
+        if ($PSBoundParameters.ContainsKey("Language")) { $PSBoundParameters.Remove("Language") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("Theme")) { $PSBoundParameters.Remove("Theme") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("DragedNodeBackground")) { $PSBoundParameters.Remove("DragedNodeBackground") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("FocusedNodeBackground")) { $PSBoundParameters.Remove("FocusedNodeBackground") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("FocusedNodeForeground")) { $PSBoundParameters.Remove("FocusedNodeForeground") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("UnFocusedNodeBackground")) { $PSBoundParameters.Remove("UnFocusedNodeBackground") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("UnFocusedNodeForeground")) { $PSBoundParameters.Remove("UnFocusedNodeForeground") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("BorderLightColor")) { $PSBoundParameters.Remove("BorderLightColor") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("BorderDarkColor")) { $PSBoundParameters.Remove("BorderDarkColor") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("BorderWidth")) { $PSBoundParameters.Remove("BorderWidth") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("RotationDelaySeconds")) { $PSBoundParameters.Remove("RotationDelaySeconds") | Microsoft.PowerShell.Core\Out-Null }
+        if ($PSBoundParameters.ContainsKey("ReturnUrl")) { $PSBoundParameters.Remove("ReturnUrl") | Microsoft.PowerShell.Core\Out-Null }
     }
 
     process {
@@ -385,15 +385,15 @@ function Open-Timeline {
         [string] $queryParams = "?BorderWidth=$BorderWidth" +
         "&RotationDelaySeconds=$RotationDelaySeconds"
 
-        Write-Verbose "Building URL with parameters: $queryParams"
+        Microsoft.PowerShell.Utility\Write-Verbose "Building URL with parameters: $queryParams"
 
         # handle language selection if specified
         if (-not [String]::IsNullOrWhiteSpace($Language)) {
 
             # lookup language code
             $langCode = $supportedLanguages |
-            Where-Object { $_.name -eq $Language } |
-            Select-Object -ExpandProperty code
+            Microsoft.PowerShell.Core\Where-Object { $_.name -eq $Language } |
+            Microsoft.PowerShell.Utility\Select-Object -ExpandProperty code
 
             $queryParams += "&lang=$langCode"
         }
@@ -425,7 +425,7 @@ function Open-Timeline {
 
         # handle return url only scenario
         if ($ReturnOnlyURL) {
-            Write-Output $url
+            Microsoft.PowerShell.Utility\Write-Output $url
             return
         }
 
@@ -446,11 +446,11 @@ function Open-Timeline {
 
         if ($PSBoundParameters.ContainsKey("NoFullScreen")) {
 
-            $null = $PSBoundParameters.Remove("NoFullScreen") | Out-Null;
+            $null = $PSBoundParameters.Remove("NoFullScreen") | Microsoft.PowerShell.Core\Out-Null;
         }
         if ($PSBoundParameters.ContainsKey("NoFullScreen")) {
 
-            $null = $PSBoundParameters.Remove("NoFullScreen") | Out-Null;
+            $null = $PSBoundParameters.Remove("NoFullScreen") | Microsoft.PowerShell.Core\Out-Null;
         }
         if ($PSBoundParameters.ContainsKey("NoApplicationMode")) {
 
@@ -474,14 +474,14 @@ function Open-Timeline {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        Open-Webbrowser @invocationArguments
+        GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
         # return url if requested
         if ($ReturnURL) {
 
-            Write-Output $url
+            Microsoft.PowerShell.Utility\Write-Output $url
         }
     }
 }

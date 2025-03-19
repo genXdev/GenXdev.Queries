@@ -362,7 +362,7 @@ function Open-BingCopilotQuery {
     )
 
     begin {
-        Write-Verbose "Initializing query handler"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
         $null = $PSBoundParameters.Remove("Queries")
@@ -375,12 +375,12 @@ function Open-BingCopilotQuery {
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
             $null = $PSBoundParameters.Add("Monitor", $Monitor)
         }
-        Write-Verbose "Processing query: $query"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
         # determine google domain based on language
         $code = "www"
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -392,7 +392,7 @@ function Open-BingCopilotQuery {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         $invocationArguments.Url = "https://copilot.microsoft.com/"
     }
@@ -402,16 +402,16 @@ function Open-BingCopilotQuery {
         # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             $invocationArguments.Queries = @($query)
 
-            Open-WebsiteAndPerformQuery @invocationArguments
+            GenXdev.Queries\Open-WebsiteAndPerformQuery @invocationArguments
         }
     }
 
     end {
-        Write-Verbose "Query operation completed"
+        Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
 ################################################################################

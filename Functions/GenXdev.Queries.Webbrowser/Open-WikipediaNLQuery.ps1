@@ -228,12 +228,12 @@ function Open-WikipediaNLQuery {
         # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             # determine google domain based on language
             $code = "www"
             if (-not [string]::IsNullOrWhiteSpace($Language)) {
-                $code = (Get-WebLanguageDictionary)[$Language]
+                $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
                 if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -245,11 +245,11 @@ function Open-WikipediaNLQuery {
             $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Queries\Open-WikipediaQuery" `
-                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
             $invocationArguments."Language" = "Dutch"
 
-            Open-WikipediaQuery @invocationArguments
+            GenXdev.Queries\Open-WikipediaQuery @invocationArguments
         }
     }
 

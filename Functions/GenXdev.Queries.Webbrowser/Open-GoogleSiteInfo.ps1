@@ -383,7 +383,7 @@ function Open-GoogleSiteInfo {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-GoogleQuery" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
     }
 
     process {
@@ -391,7 +391,7 @@ function Open-GoogleSiteInfo {
         # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             $invocationArguments."Queries" = @(
                 "site:$Query",
@@ -400,13 +400,13 @@ function Open-GoogleSiteInfo {
             )
 
             # execute the google search queries
-            Open-GoogleQuery @invocationArguments
+            GenXdev.Queries\Open-GoogleQuery @invocationArguments
         }
     }
 
     end {
 
-        Write-Verbose "Completed Google site information queries"
+        Microsoft.PowerShell.Utility\Write-Verbose "Completed Google site information queries"
     }
 }
 ################################################################################

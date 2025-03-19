@@ -1,7 +1,7 @@
 ################################################################################
-Describe "Open-YoutubeQuery" {
+Pester\Describe "Open-YoutubeQuery" {
 
-    It "Should pass PSScriptAnalyzer rules" {
+    Pester\It "Should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Queries.Webbrowser\Open-YoutubeQuery.ps1"
@@ -10,7 +10,7 @@ Describe "Open-YoutubeQuery" {
             -Path $scriptPath
 
         [string] $message = ""
-        $analyzerResults | ForEach-Object {
+        $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"
 --------------------------------------------------
@@ -21,7 +21,7 @@ Message: $($_.Message)
 "@
         }
 
-        $analyzerResults.Count | Should -Be 0 -Because @"
+        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;

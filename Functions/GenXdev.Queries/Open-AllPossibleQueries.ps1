@@ -380,7 +380,7 @@ function Open-AllPossibleQueries {
     )
 
     begin {
-        Write-Verbose "Initializing query handler"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
         if (-not $PSBoundParameters.ContainsKey("Queries")) {
@@ -418,9 +418,9 @@ function Open-AllPossibleQueries {
                 if ($isUri) {
 
                     # process uri queries
-                    Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-                    ForEach-Object Name |
-                    ForEach-Object {
+                    Microsoft.PowerShell.Core\Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
+                    Microsoft.PowerShell.Core\ForEach-Object "$($_.ModuleName)\$($_.Name)" |
+                    Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ($PSItem -like "Open-WebsiteAndPerformQuery") {
                             return
@@ -451,11 +451,11 @@ function Open-AllPossibleQueries {
                                     $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                                         -BoundParameters $PSBoundParameters `
                                         -FunctionName $PSItem `
-                                        -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                                        -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
                                     & $PSItem @invocationParams
                                 }
                                 catch {
-                                    Write-Warning @"
+                                    Microsoft.PowerShell.Utility\Write-Warning @"
 Error: $($PSItem.Exception)
 At: $($PSItem.InvocationInfo.PositionMessage)
 Line: $($PSItem.InvocationInfo.Line)
@@ -471,9 +471,9 @@ Line: $($PSItem.InvocationInfo.Line)
                 throw
             }
 
-            Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
-            ForEach-Object Name |
-            ForEach-Object {
+            Microsoft.PowerShell.Core\Get-Command -Module "*.Queries" -ErrorAction SilentlyContinue |
+            Microsoft.PowerShell.Core\ForEach-Object "$($_.ModuleName)\$($_.Name)" |
+            Microsoft.PowerShell.Core\ForEach-Object {
 
                 if ($PSItem -like "Open-WebsiteAndPerformQuery") { return }
                 if ($PSItem -like "Open-Query") { return }
@@ -487,12 +487,12 @@ Line: $($PSItem.InvocationInfo.Line)
                         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                             -BoundParameters $PSBoundParameters `
                             -FunctionName $PSItem `
-                            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
                         & $PSItem @invocationParams
                     }
                     Catch {
-                        Write-Warning @"
+                        Microsoft.PowerShell.Utility\Write-Warning @"
 Error: $($PSItem.Exception)
 At: $($PSItem.InvocationInfo.PositionMessage)
 Line: $($PSItem.InvocationInfo.Line)
@@ -504,6 +504,6 @@ Line: $($PSItem.InvocationInfo.Line)
     }
 
     end {
-        Write-Verbose "Completed processing all queries"
+        Microsoft.PowerShell.Utility\Write-Verbose "Completed processing all queries"
     }
 }

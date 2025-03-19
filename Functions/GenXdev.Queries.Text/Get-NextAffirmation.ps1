@@ -36,15 +36,15 @@ function Get-NextAffirmation {
     begin {
         # initialize api endpoint
         $apiEndpoint = "https://www.affirmations.dev/"
-        Write-Verbose "Using API endpoint: $apiEndpoint"
+        Microsoft.PowerShell.Utility\Write-Verbose "Using API endpoint: $apiEndpoint"
     }
 
     process {
 
         try {
             # fetch affirmation from the api with timeout
-            Write-Verbose "Fetching affirmation from API..."
-            $response = Invoke-RestMethod -Uri $apiEndpoint `
+            Microsoft.PowerShell.Utility\Write-Verbose "Fetching affirmation from API..."
+            $response = Microsoft.PowerShell.Utility\Invoke-RestMethod -Uri $apiEndpoint `
                 -TimeoutSec 2
 
             # extract affirmation text
@@ -52,16 +52,16 @@ function Get-NextAffirmation {
 
             # if speak parameter is true, use text-to-speech
             if ($Speak) {
-                Write-Verbose "Speaking affirmation using text-to-speech"
-                Start-TextToSpeech $affirmation
+                Microsoft.PowerShell.Utility\Write-Verbose "Speaking affirmation using text-to-speech"
+                GenXdev.Console\Start-TextToSpeech $affirmation
             }
 
             # output the affirmation text
-            Write-Output $affirmation
+            Microsoft.PowerShell.Utility\Write-Output $affirmation
 
         }
         catch {
-            Write-Error "Failed to retrieve affirmation: $_"
+            Microsoft.PowerShell.Utility\Write-Error "Failed to retrieve affirmation: $_"
         }
     }
 

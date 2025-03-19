@@ -201,7 +201,7 @@ function Open-AllGoogleLinks {
 
         if (![string]::IsNullOrWhiteSpace($Language)) {
 
-            $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((Get-WebLanguageDictionary)[$Language]))"
+            $LangKey = "&hl=en&lr=lang_$([Uri]::EscapeUriString((GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]))"
         }
     }
 
@@ -217,7 +217,7 @@ function Open-AllGoogleLinks {
                 query = $Query
             }
 
-            Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\..\..\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($query))$LangKey"
+            GenXdev.Queries\Invoke-WebbrowserTabPollingScript -Scripts @("$PSScriptRoot\..\..\Open-AllGoogleLinks.js") -InitialUrl "https://www.google.com/search?q=$([Uri]::EscapeUriString($query))$LangKey"
         }
     }
 }

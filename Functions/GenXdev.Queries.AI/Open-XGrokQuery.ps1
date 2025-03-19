@@ -362,7 +362,7 @@ function Open-XGrokQuery {
     )
 
     begin {
-        Write-Verbose "Initializing query handler"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing query handler"
 
         # prepare parameters for Open-Webbrowser
         $null = $PSBoundParameters.Remove("Queries")
@@ -375,12 +375,12 @@ function Open-XGrokQuery {
         if (-not $PSBoundParameters.ContainsKey("Monitor")) {
             $null = $PSBoundParameters.Add("Monitor", $Monitor)
         }
-        Write-Verbose "Processing query: $query"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
         # determine google domain based on language
         $code = "www"
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -392,7 +392,7 @@ function Open-XGrokQuery {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         $invocationArguments.Url = "https://x.com/i/grok"
     }
@@ -405,12 +405,12 @@ function Open-XGrokQuery {
             $invocationArguments.Queries = @($query)
             $invocationArguments.FocusElement = "textarea"
 
-            Open-WebsiteAndPerformQuery @invocationArguments
+            GenXdev.Queries\Open-WebsiteAndPerformQuery @invocationArguments
         }
     }
 
     end {
-        Write-Verbose "Query operation completed"
+        Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
 ################################################################################

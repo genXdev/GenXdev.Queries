@@ -380,7 +380,7 @@ function Open-SearchEngine {
         $code = "www"
         if (-not[string]:: IsNullOrWhiteSpace($Language)) {
 
-            $code = (Get-WebLanguageDictionary)[$Language]
+            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
             if ($AcceptLang -eq $null) {
 
@@ -396,12 +396,12 @@ function Open-SearchEngine {
         $endpointValue = $Endpoint
 
         # CommandInfo of function matching the 'Endpoint' value
-        $command = Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
+        $command = Microsoft.PowerShell.Core\Get-Command -Name "Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
 
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName "Open-$($endpointValue)Query" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
     }
 
     process {

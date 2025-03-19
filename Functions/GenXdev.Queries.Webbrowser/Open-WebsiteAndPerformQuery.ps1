@@ -375,54 +375,54 @@ function Open-WebsiteAndPerformQuery {
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         $invocationArguments.PassThru = $true
         $invocationArguments.RestoreFocus = $false;
         $invocationArguments.NewWindow = $true;
 
-        $previousClipboard = Get-Clipboard
+        $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
     }
 
     process {
 
         foreach ($query in $Queries) {
 
-            $process = Open-Webbrowser @invocationArguments | Select-Object -First 1
+            $process = GenXdev.Webbrowser\Open-Webbrowser @invocationArguments | Microsoft.PowerShell.Utility\Select-Object -First 1
 
-            Start-Sleep 6 | Out-Null
+            Microsoft.PowerShell.Utility\Start-Sleep 6 | Microsoft.PowerShell.Core\Out-Null
 
-            $query | Set-Clipboard
+            $query | Microsoft.PowerShell.Management\Set-Clipboard
 
             if (-not [string]::IsNullOrWhiteSpace($FocusElement)) {
 
-                $null = Select-WebbrowserTab "*$(([Uri] $invocationArguments.Url).Host)*"
-                $null = Get-WebbrowserTabDomNodes $FocusElement "e.focus()"
+                $null = GenXdev.Webbrowser\Select-WebbrowserTab "*$(([Uri] $invocationArguments.Url).Host)*"
+                $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes $FocusElement "e.focus()"
             }
 
-            Send-Key -KeysToSend "^v"
+            GenXdev.Windows\Send-Key -KeysToSend "^v"
 
-            Send-Key "{ENTER}";
+            GenXdev.Windows\Send-Key "{ENTER}";
 
             if ($PassThru) {
 
-                Write-Output $process
+                Microsoft.PowerShell.Utility\Write-Output $process
             }
         }
     }
 
     end {
-        $null = Set-Clipboard -Value $previousClipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
         if ($RestoreFocus) {
 
             try {
-                $pw = Get-PowershellMainWindow
+                $pw = GenXdev.Windows\Get-PowershellMainWindow
 
                 $null = $pw.SetForeground()
             }
             catch {
 
-                Write-Warning "Failed to restore focus to PowerShell window"
+                Microsoft.PowerShell.Utility\Write-Warning "Failed to restore focus to PowerShell window"
             }
         }
     }

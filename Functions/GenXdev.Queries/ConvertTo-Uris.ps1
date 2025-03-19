@@ -37,7 +37,7 @@ function ConvertTo-Uris {
 
     begin {
 
-        Write-Verbose "Initializing URI parsing"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing URI parsing"
 
         # regex pattern to match URIs with various schemes
         $uriPattern = '(?<scheme>[A-Za-z][A-Za-z0-9+\.\-]*):[^\s""]+'
@@ -50,7 +50,7 @@ function ConvertTo-Uris {
 
             # get first 30 chars of line for logging
             $previewText = $line.Substring(0, [Math]::Min(30, $line.Length))
-            Write-Verbose ("Processing text line: $previewText...")
+            Microsoft.PowerShell.Utility\Write-Verbose ("Processing text line: $previewText...")
 
             # find all URI matches in the current line
             $uriMatches = [regex]::Matches($line, $uriPattern)
@@ -60,11 +60,11 @@ function ConvertTo-Uris {
                 try {
                     # attempt to create Uri object from match
                     $uri = [Uri]::new($match.Value)
-                    Write-Output $uri
+                    Microsoft.PowerShell.Utility\Write-Output $uri
                 }
                 catch {
                     # skip invalid URIs silently
-                    Write-Verbose "Invalid URI found: $($match.Value)"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Invalid URI found: $($match.Value)"
                 }
             }
         }

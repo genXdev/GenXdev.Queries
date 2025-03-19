@@ -388,16 +388,16 @@ function Open-BingQuery {
         # process each search query
         foreach ($query in $Queries) {
 
-            Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
-                -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
             if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-                $code = (Get-WebLanguageDictionary)[$Language]
+                $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
                 if (-not $PSBoundParameters.ContainsKey("AcceptLang")) {
 
@@ -411,12 +411,12 @@ function Open-BingQuery {
 
             if ($ReturnOnlyURL) {
 
-                Write-Output ($invocationArguments.Url)
+                Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
                 return
             }
 
             # open search in browser with inherited parameters
-            Open-Webbrowser @invocationArguments
+            GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
         }
     }
 
