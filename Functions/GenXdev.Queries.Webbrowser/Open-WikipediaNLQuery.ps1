@@ -223,7 +223,8 @@ function Open-WikipediaNLQuery {
     begin {
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

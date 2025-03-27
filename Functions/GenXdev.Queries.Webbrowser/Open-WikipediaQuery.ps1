@@ -404,7 +404,8 @@ function Open-WikipediaQuery {
         }
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

@@ -45,7 +45,8 @@ function Open-AllPossibleTextQueries {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Open-AllPossibleTextQueries with $($Queries.Count) queries"
     }
 
-    process {
+
+process {
 
         foreach ($query in $Queries) {
 

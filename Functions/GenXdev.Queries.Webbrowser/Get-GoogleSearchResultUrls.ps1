@@ -209,7 +209,8 @@ function Get-GoogleSearchResultUrls {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Google search operation"
     }
 
-    process {
+
+process {
         foreach ($Query in $Queries) {
             Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $Query"
 

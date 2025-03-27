@@ -394,7 +394,8 @@ function Open-BuiltWithSiteInfo {
         }
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

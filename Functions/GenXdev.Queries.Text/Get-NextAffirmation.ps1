@@ -39,7 +39,8 @@ function Get-NextAffirmation {
         Microsoft.PowerShell.Utility\Write-Verbose "Using API endpoint: $apiEndpoint"
     }
 
-    process {
+
+process {
 
         try {
             # fetch affirmation from the api with timeout

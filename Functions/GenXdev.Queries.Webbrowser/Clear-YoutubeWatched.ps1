@@ -24,7 +24,8 @@ function Clear-YoutubeWatched {
         Microsoft.PowerShell.Utility\Write-Verbose "Searching for an open YouTube browser tab..."
     }
 
-    process {
+
+process {
 
         try {
             # attempt to select any open youtube tab

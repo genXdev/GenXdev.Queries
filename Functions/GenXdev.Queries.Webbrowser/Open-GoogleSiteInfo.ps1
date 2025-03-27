@@ -386,7 +386,8 @@ function Open-GoogleSiteInfo {
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

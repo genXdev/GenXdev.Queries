@@ -397,7 +397,8 @@ function Open-XGrokQuery {
         $invocationArguments.Url = "https://x.com/i/grok"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

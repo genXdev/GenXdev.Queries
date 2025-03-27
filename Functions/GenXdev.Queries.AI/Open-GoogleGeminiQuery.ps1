@@ -395,7 +395,8 @@ function Open-GoogleGeminiQuery {
         $invocationArguments.Url = "https://gemini.google.com/"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

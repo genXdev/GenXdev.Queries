@@ -397,7 +397,8 @@ function Open-BingCopilotQuery {
         $invocationArguments.Url = "https://copilot.microsoft.com/"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

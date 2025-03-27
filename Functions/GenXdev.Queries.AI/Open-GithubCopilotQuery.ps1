@@ -396,7 +396,8 @@ function Open-GithubCopilotQuery {
         $invocationArguments.Url = "https://github.com/copilot"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

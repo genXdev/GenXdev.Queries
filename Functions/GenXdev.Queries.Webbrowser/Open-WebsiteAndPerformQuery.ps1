@@ -384,7 +384,8 @@ function Open-WebsiteAndPerformQuery {
         $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
     }
 
-    process {
+
+process {
 
         foreach ($query in $Queries) {
 
@@ -400,9 +401,9 @@ function Open-WebsiteAndPerformQuery {
                 $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes $FocusElement "e.focus()"
             }
 
-            GenXdev.Windows\Send-Key -KeysToSend "^v"
+            GenXdev.Windows\Send-Key -KeysToSend "^v" -WindowHandle ((GenXdev.Windows\Get-PowershellMainWindow).Handle)
 
-            GenXdev.Windows\Send-Key "{ENTER}";
+            GenXdev.Windows\Send-Key "{ENTER}", "^{ENTER}" -WindowHandle ((GenXdev.Windows\Get-PowershellMainWindow).Handle)
 
             if ($PassThru) {
 

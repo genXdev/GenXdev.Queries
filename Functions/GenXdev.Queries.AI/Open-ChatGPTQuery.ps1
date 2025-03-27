@@ -400,7 +400,8 @@ function Open-ChatGPTQuery {
         $invocationArguments.Url = "https://chat.openai.com/"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

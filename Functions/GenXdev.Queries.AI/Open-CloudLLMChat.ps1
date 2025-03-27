@@ -377,7 +377,7 @@ function Open-CloudLLMChat {
 
             $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
-            if ($AcceptLang -eq $null) {
+            if ($null -eq $AcceptLang) {
 
                 $AcceptLang = $code
 
@@ -403,7 +403,8 @@ function Open-CloudLLMChat {
         $command = Microsoft.PowerShell.Core\Get-Command -Name "GenXdev.Queries\Open-$($endpointValue)Query" -ErrorAction SilentlyContinue
     }
 
-    process {
+
+process {
 
         foreach ($query in $Queries) {
 

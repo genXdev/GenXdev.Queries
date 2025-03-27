@@ -212,7 +212,8 @@ function Copy-PDFsFromGoogleQuery {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting PDF download operation in directory: $PWD"
     }
 
-    process {
+
+process {
         foreach ($query in $Queries) {
             Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query with language: $($Language ?? 'default')"
 

@@ -397,7 +397,8 @@ function Open-DeepSearchQuery {
         $invocationArguments.Url = "https://chat.deepseek.com/"
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

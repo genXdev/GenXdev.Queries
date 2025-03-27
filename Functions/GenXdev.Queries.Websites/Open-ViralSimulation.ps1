@@ -510,7 +510,8 @@ function Open-ViralSimulation {
         }
     }
 
-    process {
+
+process {
 
         if ($ReturnOnlyURL) {
 

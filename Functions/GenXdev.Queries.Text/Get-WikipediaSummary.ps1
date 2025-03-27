@@ -65,7 +65,8 @@ function Get-WikipediaSummary {
         }
     }
 
-    process {
+
+process {
         foreach ($query in $Queries) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Searching Wikipedia for: $query"

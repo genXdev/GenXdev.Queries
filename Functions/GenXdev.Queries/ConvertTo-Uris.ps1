@@ -43,7 +43,8 @@ function ConvertTo-Uris {
         $uriPattern = '(?<scheme>[A-Za-z][A-Za-z0-9+\.\-]*):[^\s""]+'
     }
 
-    process {
+
+process {
 
         # process each input text line
         foreach ($line in $Text) {

@@ -379,7 +379,8 @@ function Open-Timeline {
         if ($PSBoundParameters.ContainsKey("ReturnUrl")) { $PSBoundParameters.Remove("ReturnUrl") | Microsoft.PowerShell.Core\Out-Null }
     }
 
-    process {
+
+process {
 
         # construct query parameters for the url
         [string] $queryParams = "?BorderWidth=$BorderWidth" +

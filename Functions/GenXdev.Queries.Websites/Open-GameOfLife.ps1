@@ -440,7 +440,8 @@ function Open-GameOfLife {
         }
     }
 
-    process {
+
+process {
 
         if ($ReturnOnlyURL) {
 

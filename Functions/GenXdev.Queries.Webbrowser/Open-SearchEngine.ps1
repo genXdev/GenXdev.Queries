@@ -382,7 +382,7 @@ function Open-SearchEngine {
 
             $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
-            if ($AcceptLang -eq $null) {
+            if ($null -eq $AcceptLang) {
 
                 $AcceptLang = $code
 
@@ -404,7 +404,8 @@ function Open-SearchEngine {
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
     }
 
-    process {
+
+process {
 
         & $command @invocationArguments
     }

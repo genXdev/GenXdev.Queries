@@ -393,7 +393,8 @@ function Open-AllPossibleQueries {
         }
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

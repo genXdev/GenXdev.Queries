@@ -208,7 +208,8 @@ function Open-AllYoutubeVideos {
         $boundParams = $PSBoundParameters
     }
 
-    process {
+
+process {
         # determine if we're working with current tab or need to open new one
         [bool] $currentTab = ($Recommended -ne $true) -and
             ($Subscriptions -ne $true) -and

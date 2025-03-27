@@ -397,7 +397,8 @@ function Open-StackOverflowQuery {
         }
     }
 
-    process {
+
+process {
 
         # process each search query
         foreach ($query in $Queries) {

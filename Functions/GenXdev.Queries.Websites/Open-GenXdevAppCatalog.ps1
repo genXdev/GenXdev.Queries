@@ -438,7 +438,8 @@ function Open-GenXdevAppCatalog {
         }
     }
 
-    process {
+
+process {
 
         if ($ReturnOnlyURL) {
 

@@ -75,7 +75,8 @@ function Invoke-WebbrowserTabPollingScript {
         }
     }
 
-    process {
+
+process {
 
         # initialize thread job to run polling in background
         $job = ThreadJob\Start-ThreadJob `
