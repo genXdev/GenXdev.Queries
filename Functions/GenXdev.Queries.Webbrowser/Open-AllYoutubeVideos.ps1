@@ -403,7 +403,7 @@ process {
                             $opened = $true
                             $page = $Global:chromeController.Context.NewPageAsync().GetAwaiter().GetResult()
                             $null = $page.GoToAsync($PSItem).GetAwaiter().GetResult()
-1
+
                             try {
                                 $page.FindByTextAsync("...more").ClickAsync().Wait();
                             }
