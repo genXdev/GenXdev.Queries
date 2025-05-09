@@ -378,7 +378,6 @@ function Open-GoogleQuery {
         )]
         [switch] $ReturnOnlyURL
         ########################################################################
-
     )
 
     begin {
@@ -386,6 +385,8 @@ function Open-GoogleQuery {
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Webbrowser\Open-Webbrowser" `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+        $code = $null
 
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
@@ -399,19 +400,19 @@ function Open-GoogleQuery {
 
         if ([string]::IsNullOrWhiteSpace($code)) {
 
-            $code = "www"
+            $code = "en"
         }
     }
 
 
-process {
+    process {
 
         # process each search query
         foreach ($query in $Queries) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
-            $invocationArguments."Url" = "https://$($code).google.com/search?q=$([Uri]::EscapeUriString($query))"
+            $invocationArguments."Url" = "https://www.google.com/search?q=$([Uri]::EscapeUriString($query))&udm=14&lr=lang_$code"
 
             # handle return url only scenario
             if ($ReturnOnlyURL) {
