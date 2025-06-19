@@ -391,7 +391,7 @@ process {
 
             $process = GenXdev.Webbrowser\Open-Webbrowser @invocationArguments | Microsoft.PowerShell.Utility\Select-Object -First 1
 
-            Microsoft.PowerShell.Utility\Start-Sleep 6 | Microsoft.PowerShell.Core\Out-Null
+            Microsoft.PowerShell.Utility\Start-Sleep 3 | Microsoft.PowerShell.Core\Out-Null
 
             $query | Microsoft.PowerShell.Management\Set-Clipboard
 
@@ -401,9 +401,30 @@ process {
                 $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes $FocusElement "e.focus()"
             }
 
-            GenXdev.Windows\Send-Key -KeysToSend "^v" -WindowHandle ((GenXdev.Windows\Get-PowershellMainWindow).Handle)
+            $PW = GenXdev.Windows\Get-PowershellMainWindow
+            $FW = GenXdev.Windows\Get-ForegroundWindow
 
-            GenXdev.Windows\Send-Key "{ENTER}", "^{ENTER}" -WindowHandle ((GenXdev.Windows\Get-PowershellMainWindow).Handle)
+            if ($PW -and $FW -and $PW.Handle -eq $FW.Handle) {
+
+               #  find and switch to the last opened webbrowser window
+                $webbrowserWindow = GenXdev.Windows\Get-Window -ProcessName $process.Name -ErrorAction SilentlyContinue |
+                    Microsoft.PowerShell.Core\Where-Object { $_.MainWindowHandle -ne 0 } |
+                    Microsoft.PowerShell.Utility\Sort-Object LastInputTime -Descending |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1
+
+                if ($webbrowserWindow) {
+
+                    $null = $webbrowserWindow.SetForeground()
+                }
+                else {
+
+                    GenXdev.Windows\Send-Key -KeysToSend "+{TAB}" -ErrorAction SilentlyContinue
+                }
+            }
+
+            GenXdev.Windows\Send-Key -KeysToSend "^v"
+
+            GenXdev.Windows\Send-Key "{ENTER}", "^{ENTER}"
 
             if ($PassThru) {
 

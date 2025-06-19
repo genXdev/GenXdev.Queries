@@ -1,17 +1,17 @@
 ################################################################################
 <#
 .SYNOPSIS
-Opens a X Grok query in a webbrowser
+Opens a DeepSeek query in a webbrowser
 
 .DESCRIPTION
-Opens a X Grok query in the webbrowser, types in the query and presses enter to
+Opens a DeepSeek query in the webbrowser, types in the query and presses enter to
 execute the search.
 
 .PARAMETER Queries
 One or more queries to perform on DeepSearch.
 
 .EXAMPLE
-Open-XGrokQuery -Queries "powershell function"
+Open-DeepSearchQuery -Queries "powershell function"
 
 .EXAMPLE
 aixg "powershell function"

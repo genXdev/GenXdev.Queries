@@ -65,7 +65,7 @@ Update-Module
 | [Open-BingCopilotQuery](#Open-BingCopilotQuery) | aibc | Opens a Bing CoPilot query in a webbrowser |
 | [Open-ChatGPTQuery](#Open-ChatGPTQuery) | aicgpt, askchatgpt | Opens a ChatGPT query in a web browser. |
 | [Open-CloudLLMChat](#Open-CloudLLMChat) | ask |  |
-| [Open-DeepSearchQuery](#Open-DeepSearchQuery) | aideepseek, askdeepsearch | Opens a X Grok query in a webbrowser |
+| [Open-DeepSearchQuery](#Open-DeepSearchQuery) | aideepseek, askdeepsearch | Opens a DeepSeek query in a webbrowser |
 | [Open-GithubCopilotQuery](#Open-GithubCopilotQuery) | aigc, askghcopilot | Opens a Github CoPilot query in a webbrowser |
 | [Open-GoogleGeminiQuery](#Open-GoogleGeminiQuery) | aigg, askgemini | Opens a Google Gemini query in a webbrowser |
 | [Open-XGrokQuery](#Open-XGrokQuery) | aixg, askxgrok | Opens a X Grok query in a webbrowser |
@@ -1565,7 +1565,7 @@ NAME
     Open-DeepSearchQuery
     
 SYNOPSIS
-    Opens a X Grok query in a webbrowser
+    Opens a DeepSeek query in a webbrowser
     
     
 SYNTAX
@@ -1573,7 +1573,7 @@ SYNTAX
     
     
 DESCRIPTION
-    Opens a X Grok query in the webbrowser, types in the query and presses enter to
+    Opens a DeepSeek query in the webbrowser, types in the query and presses enter to
     execute the search.
     
 
@@ -1825,7 +1825,7 @@ OUTPUTS
     
     -------------------------- EXAMPLE 1 --------------------------
     
-    PS > Open-XGrokQuery -Queries "powershell function"
+    PS > Open-DeepSearchQuery -Queries "powershell function"
     
     
     

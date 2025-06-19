@@ -394,17 +394,17 @@ function Open-XGrokQuery {
             -FunctionName "GenXdev.Queries\Open-WebsiteAndPerformQuery" `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        $invocationArguments.Url = "https://x.com/i/grok"
+        $invocationArguments.Url = "https://grok.com/?referrer=website"
     }
 
 
-process {
+    process {
 
         # process each search query
         foreach ($query in $Queries) {
 
             $invocationArguments.Queries = @($query)
-            $invocationArguments.FocusElement = "textarea"
+            # $invocationArguments.FocusElement = "textarea"
 
             GenXdev.Queries\Open-WebsiteAndPerformQuery @invocationArguments
         }
