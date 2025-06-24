@@ -206,7 +206,23 @@ function Open-AllYoutubeVideos {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting YouTube video browser"
 
         $boundParams = $PSBoundParameters
-    }
+
+        # attempt to select existing webbrowser tab
+        try {
+
+            $null = GenXdev.Webbrowser\Select-WebbrowserTab
+
+            if ($null -eq $Global:chromeSession) {
+
+                throw "No active web browser session found."
+            }
+        }
+        catch {
+
+            # close browser if selection fails
+            GenXdev.Webbrowser\Close-Webbrowser -force
+        }
+            }
 
 
 process {
