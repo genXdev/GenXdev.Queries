@@ -284,7 +284,7 @@ function Open-Timeline {
             "Yiddish",
             "Chinese",
             "[All]")]
-        [string] $Language = $null,
+        [string] $Language,
         ########################################################################
         [parameter(
             Mandatory = $false,

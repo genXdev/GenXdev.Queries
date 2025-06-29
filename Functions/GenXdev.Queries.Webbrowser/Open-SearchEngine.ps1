@@ -190,7 +190,7 @@ function Open-SearchEngine {
             Position = 2,
             HelpMessage = "The language of the returned search results"
         )]
-        [string] $Language = $null,
+        [string] $Language,
         ########################################################################
         [Parameter(
             Mandatory = $false,

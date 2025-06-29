@@ -234,7 +234,7 @@ process {
             (($Queries.Count -eq 0) -or [String]::IsNullOrWhiteSpace($queries[0]))
 
         # internal function that handles video navigation and control interface
-        function go($Url = $null, $Query) {
+        function goNext($Url = $null, $Query) {
 
             # initialize state tracking for current video session
             $Global:data = @{
@@ -763,26 +763,26 @@ process {
             if ($Queries.Count -gt 0) {
                 foreach ($Query in $Queries) {
                     if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
-                        $null = go "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($query))" $Query
+                        $null = goNext "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($query))" $Query
                     }
                 }
             }
 
             # handle special feed types
             if ($Subscriptions -eq $true) {
-                $null = go "https://www.youtube.com/feed/subscriptions"
+                $null = goNext "https://www.youtube.com/feed/subscriptions"
             }
 
             if ($Recommended -eq $true) {
-                $null = go "https://www.youtube.com/"
+                $null = goNext "https://www.youtube.com/"
             }
 
             if ($WatchLater -eq $true) {
-                $null = go "https://www.youtube.com/playlist?list=WL"
+                $null = goNext "https://www.youtube.com/playlist?list=WL"
             }
 
             if ($Trending -eq $true) {
-                $null = go "https://www.youtube.com/feed/trending"
+                $null = goNext "https://www.youtube.com/feed/trending"
             }
         }
         finally {

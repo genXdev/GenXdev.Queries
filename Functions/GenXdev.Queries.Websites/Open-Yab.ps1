@@ -256,7 +256,7 @@ function Open-Yab {
             Position = 0 ,
             HelpMessage = "The language of the returned search results"
         )]
-        [string] $Language = $null,
+        [string] $Language,
         ########################################################################
         [parameter(
             Mandatory = $false,

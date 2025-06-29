@@ -193,7 +193,7 @@ function Open-AllGoogleLinks {
             Mandatory = $false,
             HelpMessage = "The language of the returned search results"
         )]
-        [string] $Language = $null
+        [string] $Language
     )
 
     begin {
