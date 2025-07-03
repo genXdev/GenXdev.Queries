@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens Google site information queries in a web browser.
@@ -19,7 +19,7 @@ Open-GoogleSiteInfo -Queries "example.com" -Monitor 0
 
 .EXAMPLE
 "example.com" | Open-GoogleSiteInfo -mon -1
-#>
+        ###############################################################################>
 function Open-GoogleSiteInfo {
 
     [CmdletBinding()]
@@ -410,4 +410,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Completed Google site information queries"
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a Google query in a web browser with configurable settings.
@@ -22,7 +22,7 @@ Open-GoogleQuery -Query "PowerShell scripting" -Language "English" -Monitor 0
 
 .EXAMPLE
 q "PowerShell scripting" -m 0
-#>
+        ###############################################################################>
 function Open-GoogleQuery {
 
     [CmdletBinding()]
@@ -435,4 +435,4 @@ function Open-GoogleQuery {
     end {
     }
 }
-################################################################################
+        ###############################################################################

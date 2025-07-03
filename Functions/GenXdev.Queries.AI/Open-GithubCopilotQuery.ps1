@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a Github CoPilot query in a webbrowser
@@ -15,7 +15,7 @@ Open-GithubCopilotQuery -Queries "How to implement bubble sort in C#"
 
 .EXAMPLE
 aigc "implement binary search"
-#>
+        ###############################################################################>
 function Open-GithubCopilotQuery {
 
     [CmdletBinding()]
@@ -414,4 +414,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################

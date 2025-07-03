@@ -1,4 +1,4 @@
-###############################################################################
+        ###############################################################################
 
 <#
 .SYNOPSIS
@@ -17,7 +17,7 @@ Open-AllPossibleTextQueries -Queries "powershell scripting"
 
 .EXAMPLE
 qqq "https://github.com"
-#>
+        ###############################################################################>
 function Open-AllPossibleTextQueries {
 
     [CmdletBinding(DefaultParameterSetName = "Default")]

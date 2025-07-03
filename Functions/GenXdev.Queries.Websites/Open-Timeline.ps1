@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens an interactive timeline showing current time, date, century, and millennium.
@@ -27,7 +27,7 @@ Open-Timeline -Theme "VanGoghSkies" -Language "English"
 
 .EXAMPLE
 timeline -Theme "MonetMoods" -mon 2
-#>
+        ###############################################################################>
 function Open-Timeline {
 
     [CmdletBinding()]

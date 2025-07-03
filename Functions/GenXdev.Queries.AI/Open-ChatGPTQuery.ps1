@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a ChatGPT query in a web browser.
@@ -13,13 +13,13 @@ One or more queries to submit to ChatGPT. Can be provided as strings or from
 pipeline input.
 
 .EXAMPLE
-# Submit multiple queries using full parameter name
+        ###############################################################################Submit multiple queries using full parameter name
 Open-ChatGPTQuery -Queries "What is PowerShell?", "How do I use functions?"
 
 .EXAMPLE
-# Submit a query using alias and pipeline
+        ###############################################################################Submit a query using alias and pipeline
 "What is PowerShell?" | aicgpt
-#>
+        ###############################################################################>
 function Open-ChatGPTQuery {
 
     [CmdletBinding()]
@@ -418,4 +418,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################

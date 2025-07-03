@@ -1,4 +1,4 @@
-###############################################################################
+        ###############################################################################
 
 <#
 .SYNOPSIS
@@ -24,7 +24,7 @@ Invoke-WebbrowserTabPollingScript -Scripts "console.log('polling')" `
 
 .NOTES
 Requires Windows 10 or later.
-#>
+        ###############################################################################>
 function Invoke-WebbrowserTabPollingScript {
 
     [CmdletBinding()]
@@ -92,7 +92,7 @@ process {
             }
 
             # select the target browser tab
-            GenXdev.Webbrowser\Select-WebbrowserTab -ByReference $reference
+            GenXdev.Webbrowserwlect-WebbrowserTab -ByReference $reference
 
             # navigate to initial url if specified
             if (![string]::IsNullOrWhiteSpace($initialUrl)) {

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a DeepSeek query in a webbrowser
@@ -15,7 +15,7 @@ Open-DeepSearchQuery -Queries "powershell function"
 
 .EXAMPLE
 aixg "powershell function"
-#>
+        ###############################################################################>
 function Open-DeepSearchQuery {
 
     [CmdletBinding()]
@@ -415,4 +415,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################

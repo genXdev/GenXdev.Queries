@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Clears the YouTube watch history from the browser's local storage.
@@ -13,7 +13,7 @@ YouTube tab in the browser.
 Clear-YoutubeWatched
 Clears the watch history of the Open-AllYoutubeVideos -> qvideos cmdlet, in the
 currently open YouTube tab.
-#>
+        ###############################################################################>
 function Clear-YoutubeWatched {
 
     [CmdletBinding()]
@@ -53,4 +53,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################

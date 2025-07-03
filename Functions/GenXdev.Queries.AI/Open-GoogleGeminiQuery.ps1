@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a Google Gemini query in a webbrowser
@@ -15,7 +15,7 @@ Open-GoogleGeminiQuery "What is PowerShell?"
 
 .EXAMPLE
 "How to use arrays?" | aigg
-#>
+        ###############################################################################>
 function Open-GoogleGeminiQuery {
 
     [CmdletBinding()]
@@ -413,4 +413,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a webpage in a webbrowser and performs one or more queries.
@@ -22,7 +22,7 @@ Open-WebsiteAndPerformQuery -Url "https://www.google.com" -Query "PowerShell"
 
 .EXAMPLE
 owaq google.com "PowerShell tutorials" -Monitor 0
-#>
+        ###############################################################################>
 function Open-WebsiteAndPerformQuery {
 
     [CmdletBinding()]
@@ -449,4 +449,4 @@ process {
         }
     }
 }
-################################################################################
+        ###############################################################################

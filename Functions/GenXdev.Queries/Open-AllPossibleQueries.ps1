@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens all possible query types for given search terms or URLs.
@@ -19,7 +19,7 @@ Open-AllPossibleQueries -Queries "powershell scripting" -Monitor 0
 
 .EXAMPLE
 qq "https://github.com" -m -1
-#>
+        ###############################################################################>
 function Open-AllPossibleQueries {
 
     [CmdletBinding()]

@@ -1,9 +1,9 @@
-################################################################################
+###############################################################################
 Pester\Describe "Open-MovieQuote" {
 
     Pester\It "Should pass PSScriptAnalyzer rules" {
 
-        # get the script path for analysis
+# get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Queries.Webbrowser\Open-MovieQuote.ps1"
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
@@ -27,4 +27,4 @@ $message
 "@;
     }
 }
-################################################################################
+###############################################################################

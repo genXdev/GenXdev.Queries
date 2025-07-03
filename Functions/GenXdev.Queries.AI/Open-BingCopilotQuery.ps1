@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a Bing CoPilot query in a webbrowser
@@ -15,7 +15,7 @@ Open-BingCopilotQuery -Queries "How to write better PowerShell functions?"
 
 .EXAMPLE
 aibc "What is the capital of France?"
-#>
+        ###############################################################################>
 function Open-BingCopilotQuery {
 
     [CmdletBinding()]
@@ -415,4 +415,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################

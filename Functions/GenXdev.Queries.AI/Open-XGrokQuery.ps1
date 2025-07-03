@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a X Grok query in a webbrowser
@@ -15,7 +15,7 @@ Open-XGrokQuery -Queries "powershell function"
 
 .EXAMPLE
 aixg "powershell function"
-#>
+        ###############################################################################>
 function Open-XGrokQuery {
 
     [CmdletBinding()]
@@ -414,4 +414,4 @@ function Open-XGrokQuery {
         Microsoft.PowerShell.Utility\Write-Verbose "Query operation completed"
     }
 }
-################################################################################
+        ###############################################################################
