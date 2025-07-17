@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Clears the YouTube watch history from the browser's local storage.
@@ -13,7 +13,7 @@ YouTube tab in the browser.
 Clear-YoutubeWatched
 Clears the watch history of the Open-AllYoutubeVideos -> qvideos cmdlet, in the
 currently open YouTube tab.
-        ###############################################################################>
+#>
 function Clear-YoutubeWatched {
 
     [CmdletBinding()]
@@ -21,29 +21,29 @@ function Clear-YoutubeWatched {
 
     begin {
         # inform user that we're looking for a youtube tab
-        Microsoft.PowerShell.Utility\Write-Verbose "Searching for an open YouTube browser tab..."
+        Microsoft.PowerShell.Utility\Write-Verbose 'Searching for an open YouTube browser tab...'
     }
 
 
-process {
+    process {
 
         try {
             # attempt to select any open youtube tab
-            $null = GenXdev.Webbrowser\Select-WebbrowserTab -Pattern "*youtube*"
+            $null = GenXdev.Webbrowser\Select-WebbrowserTab -Pattern '*youtube*'
 
             # verify chrome session exists and is valid
             if ($null -eq $chromeSession -or $chromeSession -isnot [PSCustomObject]) {
-                throw "No active YouTube tab found in browser"
+                throw 'No active YouTube tab found in browser'
             }
 
             # inform user we're clearing the watch history
-            Microsoft.PowerShell.Utility\Write-Verbose "Clearing YouTube watch history from local storage..."
+            Microsoft.PowerShell.Utility\Write-Verbose 'Clearing YouTube watch history from local storage...'
 
             # reset the watch history in local storage
             $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation `
                 -Script "localStorage['oaytvDone'] = '[]'"
 
-            Microsoft.PowerShell.Utility\Write-Verbose "YouTube watch history cleared successfully"
+            Microsoft.PowerShell.Utility\Write-Verbose 'YouTube watch history cleared successfully'
         }
         catch {
             throw "Failed to clear YouTube watch history: $_"
@@ -53,4 +53,3 @@ process {
     end {
     }
 }
-        ###############################################################################

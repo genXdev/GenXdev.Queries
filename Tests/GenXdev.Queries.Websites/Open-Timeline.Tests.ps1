@@ -1,15 +1,15 @@
-###############################################################################
-Pester\Describe "Open-Timeline" {
+﻿###############################################################################
+Pester\Describe 'Open-Timeline' {
 
-    Pester\It "Should pass PSScriptAnalyzer rules" {
+    Pester\It 'Should pass PSScriptAnalyzer rules' {
 
-# get the script path for analysis
+        # get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Queries.Websites\Open-Timeline.ps1"
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
-        [string] $message = ""
+        [string] $message = ''
         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"

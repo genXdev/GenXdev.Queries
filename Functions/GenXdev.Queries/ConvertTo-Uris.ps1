@@ -1,4 +1,4 @@
-        ###############################################################################
+﻿###############################################################################
 
 <#
 .SYNOPSIS
@@ -17,7 +17,7 @@ ConvertTo-Uris -Text "Check out https://github.com and about:config"
 
 .EXAMPLE
 "Visit http://example.com" | ConvertTo-Uris
-        ###############################################################################>
+#>
 function ConvertTo-Uris {
 
     [CmdletBinding()]
@@ -27,7 +27,7 @@ function ConvertTo-Uris {
             Mandatory = $false,
             Position = 0,
             ValueFromPipeline = $true,
-            HelpMessage = "Text input that may contain URIs"
+            HelpMessage = 'Text input that may contain URIs'
         )]
         [ValidateNotNull()]
         [AllowEmptyString()]
@@ -37,14 +37,14 @@ function ConvertTo-Uris {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Initializing URI parsing"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Initializing URI parsing'
 
         # regex pattern to match URIs with various schemes
         $uriPattern = '(?<scheme>[A-Za-z][A-Za-z0-9+\.\-]*):[^\s""]+'
     }
 
 
-process {
+    process {
 
         # process each input text line
         foreach ($line in $Text) {
@@ -74,5 +74,3 @@ process {
     end {
     }
 }
-
-        ###############################################################################

@@ -1,4 +1,4 @@
-        ###############################################################################
+﻿###############################################################################
 
 <#
 .SYNOPSIS
@@ -16,18 +16,18 @@ Get-NextAffirmation
 
 .EXAMPLE
 WhatAboutIt -Speak
-        ###############################################################################>
+#>
 function Get-NextAffirmation {
 
     [CmdletBinding()]
-    [Alias("WhatAboutIt")]
+    [Alias('WhatAboutIt')]
 
     param(
         #######################################################################
         [Parameter(
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "Use text-to-speech to speak the affirmation"
+            HelpMessage = 'Use text-to-speech to speak the affirmation'
         )]
         [Switch] $Speak
         #######################################################################
@@ -35,16 +35,16 @@ function Get-NextAffirmation {
 
     begin {
         # initialize api endpoint
-        $apiEndpoint = "https://www.affirmations.dev/"
+        $apiEndpoint = 'https://www.affirmations.dev/'
         Microsoft.PowerShell.Utility\Write-Verbose "Using API endpoint: $apiEndpoint"
     }
 
 
-process {
+    process {
 
         try {
             # fetch affirmation from the api with timeout
-            Microsoft.PowerShell.Utility\Write-Verbose "Fetching affirmation from API..."
+            Microsoft.PowerShell.Utility\Write-Verbose 'Fetching affirmation from API...'
             $response = Microsoft.PowerShell.Utility\Invoke-RestMethod -Uri $apiEndpoint `
                 -TimeoutSec 2
 
@@ -53,7 +53,7 @@ process {
 
             # if speak parameter is true, use text-to-speech
             if ($Speak) {
-                Microsoft.PowerShell.Utility\Write-Verbose "Speaking affirmation using text-to-speech"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Speaking affirmation using text-to-speech'
                 GenXdev.Console\Start-TextToSpeech $affirmation
             }
 
@@ -69,5 +69,3 @@ process {
     end {
     }
 }
-
-        ###############################################################################

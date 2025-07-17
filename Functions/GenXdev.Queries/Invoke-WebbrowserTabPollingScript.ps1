@@ -1,4 +1,4 @@
-        ###############################################################################
+﻿###############################################################################
 
 <#
 .SYNOPSIS
@@ -24,18 +24,18 @@ Invoke-WebbrowserTabPollingScript -Scripts "console.log('polling')" `
 
 .NOTES
 Requires Windows 10 or later.
-        ###############################################################################>
+#>
 function Invoke-WebbrowserTabPollingScript {
 
     [CmdletBinding()]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseUsingScopeModifierInNewRunspaces", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseUsingScopeModifierInNewRunspaces', '')]
     param(
         #######################################################################
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "JavaScript code, URLs or file paths to execute",
+            HelpMessage = 'JavaScript code, URLs or file paths to execute',
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
@@ -46,7 +46,7 @@ function Invoke-WebbrowserTabPollingScript {
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "URL to navigate to before polling starts"
+            HelpMessage = 'URL to navigate to before polling starts'
         )]
         [string] $InitialUrl,
 
@@ -54,7 +54,7 @@ function Invoke-WebbrowserTabPollingScript {
         [Parameter(
             Position = 2,
             Mandatory = $false,
-            HelpMessage = "Callback scriptblock to process poll results"
+            HelpMessage = 'Callback scriptblock to process poll results'
         )]
         [ScriptBlock] $Callback
         #######################################################################
@@ -68,15 +68,15 @@ function Invoke-WebbrowserTabPollingScript {
         if ($Scripts) {
             foreach ($script in $Scripts) {
                 if ($script -isnot [string]) {
-                    throw "Scripts must be strings containing JavaScript, URLs,
-                        or file paths"
+                    throw 'Scripts must be strings containing JavaScript, URLs,
+                        or file paths'
                 }
             }
         }
     }
 
 
-process {
+    process {
 
         # initialize thread job to run polling in background
         $job = ThreadJob\Start-ThreadJob `

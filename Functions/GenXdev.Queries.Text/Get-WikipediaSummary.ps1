@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Retrieves a summary of a topic from Wikipedia.
@@ -15,11 +15,11 @@ Get-WikipediaSummary -Queries "PowerShell"
 
 .EXAMPLE
 wikitxt "PowerShell", "Typescript", "C#"
-        ###############################################################################>
+#>
 function Get-WikipediaSummary {
 
     [CmdletBinding()]
-    [Alias("wikitxt")]
+    [Alias('wikitxt')]
     param(
         ########################################################################
         [parameter(
@@ -28,9 +28,9 @@ function Get-WikipediaSummary {
             ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "The query to perform"
+            HelpMessage = 'The query to perform'
         )]
-        [Alias("q", "Value", "Name", "Text", "Query")]
+        [Alias('q', 'Name', 'Text', 'Query')]
         [string[]] $Queries
         ########################################################################
     )
@@ -41,39 +41,39 @@ function Get-WikipediaSummary {
 
             [OutputType([string])]
             [CmdletBinding()]
-            [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
             param(
                 [string] $Text
             )
             ########################################################################
 
-            $i = $Text.IndexOf("(")
+            $i = $Text.IndexOf('(')
             if ($i -ge 150) { return $Text }
 
             if ($i -eq $Text.Length - 1) {
-                return $Text.Substring(0, $i).Replace("  ", " ")
+                return $Text.Substring(0, $i).Replace('  ', ' ')
             }
 
-            $end = $Text.IndexOf(")", $i)
+            $end = $Text.IndexOf(')', $i)
             $result = $Text.Substring(0, $i)
 
             if ($end -lt $Text.Length) {
                 $result += $Text.Substring($end + 1)
             }
 
-            return $result.Replace("  ", " ")
+            return $result.Replace('  ', ' ')
         }
     }
 
 
-process {
+    process {
         foreach ($query in $Queries) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Searching Wikipedia for: $query"
 
             # prepare the url-encoded query
-            $urlPart = [Uri]::EscapeUriString($query.Replace("-", " "))
-            $url = "https://en.wikipedia.org/w/api.php?format=json&action=query" +
+            $urlPart = [Uri]::EscapeUriString($query.Replace('-', ' '))
+            $url = 'https://en.wikipedia.org/w/api.php?format=json&action=query' +
             "&prop=extracts&exintro=1&explaintext=1&titles=$urlPart"
 
             try {
@@ -83,8 +83,8 @@ process {
 
                 # extract the page content
                 $pageId = ($data.query.pages |
-                    Microsoft.PowerShell.Utility\Get-Member -MemberType NoteProperty |
-                    Microsoft.PowerShell.Utility\Select-Object -ExpandProperty Name -First 1)
+                        Microsoft.PowerShell.Utility\Get-Member -MemberType NoteProperty |
+                        Microsoft.PowerShell.Utility\Select-Object -ExpandProperty Name -First 1)
                 $extract = $data.query.pages.$pageId.extract
 
                 if ([string]::IsNullOrEmpty($extract)) {
@@ -93,12 +93,12 @@ process {
                 }
 
                 # clean up and output the result
-                Microsoft.PowerShell.Utility\Write-Verbose "Found content, cleaning up response"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Found content, cleaning up response'
                 try {
                     Remove-ParentheticalContent -Text $extract
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Failed to clean content, returning raw extract"
+                    Microsoft.PowerShell.Utility\Write-Verbose 'Failed to clean content, returning raw extract'
                     $extract
                 }
             }
@@ -108,4 +108,3 @@ process {
         }
     }
 }
-        ###############################################################################
