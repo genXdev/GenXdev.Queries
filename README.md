@@ -74,17 +74,17 @@ Update-Module
 
 # Cmdlet Index
 ### GenXdev.Queries<hr/>
+### GenXdev.Queries
 | Command | Aliases | Description |
 | --- | --- | --- |
-| [ConvertTo-Uris](#convertto-uris) |  | Parses strings for any valid URI. |
-| [Invoke-WebbrowserTabPollingScript](#invoke-webbrowsertabpollingscript) |  | Executes a background polling script in a previously selected webbrowser tab. |
+| [ConvertTo-Uris](#convertto-uris) | &nbsp; | Parses strings for any valid URI. |
+| [Invoke-WebbrowserTabPollingScript](#invoke-webbrowsertabpollingscript) | &nbsp; | Executes a background polling script in a previously selected webbrowser tab. |
 | [Open-AllPossibleQueries](#open-allpossiblequeries) | qq | Opens all possible query types for given search terms or URLs. |
 | [Open-AllPossibleTextQueries](#open-allpossibletextqueries) | qqq | Executes all Text query Cmdlets in parallel and displays results. |
 
 ### GenXdev.Queries.AI
 | Command | Aliases | Description |
 | --- | --- | --- |
-
 | [Open-BingCopilotQuery](#open-bingcopilotquery) | aibc | Opens a Bing CoPilot query in a webbrowser |
 | [Open-ChatGPTQuery](#open-chatgptquery) | aicgpt, askchatgpt | Opens a ChatGPT query in a web browser. |
 | [Open-CloudLLMChat](#open-cloudllmchat) | ask | Opens a cloud LLM chat interface for AI queries. |
@@ -96,28 +96,26 @@ Update-Module
 ### GenXdev.Queries.Text
 | Command | Aliases | Description |
 | --- | --- | --- |
-
 | [Get-NextAffirmation](#get-nextaffirmation) | whataboutit | Returns a random affirmation text from affirmations.dev API. |
 | [Get-WikipediaSummary](#get-wikipediasummary) | wikitxt | Retrieves a summary of a topic from Wikipedia. |
 
 ### GenXdev.Queries.Webbrowser
 | Command | Aliases | Description |
 | --- | --- | --- |
-
-| [Clear-YoutubeWatched](#clear-youtubewatched) |  | Clears the YouTube watch history from the browser's local storage. |
-| [Copy-PDFsFromGoogleQuery](#copy-pdfsfromgooglequery) |  | Downloads PDF files found through Google search results. |
+| [Clear-YoutubeWatched](#clear-youtubewatched) | &nbsp; | Clears the YouTube watch history from the browser's local storage. |
+| [Copy-PDFsFromGoogleQuery](#copy-pdfsfromgooglequery) | &nbsp; | Downloads PDF files found through Google search results. |
 | [Get-GoogleSearchResultUrls](#get-googlesearchresulturls) | qlinksget | Performs a google search and returns the links |
 | [Open-AllGoogleLinks](#open-allgooglelinks) | qlinks | Performs an infinite auto opening google search . |
 | [Open-AllYoutubeVideos](#open-allyoutubevideos) | qvideos, qyt | Opens and controls YouTube videos in a browser window with keyboard shortcuts. |
 | [Open-BingQuery](#open-bingquery) | bq | Opens a Bing search query in a web browser. |
-| [Open-BuiltWithSiteInfo](#open-builtwithsiteinfo) |  | Opens BuiltWith website queries in a web browser. |
+| [Open-BuiltWithSiteInfo](#open-builtwithsiteinfo) | &nbsp; | Opens BuiltWith website queries in a web browser. |
 | [Open-GithubQuery](#open-githubquery) | qgithub | Opens a Github repository search query in a web browser. |
-| [Open-GoogleQuery](#open-googlequery) | q |  |
-| [Open-GoogleSiteInfo](#open-googlesiteinfo) |  | Opens Google site information queries in a web browser. |
+| [Open-GoogleQuery](#open-googlequery) | q | &nbsp; |
+| [Open-GoogleSiteInfo](#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
 | [Open-IMDBQuery](#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](#open-instantstreetviewquery) | isv | Opens InstantStreetView queries in a web browser. |
 | [Open-MovieQuote](#open-moviequote) | moviequote | Opens a video of a movie quote in a web browser. |
-| [Open-SearchEngine](#open-searchengine) | q |  |
+| [Open-SearchEngine](#open-searchengine) | q | &nbsp; |
 | [Open-SimularWebSiteInfo](#open-simularwebsiteinfo) | simularsite | Opens SimilarWeb website information for specified URLs in a web browser. |
 | [Open-StackOverflowQuery](#open-stackoverflowquery) | qso | Opens Stack Overflow search queries in a web browser. |
 | [Open-WaybackMachineSiteInfo](#open-waybackmachinesiteinfo) | wayback | Opens WaybackMachine site information in a web browser. |
@@ -131,11 +129,10 @@ Update-Module
 ### GenXdev.Queries.Websites
 | Command | Aliases | Description |
 | --- | --- | --- |
-
 | [Open-GameOfLife](#open-gameoflife) | gameoflife, conway | Opens Conway's Game of Life simulation in a web browser. |
 | [Open-GenXdevAppCatalog](#open-genxdevappcatalog) | appcatalog | Opens the GenXdev progressive webapps catalog in a web browser. |
 | [Open-Timeline](#open-timeline) | timeline | Opens an interactive timeline showing current time, date, century, and millennium. |
-| [Open-ViralSimulation](#open-viralsimulation) | viral |  |
+| [Open-ViralSimulation](#open-viralsimulation) | viral | &nbsp; |
 | [Open-Yab](#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
 | [Open-YabAIBattle](#open-yabaibattle) | yabbattle | Opens the YabAI Battle game in a web browser. |
 
