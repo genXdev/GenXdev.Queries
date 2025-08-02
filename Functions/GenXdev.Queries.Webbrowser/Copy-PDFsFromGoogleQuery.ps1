@@ -260,7 +260,7 @@ function Copy-PDFsFromGoogleQuery {
                     $response = Microsoft.PowerShell.Utility\Invoke-WebRequest -Uri $PSItem -OutFile $destination
                     Microsoft.PowerShell.Utility\Write-Verbose "Download completed: $($response.StatusCode) - $($response.StatusDescription)"
 
-                    $fileInfo = Microsoft.PowerShell.Management\Get-Item $destination
+                    $fileInfo = Microsoft.PowerShell.Management\Get-Item -LiteralPath $destination
                     Microsoft.PowerShell.Utility\Write-Verbose "Saved file: $($fileInfo.FullName) ($($fileInfo.Length) bytes)"
                     $fileInfo
                 }
@@ -269,18 +269,18 @@ function Copy-PDFsFromGoogleQuery {
                 }
             }
 
-            Microsoft.PowerShell.Management\Get-ChildItem .\*.pdf | Microsoft.PowerShell.Core\ForEach-Object {
+            Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\ -filter "*.pdf" | Microsoft.PowerShell.Core\ForEach-Object {
 
                 $newName = [System.Text.RegularExpressions.Regex]::Replace(($_.Name), '\.pdf_\d*_\d*\.pdf', '.pdf')
                 if ($newName -eq $_.Name) { return }
 
                 if ([IO.File]::Exists((GenXdev.FileSystem\Expand-Path ".\$newName"))) {
 
-                    $null = Microsoft.PowerShell.Management\Remove-Item $_.FullName -Force
+                    $null = Microsoft.PowerShell.Management\Remove-Item -LiteralPath $_.FullName -Force
                     return;
                 }
 
-                $null = Microsoft.PowerShell.Management\Rename-Item $_ $newName -Force
+                $null = Microsoft.PowerShell.Management\Rename-Item -LiteralPath $_ $newName -Force
             }
         }
     }
