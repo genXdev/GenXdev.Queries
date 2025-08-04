@@ -92,7 +92,7 @@ function Invoke-WebbrowserTabPollingScript {
             }
 
             # select the target browser tab
-            GenXdev.Webbrowserwlect-WebbrowserTab -ByReference $reference
+            GenXdev.Webbrowser\Select-WebbrowserTab -ByReference $reference
 
             # navigate to initial url if specified
             if (![string]::IsNullOrWhiteSpace($initialUrl)) {

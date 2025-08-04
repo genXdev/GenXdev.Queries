@@ -208,11 +208,6 @@ function Copy-PDFsFromGoogleQuery {
         ########################################################################
     )
 
-    begin {
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting PDF download operation in directory: $PWD"
-    }
-
-
     process {
         foreach ($query in $Queries) {
             Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query with language: $($Language ?? 'default')"
@@ -221,15 +216,8 @@ function Copy-PDFsFromGoogleQuery {
             $searchQuery = "filetype:pdf $query"
             Microsoft.PowerShell.Utility\Write-Verbose "Using search query: $searchQuery"
 
-            # get search results
-            $urls = if ($Language) {
-                Microsoft.PowerShell.Utility\Write-Verbose "Searching with language filter: $Language"
-                GenXdev.Queries\Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery -Language $Language
-            }
-            else {
-                Microsoft.PowerShell.Utility\Write-Verbose 'Searching without language filter'
-                GenXdev.Queries\Get-GoogleSearchResultUrls -Max $Max -Query $searchQuery
-            }
+            # get search results using the refactored Get-GoogleSearchResultUrls
+            $urls = Get-GoogleSearchResultUrls -Queries $searchQuery -Max $Max -Language $Language
 
             Microsoft.PowerShell.Utility\Write-Verbose "Found $($urls.Count) PDF URLs to process"
             Microsoft.PowerShell.Utility\Write-Verbose 'Starting parallel download with throttle limit: 64'
@@ -274,7 +262,7 @@ function Copy-PDFsFromGoogleQuery {
                 $newName = [System.Text.RegularExpressions.Regex]::Replace(($_.Name), '\.pdf_\d*_\d*\.pdf', '.pdf')
                 if ($newName -eq $_.Name) { return }
 
-                if ([IO.File]::Exists((GenXdev.FileSystem\Expand-Path ".\$newName"))) {
+                if ([IO.File]::Exists((GenXdev.FileSystem\Expand-Path ".\\$newName"))) {
 
                     $null = Microsoft.PowerShell.Management\Remove-Item -LiteralPath $_.FullName -Force
                     return;
