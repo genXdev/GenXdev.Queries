@@ -216,8 +216,8 @@ function Copy-PDFsFromGoogleQuery {
             $searchQuery = "filetype:pdf $query"
             Microsoft.PowerShell.Utility\Write-Verbose "Using search query: $searchQuery"
 
-            # get search results using the refactored Get-GoogleSearchResultUrls
-            $urls = Get-GoogleSearchResultUrls -Queries $searchQuery -Max $Max -Language $Language
+             # get search results using the fully qualified GenXdev.Queries\Get-GoogleSearchResultUrls
+            $urls = GenXdev.Queries\Get-GoogleSearchResultUrls -Queries $searchQuery -Max $Max -Language $Language
 
             Microsoft.PowerShell.Utility\Write-Verbose "Found $($urls.Count) PDF URLs to process"
             Microsoft.PowerShell.Utility\Write-Verbose 'Starting parallel download with throttle limit: 64'
