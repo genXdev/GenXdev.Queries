@@ -1,18 +1,21 @@
 ﻿###############################################################################
-
 <#
 .SYNOPSIS
 Opens and controls YouTube videos in a browser window with keyboard shortcuts.
 
 .DESCRIPTION
 Opens YouTube videos matching search terms or from various YouTube sections in a
-browser window. Provides keyboard controls for video playback and navigation.
+browser window. Provides keyboard controls for video playback and navigation
+through an interactive interface. Supports multiple browsers and various YouTube
+content types including search results, subscriptions, watch later, recommended
+videos, and trending content.
 
 .PARAMETER Queries
-YouTube search terms to find videos for. Opens all videos matching each term.
+YouTube search terms to find videos for. Opens all videos matching each search
+term provided. Accepts multiple query strings to search for different topics.
 
 .PARAMETER Subscriptions
-Opens all videos from subscribed channels.
+Opens all videos from subscribed channels feed on YouTube.
 
 .PARAMETER WatchLater
 Opens all videos from the watch-later playlist.
@@ -23,11 +26,23 @@ Opens all recommended videos from YouTube homepage.
 .PARAMETER Trending
 Opens all currently trending videos on YouTube.
 
+.PARAMETER Private
+Opens browser in incognito/private browsing mode to prevent saving history.
+
 .PARAMETER Edge
-Use Microsoft Edge browser instead of default.
+Use Microsoft Edge browser instead of default browser.
 
 .PARAMETER Chrome
-Use Google Chrome browser instead of default.
+Use Google Chrome browser instead of default browser.
+
+.PARAMETER NoFullScreen
+Prevents opening the browser in fullscreen mode.
+
+.PARAMETER ApplicationMode
+Hide the browser controls for a cleaner viewing experience.
+
+.PARAMETER AcceptLang
+Set the browser accept-lang http header for language preferences.
 
 .EXAMPLE
 Open-AllYoutubeVideos -Queries "PowerShell tutorial","vscode tips" -Edge
@@ -43,7 +58,7 @@ function Open-AllYoutubeVideos {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
     [Alias('qvideos', 'qyt')]
     param(
-        ########################################################################
+        ###############################################################################
         [parameter(
             Mandatory = $false,
             Position = 0,
@@ -54,25 +69,25 @@ function Open-AllYoutubeVideos {
         )]
         [Alias('q', 'Name', 'Text', 'Query')]
         [string[]] $Queries = @(''),
-        ########################################################################
+        ###############################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = 'Open videos from subscribed channels'
         )]
         [switch] $Subscriptions,
-        ########################################################################
+        ###############################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = 'Open videos from watch later playlist'
         )]
         [switch] $WatchLater,
-        ########################################################################
+        ###############################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = 'Open recommended videos'
         )]
         [switch] $Recommended,
-        ########################################################################
+        ###############################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = 'Open trending videos'
@@ -85,158 +100,63 @@ function Open-AllYoutubeVideos {
         )]
         [Alias('incognito', 'inprivate')]
         [switch] $Private,
-
         ###############################################################################
-        [Alias('e')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in Microsoft Edge'
         )]
+        [Alias('e')]
         [switch] $Edge,
         ###############################################################################
-        [Alias('ch')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in Google Chrome'
         )]
+        [Alias('ch')]
         [switch] $Chrome,
         ###############################################################################
-        [Alias('m', 'mon')]
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found"
+            HelpMessage = 'Prevents opening in fullscreen mode'
         )]
-        [int] $Monitor = -2,
-
-        ###############################################################################
         [Alias('nofs', 'nf')]
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Opens in fullscreen mode'
-        )]
         [switch] $NoFullScreen,
-
         ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'The initial width of the webbrowser window'
-        )]
-        [int] $Width = -1,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'The initial height of the webbrowser window'
-        )]
-        [int] $Height = -1,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'The initial X position of the webbrowser window'
-        )]
-        [int] $X = -999999,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'The initial Y position of the webbrowser window'
-        )]
-        [int] $Y = -999999,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Place browser window on the left side of the screen'
-        )]
-        [switch] $Left,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Place browser window on the right side of the screen'
-        )]
-        [switch] $Right,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Place browser window on the top side of the screen'
-        )]
-        [switch] $Top,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Place browser window on the bottom side of the screen'
-        )]
-        [switch] $Bottom,
-
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Place browser window in the center of the screen'
-        )]
-        [switch] $Centered,
-        ###############################################################################
-        [Alias('a', 'app', 'appmode')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Hide the browser controls'
         )]
+        [Alias('a', 'app', 'appmode')]
         [switch] $ApplicationMode,
         ###############################################################################
-        [Alias('lang', 'locale')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Set the browser accept-lang http header'
         )]
-        [string] $AcceptLang = $null,
-        ###########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = ('Keystrokes to send to the Browser window, ' +
-                'see documentation for cmdlet GenXdev.Windows\Send-Key')
-        )]
-        [string[]] $KeysToSend,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Focus the browser window after opening'
-        )]
-        [switch] $FocusWindow,
-
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Set the browser window to foreground after opening'
-        )]
-        [switch] $SetForeground,
-
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Maximize the window after positioning'
-        )]
-        [switch] $Maximize
-        ########################################################################
+        [Alias('lang', 'locale')]
+        [string] $AcceptLang = $null
     )
 
     begin {
+
         # tracks which video was last displayed to avoid redrawing unchanged content
         $lastVideo = ''
 
         # obtain main powershell window handle for proper window positioning
         $powershellProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
+
         $powershellWindow = GenXdev.Windows\Get-PowershellMainWindow
 
         Microsoft.PowerShell.Utility\Write-Verbose 'Starting YouTube video browser'
 
+        # store bound parameters for passing to other functions
         $boundParams = $PSBoundParameters
 
         try {
+            # attempt to select existing browser tab
             $null = GenXdev.Webbrowser\Select-WebbrowserTab -Chrome:$chrome -Edge:$edge
 
+            # check if browser session exists
             if ($null -eq $Global:chromeSession) {
 
                 throw 'No active web browser session found.'
@@ -244,12 +164,13 @@ function Open-AllYoutubeVideos {
         }
         catch {
 
-            # close browser if selection fails
-            $null = GenXdev.Webbrowser\Close-Webbrowser -force -Chromium  -Chrome:$chrome -Edge:$edge
+            # close browser if selection fails to ensure clean state
+            $null = GenXdev.Webbrowser\Close-Webbrowser -force -Chromium -Chrome:$chrome -Edge:$edge
         }
     }
 
     process {
+
         # determine if we're working with current tab or need to open new one
         [bool] $currentTab = ($Recommended -ne $true) -and
             ($Subscriptions -ne $true) -and
@@ -273,149 +194,97 @@ function Open-AllYoutubeVideos {
             }
 
             # detect and configure multi-monitor setup
-            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens | Microsoft.PowerShell.Core\ForEach-Object { $PSItem })
+            $AllScreens = @([WpfScreenHelper.Screen]::AllScreens |
+                Microsoft.PowerShell.Core\ForEach-Object { $PSItem })
 
             # get console dimensions for UI layout
             $hostInfo = & { $H = Microsoft.PowerShell.Utility\Get-Host; $H.ui.rawui }
+
             $size = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)"
 
             Clear-Host
-            Microsoft.PowerShell.Utility\Write-Host "Hold on.. $(($currentTab ? 'connecting to existing tab' : 'initializing browser'))".PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
+            Microsoft.PowerShell.Utility\Write-Host (
+                "Hold on.. $(($currentTab ? 'connecting to existing tab' : 'initializing browser'))"
+            ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
             $browser = $null;
 
             if (-not $currentTab) {
 
-                if ($null -ne $PowershellWindow) {
-
-                    $PowershellScreen = [WpfScreenHelper.Screen]::FromPoint(@{X = $PowershellWindow.Position().X; Y = $PowershellWindow.Position().Y });
-                    $PowershellScreenIndex = $AllScreens.IndexOf($PowershellScreen) + 1;
-
-                    [int] $defaultMonitor = 1;
-
-                    if ($Monitor -eq -2) {
-
-                        if ([int]::TryParse($Global:DefaultSecondaryMonitor, [ref] $defaultMonitor)) {
-
-                            $Monitor = $defaultMonitor % ($AllScreens.Length + 1);
-                        }
-                        else {
-
-                            $Monitor = 2 % ($AllScreens.AllScreens.Length + 1);
-                        }
-                    }
-
-                    if ($monitor -lt 1) {
-
-                        if ($monitor -eq -1) {
-
-                            $monitor = $PowershellScreenIndex;
-                        }
-                        else {
-
-                            $monitor = $AllScreens.IndexOf([WpfScreenHelper.Screen]::PrimaryScreen) + 1;
-                        }
-                    }
-
-                    if ($PowershellScreenIndex -eq $Monitor) {
-
-                        if ($PowershellScreen.WorkingArea.Width -gt $PowershellScreen.WorkingArea.Height) {
-
-                            GenXdev.Windows\Set-WindowPosition -Left -Monitor $Monitor
-                            $FullScreen = !$NoFullScreen
-                            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                                -BoundParameters $boundParams `
-                                -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
-                                -DefaultValues @(Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
-                            $invocationParams.Chromium = $true
-                            $invocationParams.Url = $Url
-                            $invocationParams.PassThru = $true
-                            $invocationParams.Force = $true
-                            $invocationParams.NewWindow = $true
-                            $invocationParams.RestoreFocus = $true
-                            $invocationParams.Right = $true
-                            $invocationParams.NoBrowserExtensions = $true
-                            $browser = GenXdev.Webbrowser\Open-Webbrowser @invocationParams
-                            $null = Microsoft.PowerShell.Utility\Start-Sleep 1
-                            $Global:chrome = $null
-                        }
-                        else {
-                            $FullScreen = !$NoFullScreen
-                            GenXdev.Windows\Set-WindowPosition -Bottom -Monitor $Monitor
-                            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                                -BoundParameters $boundParams `
-                                -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
-                                -DefaultValues @(Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
-                            $invocationParams.Chromium = $true
-                            $invocationParams.Url = $Url
-                            $invocationParams.PassThru = $true
-                            $invocationParams.Force = $true
-                            $invocationParams.NewWindow = $true
-                            $invocationParams.RestoreFocus = $true
-                            $invocationParams.Top = $true
-                            $invocationParams.NoBrowserExtensions = $true
-                            $browser = GenXdev.Webbrowser\Open-Webbrowser @invocationParams
-                            $null = Microsoft.PowerShell.Utility\Start-Sleep 1
-                            $Global:chrome = $null
-                        }
-                    }
-                }
                 try {
+                    # select existing browser tab if available
                     $null = GenXdev.Webbrowser\Select-WebbrowserTab -Edge:$Edge -Chrome:$Chrome
                 }
                 catch {
 
+                    # close browser if tab selection fails
                     $null = GenXdev.Webbrowser\Close-Webbrowser -Chromium -Edge:$Edge -Chrome:$Chrome -Force
                 }
 
                 if ($null -eq $browser) {
 
-                    $FullScreen = !$NoFullScreen
+                    # copy parameters for browser invocation
                     $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                         -BoundParameters $boundParams `
-                        -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
-                        -DefaultValues @(Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+                        -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser';
+
+                    # configure browser window settings
+                    $invocationParams.FullScreen = !$NoFullScreen -and ($AllScreens.Count -ne 1)
+
+                    $invocationParams.SideBySide = $AllScreens.Count -eq 1
+
                     $invocationParams.Chromium = $true
+
                     $invocationParams.Url = $Url
+
                     $invocationParams.PassThru = $true
+
                     $invocationParams.Force = $true
+
                     $invocationParams.NewWindow = $true
-                    $invocationParams.RestoreFocus = $false
+
+                    $invocationParams.RestoreFocus = $true
+
                     $invocationParams.NoBrowserExtensions = $true
+
                     $invocationParams.DisablePopupBlocker = $true
+
+                    $invocationParams.Monitor = $AllScreens.Count -eq 1 ? 0 : -2;
+
+                    # open new browser window with configured settings
                     $browser = GenXdev.Webbrowser\Open-Webbrowser @invocationParams
+
                     $null = Microsoft.PowerShell.Utility\Start-Sleep 1
-
-                    # restore it
-                    $PowerShellWindow = GenXdev.Windows\Get-PowershellMainWindow
-
-                    if ($null -ne $PowerShellWindow) {
-
-                        # wait a little
-                        [System.Threading.Thread]::Sleep(500) | Microsoft.PowerShell.Core\Out-Null
-
-                        $null = $PowerShellWindow.Show() | Microsoft.PowerShell.Core\Out-Null;
-                        $null = $PowerShellWindow.SetForeground() | Microsoft.PowerShell.Core\Out-Null;
-
-                        $null = GenXdev.Windows\Set-ForegroundWindow ($PowerShellWindow.Handle) | Microsoft.PowerShell.Core\Out-Null;
-                    }
 
                     $Global:chrome = $null
                 }
 
                 try {
+                    # select youtube tab if it exists
                     $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
-                    $ChromeSessions | Microsoft.PowerShell.Core\ForEach-Object { GenXdev.Webbrowser\Select-WebbrowserTab -Chrome:$Chrome -Edge:$Edge; GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Page ($Global:chromeController) -ByReference:$reference -Chrome:$chrome -Edge:$Edge }
+
+                    # pause all videos in chrome sessions
+                    $ChromeSessions |
+                        Microsoft.PowerShell.Core\ForEach-Object {
+                            GenXdev.Webbrowser\Select-WebbrowserTab -Chrome:$Chrome -Edge:$Edge;
+                            GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Page ($Global:chromeController) -ByReference:$reference -Chrome:$chrome -Edge:$Edge
+                        }
                 }
                 catch {
 
                 }
 
+                # ensure youtube tab is selected
                 $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
             }
             else {
+                # use existing tab - clear chrome session and stop videos
                 $Global:chrome = $null
+
                 $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
-                $null = GenXdev.Webbrowser\Stop-WebbrowserVideosge:$Edge;
+
+                $null = GenXdev.Webbrowser\Stop-WebbrowserVideos -Chrome:$chrome -Edge:$Edge
             }
 
             # loads and executes the JavaScript controller code
@@ -423,10 +292,12 @@ function Open-AllYoutubeVideos {
 
             # track scroll positions for header animations
             [int] $scrollPosition = -1
+
             [int] $scrollPosition2 = -1
 
             # get chrome automation interfaces
             $page = $Global:chromeController
+
             $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
 
             # handles asynchronous tab opening and video pausing
@@ -437,32 +308,46 @@ function Open-AllYoutubeVideos {
                 try {
                     $i = 0
                     if ($null -ne $Global:data.open) {
-                        $Global:data.open | Microsoft.PowerShell.Core\ForEach-Object {
-                            $i++
+                        $Global:data.open |
+                            Microsoft.PowerShell.Core\ForEach-Object {
+                                $i++
 
-                            $opened = $true
-                            $page = $Global:chromeController.Context.NewPageAsync().GetAwaiter().GetResult()
-                            $null = $page.GoToAsync($PSItem).GetAwaiter().GetResult()
+                                $opened = $true
 
-                            try {
-                                $page.FindByTextAsync('...more').ClickAsync().Wait();
-                            }
-                            catch {
+                                # create new page for each video link
+                                $page = $Global:chromeController.Context.NewPageAsync().GetAwaiter().GetResult()
 
-                            }
+                                # navigate to the video url
+                                $null = $page.GoToAsync($PSItem).GetAwaiter().GetResult()
 
-                            try {
-                                $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome -Force
-                                $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
-                                $page = $Global:chromeController
-                                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job" -Page:$page -ByReference:$reference -Chrome:$chrome -Edge:$Edge
-                                $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Page:$page -ByReference:$reference
-                                $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Chrome:$chrome -Edge:$Edge
+                                try {
+                                    # click show more button if available
+                                    $page.FindByTextAsync('...more').ClickAsync().Wait();
+                                }
+                                catch {
+
+                                }
+
+                                try {
+                                    # switch back to youtube tab
+                                    $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome -Force
+
+                                    $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
+
+                                    $page = $Global:chromeController
+
+                                    # execute javascript controller code
+                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job" -Page:$page -ByReference:$reference -Chrome:$chrome -Edge:$Edge
+
+                                    # pause any playing videos
+                                    $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Page:$page -ByReference:$reference
+
+                                    $null = GenXdev.Webbrowser\Get-WebbrowserTabDomNodes 'video' 'e.pause()' -Chrome:$chrome -Edge:$Edge
+                                }
+                                catch {
+                                    Microsoft.PowerShell.Utility\Write-Warning "Error in checkOpened: $_"
+                                }
                             }
-                            catch {
-                                Microsoft.PowerShell.Utility\Write-Warning "Error in checkOpened: $_"
-                            }
-                        }
                     }
                 }
                 catch {
@@ -472,14 +357,19 @@ function Open-AllYoutubeVideos {
 
                 if ($opened) {
 
+                    # clear opened video list after processing
                     $Global:data.open = @();
+
+                    # restore focus to powershell window
                     $null = GenXdev.Windows\Set-ForegroundWindow ($powershellWindow.handle)
                 }
             }
 
             if ($null -ne $powershellWindow) {
 
+                # ensure powershell window has focus
                 $null = GenXdev.Windows\Set-ForegroundWindow ($powershellWindow.handle)
+
                 $null = $PowerShellWindow.SetForeground();
             }
 
@@ -489,25 +379,40 @@ function Open-AllYoutubeVideos {
                 try {
                     # reset cursor position and colors for status line
                     $hostInfo = & { $H = Microsoft.PowerShell.Utility\Get-Host; $H.ui.rawui }
+
                     [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
                     [Console]::ResetColor()
 
                     # execute JavaScript controller code
                     $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge
 
                     # process any pending tab operations
-                    if ($Global:data.isViewPage -and $Global:data.position -gt 0 -and ($Global:data.position -gt $Global:data.duration - 2)) {
+                    if (($Global:data.isViewPage -or $Global:data.isShortsPage) -and ($Global:data.ended -or (($Global:data.position -gt 0 -and ($Global:data.position -gt $Global:data.duration - 2))))) {
 
                         [Console]::SetCursorPosition(0, 0)
-                        Microsoft.PowerShell.Utility\Write-Host 'Skipping to next video'.PadRight($hostInfo.WindowSize.Width - 2, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                        Microsoft.PowerShell.Utility\Write-Host (
+                            'Skipping to next video'
+                        ).PadRight($hostInfo.WindowSize.Width - 2, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
                         [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
+                        # close current video and navigate to next
                         $page.CloseAsync().Wait()
+
                         $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
+
                         $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
+
                         $page = $Global:chromeController
+
                         $LastVideo = ''
+
                         [Console]::SetCursorPosition(0, 0)
+
                         Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
                         continue
                     }
 
@@ -519,16 +424,21 @@ function Open-AllYoutubeVideos {
                         $newsize = "$($hostInfo.WindowSize.Width)x$($hostInfo.WindowSize.Height)"
                         if ($newsize -ne $size) {
                             $size = $newsize
+
                             $LastVideo = $null
                         }
 
                         # construct and display control header
                         $sub = ''
+
                         $pause = ' [P]ause | '
-                        $header = "[Q]uit | $sub$pause SPACE=Next | S = $(($data.subscribeTitle)) | [F]ullscreen | [0]..[9] = skip | ◀ -20s | +20s ▶ | ".PadRight($hostInfo.WindowSize.Width, ' ')
+
+                        $header = ("[Q]uit | $sub$pause SPACE=Next | S = $($data.subscribeTitle) | " +
+                            "[F]ullscreen | [0]..[9] = skip | ◀ -20s | +20s ▶ | ").PadRight($hostInfo.WindowSize.Width, ' ')
 
                         if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
+                            # scroll header if too long for window
                             $scrollPosition = ($scrollPosition + 1) % $header.length
                             try {
                                 $header = "$header $header".Substring($scrollPosition, $hostInfo.WindowSize.Width)
@@ -543,7 +453,9 @@ function Open-AllYoutubeVideos {
                         }
 
                         $scrollPosition = -1
+
                         $scrollPosition2 = -1
+
                         $videoInfo = "$($Global:data.title)$($Global:data.description)"
 
                         if ($videoInfo -ne $LastVideo) {
@@ -551,26 +463,49 @@ function Open-AllYoutubeVideos {
                             if ($Global:data.isViewPage) {
 
                                 if (-not $Global:data.playing) {
+                                    # stop all videos and start current one
                                     $null = GenXdev.Webbrowser\Stop-WebbrowserVideos -Chrome:$chrome -Edge:$Edge -WarningAction SilentlyContinue
+
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Starting video playback'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Starting video playback'
+                                    ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
                                     $LastVideo = ''
-                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;resumeVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                    # resume video playback
+                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;resumeVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                        Microsoft.PowerShell.Core\Out-Null
+
                                     $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                     checkOpened
                                 }
                             }
                             else {
                                 [Console]::SetCursorPosition(0, 0)
-                                Microsoft.PowerShell.Utility\Write-Host 'Scanning for videos'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                Microsoft.PowerShell.Utility\Write-Host (
+                                    'Scanning for videos'
+                                ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
                                 $LastVideo = ''
-                                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;pageScanned = false; scanPageForLinks();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                # scan page for video links
+                                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;pageScanned = false; scanPageForLinks();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                    Microsoft.PowerShell.Core\Out-Null
+
                                 $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                 checkOpened
                             }
 
                             Clear-Host
+
                             Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
+                            # format and display video title
                             $header = "$($Global:data.title)".Replace("`r", '').Replace("`n", "`r").Replace("`t", ' ').Trim().PadRight($hostInfo.WindowSize.Width, ' ')
                             if ($header.Length -gt $hostInfo.WindowSize.Width) {
 
@@ -588,6 +523,7 @@ function Open-AllYoutubeVideos {
                             }
 
                             Microsoft.PowerShell.Utility\Write-Host $header -ForegroundColor ([ConsoleColor]::black) -BackgroundColor ([ConsoleColor]::Gray)
+
                             [int] $nn = 0
 
                             if ($Global:data.description.Contains('\n1')) {
@@ -595,8 +531,11 @@ function Open-AllYoutubeVideos {
                                 $Global:data.description = 'loading..'
                             }
 
+                            # format video description for display
                             $txt = "$($Global:data.description)".Replace('Show less', '').Replace('Show more', '').Replace("`r", '').Replace("`n", "`r").Replace("`t", ' ').Trim()
-                            Microsoft.PowerShell.Utility\Write-Host ((($txt -Split "`r"  | Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+
+                            Microsoft.PowerShell.Utility\Write-Host ((($txt -Split "`r" |
+                                        Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
                                             if ([string]::IsNullOrWhiteSpace($PSItem)) {
                                                 $nn = $nn + 1
                                             }
@@ -613,19 +552,30 @@ function Open-AllYoutubeVideos {
                                                 $s
                                             }
                                         }
-                                    ) -Join "`r" -Split "`r" | Microsoft.PowerShell.Utility\Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
+                                    ) -Join "`r" -Split "`r" |
+                                    Microsoft.PowerShell.Utility\Select-Object -First ($hostInfo.WindowSize.Height - 3)) -Join "`r`n")
 
                             $LastVideo = $videoInfo
                         }
 
                         [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 1)
+
                         [Console]::BackgroundColor = [ConsoleColor]::Blue
+
                         [Console]::ForegroundColor = [ConsoleColor]::Yellow
+
+                        # display current video position
                         try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Position, 0)).ToString()) } catch {}
+
                         [Console]::SetCursorPosition($hostInfo.WindowSize.Width - 9, $hostInfo.WindowSize.Height - 1)
+
+                        # display remaining video time
                         try { [Console]::Write([System.TimeSpan]::FromSeconds([Math]::Round($Global:data.Duration - $Global:data.Position, 0)).ToString()) } catch {}
+
                         $hostInfo = & { $H = Microsoft.PowerShell.Utility\Get-Host; $H.ui.rawui }
+
                         [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
                         [Console]::ResetColor()
 
                         checkOpened
@@ -634,45 +584,75 @@ function Open-AllYoutubeVideos {
                         while ([Console]::KeyAvailable) {
 
                             [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
                             $c = [Console]::ReadKey()
 
                             switch ("$($c.KeyChar)".ToLowerInvariant()) {
 
                                 'q' {
+                                    # quit the application
                                     $completed = $true
+
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Quiting..'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Quiting..'
+                                    ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
 
                                     if ($null -ne $browser) {
 
-                                        $browser.CloseMainWindow() | Microsoft.PowerShell.Core\Out-Null
+                                        $browser.CloseMainWindow() |
+                                            Microsoft.PowerShell.Core\Out-Null
                                     }
                                     return
                                 }
 
                                 ' ' {
 
+                                    # skip to next video
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Skipping to next video'.PadRight($hostInfo.WindowSize.Width - 2, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Skipping to next video'
+                                    ).PadRight($hostInfo.WindowSize.Width - 2, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
                                     [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
                                     $page.CloseAsync().Wait()
+
                                     $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
+
                                     $page = $Global:chromeController
+
                                     $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
+
                                     $LastVideo = ''
+
                                     [Console]::SetCursorPosition(0, 0)
+
                                     Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
+
                                     continue
                                 }
 
                                 's' {
 
+                                    # toggle subscription to current channel
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Toggling subscription'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await toggleSubscribeToChannel();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Toggling subscription'
+                                    ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await toggleSubscribeToChannel();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                        Microsoft.PowerShell.Core\Out-Null
+
                                     $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                     checkOpened
+
                                     [Console]::SetCursorPosition(0, 0)
+
                                     Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
 
                                     break;
@@ -680,12 +660,22 @@ function Open-AllYoutubeVideos {
 
                                 'f' {
 
+                                    # toggle fullscreen mode
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Toggling fullscreen'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await toggleFullscreenVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Toggling fullscreen'
+                                    ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await toggleFullscreenVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                        Microsoft.PowerShell.Core\Out-Null
+
                                     $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                     checkOpened
+
                                     [Console]::SetCursorPosition(0, 0)
+
                                     Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
 
                                     break;
@@ -693,13 +683,24 @@ function Open-AllYoutubeVideos {
 
                                 'p' {
 
+                                    # toggle pause/play
                                     [Console]::SetCursorPosition(0, 0)
-                                    Microsoft.PowerShell.Utility\Write-Host 'Toggling pause video'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                    Microsoft.PowerShell.Utility\Write-Host (
+                                        'Toggling pause video'
+                                    ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
                                     $LastVideo = ''
-                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await togglePauseVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                    $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await togglePauseVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                        Microsoft.PowerShell.Core\Out-Null
+
                                     $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                     checkOpened
+
                                     [Console]::SetCursorPosition(0, 0)
+
                                     Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
 
                                     break;
@@ -707,37 +708,67 @@ function Open-AllYoutubeVideos {
 
                                 default {
 
+                                    # handle numeric keys for position jumping
                                     [int] $n = 0
                                     if ([int]::TryParse("$($c.KeyChar)", [ref] $n)) {
 
                                         [Console]::SetCursorPosition(0, 0)
-                                        Microsoft.PowerShell.Utility\Write-Host 'Skipping to position'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                        $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await setVideoPosition($n);" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                        Microsoft.PowerShell.Utility\Write-Host (
+                                            'Skipping to position'
+                                        ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                        $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await setVideoPosition($n);" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                            Microsoft.PowerShell.Core\Out-Null
+
                                         $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                         checkOpened
+
                                         [Console]::SetCursorPosition(0, 0)
+
                                         Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                     }
                                     else {
                                         if ($c.Key -eq [ConsoleKey]::RightArrow) {
 
+                                            # skip forward 20 seconds
                                             [Console]::SetCursorPosition(0, 0)
-                                            Microsoft.PowerShell.Utility\Write-Host 'Skipping 20 seconds forward'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                            $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await forwardInVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                            Microsoft.PowerShell.Utility\Write-Host (
+                                                'Skipping 20 seconds forward'
+                                            ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                            $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await forwardInVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                                Microsoft.PowerShell.Core\Out-Null
+
                                             $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                             checkOpened
+
                                             [Console]::SetCursorPosition(0, 0)
+
                                             Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                         }
                                         else {
                                             if ($c.Key -eq [ConsoleKey]::LeftArrow) {
 
+                                                # skip backward 20 seconds
                                                 [Console]::SetCursorPosition(0, 0)
-                                                Microsoft.PowerShell.Utility\Write-Host 'Skipping 20 seconds backwards'.PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
-                                                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await backwardsInVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge | Microsoft.PowerShell.Core\Out-Null
+
+                                                Microsoft.PowerShell.Utility\Write-Host (
+                                                    'Skipping 20 seconds backwards'
+                                                ).PadRight($hostInfo.WindowSize.Width, ' ') -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::Yellow)
+
+                                                $null = GenXdev.Webbrowser\Invoke-WebbrowserEvaluation "$job;await backwardsInVideo();" -Page $page -ByReference $reference -Chrome:$chrome -Edge:$Edge |
+                                                    Microsoft.PowerShell.Core\Out-Null
+
                                                 $null = Microsoft.PowerShell.Utility\Start-Sleep 1
+
                                                 checkOpened
+
                                                 [Console]::SetCursorPosition(0, 0)
+
                                                 Microsoft.PowerShell.Utility\Write-Host $header -BackgroundColor ([ConsoleColor]::Blue) -ForegroundColor ([ConsoleColor]::White)
                                             }
                                         }
@@ -758,10 +789,15 @@ function Open-AllYoutubeVideos {
 
                     # refresh chrome automation interfaces
                     $hostInfo = & { $H = Microsoft.PowerShell.Utility\Get-Host; $H.ui.rawui }
+
                     [Console]::SetCursorPosition(0, $hostInfo.WindowSize.Height - 2)
+
                     [Console]::ResetColor()
+
                     $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*' -ErrorAction SilentlyContinue -Edge:$Edge -Chrome:$Chrome
+
                     $page = $Global:chromeController
+
                     $reference = GenXdev.Webbrowser\Get-ChromiumSessionReference
 
                     # verify chrome session is still active
@@ -787,7 +823,10 @@ function Open-AllYoutubeVideos {
             if ($Queries.Count -gt 0) {
                 foreach ($Query in $Queries) {
                     if ([string]::IsNullOrWhiteSpace($Query) -eq $false) {
-                        $null = goNext "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($query))" $Query
+                        # open youtube search results for each query
+                        $null = goNext (
+                            "https://www.youtube.com/results?search_query=$([Uri]::EscapeUriString($query))"
+                        ) $Query
                     }
                 }
             }
@@ -815,6 +854,8 @@ function Open-AllYoutubeVideos {
     }
 
     end {
+
         Microsoft.PowerShell.Utility\Write-Verbose 'YouTube video browser session ended'
     }
 }
+###############################################################################

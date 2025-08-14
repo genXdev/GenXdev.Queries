@@ -139,7 +139,8 @@ Do show the browser controls.
 Removes the borders of the browser window.
 
 .PARAMETER SideBySide
-Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.
+Position browser window either fullscreen on different monitor than
+PowerShell, or side by side with PowerShell on the same monitor.
 
 .PARAMETER SessionOnly
 Use alternative settings stored in session for AI preferences.
@@ -531,7 +532,6 @@ function Open-ViralSimulation {
         )]
         [switch] $Maximize,
         ###############################################################################
-
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Restore PowerShell window focus'
@@ -553,7 +553,7 @@ function Open-ViralSimulation {
                 'the browserprocess')
         )]
         [Alias('pt')]
-        [switch]$PassThru,
+        [switch] $PassThru,
 
         ###############################################################################
         [Parameter(
@@ -583,33 +583,39 @@ function Open-ViralSimulation {
         [switch] $NoApplicationMode,
         ###############################################################################
         [Parameter(
-            HelpMessage = 'Removes the borders of the browser window.'
+            Mandatory = $false,
+            HelpMessage = 'Removes the borders of the browser window'
         )]
         [Alias('nb')]
         [switch] $NoBorders,
-
         ###############################################################################
         [Parameter(
-            HelpMessage = 'Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.'
+            Mandatory = $false,
+            HelpMessage = ('Position browser window either fullscreen on ' +
+                'different monitor than PowerShell, or side by side with ' +
+                'PowerShell on the same monitor')
         )]
         [Alias('sbs')]
         [switch] $SideBySide,
-
         ###############################################################################
         [Parameter(
-            HelpMessage = 'Use alternative settings stored in session for AI preferences.'
+            Mandatory = $false,
+            HelpMessage = ('Use alternative settings stored in session for ' +
+                'AI preferences')
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
-            HelpMessage = 'Clear alternative settings stored in session for AI preferences.'
+            Mandatory = $false,
+            HelpMessage = ('Clear alternative settings stored in session for ' +
+                'AI preferences')
         )]
         [switch] $ClearSession,
-
         ###############################################################################
         [Parameter(
-            HelpMessage = 'Store settings only in persistent preferences without affecting session.'
+            Mandatory = $false,
+            HelpMessage = ('Store settings only in persistent preferences ' +
+                'without affecting session')
         )]
         [Alias('FromPreferences')]
         [switch] $SkipSession
@@ -617,21 +623,24 @@ function Open-ViralSimulation {
 
     begin {
 
-        # determine language code based on language parameter
+        # initialize default language code for website access
         $code = 'www'
+
+        # check if user specified a language parameter
         if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-            # retrieve language code from language dictionary
+            # retrieve corresponding language code from the dictionary
             $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
-            # set accept-lang header if not already specified
+            # automatically set browser accept-lang header if not specified
             if (-not $PSBoundParameters.ContainsKey('AcceptLang')) {
 
+                # add the language code to bound parameters
                 $null = $PSBoundParameters.Add('AcceptLang', $code)
             }
         }
 
-        # copy identical parameters from this function to open-webbrowser
+        # copy compatible parameters to pass to open-webbrowser function
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
@@ -639,67 +648,70 @@ function Open-ViralSimulation {
                 -Scope Local `
                 -ErrorAction SilentlyContinue)
 
-        # set the viral simulation website url
+        # configure the viral simulation website url
         $invocationArguments.'Url' = 'https://viral.genxdev.net/'
 
-        # handle return url only scenario without opening browser
+        # exit early if user only wants the url without opening browser
         if ($ReturnOnlyURL) {
 
             Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
             return
         }
 
-        # configure application mode based on user preference
+        # determine application mode setting based on user preference
         if (-not $PSBoundParameters.ContainsKey('ApplicationMode')) {
 
+            # enable application mode unless explicitly disabled
             $invocationArguments.'ApplicationMode' = -not $NoApplicationMode
         }
 
-        # ensure new window is created for the viral simulation
+        # force new window creation for viral simulation unless specified
         if (-not $PSBoundParameters.ContainsKey('NewWindow')) {
 
+            # always create new window for viral simulation
             $invocationArguments.'NewWindow' = $true
         }
 
-        # configure fullscreen mode based on user preference
+        # configure fullscreen behavior based on user preference
         if (-not $PSBoundParameters.ContainsKey('FullScreen')) {
 
+            # enable fullscreen unless explicitly disabled
             $invocationArguments.'FullScreen' = -not $NoFullScreen
         }
 
-        # remove internal parameter that shouldn't be passed to open-webbrowser
+        # clean up internal parameters before passing to open-webbrowser
         if ($PSBoundParameters.ContainsKey('NoFullScreen')) {
 
-            $null = $PSBoundParameters.Remove('NoFullScreen') |
-                Microsoft.PowerShell.Core\Out-Null
+            # remove internal parameter to prevent conflicts
+            $null = $PSBoundParameters.Remove('NoFullScreen')
         }
 
-        # remove duplicate parameter removal check
+        # remove any duplicate parameter cleanup attempts
         if ($PSBoundParameters.ContainsKey('NoFullScreen')) {
 
-            $null = $PSBoundParameters.Remove('NoFullScreen') |
-                Microsoft.PowerShell.Core\Out-Null
+            # ensure parameter is completely removed
+            $null = $PSBoundParameters.Remove('NoFullScreen')
         }
     }
 
     process {
 
-        # handle return url only scenario without opening browser
+        # handle early exit for url-only requests without browser launch
         if ($ReturnOnlyURL) {
 
             Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)
             return
         }
 
-        # output verbose information about launching the viral simulation
+        # provide verbose feedback about the viral simulation launch
         Microsoft.PowerShell.Utility\Write-Verbose (
             "Opening viral simulation at: $($invocationArguments.Url)"
         )
 
-        # launch the viral simulation in the browser
+        # launch the viral simulation using the configured browser settings
         GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
-        # return url if requested by user
+        # output the url if requested after browser launch
         if ($ReturnURL) {
 
             Microsoft.PowerShell.Utility\Write-Output ($invocationArguments.Url)

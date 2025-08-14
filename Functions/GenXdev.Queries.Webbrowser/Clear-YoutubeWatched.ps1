@@ -29,7 +29,7 @@ function Clear-YoutubeWatched {
 
         try {
             # attempt to select any open youtube tab
-            $null = GenXdev.Webbrowser\Select-WebbrowserTab -Pattern '*youtube*'
+            $null = GenXdev.Webbrowser\Select-WebbrowserTab -Name '*youtube*'
 
             # verify chrome session exists and is valid
             if ($null -eq $chromeSession -or $chromeSession -isnot [PSCustomObject]) {
