@@ -492,71 +492,71 @@ function Open-WolframAlphaQuery {
         )]
 
         [string[]] $KeysToSend,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('Escape')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Escape control characters when sending keys.'
         )]
         [switch] $SendKeyEscape,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('HoldKeyboardFocus')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Prevent returning keyboard focus to PowerShell after sending keys.'
         )]
         [switch] $SendKeyHoldKeyboardFocus,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('UseShiftEnter')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Send Shift+Enter instead of regular Enter for line breaks when sending keys.'
         )]
         [switch] $SendKeyUseShiftEnter,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('DelayMilliSeconds')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Delay between sending different key sequences in milliseconds.'
         )]
         [int] $SendKeyDelayMilliSeconds,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('fw','focus')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Focus the browser window after opening'
         )]
         [switch] $FocusWindow,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('fg')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Set the browser window to foreground after opening'
         )]
         [switch] $SetForeground,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Restore PowerShell window focus'
         )]
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('nw', 'new')]
         [Parameter(
             Mandatory = $false,
@@ -564,30 +564,30 @@ function Open-WolframAlphaQuery {
                 'create a new one')
         )]
         [switch] $NewWindow,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('pt')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Returns a [System.Diagnostics.Process] object of the browserprocess.'
         )]
         [switch] $PassThru,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Don't open webbrowser, just return the url"
         )]
         [switch] $ReturnURL,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'After opening webbrowser, return the url'
         )]
         [switch] $ReturnOnlyURL,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('nb')]
         [Parameter(
             Mandatory = $false,
@@ -595,8 +595,8 @@ function Open-WolframAlphaQuery {
         )]
         [switch] $NoBorders,
 
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('sbs')]
         [Parameter(
             Mandatory = $false,
@@ -604,24 +604,24 @@ function Open-WolframAlphaQuery {
         )]
         [switch] $SideBySide,
 
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Use alternative settings stored in session for AI preferences.'
         )]
         [switch] $SessionOnly,
 
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Clear alternative settings stored in session for AI preferences.'
         )]
         [switch] $ClearSession,
 
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('FromPreferences')]
         [Parameter(
             Mandatory = $false,
@@ -635,7 +635,7 @@ function Open-WolframAlphaQuery {
         # copy identical parameters from this function to open-webbrowser
         $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName 'GenXdev.Webbrowser' `
+            -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
                 -Scope Local `
                 -ErrorAction SilentlyContinue)

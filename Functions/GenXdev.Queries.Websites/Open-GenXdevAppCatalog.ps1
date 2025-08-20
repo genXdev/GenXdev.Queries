@@ -385,7 +385,6 @@ function Open-GenXdevAppCatalog {
             HelpMessage = 'Opens in fullscreen mode'
         )]
         [switch] $FullScreen,
-
         ###############################################################################
         [Alias('sw')]
         [Parameter(
@@ -556,7 +555,6 @@ function Open-GenXdevAppCatalog {
         )]
         [Alias('pt')]
         [switch]$PassThru,
-
         ###############################################################################
         [parameter(
             Mandatory = $false,
@@ -589,26 +587,22 @@ function Open-GenXdevAppCatalog {
         )]
         [Alias('nb')]
         [switch] $NoBorders,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.'
         )]
         [Alias('sbs')]
         [switch] $SideBySide,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Use alternative settings stored in session for AI preferences.'
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Clear alternative settings stored in session for AI preferences.'
         )]
         [switch] $ClearSession,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Store settings only in persistent preferences without affecting session.'

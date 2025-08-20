@@ -577,7 +577,6 @@ function Open-YabAIBattle {
         )]
         [Alias('pt')]
         [switch]$PassThru,
-
         ###############################################################################
         [parameter(
             Mandatory = $false,

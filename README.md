@@ -12,7 +12,7 @@
 
 ## MIT License
 
-```text
+````text
 MIT License
 
 Copyright (c) 2025 GenXdev
@@ -62,21 +62,20 @@ SOFTWARE.
 [![GenXdev.Helpers](https://img.shields.io/powershellgallery/v/GenXdev.Helpers.svg?style=flat-square&label=GenXdev.Helpers)](https://www.powershellgallery.com/packages/GenXdev.Helpers/) [![GenXdev.Data](https://img.shields.io/powershellgallery/v/GenXdev.Data.svg?style=flat-square&label=GenXdev.Data)](https://www.powershellgallery.com/packages/GenXdev.Data/)  [![GenXdev.Webbrowser](https://img.shields.io/powershellgallery/v/GenXdev.Webbrowser.svg?style=flat-square&label=GenXdev.Webbrowser)](https://www.powershellgallery.com/packages/GenXdev.Webbrowser/) [![GenXdev.Console](https://img.shields.io/powershellgallery/v/GenXdev.Console.svg?style=flat-square&label=GenXdev.Console)](https://www.powershellgallery.com/packages/GenXdev.Console/) [![GenXdev.FileSystem](https://img.shields.io/powershellgallery/v/GenXdev.Filesystem.svg?style=flat-square&label=GenXdev.FileSystem)](https://www.powershellgallery.com/packages/GenXdev.FileSystem/)
 
 ### INSTALLATION
-````PowerShell
+```PowerShell
 Install-Module "GenXdev.Queries"
 Import-Module "GenXdev.Queries"
-````
+```
 ### UPDATE
-````PowerShell
+```PowerShell
 Update-Module
-````
-<br/><hr/><hr/><br/>
+```
+<br/><hr/><br/>
 
 # Cmdlet Index
-### GenXdev.Queries<hr/>
 ### GenXdev.Queries
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [ConvertTo-Uris](#convertto-uris) | &nbsp; | Parses strings for any valid URI. |
 | [Invoke-WebbrowserTabPollingScript](#invoke-webbrowsertabpollingscript) | &nbsp; | Executes a background polling script in a previously selected webbrowser tab. |
 | [Open-AllPossibleQueries](#open-allpossiblequeries) | qq | Opens all possible query types for given search terms or URLs. |
@@ -84,7 +83,7 @@ Update-Module
 
 ### GenXdev.Queries.AI
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Open-BingCopilotQuery](#open-bingcopilotquery) | aibc | Opens a Bing CoPilot query in a webbrowser |
 | [Open-ChatGPTQuery](#open-chatgptquery) | aicgpt, askchatgpt | Opens a ChatGPT query in a web browser. |
 | [Open-CloudLLMChat](#open-cloudllmchat) | ask | Opens a cloud LLM chat interface for AI queries. |
@@ -95,13 +94,13 @@ Update-Module
 
 ### GenXdev.Queries.Text
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Get-NextAffirmation](#get-nextaffirmation) | WhatAboutIt | Returns a random affirmation text from affirmations.dev API. |
 | [Get-WikipediaSummary](#get-wikipediasummary) | wikitxt | Retrieves a summary of a topic from Wikipedia. |
 
 ### GenXdev.Queries.Webbrowser
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Clear-YoutubeWatched](#clear-youtubewatched) | &nbsp; | Clears the YouTube watch history from the browser's local storage. |
 | [Copy-PDFsFromGoogleQuery](#copy-pdfsfromgooglequery) | &nbsp; | Downloads PDF files found through Google search results. |
 | [Get-GoogleSearchResultUrls](#get-googlesearchresulturls) | qlinksget | Performs a google search and returns the links |
@@ -110,7 +109,7 @@ Update-Module
 | [Open-BingQuery](#open-bingquery) | bq | Opens a Bing search query in a web browser. |
 | [Open-BuiltWithSiteInfo](#open-builtwithsiteinfo) | &nbsp; | Opens BuiltWith website queries in a web browser. |
 | [Open-GithubQuery](#open-githubquery) | qgithub | Opens a Github repository search query in a web browser. |
-| [Open-GoogleQuery](#open-googlequery) | &nbsp; |  |
+| [Open-GoogleQuery](#open-googlequery) | &nbsp; | &nbsp; |
 | [Open-GoogleSiteInfo](#open-googlesiteinfo) | &nbsp; | Opens Google site information queries in a web browser. |
 | [Open-IMDBQuery](#open-imdbquery) | imdb | Opens an IMDB search query in a web browser. |
 | [Open-InstantStreetViewQuery](#open-instantstreetviewquery) | isv | Opens InstantStreetView queries in a web browser. |
@@ -128,7 +127,7 @@ Update-Module
 
 ### GenXdev.Queries.Websites
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Open-GameOfLife](#open-gameoflife) | conway, gameoflife | Opens Conway's Game of Life simulation in a web browser. |
 | [Open-GenXdevAppCatalog](#open-genxdevappcatalog) | appcatalog | Opens the GenXdev progressive webapps catalog in a web browser. |
 | [Open-Timeline](#open-timeline) | timeline | Opens an interactive timeline showing current time, date, century, and millennium. |
@@ -136,7 +135,7 @@ Update-Module
 | [Open-Yab](#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
 | [Open-YabAIBattle](#open-yabaibattle) | yabbattle | Opens the YabAI Battle game in a web browser. |
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
 
 
 # Cmdlets
@@ -145,7 +144,7 @@ Update-Module
 ###	GenXdev.Queries<hr/> 
 
 ##	ConvertTo-Uris 
-````PowerShell 
+```PowerShell 
 
    ConvertTo-Uris  
 ```` 
@@ -154,7 +153,7 @@ Update-Module
     Parses strings for any valid URI.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -178,11 +177,11 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-WebbrowserTabPollingScript 
-````PowerShell 
+```PowerShell 
 
    Invoke-WebbrowserTabPollingScript  
 ```` 
@@ -191,7 +190,7 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
     Executes a background polling script in a previously selected webbrowser tab.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String>] [[-Callback] <ScriptBlock>] [<CommonParameters>] 
 ```` 
 
@@ -231,7 +230,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10 or later.  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -240,11 +239,11 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
        -Callback { Write-Host "Polled" }  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleQueries              --> qq  
 ```` 
@@ -253,7 +252,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
     Opens all possible query types for given search terms or URLs.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -603,11 +602,11 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleTextQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleTextQueries          --> qqq  
 ```` 
@@ -616,7 +615,7 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Executes all Text query Cmdlets in parallel and displays results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -640,14 +639,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.AI<hr/> 
 
 ##	Open-BingCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingCopilotQuery                --> aibc  
 ```` 
@@ -656,7 +655,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
     Opens a Bing CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -990,11 +989,11 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ChatGPTQuery 
-````PowerShell 
+```PowerShell 
 
    Open-ChatGPTQuery                    --> aicgpt, askchatgpt  
 ```` 
@@ -1003,7 +1002,7 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
     Opens a ChatGPT query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -1339,11 +1338,11 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-CloudLLMChat 
-````PowerShell 
+```PowerShell 
 
    Open-CloudLLMChat                    --> ask  
 ```` 
@@ -1352,7 +1351,7 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens a cloud LLM chat interface for AI queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -1687,11 +1686,11 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-DeepSearchQuery 
-````PowerShell 
+```PowerShell 
 
    Open-DeepSearchQuery                 --> aideepseek, askdeepsearch  
 ```` 
@@ -1700,7 +1699,7 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens a DeepSeek query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -2051,11 +2050,11 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubCopilotQuery              --> aigc, askghcopilot  
 ```` 
@@ -2064,7 +2063,7 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
     Opens a Github CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -2404,11 +2403,11 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleGeminiQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleGeminiQuery               --> aigg, askgemini  
 ```` 
@@ -2417,7 +2416,7 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Opens a Google Gemini query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -2759,11 +2758,11 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-XGrokQuery 
-````PowerShell 
+```PowerShell 
 
    Open-XGrokQuery                      --> aixg, askxgrok  
 ```` 
@@ -2772,7 +2771,7 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens a X Grok query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -3115,14 +3114,14 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/> 
 
 ##	Get-NextAffirmation 
-````PowerShell 
+```PowerShell 
 
    Get-NextAffirmation                  --> WhatAboutIt  
 ```` 
@@ -3131,7 +3130,7 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Returns a random affirmation text from affirmations.dev API.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-NextAffirmation [[-Speak]] [<CommonParameters>] 
 ```` 
 
@@ -3154,11 +3153,11 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-WikipediaSummary 
-````PowerShell 
+```PowerShell 
 
    Get-WikipediaSummary                 --> wikitxt  
 ```` 
@@ -3167,7 +3166,7 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
     Retrieves a summary of a topic from Wikipedia.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -3190,14 +3189,14 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/> 
 
 ##	Clear-YoutubeWatched 
-````PowerShell 
+```PowerShell 
 
    Clear-YoutubeWatched  
 ```` 
@@ -3206,7 +3205,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
     Clears the YouTube watch history from the browser's local storage.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-YoutubeWatched [<CommonParameters>] 
 ```` 
 
@@ -3223,11 +3222,11 @@ Clear-YoutubeWatched [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Copy-PDFsFromGoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Copy-PDFsFromGoogleQuery  
 ```` 
@@ -3236,7 +3235,7 @@ Clear-YoutubeWatched [<CommonParameters>]
     Downloads PDF files found through Google search results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] [<CommonParameters>] 
 ```` 
 
@@ -3276,11 +3275,11 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GoogleSearchResultUrls 
-````PowerShell 
+```PowerShell 
 
    Get-GoogleSearchResultUrls           --> qlinksget  
 ```` 
@@ -3289,7 +3288,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
     Performs a google search and returns the links  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -3326,7 +3325,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
        ##############################################################################  
@@ -3334,11 +3333,11 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
    PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllGoogleLinks 
-````PowerShell 
+```PowerShell 
 
    Open-AllGoogleLinks                  --> qlinks  
 ```` 
@@ -3347,7 +3346,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     Performs an infinite auto opening google search .  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -3378,7 +3377,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -3386,11 +3385,11 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
    Open-AllGoogleLinks "site:github.com PowerShell module"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllYoutubeVideos 
-````PowerShell 
+```PowerShell 
 
    Open-AllYoutubeVideos                --> qvideos, qyt  
 ```` 
@@ -3399,7 +3398,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     Opens and controls YouTube videos in a browser window with keyboard shortcuts.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Private] [-Edge] [-Chrome] [-NoFullScreen] [-ApplicationMode] [-AcceptLang <String>] [<CommonParameters>] 
 ```` 
 
@@ -3506,11 +3505,11 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BingQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingQuery                       --> bq  
 ```` 
@@ -3519,7 +3518,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
     Opens a Bing search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru] [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-SessionOnly] [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -3886,11 +3885,11 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BuiltWithSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-BuiltWithSiteInfo  
 ```` 
@@ -3899,7 +3898,7 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens BuiltWith website queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-PassThru] [-SideBySide] [-NewWindow] [-Maximize] [-NoBorders] [-RestoreFocus] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -4263,11 +4262,11 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubQuery                     --> qgithub  
 ```` 
@@ -4276,7 +4275,7 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
     Opens a Github repository search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -4647,11 +4646,11 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleQuery  
 ```` 
@@ -4661,7 +4660,7 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     customization options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -5055,11 +5054,11 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleSiteInfo  
 ```` 
@@ -5068,7 +5067,7 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     Opens Google site information queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -5380,11 +5379,11 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-IMDBQuery 
-````PowerShell 
+```PowerShell 
 
    Open-IMDBQuery                       --> imdb  
 ```` 
@@ -5393,7 +5392,7 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens an IMDB search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -5772,11 +5771,11 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-InstantStreetViewQuery 
-````PowerShell 
+```PowerShell 
 
    Open-InstantStreetViewQuery          --> isv  
 ```` 
@@ -5785,7 +5784,7 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens InstantStreetView queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -6143,11 +6142,11 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-MovieQuote 
-````PowerShell 
+```PowerShell 
 
    Open-MovieQuote                      --> moviequote  
 ```` 
@@ -6156,7 +6155,7 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a video of a movie quote in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -6517,11 +6516,11 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SearchEngine 
-````PowerShell 
+```PowerShell 
 
    Open-SearchEngine                    --> q  
 ```` 
@@ -6530,7 +6529,7 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Opens a search query in the specified search engine using a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -6846,11 +6845,11 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SimularWebSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-SimularWebSiteInfo              --> simularsite  
 ```` 
@@ -6859,7 +6858,7 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens SimilarWeb website information for specified URLs in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-NoBorders] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -7218,11 +7217,11 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-StackOverflowQuery 
-````PowerShell 
+```PowerShell 
 
    Open-StackOverflowQuery              --> qso  
 ```` 
@@ -7231,7 +7230,7 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens Stack Overflow search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -7618,11 +7617,11 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WaybackMachineSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WaybackMachineSiteInfo          --> wayback  
 ```` 
@@ -7631,7 +7630,7 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens WaybackMachine site information in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -7991,11 +7990,11 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WebsiteAndPerformQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WebsiteAndPerformQuery          --> owaq  
 ```` 
@@ -8004,7 +8003,7 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a webpage in a webbrowser and performs one or more queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow] [-SetForeground] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -8341,11 +8340,11 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WhoisHostSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WhoisHostSiteInfo               --> whois  
 ```` 
@@ -8354,7 +8353,7 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
     Opens a Whois host information query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -8710,11 +8709,11 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaNLQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaNLQuery                --> wikinl  
 ```` 
@@ -8723,7 +8722,7 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens Dutch Wikipedia searches in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -9029,11 +9028,11 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaQuery                  --> wiki  
 ```` 
@@ -9042,7 +9041,7 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
     Opens a Wikipedia query in a webbrowser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -9399,11 +9398,11 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WolframAlphaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WolframAlphaQuery               --> qalpha  
 ```` 
@@ -9412,7 +9411,7 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens a Wolfram Alpha query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -9775,11 +9774,11 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YoutubeQuery 
-````PowerShell 
+```PowerShell 
 
    Open-YoutubeQuery                    --> youtube  
 ```` 
@@ -9788,7 +9787,7 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens YouTube search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -10149,14 +10148,14 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/> 
 
 ##	Open-GameOfLife 
-````PowerShell 
+```PowerShell 
 
    Open-GameOfLife                      --> conway, gameoflife  
 ```` 
@@ -10165,7 +10164,7 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens Conway's Game of Life simulation in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -10556,7 +10555,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10+ Operating System.  
        This cmdlet is designed for interactive use and performs window manipulation  
@@ -10579,11 +10578,11 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
    with specific dimensions.  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevAppCatalog 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevAppCatalog               --> appcatalog  
 ```` 
@@ -10592,7 +10591,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
     Opens the GenXdev progressive webapps catalog in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -10968,11 +10967,11 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Timeline 
-````PowerShell 
+```PowerShell 
 
    Open-Timeline                        --> timeline  
 ```` 
@@ -10981,7 +10980,7 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
     Opens an interactive timeline showing current time, date, century, and millennium.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] [-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] [-RotationDelaySeconds <Int32>] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -11433,11 +11432,11 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ViralSimulation 
-````PowerShell 
+```PowerShell 
 
    Open-ViralSimulation                 --> viral  
 ```` 
@@ -11447,7 +11446,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
     options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -11819,11 +11818,11 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Yab 
-````PowerShell 
+```PowerShell 
 
    Open-Yab                             --> yab  
 ```` 
@@ -11832,7 +11831,7 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
     Opens the YAB game in a web browser with configurable settings.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -12206,11 +12205,11 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YabAIBattle 
-````PowerShell 
+```PowerShell 
 
    Open-YabAIBattle                     --> yabbattle  
 ```` 
@@ -12219,7 +12218,7 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
     Opens the YabAI Battle game in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -12602,14 +12601,14 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries<hr/> 
 
 ##	ConvertTo-Uris 
-````PowerShell 
+```PowerShell 
 
    ConvertTo-Uris  
 ```` 
@@ -12618,7 +12617,7 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
     Parses strings for any valid URI.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -12642,11 +12641,11 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-WebbrowserTabPollingScript 
-````PowerShell 
+```PowerShell 
 
    Invoke-WebbrowserTabPollingScript  
 ```` 
@@ -12655,7 +12654,7 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
     Executes a background polling script in a previously selected webbrowser tab.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String>] [[-Callback] <ScriptBlock>] [<CommonParameters>] 
 ```` 
 
@@ -12695,7 +12694,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10 or later.  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -12704,11 +12703,11 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
        -Callback { Write-Host "Polled" }  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleQueries              --> qq  
 ```` 
@@ -12717,7 +12716,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
     Opens all possible query types for given search terms or URLs.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -13067,11 +13066,11 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleTextQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleTextQueries          --> qqq  
 ```` 
@@ -13080,7 +13079,7 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Executes all Text query Cmdlets in parallel and displays results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -13104,14 +13103,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.AI<hr/> 
 
 ##	Open-BingCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingCopilotQuery                --> aibc  
 ```` 
@@ -13120,7 +13119,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
     Opens a Bing CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -13454,11 +13453,11 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ChatGPTQuery 
-````PowerShell 
+```PowerShell 
 
    Open-ChatGPTQuery                    --> aicgpt, askchatgpt  
 ```` 
@@ -13467,7 +13466,7 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
     Opens a ChatGPT query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -13803,11 +13802,11 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-CloudLLMChat 
-````PowerShell 
+```PowerShell 
 
    Open-CloudLLMChat                    --> ask  
 ```` 
@@ -13816,7 +13815,7 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens a cloud LLM chat interface for AI queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -14151,11 +14150,11 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-DeepSearchQuery 
-````PowerShell 
+```PowerShell 
 
    Open-DeepSearchQuery                 --> aideepseek, askdeepsearch  
 ```` 
@@ -14164,7 +14163,7 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens a DeepSeek query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -14515,11 +14514,11 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubCopilotQuery              --> aigc, askghcopilot  
 ```` 
@@ -14528,7 +14527,7 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
     Opens a Github CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -14868,11 +14867,11 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleGeminiQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleGeminiQuery               --> aigg, askgemini  
 ```` 
@@ -14881,7 +14880,7 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Opens a Google Gemini query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -15223,11 +15222,11 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-XGrokQuery 
-````PowerShell 
+```PowerShell 
 
    Open-XGrokQuery                      --> aixg, askxgrok  
 ```` 
@@ -15236,7 +15235,7 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens a X Grok query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -15579,14 +15578,14 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/> 
 
 ##	Get-NextAffirmation 
-````PowerShell 
+```PowerShell 
 
    Get-NextAffirmation                  --> WhatAboutIt  
 ```` 
@@ -15595,7 +15594,7 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Returns a random affirmation text from affirmations.dev API.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-NextAffirmation [[-Speak]] [<CommonParameters>] 
 ```` 
 
@@ -15618,11 +15617,11 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-WikipediaSummary 
-````PowerShell 
+```PowerShell 
 
    Get-WikipediaSummary                 --> wikitxt  
 ```` 
@@ -15631,7 +15630,7 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
     Retrieves a summary of a topic from Wikipedia.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -15654,14 +15653,14 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/> 
 
 ##	Clear-YoutubeWatched 
-````PowerShell 
+```PowerShell 
 
    Clear-YoutubeWatched  
 ```` 
@@ -15670,7 +15669,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
     Clears the YouTube watch history from the browser's local storage.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-YoutubeWatched [<CommonParameters>] 
 ```` 
 
@@ -15687,11 +15686,11 @@ Clear-YoutubeWatched [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Copy-PDFsFromGoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Copy-PDFsFromGoogleQuery  
 ```` 
@@ -15700,7 +15699,7 @@ Clear-YoutubeWatched [<CommonParameters>]
     Downloads PDF files found through Google search results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] [<CommonParameters>] 
 ```` 
 
@@ -15740,11 +15739,11 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GoogleSearchResultUrls 
-````PowerShell 
+```PowerShell 
 
    Get-GoogleSearchResultUrls           --> qlinksget  
 ```` 
@@ -15753,7 +15752,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
     Performs a google search and returns the links  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -15790,7 +15789,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
        ##############################################################################  
@@ -15798,11 +15797,11 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
    PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllGoogleLinks 
-````PowerShell 
+```PowerShell 
 
    Open-AllGoogleLinks                  --> qlinks  
 ```` 
@@ -15811,7 +15810,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     Performs an infinite auto opening google search .  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -15842,7 +15841,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -15850,11 +15849,11 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
    Open-AllGoogleLinks "site:github.com PowerShell module"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllYoutubeVideos 
-````PowerShell 
+```PowerShell 
 
    Open-AllYoutubeVideos                --> qvideos, qyt  
 ```` 
@@ -15863,7 +15862,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     Opens and controls YouTube videos in a browser window with keyboard shortcuts.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Private] [-Edge] [-Chrome] [-NoFullScreen] [-ApplicationMode] [-AcceptLang <String>] [<CommonParameters>] 
 ```` 
 
@@ -15970,11 +15969,11 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BingQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingQuery                       --> bq  
 ```` 
@@ -15983,7 +15982,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
     Opens a Bing search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru] [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-SessionOnly] [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -16350,11 +16349,11 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BuiltWithSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-BuiltWithSiteInfo  
 ```` 
@@ -16363,7 +16362,7 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens BuiltWith website queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-PassThru] [-SideBySide] [-NewWindow] [-Maximize] [-NoBorders] [-RestoreFocus] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -16727,11 +16726,11 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubQuery                     --> qgithub  
 ```` 
@@ -16740,7 +16739,7 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
     Opens a Github repository search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -17111,11 +17110,11 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleQuery  
 ```` 
@@ -17125,7 +17124,7 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     customization options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -17519,11 +17518,11 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleSiteInfo  
 ```` 
@@ -17532,7 +17531,7 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     Opens Google site information queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -17844,11 +17843,11 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-IMDBQuery 
-````PowerShell 
+```PowerShell 
 
    Open-IMDBQuery                       --> imdb  
 ```` 
@@ -17857,7 +17856,7 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens an IMDB search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -18236,11 +18235,11 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-InstantStreetViewQuery 
-````PowerShell 
+```PowerShell 
 
    Open-InstantStreetViewQuery          --> isv  
 ```` 
@@ -18249,7 +18248,7 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens InstantStreetView queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -18607,11 +18606,11 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-MovieQuote 
-````PowerShell 
+```PowerShell 
 
    Open-MovieQuote                      --> moviequote  
 ```` 
@@ -18620,7 +18619,7 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a video of a movie quote in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -18981,11 +18980,11 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SearchEngine 
-````PowerShell 
+```PowerShell 
 
    Open-SearchEngine                    --> q  
 ```` 
@@ -18994,7 +18993,7 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Opens a search query in the specified search engine using a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -19310,11 +19309,11 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SimularWebSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-SimularWebSiteInfo              --> simularsite  
 ```` 
@@ -19323,7 +19322,7 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens SimilarWeb website information for specified URLs in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-NoBorders] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -19682,11 +19681,11 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-StackOverflowQuery 
-````PowerShell 
+```PowerShell 
 
    Open-StackOverflowQuery              --> qso  
 ```` 
@@ -19695,7 +19694,7 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens Stack Overflow search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -20082,11 +20081,11 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WaybackMachineSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WaybackMachineSiteInfo          --> wayback  
 ```` 
@@ -20095,7 +20094,7 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens WaybackMachine site information in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -20455,11 +20454,11 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WebsiteAndPerformQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WebsiteAndPerformQuery          --> owaq  
 ```` 
@@ -20468,7 +20467,7 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a webpage in a webbrowser and performs one or more queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow] [-SetForeground] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -20805,11 +20804,11 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WhoisHostSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WhoisHostSiteInfo               --> whois  
 ```` 
@@ -20818,7 +20817,7 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
     Opens a Whois host information query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -21174,11 +21173,11 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaNLQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaNLQuery                --> wikinl  
 ```` 
@@ -21187,7 +21186,7 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens Dutch Wikipedia searches in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -21493,11 +21492,11 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaQuery                  --> wiki  
 ```` 
@@ -21506,7 +21505,7 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
     Opens a Wikipedia query in a webbrowser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -21863,11 +21862,11 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WolframAlphaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WolframAlphaQuery               --> qalpha  
 ```` 
@@ -21876,7 +21875,7 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens a Wolfram Alpha query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -22239,11 +22238,11 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YoutubeQuery 
-````PowerShell 
+```PowerShell 
 
    Open-YoutubeQuery                    --> youtube  
 ```` 
@@ -22252,7 +22251,7 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens YouTube search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -22613,14 +22612,14 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/> 
 
 ##	Open-GameOfLife 
-````PowerShell 
+```PowerShell 
 
    Open-GameOfLife                      --> conway, gameoflife  
 ```` 
@@ -22629,7 +22628,7 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens Conway's Game of Life simulation in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -23020,7 +23019,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10+ Operating System.  
        This cmdlet is designed for interactive use and performs window manipulation  
@@ -23043,11 +23042,11 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
    with specific dimensions.  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevAppCatalog 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevAppCatalog               --> appcatalog  
 ```` 
@@ -23056,7 +23055,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
     Opens the GenXdev progressive webapps catalog in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -23432,11 +23431,11 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Timeline 
-````PowerShell 
+```PowerShell 
 
    Open-Timeline                        --> timeline  
 ```` 
@@ -23445,7 +23444,7 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
     Opens an interactive timeline showing current time, date, century, and millennium.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] [-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] [-RotationDelaySeconds <Int32>] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -23897,11 +23896,11 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ViralSimulation 
-````PowerShell 
+```PowerShell 
 
    Open-ViralSimulation                 --> viral  
 ```` 
@@ -23911,7 +23910,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
     options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -24283,11 +24282,11 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Yab 
-````PowerShell 
+```PowerShell 
 
    Open-Yab                             --> yab  
 ```` 
@@ -24296,7 +24295,7 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
     Opens the YAB game in a web browser with configurable settings.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -24670,11 +24669,11 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YabAIBattle 
-````PowerShell 
+```PowerShell 
 
    Open-YabAIBattle                     --> yabbattle  
 ```` 
@@ -24683,7 +24682,7 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
     Opens the YabAI Battle game in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -25066,14 +25065,14 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries<hr/> 
 
 ##	ConvertTo-Uris 
-````PowerShell 
+```PowerShell 
 
    ConvertTo-Uris  
 ```` 
@@ -25082,7 +25081,7 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
     Parses strings for any valid URI.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -25106,11 +25105,11 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-WebbrowserTabPollingScript 
-````PowerShell 
+```PowerShell 
 
    Invoke-WebbrowserTabPollingScript  
 ```` 
@@ -25119,7 +25118,7 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
     Executes a background polling script in a previously selected webbrowser tab.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String>] [[-Callback] <ScriptBlock>] [<CommonParameters>] 
 ```` 
 
@@ -25159,7 +25158,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10 or later.  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -25168,11 +25167,11 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
        -Callback { Write-Host "Polled" }  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleQueries              --> qq  
 ```` 
@@ -25181,7 +25180,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
     Opens all possible query types for given search terms or URLs.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -25531,11 +25530,11 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleTextQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleTextQueries          --> qqq  
 ```` 
@@ -25544,7 +25543,7 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Executes all Text query Cmdlets in parallel and displays results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -25568,14 +25567,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.AI<hr/> 
 
 ##	Open-BingCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingCopilotQuery                --> aibc  
 ```` 
@@ -25584,7 +25583,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
     Opens a Bing CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -25918,11 +25917,11 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ChatGPTQuery 
-````PowerShell 
+```PowerShell 
 
    Open-ChatGPTQuery                    --> aicgpt, askchatgpt  
 ```` 
@@ -25931,7 +25930,7 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
     Opens a ChatGPT query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -26267,11 +26266,11 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-CloudLLMChat 
-````PowerShell 
+```PowerShell 
 
    Open-CloudLLMChat                    --> ask  
 ```` 
@@ -26280,7 +26279,7 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens a cloud LLM chat interface for AI queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -26615,11 +26614,11 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-DeepSearchQuery 
-````PowerShell 
+```PowerShell 
 
    Open-DeepSearchQuery                 --> aideepseek, askdeepsearch  
 ```` 
@@ -26628,7 +26627,7 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens a DeepSeek query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -26979,11 +26978,11 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubCopilotQuery              --> aigc, askghcopilot  
 ```` 
@@ -26992,7 +26991,7 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
     Opens a Github CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -27332,11 +27331,11 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleGeminiQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleGeminiQuery               --> aigg, askgemini  
 ```` 
@@ -27345,7 +27344,7 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Opens a Google Gemini query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -27687,11 +27686,11 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-XGrokQuery 
-````PowerShell 
+```PowerShell 
 
    Open-XGrokQuery                      --> aixg, askxgrok  
 ```` 
@@ -27700,7 +27699,7 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens a X Grok query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -28043,14 +28042,14 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/> 
 
 ##	Get-NextAffirmation 
-````PowerShell 
+```PowerShell 
 
    Get-NextAffirmation                  --> WhatAboutIt  
 ```` 
@@ -28059,7 +28058,7 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Returns a random affirmation text from affirmations.dev API.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-NextAffirmation [[-Speak]] [<CommonParameters>] 
 ```` 
 
@@ -28082,11 +28081,11 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-WikipediaSummary 
-````PowerShell 
+```PowerShell 
 
    Get-WikipediaSummary                 --> wikitxt  
 ```` 
@@ -28095,7 +28094,7 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
     Retrieves a summary of a topic from Wikipedia.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -28118,14 +28117,14 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/> 
 
 ##	Clear-YoutubeWatched 
-````PowerShell 
+```PowerShell 
 
    Clear-YoutubeWatched  
 ```` 
@@ -28134,7 +28133,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
     Clears the YouTube watch history from the browser's local storage.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-YoutubeWatched [<CommonParameters>] 
 ```` 
 
@@ -28151,11 +28150,11 @@ Clear-YoutubeWatched [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Copy-PDFsFromGoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Copy-PDFsFromGoogleQuery  
 ```` 
@@ -28164,7 +28163,7 @@ Clear-YoutubeWatched [<CommonParameters>]
     Downloads PDF files found through Google search results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] [<CommonParameters>] 
 ```` 
 
@@ -28204,11 +28203,11 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GoogleSearchResultUrls 
-````PowerShell 
+```PowerShell 
 
    Get-GoogleSearchResultUrls           --> qlinksget  
 ```` 
@@ -28217,7 +28216,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
     Performs a google search and returns the links  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -28254,7 +28253,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
        ##############################################################################  
@@ -28262,11 +28261,11 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
    PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllGoogleLinks 
-````PowerShell 
+```PowerShell 
 
    Open-AllGoogleLinks                  --> qlinks  
 ```` 
@@ -28275,7 +28274,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     Performs an infinite auto opening google search .  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -28306,7 +28305,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -28314,11 +28313,11 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
    Open-AllGoogleLinks "site:github.com PowerShell module"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllYoutubeVideos 
-````PowerShell 
+```PowerShell 
 
    Open-AllYoutubeVideos                --> qvideos, qyt  
 ```` 
@@ -28327,7 +28326,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     Opens and controls YouTube videos in a browser window with keyboard shortcuts.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Private] [-Edge] [-Chrome] [-NoFullScreen] [-ApplicationMode] [-AcceptLang <String>] [<CommonParameters>] 
 ```` 
 
@@ -28434,11 +28433,11 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BingQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingQuery                       --> bq  
 ```` 
@@ -28447,7 +28446,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
     Opens a Bing search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru] [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-SessionOnly] [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -28814,11 +28813,11 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BuiltWithSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-BuiltWithSiteInfo  
 ```` 
@@ -28827,7 +28826,7 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens BuiltWith website queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-PassThru] [-SideBySide] [-NewWindow] [-Maximize] [-NoBorders] [-RestoreFocus] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -29191,11 +29190,11 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubQuery                     --> qgithub  
 ```` 
@@ -29204,7 +29203,7 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
     Opens a Github repository search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -29575,11 +29574,11 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleQuery  
 ```` 
@@ -29589,7 +29588,7 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     customization options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -29983,11 +29982,11 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleSiteInfo  
 ```` 
@@ -29996,7 +29995,7 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     Opens Google site information queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -30308,11 +30307,11 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-IMDBQuery 
-````PowerShell 
+```PowerShell 
 
    Open-IMDBQuery                       --> imdb  
 ```` 
@@ -30321,7 +30320,7 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens an IMDB search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -30700,11 +30699,11 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-InstantStreetViewQuery 
-````PowerShell 
+```PowerShell 
 
    Open-InstantStreetViewQuery          --> isv  
 ```` 
@@ -30713,7 +30712,7 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens InstantStreetView queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -31071,11 +31070,11 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-MovieQuote 
-````PowerShell 
+```PowerShell 
 
    Open-MovieQuote                      --> moviequote  
 ```` 
@@ -31084,7 +31083,7 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a video of a movie quote in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -31445,11 +31444,11 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SearchEngine 
-````PowerShell 
+```PowerShell 
 
    Open-SearchEngine                    --> q  
 ```` 
@@ -31458,7 +31457,7 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Opens a search query in the specified search engine using a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -31774,11 +31773,11 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SimularWebSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-SimularWebSiteInfo              --> simularsite  
 ```` 
@@ -31787,7 +31786,7 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens SimilarWeb website information for specified URLs in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-NoBorders] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -32146,11 +32145,11 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-StackOverflowQuery 
-````PowerShell 
+```PowerShell 
 
    Open-StackOverflowQuery              --> qso  
 ```` 
@@ -32159,7 +32158,7 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens Stack Overflow search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -32546,11 +32545,11 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WaybackMachineSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WaybackMachineSiteInfo          --> wayback  
 ```` 
@@ -32559,7 +32558,7 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens WaybackMachine site information in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -32919,11 +32918,11 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WebsiteAndPerformQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WebsiteAndPerformQuery          --> owaq  
 ```` 
@@ -32932,7 +32931,7 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a webpage in a webbrowser and performs one or more queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow] [-SetForeground] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -33269,11 +33268,11 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WhoisHostSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WhoisHostSiteInfo               --> whois  
 ```` 
@@ -33282,7 +33281,7 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
     Opens a Whois host information query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -33638,11 +33637,11 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaNLQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaNLQuery                --> wikinl  
 ```` 
@@ -33651,7 +33650,7 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens Dutch Wikipedia searches in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -33957,11 +33956,11 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaQuery                  --> wiki  
 ```` 
@@ -33970,7 +33969,7 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
     Opens a Wikipedia query in a webbrowser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -34327,11 +34326,11 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WolframAlphaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WolframAlphaQuery               --> qalpha  
 ```` 
@@ -34340,7 +34339,7 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens a Wolfram Alpha query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -34703,11 +34702,11 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YoutubeQuery 
-````PowerShell 
+```PowerShell 
 
    Open-YoutubeQuery                    --> youtube  
 ```` 
@@ -34716,7 +34715,7 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens YouTube search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -35077,14 +35076,14 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/> 
 
 ##	Open-GameOfLife 
-````PowerShell 
+```PowerShell 
 
    Open-GameOfLife                      --> conway, gameoflife  
 ```` 
@@ -35093,7 +35092,7 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens Conway's Game of Life simulation in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -35484,7 +35483,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10+ Operating System.  
        This cmdlet is designed for interactive use and performs window manipulation  
@@ -35507,11 +35506,11 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
    with specific dimensions.  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevAppCatalog 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevAppCatalog               --> appcatalog  
 ```` 
@@ -35520,7 +35519,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
     Opens the GenXdev progressive webapps catalog in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -35896,11 +35895,11 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Timeline 
-````PowerShell 
+```PowerShell 
 
    Open-Timeline                        --> timeline  
 ```` 
@@ -35909,7 +35908,7 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
     Opens an interactive timeline showing current time, date, century, and millennium.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] [-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] [-RotationDelaySeconds <Int32>] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -36361,11 +36360,11 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ViralSimulation 
-````PowerShell 
+```PowerShell 
 
    Open-ViralSimulation                 --> viral  
 ```` 
@@ -36375,7 +36374,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
     options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -36747,11 +36746,11 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Yab 
-````PowerShell 
+```PowerShell 
 
    Open-Yab                             --> yab  
 ```` 
@@ -36760,7 +36759,7 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
     Opens the YAB game in a web browser with configurable settings.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -37134,11 +37133,11 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YabAIBattle 
-````PowerShell 
+```PowerShell 
 
    Open-YabAIBattle                     --> yabbattle  
 ```` 
@@ -37147,7 +37146,7 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
     Opens the YabAI Battle game in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -37530,14 +37529,14 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries<hr/> 
 
 ##	ConvertTo-Uris 
-````PowerShell 
+```PowerShell 
 
    ConvertTo-Uris  
 ```` 
@@ -37546,7 +37545,7 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
     Parses strings for any valid URI.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -37570,11 +37569,11 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-WebbrowserTabPollingScript 
-````PowerShell 
+```PowerShell 
 
    Invoke-WebbrowserTabPollingScript  
 ```` 
@@ -37583,7 +37582,7 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
     Executes a background polling script in a previously selected webbrowser tab.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String>] [[-Callback] <ScriptBlock>] [<CommonParameters>] 
 ```` 
 
@@ -37623,7 +37622,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10 or later.  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -37632,11 +37631,11 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
        -Callback { Write-Host "Polled" }  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleQueries              --> qq  
 ```` 
@@ -37645,7 +37644,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
     Opens all possible query types for given search terms or URLs.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -37995,11 +37994,11 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleTextQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleTextQueries          --> qqq  
 ```` 
@@ -38008,7 +38007,7 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Executes all Text query Cmdlets in parallel and displays results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -38032,14 +38031,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.AI<hr/> 
 
 ##	Open-BingCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingCopilotQuery                --> aibc  
 ```` 
@@ -38048,7 +38047,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
     Opens a Bing CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -38382,11 +38381,11 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ChatGPTQuery 
-````PowerShell 
+```PowerShell 
 
    Open-ChatGPTQuery                    --> aicgpt, askchatgpt  
 ```` 
@@ -38395,7 +38394,7 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
     Opens a ChatGPT query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -38731,11 +38730,11 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-CloudLLMChat 
-````PowerShell 
+```PowerShell 
 
    Open-CloudLLMChat                    --> ask  
 ```` 
@@ -38744,7 +38743,7 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens a cloud LLM chat interface for AI queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -39079,11 +39078,11 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-DeepSearchQuery 
-````PowerShell 
+```PowerShell 
 
    Open-DeepSearchQuery                 --> aideepseek, askdeepsearch  
 ```` 
@@ -39092,7 +39091,7 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens a DeepSeek query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -39443,11 +39442,11 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubCopilotQuery              --> aigc, askghcopilot  
 ```` 
@@ -39456,7 +39455,7 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
     Opens a Github CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -39796,11 +39795,11 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleGeminiQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleGeminiQuery               --> aigg, askgemini  
 ```` 
@@ -39809,7 +39808,7 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Opens a Google Gemini query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -40151,11 +40150,11 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-XGrokQuery 
-````PowerShell 
+```PowerShell 
 
    Open-XGrokQuery                      --> aixg, askxgrok  
 ```` 
@@ -40164,7 +40163,7 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens a X Grok query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -40507,14 +40506,14 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/> 
 
 ##	Get-NextAffirmation 
-````PowerShell 
+```PowerShell 
 
    Get-NextAffirmation                  --> WhatAboutIt  
 ```` 
@@ -40523,7 +40522,7 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Returns a random affirmation text from affirmations.dev API.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-NextAffirmation [[-Speak]] [<CommonParameters>] 
 ```` 
 
@@ -40546,11 +40545,11 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-WikipediaSummary 
-````PowerShell 
+```PowerShell 
 
    Get-WikipediaSummary                 --> wikitxt  
 ```` 
@@ -40559,7 +40558,7 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
     Retrieves a summary of a topic from Wikipedia.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -40582,14 +40581,14 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/> 
 
 ##	Clear-YoutubeWatched 
-````PowerShell 
+```PowerShell 
 
    Clear-YoutubeWatched  
 ```` 
@@ -40598,7 +40597,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
     Clears the YouTube watch history from the browser's local storage.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-YoutubeWatched [<CommonParameters>] 
 ```` 
 
@@ -40615,11 +40614,11 @@ Clear-YoutubeWatched [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Copy-PDFsFromGoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Copy-PDFsFromGoogleQuery  
 ```` 
@@ -40628,7 +40627,7 @@ Clear-YoutubeWatched [<CommonParameters>]
     Downloads PDF files found through Google search results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] [<CommonParameters>] 
 ```` 
 
@@ -40668,11 +40667,11 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GoogleSearchResultUrls 
-````PowerShell 
+```PowerShell 
 
    Get-GoogleSearchResultUrls           --> qlinksget  
 ```` 
@@ -40681,7 +40680,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
     Performs a google search and returns the links  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -40718,7 +40717,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
        ##############################################################################  
@@ -40726,11 +40725,11 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
    PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllGoogleLinks 
-````PowerShell 
+```PowerShell 
 
    Open-AllGoogleLinks                  --> qlinks  
 ```` 
@@ -40739,7 +40738,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     Performs an infinite auto opening google search .  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -40770,7 +40769,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -40778,11 +40777,11 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
    Open-AllGoogleLinks "site:github.com PowerShell module"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllYoutubeVideos 
-````PowerShell 
+```PowerShell 
 
    Open-AllYoutubeVideos                --> qvideos, qyt  
 ```` 
@@ -40791,7 +40790,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     Opens and controls YouTube videos in a browser window with keyboard shortcuts.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Private] [-Edge] [-Chrome] [-NoFullScreen] [-ApplicationMode] [-AcceptLang <String>] [<CommonParameters>] 
 ```` 
 
@@ -40898,11 +40897,11 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BingQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingQuery                       --> bq  
 ```` 
@@ -40911,7 +40910,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
     Opens a Bing search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru] [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-SessionOnly] [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -41278,11 +41277,11 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BuiltWithSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-BuiltWithSiteInfo  
 ```` 
@@ -41291,7 +41290,7 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens BuiltWith website queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-PassThru] [-SideBySide] [-NewWindow] [-Maximize] [-NoBorders] [-RestoreFocus] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -41655,11 +41654,11 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubQuery                     --> qgithub  
 ```` 
@@ -41668,7 +41667,7 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
     Opens a Github repository search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -42039,11 +42038,11 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleQuery  
 ```` 
@@ -42053,7 +42052,7 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     customization options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -42447,11 +42446,11 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleSiteInfo  
 ```` 
@@ -42460,7 +42459,7 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     Opens Google site information queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -42772,11 +42771,11 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-IMDBQuery 
-````PowerShell 
+```PowerShell 
 
    Open-IMDBQuery                       --> imdb  
 ```` 
@@ -42785,7 +42784,7 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens an IMDB search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -43164,11 +43163,11 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-InstantStreetViewQuery 
-````PowerShell 
+```PowerShell 
 
    Open-InstantStreetViewQuery          --> isv  
 ```` 
@@ -43177,7 +43176,7 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens InstantStreetView queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -43535,11 +43534,11 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-MovieQuote 
-````PowerShell 
+```PowerShell 
 
    Open-MovieQuote                      --> moviequote  
 ```` 
@@ -43548,7 +43547,7 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a video of a movie quote in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -43909,11 +43908,11 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SearchEngine 
-````PowerShell 
+```PowerShell 
 
    Open-SearchEngine                    --> q  
 ```` 
@@ -43922,7 +43921,7 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Opens a search query in the specified search engine using a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -44238,11 +44237,11 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SimularWebSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-SimularWebSiteInfo              --> simularsite  
 ```` 
@@ -44251,7 +44250,7 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens SimilarWeb website information for specified URLs in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-NoBorders] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -44610,11 +44609,11 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-StackOverflowQuery 
-````PowerShell 
+```PowerShell 
 
    Open-StackOverflowQuery              --> qso  
 ```` 
@@ -44623,7 +44622,7 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens Stack Overflow search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -45010,11 +45009,11 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WaybackMachineSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WaybackMachineSiteInfo          --> wayback  
 ```` 
@@ -45023,7 +45022,7 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens WaybackMachine site information in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -45383,11 +45382,11 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WebsiteAndPerformQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WebsiteAndPerformQuery          --> owaq  
 ```` 
@@ -45396,7 +45395,7 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a webpage in a webbrowser and performs one or more queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow] [-SetForeground] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -45733,11 +45732,11 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WhoisHostSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WhoisHostSiteInfo               --> whois  
 ```` 
@@ -45746,7 +45745,7 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
     Opens a Whois host information query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -46102,11 +46101,11 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaNLQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaNLQuery                --> wikinl  
 ```` 
@@ -46115,7 +46114,7 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens Dutch Wikipedia searches in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -46421,11 +46420,11 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaQuery                  --> wiki  
 ```` 
@@ -46434,7 +46433,7 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
     Opens a Wikipedia query in a webbrowser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -46791,11 +46790,11 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WolframAlphaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WolframAlphaQuery               --> qalpha  
 ```` 
@@ -46804,7 +46803,7 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens a Wolfram Alpha query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -47167,11 +47166,11 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YoutubeQuery 
-````PowerShell 
+```PowerShell 
 
    Open-YoutubeQuery                    --> youtube  
 ```` 
@@ -47180,7 +47179,7 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens YouTube search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -47541,14 +47540,14 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/> 
 
 ##	Open-GameOfLife 
-````PowerShell 
+```PowerShell 
 
    Open-GameOfLife                      --> conway, gameoflife  
 ```` 
@@ -47557,7 +47556,7 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens Conway's Game of Life simulation in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -47948,7 +47947,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10+ Operating System.  
        This cmdlet is designed for interactive use and performs window manipulation  
@@ -47971,11 +47970,11 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
    with specific dimensions.  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevAppCatalog 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevAppCatalog               --> appcatalog  
 ```` 
@@ -47984,7 +47983,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
     Opens the GenXdev progressive webapps catalog in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -48360,11 +48359,11 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Timeline 
-````PowerShell 
+```PowerShell 
 
    Open-Timeline                        --> timeline  
 ```` 
@@ -48373,7 +48372,7 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
     Opens an interactive timeline showing current time, date, century, and millennium.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] [-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] [-RotationDelaySeconds <Int32>] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -48825,11 +48824,11 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ViralSimulation 
-````PowerShell 
+```PowerShell 
 
    Open-ViralSimulation                 --> viral  
 ```` 
@@ -48839,7 +48838,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
     options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -49211,11 +49210,11 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Yab 
-````PowerShell 
+```PowerShell 
 
    Open-Yab                             --> yab  
 ```` 
@@ -49224,7 +49223,7 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
     Opens the YAB game in a web browser with configurable settings.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -49598,11 +49597,11 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YabAIBattle 
-````PowerShell 
+```PowerShell 
 
    Open-YabAIBattle                     --> yabbattle  
 ```` 
@@ -49611,7 +49610,7 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
     Opens the YabAI Battle game in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -49994,14 +49993,14 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries<hr/> 
 
 ##	ConvertTo-Uris 
-````PowerShell 
+```PowerShell 
 
    ConvertTo-Uris  
 ```` 
@@ -50010,7 +50009,7 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
     Parses strings for any valid URI.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -50034,11 +50033,11 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-WebbrowserTabPollingScript 
-````PowerShell 
+```PowerShell 
 
    Invoke-WebbrowserTabPollingScript  
 ```` 
@@ -50047,7 +50046,7 @@ ConvertTo-Uris [[-Text] <String[]>] [<CommonParameters>]
     Executes a background polling script in a previously selected webbrowser tab.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String>] [[-Callback] <ScriptBlock>] [<CommonParameters>] 
 ```` 
 
@@ -50087,7 +50086,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10 or later.  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -50096,11 +50095,11 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
        -Callback { Write-Host "Polled" }  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleQueries              --> qq  
 ```` 
@@ -50109,7 +50108,7 @@ Invoke-WebbrowserTabPollingScript [[-Scripts] <Object[]>] [[-InitialUrl] <String
     Opens all possible query types for given search terms or URLs.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -50459,11 +50458,11 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllPossibleTextQueries 
-````PowerShell 
+```PowerShell 
 
    Open-AllPossibleTextQueries          --> qqq  
 ```` 
@@ -50472,7 +50471,7 @@ Open-AllPossibleQueries [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Executes all Text query Cmdlets in parallel and displays results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -50496,14 +50495,14 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.AI<hr/> 
 
 ##	Open-BingCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingCopilotQuery                --> aibc  
 ```` 
@@ -50512,7 +50511,7 @@ Open-AllPossibleTextQueries [-Queries] <String[]> [<CommonParameters>]
     Opens a Bing CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -50846,11 +50845,11 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ChatGPTQuery 
-````PowerShell 
+```PowerShell 
 
    Open-ChatGPTQuery                    --> aicgpt, askchatgpt  
 ```` 
@@ -50859,7 +50858,7 @@ Open-BingCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-
     Opens a ChatGPT query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -51195,11 +51194,11 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-CloudLLMChat 
-````PowerShell 
+```PowerShell 
 
    Open-CloudLLMChat                    --> ask  
 ```` 
@@ -51208,7 +51207,7 @@ Open-ChatGPTQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens a cloud LLM chat interface for AI queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -51543,11 +51542,11 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-DeepSearchQuery 
-````PowerShell 
+```PowerShell 
 
    Open-DeepSearchQuery                 --> aideepseek, askdeepsearch  
 ```` 
@@ -51556,7 +51555,7 @@ Open-CloudLLMChat [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens a DeepSeek query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -51907,11 +51906,11 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubCopilotQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubCopilotQuery              --> aigc, askghcopilot  
 ```` 
@@ -51920,7 +51919,7 @@ Open-DeepSearchQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-F
     Opens a Github CoPilot query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -52260,11 +52259,11 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleGeminiQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleGeminiQuery               --> aigg, askgemini  
 ```` 
@@ -52273,7 +52272,7 @@ Open-GithubCopilotQuery [-Queries] <String[]> [[-Language] <String>] [-Private] 
     Opens a Google Gemini query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -52615,11 +52614,11 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-XGrokQuery 
-````PowerShell 
+```PowerShell 
 
    Open-XGrokQuery                      --> aixg, askxgrok  
 ```` 
@@ -52628,7 +52627,7 @@ Open-GoogleGeminiQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens a X Grok query in a webbrowser  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -52971,14 +52970,14 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Text<hr/> 
 
 ##	Get-NextAffirmation 
-````PowerShell 
+```PowerShell 
 
    Get-NextAffirmation                  --> WhatAboutIt  
 ```` 
@@ -52987,7 +52986,7 @@ Open-XGrokQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Returns a random affirmation text from affirmations.dev API.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-NextAffirmation [[-Speak]] [<CommonParameters>] 
 ```` 
 
@@ -53010,11 +53009,11 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-WikipediaSummary 
-````PowerShell 
+```PowerShell 
 
    Get-WikipediaSummary                 --> wikitxt  
 ```` 
@@ -53023,7 +53022,7 @@ Get-NextAffirmation [[-Speak]] [<CommonParameters>]
     Retrieves a summary of a topic from Wikipedia.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>] 
 ```` 
 
@@ -53046,14 +53045,14 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Webbrowser<hr/> 
 
 ##	Clear-YoutubeWatched 
-````PowerShell 
+```PowerShell 
 
    Clear-YoutubeWatched  
 ```` 
@@ -53062,7 +53061,7 @@ Get-WikipediaSummary [-Queries] <String[]> [<CommonParameters>]
     Clears the YouTube watch history from the browser's local storage.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-YoutubeWatched [<CommonParameters>] 
 ```` 
 
@@ -53079,11 +53078,11 @@ Clear-YoutubeWatched [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Copy-PDFsFromGoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Copy-PDFsFromGoogleQuery  
 ```` 
@@ -53092,7 +53091,7 @@ Clear-YoutubeWatched [<CommonParameters>]
     Downloads PDF files found through Google search results.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <String>] [<CommonParameters>] 
 ```` 
 
@@ -53132,11 +53131,11 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GoogleSearchResultUrls 
-````PowerShell 
+```PowerShell 
 
    Get-GoogleSearchResultUrls           --> qlinksget  
 ```` 
@@ -53145,7 +53144,7 @@ Copy-PDFsFromGoogleQuery [-Queries] <String[]> [[-Max] <Int32>] [[-Language] <St
     Performs a google search and returns the links  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -53182,7 +53181,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
        ##############################################################################  
@@ -53190,11 +53189,11 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
    PS C:\> $Urls = Get-GoogleSearchResultUrls "site:github.com PowerShell module"; $Urls  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllGoogleLinks 
-````PowerShell 
+```PowerShell 
 
    Open-AllGoogleLinks                  --> qlinks  
 ```` 
@@ -53203,7 +53202,7 @@ Get-GoogleSearchResultUrls [-Queries] <String[]> [-Max <Int32>] [-Language <Stri
     Performs an infinite auto opening google search .  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameters>] 
 ```` 
 
@@ -53234,7 +53233,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires the Windows 10+ Operating System  
    -------------------------- EXAMPLE 1 --------------------------  
@@ -53242,11 +53241,11 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
    Open-AllGoogleLinks "site:github.com PowerShell module"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-AllYoutubeVideos 
-````PowerShell 
+```PowerShell 
 
    Open-AllYoutubeVideos                --> qvideos, qyt  
 ```` 
@@ -53255,7 +53254,7 @@ Open-AllGoogleLinks [-Queries] <String[]> [-Language <String>] [<CommonParameter
     Opens and controls YouTube videos in a browser window with keyboard shortcuts.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-Recommended] [-Trending] [-Private] [-Edge] [-Chrome] [-NoFullScreen] [-ApplicationMode] [-AcceptLang <String>] [<CommonParameters>] 
 ```` 
 
@@ -53362,11 +53361,11 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BingQuery 
-````PowerShell 
+```PowerShell 
 
    Open-BingQuery                       --> bq  
 ```` 
@@ -53375,7 +53374,7 @@ Open-AllYoutubeVideos [[-Queries] <String[]>] [-Subscriptions] [-WatchLater] [-R
     Opens a Bing search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru] [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-SessionOnly] [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -53742,11 +53741,11 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-BuiltWithSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-BuiltWithSiteInfo  
 ```` 
@@ -53755,7 +53754,7 @@ Open-BingQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens BuiltWith website queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyDelayMilliSeconds <Int32>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-PassThru] [-SideBySide] [-NewWindow] [-Maximize] [-NoBorders] [-RestoreFocus] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -54119,11 +54118,11 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GithubQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GithubQuery                     --> qgithub  
 ```` 
@@ -54132,7 +54131,7 @@ Open-BuiltWithSiteInfo [-Queries] <String[]> [[-Language] <String>] [[-Monitor] 
     Opens a Github repository search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -54503,11 +54502,11 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleQuery 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleQuery  
 ```` 
@@ -54517,7 +54516,7 @@ Open-GithubQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     customization options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -54911,11 +54910,11 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GoogleSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-GoogleSiteInfo  
 ```` 
@@ -54924,7 +54923,7 @@ Open-GoogleQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force
     Opens Google site information queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -55236,11 +55235,11 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-IMDBQuery 
-````PowerShell 
+```PowerShell 
 
    Open-IMDBQuery                       --> imdb  
 ```` 
@@ -55249,7 +55248,7 @@ Open-GoogleSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens an IMDB search query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -55628,11 +55627,11 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-InstantStreetViewQuery 
-````PowerShell 
+```PowerShell 
 
    Open-InstantStreetViewQuery          --> isv  
 ```` 
@@ -55641,7 +55640,7 @@ Open-IMDBQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [
     Opens InstantStreetView queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -55999,11 +55998,11 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-MovieQuote 
-````PowerShell 
+```PowerShell 
 
    Open-MovieQuote                      --> moviequote  
 ```` 
@@ -56012,7 +56011,7 @@ Open-InstantStreetViewQuery [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a video of a movie quote in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -56373,11 +56372,11 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SearchEngine 
-````PowerShell 
+```PowerShell 
 
    Open-SearchEngine                    --> q  
 ```` 
@@ -56386,7 +56385,7 @@ Open-MovieQuote [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force]
     Opens a search query in the specified search engine using a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <String>] [[-Monitor] <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
@@ -56702,11 +56701,11 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SimularWebSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-SimularWebSiteInfo              --> simularsite  
 ```` 
@@ -56715,7 +56714,7 @@ Open-SearchEngine [-Queries] <String[]> [[-EndPoint] <String>] [[-Language] <Str
     Opens SimilarWeb website information for specified URLs in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-FullScreen] [-Private] [-NoBorders] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -57074,11 +57073,11 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-StackOverflowQuery 
-````PowerShell 
+```PowerShell 
 
    Open-StackOverflowQuery              --> qso  
 ```` 
@@ -57087,7 +57086,7 @@ Open-SimularWebSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens Stack Overflow search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <Int32>] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -57474,11 +57473,11 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WaybackMachineSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WaybackMachineSiteInfo          --> wayback  
 ```` 
@@ -57487,7 +57486,7 @@ Open-StackOverflowQuery [-Queries] <String[]> [[-Language] <String>] [-Monitor <
     Opens WaybackMachine site information in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-ReturnURL] [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -57847,11 +57846,11 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WebsiteAndPerformQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WebsiteAndPerformQuery          --> owaq  
 ```` 
@@ -57860,7 +57859,7 @@ Open-WaybackMachineSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Priva
     Opens a webpage in a webbrowser and performs one or more queries.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow] [-SetForeground] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -58197,11 +58196,11 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WhoisHostSiteInfo 
-````PowerShell 
+```PowerShell 
 
    Open-WhoisHostSiteInfo               --> whois  
 ```` 
@@ -58210,7 +58209,7 @@ Open-WebsiteAndPerformQuery [-Url] <String> [-Queries] <String[]> [[-Language] <
     Opens a Whois host information query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SessionOnly] [-ClearSession] [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
@@ -58566,11 +58565,11 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaNLQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaNLQuery                --> wikinl  
 ```` 
@@ -58579,7 +58578,7 @@ Open-WhoisHostSiteInfo [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens Dutch Wikipedia searches in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -58885,11 +58884,11 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WikipediaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WikipediaQuery                  --> wiki  
 ```` 
@@ -58898,7 +58897,7 @@ Open-WikipediaNLQuery [-Queries] <String[]> [-Private] [-Force] [-Edge] [-Chrome
     Opens a Wikipedia query in a webbrowser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -59255,11 +59254,11 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-WolframAlphaQuery 
-````PowerShell 
+```PowerShell 
 
    Open-WolframAlphaQuery               --> qalpha  
 ```` 
@@ -59268,7 +59267,7 @@ Open-WikipediaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Fo
     Opens a Wolfram Alpha query in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -59631,11 +59630,11 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YoutubeQuery 
-````PowerShell 
+```PowerShell 
 
    Open-YoutubeQuery                    --> youtube  
 ```` 
@@ -59644,7 +59643,7 @@ Open-WolframAlphaQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [
     Opens YouTube search queries in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -60005,14 +60004,14 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Queries.Websites<hr/> 
 
 ##	Open-GameOfLife 
-````PowerShell 
+```PowerShell 
 
    Open-GameOfLife                      --> conway, gameoflife  
 ```` 
@@ -60021,7 +60020,7 @@ Open-YoutubeQuery [-Queries] <String[]> [[-Language] <String>] [-Private] [-Forc
     Opens Conway's Game of Life simulation in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -60412,7 +60411,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        Requires Windows 10+ Operating System.  
        This cmdlet is designed for interactive use and performs window manipulation  
@@ -60435,11 +60434,11 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
    with specific dimensions.  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevAppCatalog 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevAppCatalog               --> appcatalog  
 ```` 
@@ -60448,7 +60447,7 @@ Open-GameOfLife [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-C
     Opens the GenXdev progressive webapps catalog in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -60824,11 +60823,11 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Timeline 
-````PowerShell 
+```PowerShell 
 
    Open-Timeline                        --> timeline  
 ```` 
@@ -60837,7 +60836,7 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
     Opens an interactive timeline showing current time, date, century, and millennium.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-NoFullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL] [[-Theme] <String>] [[-Language] <String>] [-DragedNodeBackground <String>] [-FocusedNodeBackground <String>] [-FocusedNodeForeground <String>] [-UnFocusedNodeBackground <String>] [-UnFocusedNodeForeground <String>] [-BorderLightColor <String>] [-BorderDarkColor <String>] [-BorderWidth <Int32>] [-RotationDelaySeconds <Int32>] [-FullScreen] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -61289,11 +61288,11 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-ViralSimulation 
-````PowerShell 
+```PowerShell 
 
    Open-ViralSimulation                 --> viral  
 ```` 
@@ -61303,7 +61302,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
     options.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -61675,11 +61674,11 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-Yab 
-````PowerShell 
+```PowerShell 
 
    Open-Yab                             --> yab  
 ```` 
@@ -61688,7 +61687,7 @@ Open-ViralSimulation [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome
     Opens the YAB game in a web browser with configurable settings.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-FullScreen] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -62062,11 +62061,11 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-YabAIBattle 
-````PowerShell 
+```PowerShell 
 
    Open-YabAIBattle                     --> yabbattle  
 ```` 
@@ -62075,7 +62074,7 @@ Open-Yab [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium
     Opens the YabAI Battle game in a web browser.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All] [-Monitor <Int32>] [-ShowWindow] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ApplicationMode] [-NoBrowserExtensions] [-DisablePopupBlocker] [-AcceptLang <String>] [-KeysToSend <String[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [-FocusWindow] [-SetForeground] [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode] [-NoBorders] [-SideBySide] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -62458,4 +62457,4 @@ Open-YabAIBattle [[-Language] <String>] [-SpectateOnly] [-Private] [-Force] [-Ed
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>

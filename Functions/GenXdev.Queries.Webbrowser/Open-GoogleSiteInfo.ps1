@@ -201,14 +201,12 @@ function Open-GoogleSiteInfo {
         )]
         [Alias('incognito', 'inprivate')]
         [switch] $Private,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Force enable debugging port, stopping existing browsers if needed'
         )]
         [switch] $Force,
-
         ###############################################################################
         [Alias('e')]
         [Parameter(
@@ -216,7 +214,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Opens in Microsoft Edge'
         )]
         [switch] $Edge,
-
         ###############################################################################
         [Alias('ch')]
         [Parameter(
@@ -231,7 +228,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Opens in Microsoft Edge or Google Chrome, depending on what the default browser is'
         )]
         [switch] $Chromium,
-
         ###############################################################################
         [Alias('ff')]
         [Parameter(
@@ -245,7 +241,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Opens in all registered modern browsers'
         )]
         [switch] $All,
-
         ###############################################################################
         [Alias('m', 'mon')]
         [Parameter(
@@ -302,21 +297,18 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Place browser window on the top side of the screen'
         )]
         [switch] $Top,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window on the bottom side of the screen'
         )]
         [switch] $Bottom,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window in the center of the screen'
         )]
         [switch] $Centered,
-
         ###############################################################################
         [Alias('a', 'app', 'appmode')]
         [Parameter(
@@ -324,7 +316,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Hide the browser controls'
         )]
         [switch] $ApplicationMode,
-
         ###############################################################################
         [Alias('de', 'ne', 'NoExtensions')]
         [Parameter(
@@ -417,8 +408,8 @@ function Open-GoogleSiteInfo {
         )]
         [Alias('DelayMilliSeconds')]
         [int] $SendKeyDelayMilliSeconds,
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('fw', 'focus')]
         [Parameter(
             Mandatory = $false,
@@ -426,8 +417,8 @@ function Open-GoogleSiteInfo {
         )]
         [switch] $FocusWindow,
 
-        ########################################################################
-        ###############################################################################
+
+###############################################################################
         [Alias('fg')]
         [Parameter(
             Mandatory = $false,
@@ -441,7 +432,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -449,7 +439,6 @@ function Open-GoogleSiteInfo {
         )]
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
-
         ###############################################################################
         [Alias('nw', 'new')]
         [Parameter(
@@ -457,7 +446,6 @@ function Open-GoogleSiteInfo {
             HelpMessage = "Don't re-use existing browser window, instead, create a new one"
         )]
         [switch] $NewWindow,
-
         ###############################################################################
         ###############################################################################
         [Alias('pt')]

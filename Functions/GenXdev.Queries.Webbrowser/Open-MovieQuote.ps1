@@ -376,7 +376,6 @@ function Open-MovieQuote {
             HelpMessage = 'Opens in all registered modern browsers'
         )]
         [switch] $All,
-
         ###############################################################################
         [Alias('m', 'mon')]
         [Parameter(
@@ -433,21 +432,18 @@ function Open-MovieQuote {
             HelpMessage = 'Place browser window on the top side of the screen'
         )]
         [switch] $Top,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window on the bottom side of the screen'
         )]
         [switch] $Bottom,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window in the center of the screen'
         )]
         [switch] $Centered,
-
         ###############################################################################
         [Alias('a', 'app', 'appmode')]
         [Parameter(
@@ -455,7 +451,6 @@ function Open-MovieQuote {
             HelpMessage = 'Hide the browser controls'
         )]
         [switch] $ApplicationMode,
-
         ###############################################################################
         [Alias('de', 'ne', 'NoExtensions')]
         [Parameter(
@@ -535,7 +530,6 @@ function Open-MovieQuote {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -543,7 +537,6 @@ function Open-MovieQuote {
         )]
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
-
         ###############################################################################
         [Alias('nw', 'new')]
         [Parameter(
@@ -551,7 +544,6 @@ function Open-MovieQuote {
             HelpMessage = "Don't re-use existing browser window, instead, create a new one"
         )]
         [switch] $NewWindow,
-
         ###############################################################################
         [Alias('pt')]
         [Parameter(
@@ -559,7 +551,6 @@ function Open-MovieQuote {
             HelpMessage = 'Returns a [System.Diagnostics.Process] object of the browserprocess'
         )]
         [switch] $PassThru,
-
         ###############################################################################
         [Alias('nb')]
         [Parameter(
@@ -567,21 +558,18 @@ function Open-MovieQuote {
             HelpMessage = 'Removes the borders of the browser window'
         )]
         [switch] $NoBorders,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Use alternative settings stored in session for AI preferences'
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Clear alternative settings stored in session for AI preferences'
         )]
         [switch] $ClearSession,
-
         ###############################################################################
         [Alias('FromPreferences')]
         [Parameter(

@@ -316,14 +316,12 @@ function Open-AllPossibleQueries {
         )]
         [Alias('incognito', 'inprivate')]
         [switch] $Private,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Force enable debugging port, stopping existing browsers if needed'
         )]
         [switch] $Force,
-
         ###############################################################################
         [Alias('e')]
         [Parameter(
@@ -331,7 +329,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Opens in Microsoft Edge'
         )]
         [switch] $Edge,
-
         ###############################################################################
         [Alias('ch')]
         [Parameter(
@@ -346,7 +343,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Opens in Microsoft Edge or Google Chrome, depending on what the default browser is'
         )]
         [switch] $Chromium,
-
         ###############################################################################
         [Alias('ff')]
         [Parameter(
@@ -360,7 +356,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Opens in all registered modern browsers'
         )]
         [switch] $All,
-
         ###############################################################################
         [Alias('m', 'mon')]
         [Parameter(
@@ -417,21 +412,18 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Place browser window on the top side of the screen'
         )]
         [switch] $Top,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window on the bottom side of the screen'
         )]
         [switch] $Bottom,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window in the center of the screen'
         )]
         [switch] $Centered,
-
         ###############################################################################
         [Alias('a', 'app', 'appmode')]
         [Parameter(
@@ -439,7 +431,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Hide the browser controls'
         )]
         [switch] $ApplicationMode,
-
         ###############################################################################
         [Alias('de', 'ne', 'NoExtensions')]
         [Parameter(
@@ -447,7 +438,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Prevent loading of browser extensions'
         )]
         [switch] $NoBrowserExtensions,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -455,7 +445,6 @@ function Open-AllPossibleQueries {
         )]
         [Alias('allowpopups')]
         [switch] $DisablePopupBlocker,
-
         ###############################################################################
         [Alias('lang', 'locale')]
         [Parameter(
@@ -492,7 +481,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -500,7 +488,6 @@ function Open-AllPossibleQueries {
         )]
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
-
         ###############################################################################
         [Alias('nw', 'new')]
         [Parameter(
@@ -508,7 +495,6 @@ function Open-AllPossibleQueries {
             HelpMessage = "Don't re-use existing browser window, instead, create a new one"
         )]
         [switch] $NewWindow,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -529,7 +515,6 @@ function Open-AllPossibleQueries {
             HelpMessage = 'After opening webbrowser, return the url'
         )]
         [switch] $ReturnOnlyURL,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -537,7 +522,6 @@ function Open-AllPossibleQueries {
         )]
         [Alias('Escape')]
         [switch] $SendKeyEscape,
-
         ###############################################################################
         [Alias('HoldKeyboardFocus')]
         [Parameter(
@@ -546,7 +530,6 @@ function Open-AllPossibleQueries {
                 'after sending keys')
         )]
         [switch] $SendKeyHoldKeyboardFocus,
-
         ###############################################################################
         [Alias('UseShiftEnter')]
         [Parameter(
@@ -555,7 +538,6 @@ function Open-AllPossibleQueries {
                 'line breaks')
         )]
         [switch] $SendKeyUseShiftEnter,
-
         ###############################################################################
         [Alias('DelayMilliSeconds')]
         [Parameter(
@@ -570,26 +552,22 @@ function Open-AllPossibleQueries {
             HelpMessage = 'Removes the borders of the browser window.'
         )]
         [switch] $NoBorders,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Use session-only mode for browser profile.'
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
             HelpMessage = 'Clear browser session before opening.'
         )]
         [switch] $ClearSession,
-
         ###############################################################################
         [Alias('FromPreferences')]
         [Parameter(
             HelpMessage = 'Skip browser session restore.'
         )]
         [switch] $SkipSession,
-
         ###############################################################################
         [Alias('sbs')]
         [Parameter(
@@ -706,18 +684,19 @@ Line: $($PSItem.InvocationInfo.Line)
 
             # process text-based queries using general query cmdlets
             Microsoft.PowerShell.Core\Get-Command -Module '*.Queries' -ErrorAction SilentlyContinue |
-                Microsoft.PowerShell.Core\ForEach-Object "$($_.ModuleName)\$($_.Name)" |
+                Microsoft.PowerShell.Core\ForEach-Object { "$($_.ModuleName)\$($_.Name)" } |
                 Microsoft.PowerShell.Core\ForEach-Object {
 
+                    if (-not $PSItem) { return }
                     # skip website query cmdlet to avoid recursion
-                    if ($PSItem -like 'Open-WebsiteAndPerformQuery') { return }
+                    if ($PSItem -like 'GenXdev.Queries\Open-WebsiteAndPerformQuery') { return }
 
                     # skip generic query cmdlet to avoid recursion
-                    if ($PSItem -like 'Open-Query') { return }
+                    if ($PSItem -like 'GenXdev.Queries\Open-AllPossibleQueries') { return }
 
                     # execute query cmdlets for text-based searches
                     if ($PSItem.EndsWith('Query') -and
-                        $PSItem.StartsWith('Open-')) {
+                        $PSItem.Contains('\Open-')) {
 
                         # escape quotes in query text for safe processing
                         $query = $query.Replace("`"", "```"");

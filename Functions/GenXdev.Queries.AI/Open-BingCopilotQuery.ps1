@@ -494,7 +494,6 @@ function Open-BingCopilotQuery {
         )]
         [Alias('pt')]
         [switch]$PassThru,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,

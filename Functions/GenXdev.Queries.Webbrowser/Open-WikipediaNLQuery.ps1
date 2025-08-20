@@ -49,7 +49,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Force enable debugging port, stopping existing browsers if needed'
         )]
         [switch] $Force,
-
         ###############################################################################
         [Alias('e')]
         [Parameter(
@@ -57,7 +56,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Opens in Microsoft Edge'
         )]
         [switch] $Edge,
-
         ###############################################################################
         [Alias('ch')]
         [Parameter(
@@ -72,7 +70,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Opens in Microsoft Edge or Google Chrome, depending on what the default browser is'
         )]
         [switch] $Chromium,
-
         ###############################################################################
         [Alias('ff')]
         [Parameter(
@@ -86,7 +83,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Opens in all registered modern browsers'
         )]
         [switch] $All,
-
         ###############################################################################
         [Alias('m', 'mon')]
         [Parameter(
@@ -143,21 +139,18 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Place browser window on the top side of the screen'
         )]
         [switch] $Top,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window on the bottom side of the screen'
         )]
         [switch] $Bottom,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Place browser window in the center of the screen'
         )]
         [switch] $Centered,
-
         ###############################################################################
         [Alias('a', 'app', 'appmode')]
         [Parameter(
@@ -165,7 +158,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Hide the browser controls'
         )]
         [switch] $ApplicationMode,
-
         ###############################################################################
         [Alias('de', 'ne', 'NoExtensions')]
         [Parameter(
@@ -247,7 +239,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -255,7 +246,6 @@ function Open-WikipediaNLQuery {
         )]
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
-
         ###############################################################################
         [Alias('nw', 'new')]
         [Parameter(
@@ -263,7 +253,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = "Don't re-use existing browser window, instead, create a new one"
         )]
         [switch] $NewWindow,
-
         ###############################################################################
         ###############################################################################
         [Alias('pt')]
@@ -292,7 +281,6 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Removes window borders from the browser window'
         )]
         [switch] $NoBorders,
-
         ###############################################################################
         ###############################################################################
         [Alias('sbs')]
@@ -301,21 +289,18 @@ function Open-WikipediaNLQuery {
             HelpMessage = 'Opens two browser windows side by side'
         )]
         [switch] $SideBySide,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Use session-only cookies (no persistent cookies)'
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Clear browser session data before opening'
         )]
         [switch] $ClearSession,
-
         ###############################################################################
         ###############################################################################
         [Alias('FromPreferences')]

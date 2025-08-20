@@ -499,7 +499,6 @@ function Open-XGrokQuery {
         )]
         [Alias('pt')]
         [switch]$PassThru,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,

@@ -554,7 +554,6 @@ function Open-ViralSimulation {
         )]
         [Alias('pt')]
         [switch] $PassThru,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
