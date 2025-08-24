@@ -1,13 +1,15 @@
 ﻿###############################################################################
 <#
 .SYNOPSIS
-Opens an interactive timeline showing current time, date, century, and millennium.
+Opens an interactive timeline showing current time, date, century, and
+millennium.
 
 .DESCRIPTION
 Opens a web-based interactive timeline that displays temporal information in an
 artistic theme. Supports multiple languages and visual customization options.
-The timeline provides an immersive experience with artistic backgrounds inspired
-by famous artists and painters, with configurable themes and multilingual support.
+The timeline provides an immersive experience with artistic backgrounds
+inspired by famous artists and painters, with configurable themes and
+multilingual support.
 
 .PARAMETER Private
 Opens in incognito/private browsing mode
@@ -22,7 +24,8 @@ Opens in Microsoft Edge
 Opens in Google Chrome
 
 .PARAMETER Chromium
-Opens in Microsoft Edge or Google Chrome, depending on what the default browser is
+Opens in Microsoft Edge or Google Chrome, depending on what the default
+browser is
 
 .PARAMETER Firefox
 Opens in Firefox
@@ -31,7 +34,8 @@ Opens in Firefox
 Opens in all registered modern browsers
 
 .PARAMETER Monitor
-The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found
+The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary
+monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found
 
 .PARAMETER NoFullScreen
 Don't open in fullscreen mode
@@ -73,7 +77,8 @@ Don't prevent loading of browser extensions
 Set the browser accept-lang http header
 
 .PARAMETER KeysToSend
-Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key
+Keystrokes to send to the Browser window, see documentation for cmdlet
+GenXdev.Windows\Send-Key
 
 .PARAMETER FocusWindow
 Focus the browser window after opening
@@ -106,22 +111,28 @@ After opening webbrowser, return the url
 Selects All or limit the theme to a specific one, default = PicassoPulse
 
 .PARAMETER Language
-Override default browser language, or select [All] for rotation of all languages every minute
+Override default browser language, or select [All] for rotation of all
+languages every minute
 
 .PARAMETER DragedNodeBackground
-Overwrite the css-color-style for painting the currently dragged node's background
+Overwrite the css-color-style for painting the currently dragged node's
+background
 
 .PARAMETER FocusedNodeBackground
-Overwrite the css-color-style for painting the focused node's (In center) background
+Overwrite the css-color-style for painting the focused node's (In center)
+background
 
 .PARAMETER FocusedNodeForeground
-Overwrite the css-color-style for painting the focused node's (in center) foreground text
+Overwrite the css-color-style for painting the focused node's (in center)
+foreground text
 
 .PARAMETER UnFocusedNodeBackground
-Overwrite the css-color-style for painting the focused node's (In center) background
+Overwrite the css-color-style for painting the focused node's (In center)
+background
 
 .PARAMETER UnFocusedNodeForeground
-Overwrite the css-color-style for painting the unfocused node's (in center) foreground text
+Overwrite the css-color-style for painting the unfocused node's (in center)
+foreground text
 
 .PARAMETER BorderLightColor
 Overwrite the default css border-light-color colorstyle
@@ -158,6 +169,22 @@ Send Shift+Enter instead of regular Enter for line breaks
 
 .PARAMETER SendKeyDelayMilliSeconds
 Delay between sending different key sequences in milliseconds
+
+.PARAMETER NoBorders
+Removes the borders of the browser window
+
+.PARAMETER SideBySide
+Position browser window either fullscreen on different monitor than
+PowerShell, or side by side with PowerShell on the same monitor
+
+.PARAMETER SessionOnly
+Use alternative settings stored in session for AI preferences
+
+.PARAMETER ClearSession
+Clear alternative settings stored in session for AI preferences
+
+.PARAMETER SkipSession
+Store settings only in persistent preferences without affecting session
 
 .EXAMPLE
 Open-Timeline -Theme "VanGoghSkies" -Language "English"
@@ -612,7 +639,8 @@ function Open-Timeline {
             @{ code = 'zh'; name = 'Chinese' }
         )
 
-        # remove parameters that are specific to this function and not passed to open-webbrowser
+        # remove parameters specific to this function before passing to
+        # open-webbrowser
         if ($PSBoundParameters.ContainsKey('Language')) {
             $null = $PSBoundParameters.Remove('Language')
         }
@@ -668,6 +696,7 @@ function Open-Timeline {
         [string] $queryParams = ("?BorderWidth=$BorderWidth" +
             "&RotationDelaySeconds=$RotationDelaySeconds")
 
+        # output verbose information about parameter construction
         Microsoft.PowerShell.Utility\Write-Verbose ('Building URL with ' +
             "parameters: $queryParams")
 
@@ -679,6 +708,7 @@ function Open-Timeline {
                 Microsoft.PowerShell.Core\Where-Object { $_.name -eq $Language } |
                 Microsoft.PowerShell.Utility\Select-Object -ExpandProperty code
 
+            # append language parameter to query string
             $queryParams += "&lang=$langCode"
         }
 
@@ -742,7 +772,8 @@ function Open-Timeline {
             $null = $PSBoundParameters.Remove('NoFullScreen')
         }
 
-        # remove the noapplicationmode parameter as it's not used by open-webbrowser
+        # remove the noapplicationmode parameter as it's not used by
+        # open-webbrowser
         if ($PSBoundParameters.ContainsKey('NoApplicationMode')) {
 
             $null = $PSBoundParameters.Remove('NoApplicationMode')
