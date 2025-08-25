@@ -130,7 +130,7 @@ Update-Module
 | :--- | :--- | :--- |
 | [Open-GameOfLife](#open-gameoflife) | conway, gameoflife | Opens Conway's Game of Life simulation in a web browser. |
 | [Open-GenXdevAppCatalog](#open-genxdevappcatalog) | appcatalog | Opens the GenXdev progressive webapps catalog in a web browser. |
-| [Open-Timeline](#open-timeline) | timeline | Opens an interactive timeline showing current time, date, century, and millennium. |
+| [Open-Timeline](#open-timeline) | timeline | &nbsp; |
 | [Open-ViralSimulation](#open-viralsimulation) | viral | &nbsp; |
 | [Open-Yab](#open-yab) | yab | Opens the YAB game in a web browser with configurable settings. |
 | [Open-YabAIBattle](#open-yabaibattle) | yabbattle | Opens the YabAI Battle game in a web browser. |
@@ -10977,7 +10977,8 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
 ```` 
 
 ### SYNOPSIS 
-    Opens an interactive timeline showing current time, date, century, and millennium.  
+    Opens an interactive timeline showing current time, date, century, and  
+    millennium.  
 
 ### SYNTAX 
 ```PowerShell 
@@ -10987,8 +10988,9 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
 ### DESCRIPTION 
     Opens a web-based interactive timeline that displays temporal information in an  
     artistic theme. Supports multiple languages and visual customization options.  
-    The timeline provides an immersive experience with artistic backgrounds inspired  
-    by famous artists and painters, with configurable themes and multilingual support.  
+    The timeline provides an immersive experience with artistic backgrounds  
+    inspired by famous artists and painters, with configurable themes and  
+    multilingual support.  
 
 ### PARAMETERS 
     -Private [<SwitchParameter>]  
@@ -11024,7 +11026,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Chromium [<SwitchParameter>]  
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is  
+        Opens in Microsoft Edge or Google Chrome, depending on what the default  
+        browser is  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -11048,7 +11051,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Monitor <Int32>  
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found  
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary  
+        monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found  
         Required?                    false  
         Position?                    named  
         Default value                -2  
@@ -11160,7 +11164,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -KeysToSend <String[]>  
-        Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key  
+        Keystrokes to send to the Browser window, see documentation for cmdlet  
+        GenXdev.Windows\Send-Key  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11248,7 +11253,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Language <String>  
-        Override default browser language, or select [All] for rotation of all languages every minute  
+        Override default browser language, or select [All] for rotation of all  
+        languages every minute  
         Required?                    false  
         Position?                    2  
         Default value                  
@@ -11256,7 +11262,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -DragedNodeBackground <String>  
-        Overwrite the css-color-style for painting the currently dragged node's background  
+        Overwrite the css-color-style for painting the currently dragged node's  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11264,7 +11271,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11272,7 +11280,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the focused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11280,7 +11289,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11288,7 +11298,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the unfocused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -11392,6 +11403,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -NoBorders [<SwitchParameter>]  
+        Removes the borders of the browser window  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -11399,6 +11411,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SideBySide [<SwitchParameter>]  
+        Position browser window either fullscreen on different monitor than  
+        PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -11406,6 +11420,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -11413,6 +11428,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -ClearSession [<SwitchParameter>]  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -11420,6 +11436,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SkipSession [<SwitchParameter>]  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23441,7 +23458,8 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
 ```` 
 
 ### SYNOPSIS 
-    Opens an interactive timeline showing current time, date, century, and millennium.  
+    Opens an interactive timeline showing current time, date, century, and  
+    millennium.  
 
 ### SYNTAX 
 ```PowerShell 
@@ -23451,8 +23469,9 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
 ### DESCRIPTION 
     Opens a web-based interactive timeline that displays temporal information in an  
     artistic theme. Supports multiple languages and visual customization options.  
-    The timeline provides an immersive experience with artistic backgrounds inspired  
-    by famous artists and painters, with configurable themes and multilingual support.  
+    The timeline provides an immersive experience with artistic backgrounds  
+    inspired by famous artists and painters, with configurable themes and  
+    multilingual support.  
 
 ### PARAMETERS 
     -Private [<SwitchParameter>]  
@@ -23488,7 +23507,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Chromium [<SwitchParameter>]  
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is  
+        Opens in Microsoft Edge or Google Chrome, depending on what the default  
+        browser is  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23512,7 +23532,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Monitor <Int32>  
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found  
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary  
+        monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found  
         Required?                    false  
         Position?                    named  
         Default value                -2  
@@ -23624,7 +23645,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -KeysToSend <String[]>  
-        Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key  
+        Keystrokes to send to the Browser window, see documentation for cmdlet  
+        GenXdev.Windows\Send-Key  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23712,7 +23734,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Language <String>  
-        Override default browser language, or select [All] for rotation of all languages every minute  
+        Override default browser language, or select [All] for rotation of all  
+        languages every minute  
         Required?                    false  
         Position?                    2  
         Default value                  
@@ -23720,7 +23743,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -DragedNodeBackground <String>  
-        Overwrite the css-color-style for painting the currently dragged node's background  
+        Overwrite the css-color-style for painting the currently dragged node's  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23728,7 +23752,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23736,7 +23761,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the focused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23744,7 +23770,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23752,7 +23779,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the unfocused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -23856,6 +23884,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -NoBorders [<SwitchParameter>]  
+        Removes the borders of the browser window  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23863,6 +23892,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SideBySide [<SwitchParameter>]  
+        Position browser window either fullscreen on different monitor than  
+        PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23870,6 +23901,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23877,6 +23909,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -ClearSession [<SwitchParameter>]  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -23884,6 +23917,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SkipSession [<SwitchParameter>]  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -35905,7 +35939,8 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
 ```` 
 
 ### SYNOPSIS 
-    Opens an interactive timeline showing current time, date, century, and millennium.  
+    Opens an interactive timeline showing current time, date, century, and  
+    millennium.  
 
 ### SYNTAX 
 ```PowerShell 
@@ -35915,8 +35950,9 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
 ### DESCRIPTION 
     Opens a web-based interactive timeline that displays temporal information in an  
     artistic theme. Supports multiple languages and visual customization options.  
-    The timeline provides an immersive experience with artistic backgrounds inspired  
-    by famous artists and painters, with configurable themes and multilingual support.  
+    The timeline provides an immersive experience with artistic backgrounds  
+    inspired by famous artists and painters, with configurable themes and  
+    multilingual support.  
 
 ### PARAMETERS 
     -Private [<SwitchParameter>]  
@@ -35952,7 +35988,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Chromium [<SwitchParameter>]  
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is  
+        Opens in Microsoft Edge or Google Chrome, depending on what the default  
+        browser is  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -35976,7 +36013,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Monitor <Int32>  
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found  
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary  
+        monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found  
         Required?                    false  
         Position?                    named  
         Default value                -2  
@@ -36088,7 +36126,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -KeysToSend <String[]>  
-        Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key  
+        Keystrokes to send to the Browser window, see documentation for cmdlet  
+        GenXdev.Windows\Send-Key  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36176,7 +36215,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Language <String>  
-        Override default browser language, or select [All] for rotation of all languages every minute  
+        Override default browser language, or select [All] for rotation of all  
+        languages every minute  
         Required?                    false  
         Position?                    2  
         Default value                  
@@ -36184,7 +36224,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -DragedNodeBackground <String>  
-        Overwrite the css-color-style for painting the currently dragged node's background  
+        Overwrite the css-color-style for painting the currently dragged node's  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36192,7 +36233,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36200,7 +36242,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the focused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36208,7 +36251,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36216,7 +36260,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the unfocused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -36320,6 +36365,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -NoBorders [<SwitchParameter>]  
+        Removes the borders of the browser window  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -36327,6 +36373,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SideBySide [<SwitchParameter>]  
+        Position browser window either fullscreen on different monitor than  
+        PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -36334,6 +36382,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -36341,6 +36390,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -ClearSession [<SwitchParameter>]  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -36348,6 +36398,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SkipSession [<SwitchParameter>]  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48369,7 +48420,8 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
 ```` 
 
 ### SYNOPSIS 
-    Opens an interactive timeline showing current time, date, century, and millennium.  
+    Opens an interactive timeline showing current time, date, century, and  
+    millennium.  
 
 ### SYNTAX 
 ```PowerShell 
@@ -48379,8 +48431,9 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
 ### DESCRIPTION 
     Opens a web-based interactive timeline that displays temporal information in an  
     artistic theme. Supports multiple languages and visual customization options.  
-    The timeline provides an immersive experience with artistic backgrounds inspired  
-    by famous artists and painters, with configurable themes and multilingual support.  
+    The timeline provides an immersive experience with artistic backgrounds  
+    inspired by famous artists and painters, with configurable themes and  
+    multilingual support.  
 
 ### PARAMETERS 
     -Private [<SwitchParameter>]  
@@ -48416,7 +48469,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Chromium [<SwitchParameter>]  
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is  
+        Opens in Microsoft Edge or Google Chrome, depending on what the default  
+        browser is  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48440,7 +48494,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Monitor <Int32>  
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found  
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary  
+        monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found  
         Required?                    false  
         Position?                    named  
         Default value                -2  
@@ -48552,7 +48607,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -KeysToSend <String[]>  
-        Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key  
+        Keystrokes to send to the Browser window, see documentation for cmdlet  
+        GenXdev.Windows\Send-Key  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48640,7 +48696,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Language <String>  
-        Override default browser language, or select [All] for rotation of all languages every minute  
+        Override default browser language, or select [All] for rotation of all  
+        languages every minute  
         Required?                    false  
         Position?                    2  
         Default value                  
@@ -48648,7 +48705,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -DragedNodeBackground <String>  
-        Overwrite the css-color-style for painting the currently dragged node's background  
+        Overwrite the css-color-style for painting the currently dragged node's  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48656,7 +48714,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48664,7 +48723,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the focused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48672,7 +48732,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48680,7 +48741,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the unfocused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -48784,6 +48846,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -NoBorders [<SwitchParameter>]  
+        Removes the borders of the browser window  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48791,6 +48854,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SideBySide [<SwitchParameter>]  
+        Position browser window either fullscreen on different monitor than  
+        PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48798,6 +48863,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48805,6 +48871,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -ClearSession [<SwitchParameter>]  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -48812,6 +48879,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SkipSession [<SwitchParameter>]  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -60833,7 +60901,8 @@ Open-GenXdevAppCatalog [[-Language] <String>] [-Private] [-Force] [-Edge] [-Chro
 ```` 
 
 ### SYNOPSIS 
-    Opens an interactive timeline showing current time, date, century, and millennium.  
+    Opens an interactive timeline showing current time, date, century, and  
+    millennium.  
 
 ### SYNTAX 
 ```PowerShell 
@@ -60843,8 +60912,9 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
 ### DESCRIPTION 
     Opens a web-based interactive timeline that displays temporal information in an  
     artistic theme. Supports multiple languages and visual customization options.  
-    The timeline provides an immersive experience with artistic backgrounds inspired  
-    by famous artists and painters, with configurable themes and multilingual support.  
+    The timeline provides an immersive experience with artistic backgrounds  
+    inspired by famous artists and painters, with configurable themes and  
+    multilingual support.  
 
 ### PARAMETERS 
     -Private [<SwitchParameter>]  
@@ -60880,7 +60950,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Chromium [<SwitchParameter>]  
-        Opens in Microsoft Edge or Google Chrome, depending on what the default browser is  
+        Opens in Microsoft Edge or Google Chrome, depending on what the default  
+        browser is  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -60904,7 +60975,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Monitor <Int32>  
-        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary monitor, defaults to `Global:DefaultSecondaryMonitor or 2 if not found  
+        The monitor to use, 0 = default, -1 is discard, -2 = Configured secondary  
+        monitor, defaults to Global:DefaultSecondaryMonitor or 2 if not found  
         Required?                    false  
         Position?                    named  
         Default value                -2  
@@ -61016,7 +61088,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -KeysToSend <String[]>  
-        Keystrokes to send to the Browser window, see documentation for cmdlet GenXdev.Windows\Send-Key  
+        Keystrokes to send to the Browser window, see documentation for cmdlet  
+        GenXdev.Windows\Send-Key  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61104,7 +61177,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -Language <String>  
-        Override default browser language, or select [All] for rotation of all languages every minute  
+        Override default browser language, or select [All] for rotation of all  
+        languages every minute  
         Required?                    false  
         Position?                    2  
         Default value                  
@@ -61112,7 +61186,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -DragedNodeBackground <String>  
-        Overwrite the css-color-style for painting the currently dragged node's background  
+        Overwrite the css-color-style for painting the currently dragged node's  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61120,7 +61195,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61128,7 +61204,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -FocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the focused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the focused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61136,7 +61213,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeBackground <String>  
-        Overwrite the css-color-style for painting the focused node's (In center) background  
+        Overwrite the css-color-style for painting the focused node's (In center)  
+        background  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61144,7 +61222,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -UnFocusedNodeForeground <String>  
-        Overwrite the css-color-style for painting the unfocused node's (in center) foreground text  
+        Overwrite the css-color-style for painting the unfocused node's (in center)  
+        foreground text  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -61248,6 +61327,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -NoBorders [<SwitchParameter>]  
+        Removes the borders of the browser window  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -61255,6 +61335,8 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SideBySide [<SwitchParameter>]  
+        Position browser window either fullscreen on different monitor than  
+        PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -61262,6 +61344,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -61269,6 +61352,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -ClearSession [<SwitchParameter>]  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -61276,6 +61360,7 @@ Open-Timeline [-Private] [-Force] [-Edge] [-Chrome] [-Chromium] [-Firefox] [-All
         Aliases                        
         Accept wildcard characters?  false  
     -SkipSession [<SwitchParameter>]  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
         Position?                    named  
         Default value                False  
