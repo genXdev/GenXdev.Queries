@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.AI
 Original cmdlet filename  : Open-CloudLLMChat.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.276.2025
+Version                   : 1.278.2025
 ################################################################################
 MIT License
 
@@ -203,7 +203,8 @@ function Open-CloudLLMChat {
             'DeepSearch',
             'GithubCopilot',
             'GoogleGemini',
-            'XGrok'
+            'XGrok',
+            'All'
         )]
         [parameter(
             Mandatory = $false,
@@ -652,64 +653,77 @@ function Open-CloudLLMChat {
             }
         }
 
-        # access the dynamic parameter endpoint value
-        $endpointValue = $Endpoint
+        $endPoints = @(
+            'BingCopilot',
+            'ChatGPT',
+            'DeepSearch',
+            'GithubCopilot',
+            'GoogleGemini',
+            'XGrok'
+        )
 
-        # ensure queries parameter is in bound parameters
-        if (-not $PSBoundParameters.ContainsKey('Queries')) {
+        if ($EndPoint -ne 'All') {
 
-            $null = $PSBoundParameters.Add('Queries', $Queries)
+            $endPoints = @($EndPoint)
         }
-
-        # ensure query parameter is in bound parameters
-        if (-not $PSBoundParameters.ContainsKey('Query')) {
-
-            $null = $PSBoundParameters.Add('Query', $null)
-        }
-
-        # get the command object for the specified endpoint
-        $command = Microsoft.PowerShell.Core\Get-Command `
-            -Name "GenXdev.Queries\Open-$($endpointValue)Query" `
-            -ErrorAction SilentlyContinue
-
-        # output verbose information about the selected endpoint
-        Microsoft.PowerShell.Utility\Write-Verbose `
-            "Using endpoint: $endpointValue"
     }
 
     process {
 
         # process each query provided by the user
         foreach ($query in $Queries) {
+            foreach ($endpointValue in $endPoints) {
 
-            # update bound parameters with current query
-            $PSBoundParameters['Queries'] = @($query)
-            $PSBoundParameters['Query'] = $query
+                # ensure queries parameter is in bound parameters
+                if (-not $PSBoundParameters.ContainsKey('Queries')) {
 
-            # copy identical parameters to the endpoint-specific function
-            $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
-                -BoundParameters $PSBoundParameters `
-                -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
-                -DefaultValues (
-                Microsoft.PowerShell.Utility\Get-Variable `
-                    -Scope Local `
+                    $null = $PSBoundParameters.Add('Queries', $Queries)
+                }
+
+                # ensure query parameter is in bound parameters
+                if (-not $PSBoundParameters.ContainsKey('Query')) {
+
+                    $null = $PSBoundParameters.Add('Query', $null)
+                }
+
+                # get the command object for the specified endpoint
+                $command = Microsoft.PowerShell.Core\Get-Command `
+                    -Name "GenXdev.Queries\Open-$($endpointValue)Query" `
                     -ErrorAction SilentlyContinue
-            )
 
-            # verify that the endpoint command exists
-            if ($null -eq $command) {
+                # output verbose information about the selected endpoint
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Using endpoint: $endpointValue"
 
-                Microsoft.PowerShell.Utility\Write-Error `
-                    'The endpoint could not be found'
+                # update bound parameters with current query
+                $PSBoundParameters['Queries'] = @($query)
+                $PSBoundParameters['Query'] = $query
+
+                # copy identical parameters to the endpoint-specific function
+                $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    -BoundParameters $PSBoundParameters `
+                    -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
+                    -DefaultValues (
+                    Microsoft.PowerShell.Utility\Get-Variable `
+                        -Scope Local `
+                        -ErrorAction SilentlyContinue
+                )
+
+                # verify that the endpoint command exists
+                if ($null -eq $command) {
+
+                    Microsoft.PowerShell.Utility\Write-Error `
+                        'The endpoint could not be found'
+                }
+
+                # output verbose information about the query being processed
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Processing query: $query"
+
+                # invoke the endpoint-specific function with the arguments
+                & $command @invocationArguments
+                }
             }
-
-            # output verbose information about the query being processed
-            Microsoft.PowerShell.Utility\Write-Verbose `
-                "Processing query: $query"
-
-            # invoke the endpoint-specific function with the arguments
-            & $command @invocationArguments
-        }
     }
 
     end {
