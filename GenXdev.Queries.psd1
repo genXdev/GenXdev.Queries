@@ -12,7 +12,7 @@
 RootModule = 'GenXdev.Queries.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.278.2025'
+ModuleVersion = '1.280.2025'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -51,7 +51,7 @@ ClrVersion = '9.0.0.1'
 ProcessorArchitecture = 'Amd64'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.278.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.280.2025'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -131,16 +131,16 @@ FileList = 'GenXdev.Queries.AI.psm1', 'GenXdev.Queries.psd1',
                'Functions\GenXdev.Queries.AI\Open-GoogleGeminiQuery.ps1', 
                'Functions\GenXdev.Queries.AI\Open-XGrokQuery.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-GameOfLife.ps1', 
-               'Functions\GenXdev.Queries.Webbrowser\Clear-YoutubeWatched.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-GenXdevAppCatalog.ps1', 
-               'Functions\GenXdev.Queries.Webbrowser\Copy-PDFsFromGoogleQuery.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-Timeline.ps1', 
-               'Functions\GenXdev.Queries.Webbrowser\Get-GoogleSearchResultUrls.ps1', 
-               'Functions\GenXdev.Queries.Webbrowser\Open-AllGoogleLinks.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-ViralSimulation.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-Yab.ps1', 
-               'Functions\GenXdev.Queries.Webbrowser\Open-AllYoutubeVideos.ps1', 
+               'Functions\GenXdev.Queries.Webbrowser\Clear-YoutubeWatched.ps1', 
                'Functions\GenXdev.Queries.Websites\Open-YabAIBattle.ps1', 
+               'Functions\GenXdev.Queries.Webbrowser\Copy-PDFsFromGoogleQuery.ps1', 
+               'Functions\GenXdev.Queries.Webbrowser\Get-GoogleSearchResultUrls.ps1', 
+               'Functions\GenXdev.Queries.Webbrowser\Open-AllGoogleLinks.ps1', 
+               'Functions\GenXdev.Queries.Webbrowser\Open-AllYoutubeVideos.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-BingQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-BuiltWithSiteInfo.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-GithubQuery.ps1', 
