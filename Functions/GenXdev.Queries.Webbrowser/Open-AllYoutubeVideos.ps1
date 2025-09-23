@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-AllYoutubeVideos.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.284.2025
+Version                   : 1.286.2025
 ################################################################################
 MIT License
 
@@ -263,6 +263,9 @@ function Open-AllYoutubeVideos {
                     $invocationParams.SideBySide = $AllScreens.Count -eq 1
 
                     $invocationParams.Chromium = $true
+
+                    $invocationParams.Chrome = $Chrome
+                    $invocationParams.Edge = $Edge
 
                     $invocationParams.Url = $Url
 
