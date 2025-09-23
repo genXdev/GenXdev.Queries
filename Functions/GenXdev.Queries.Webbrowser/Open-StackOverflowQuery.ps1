@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-StackOverflowQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.280.2025
+Version                   : 1.284.2025
 ################################################################################
 MIT License
 
