@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.AI
 Original cmdlet filename  : Open-CloudLLMChat.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.286.2025
+Version                   : 1.288.2025
 ################################################################################
 MIT License
 
@@ -584,7 +584,6 @@ function Open-CloudLLMChat {
         )]
         [Alias('pt')]
         [switch]$PassThru,
-
         #######################################################################
         [parameter(
             Mandatory = $false,
@@ -635,7 +634,7 @@ function Open-CloudLLMChat {
 
         # determine google domain based on language
         $code = 'www'
-        if (-not[string]:: IsNullOrWhiteSpace($Language)) {
+        if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
             # get language code from helper dictionary
             $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
