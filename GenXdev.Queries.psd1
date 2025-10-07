@@ -12,7 +12,7 @@
 RootModule = 'GenXdev.Queries.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.292.2025'
+ModuleVersion = '1.296.2025'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -51,7 +51,7 @@ ClrVersion = '9.0.0.1'
 ProcessorArchitecture = 'Amd64'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.292.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.296.2025'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -117,15 +117,6 @@ FileList = 'GenXdev.Queries.AI.psm1', 'GenXdev.Queries.psd1',
                'Get-GoogleSearchResultUrls.js', 'ISSUES.md', 'LICENSE', 'license.txt', 
                'Open-AllGoogleLinks.js', 'Open-AllYoutubeVideos.js', 
                'powershell.jpg', 'README.md', 
-               'Functions\GenXdev.Queries.AI\Open-BingCopilotQuery.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-ChatGPTQuery.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-CloudLLMChat.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-DeepSearchQuery.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-GithubCopilotQuery.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-GoogleGeminiQuery.ps1', 
-               'Functions\GenXdev.Queries.AI\Open-XGrokQuery.ps1', 
-               'Functions\GenXdev.Queries.Text\Get-NextAffirmation.ps1', 
-               'Functions\GenXdev.Queries.Text\Get-WikipediaSummary.ps1', 
                'Functions\GenXdev.Queries\ConvertTo-Uris.ps1', 
                'Functions\GenXdev.Queries\Invoke-WebbrowserTabPollingScript.ps1', 
                'Functions\GenXdev.Queries\Open-AllPossibleQueries.ps1', 
@@ -136,12 +127,21 @@ FileList = 'GenXdev.Queries.AI.psm1', 'GenXdev.Queries.psd1',
                'Functions\GenXdev.Queries.Webbrowser\Open-AllGoogleLinks.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-AllYoutubeVideos.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-BingQuery.ps1', 
+               'Functions\GenXdev.Queries.Text\Get-NextAffirmation.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-BingCopilotQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-BuiltWithSiteInfo.ps1', 
+               'Functions\GenXdev.Queries.Text\Get-WikipediaSummary.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-ChatGPTQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-GithubQuery.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-CloudLLMChat.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-GoogleQuery.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-DeepSearchQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-GoogleSiteInfo.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-GithubCopilotQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-IMDBQuery.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-GoogleGeminiQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-InstantStreetViewQuery.ps1', 
+               'Functions\GenXdev.Queries.AI\Open-XGrokQuery.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-MovieQuote.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-SearchEngine.ps1', 
                'Functions\GenXdev.Queries.Webbrowser\Open-SimularWebSiteInfo.ps1', 
