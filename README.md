@@ -295,12 +295,12 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -619,6 +619,15 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -778,8 +787,8 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -1083,6 +1092,15 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -1201,8 +1219,8 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -1506,6 +1524,15 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window  
         Required?                    false  
@@ -1626,11 +1653,12 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
     [-Top] [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-Minimize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-Minimize] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -1949,6 +1977,15 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -2058,7 +2095,7 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -2372,6 +2409,15 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -2490,11 +2536,12 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -2804,6 +2851,15 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -2922,11 +2978,12 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -3236,6 +3293,15 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -3354,7 +3420,7 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -3666,6 +3732,15 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -4168,13 +4243,13 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-FullScreen] [-Private] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru]
-    [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend
-    <string[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-NewWindow] [-ReturnURL] [-ReturnOnlyURL]
-    [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-PassThru] [-NoBorders] [-RestoreFocus]
+    [-SideBySide] [-KeysToSend <string[]>] [-SendKeyEscape]
+    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
+    [-SendKeyDelayMilliSeconds <int>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL]
+    [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -4502,6 +4577,15 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor  
         Required?                    false  
@@ -4613,7 +4697,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
     [-PassThru] [-SideBySide] [-NewWindow] [-Maximize]
-    [-NoBorders] [-RestoreFocus] [-ReturnURL]
+    [-SetRestored] [-NoBorders] [-RestoreFocus] [-ReturnURL]
     [-ReturnOnlyURL] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -4943,6 +5027,15 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -SideBySide  
@@ -5732,10 +5825,11 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -6063,6 +6157,15 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -6176,8 +6279,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -6505,6 +6608,15 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -6614,12 +6726,12 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Top] [-Bottom] [-Centered] [-FullScreen]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -6947,6 +7059,15 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -7058,10 +7179,11 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -7389,6 +7511,15 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -7500,10 +7631,11 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -7831,6 +7963,15 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -7942,8 +8083,9 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
     [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -8208,6 +8350,15 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -Top  
         Place browser window on the top side of the screen  
         Required?                    false  
@@ -8302,9 +8453,10 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -8632,6 +8784,15 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -8741,12 +8902,12 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -9074,6 +9235,15 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -9185,10 +9355,11 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -9516,6 +9687,15 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -9625,8 +9805,8 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow]
-    [-SetForeground] [-SendKeyEscape]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-FocusWindow] [-SetForeground] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -9931,6 +10111,15 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -10049,12 +10238,12 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -10382,6 +10571,15 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -10463,8 +10661,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
     [-SessionOnly] [-ClearSession] [-SkipSession]
     [<CommonParameters>] 
 ```` 
@@ -10785,6 +10983,15 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Opens two browser windows side by side  
         Required?                    false  
@@ -10896,10 +11103,11 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -11227,6 +11435,15 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -11338,10 +11555,11 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -11669,6 +11887,15 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -11778,12 +12005,12 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -12111,6 +12338,15 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -12225,10 +12461,11 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -12565,6 +12802,15 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -12676,10 +12922,11 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -13016,6 +13263,15 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -13114,10 +13370,10 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
     [-Centered] [-NoApplicationMode] [-BrowserExtensions]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
-    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
-    <string>] [-FocusedNodeBackground <string>]
-    [-FocusedNodeForeground <string>]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
+    [-DragedNodeBackground <string>] [-FocusedNodeBackground
+    <string>] [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -13536,6 +13792,15 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -13683,10 +13948,11 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -14023,6 +14289,15 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -14132,9 +14407,9 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen]
-    [-NoApplicationMode] [-SendKeyEscape]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly]
+    [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SideBySide] [-SessionOnly] [-ClearSession]
@@ -14475,6 +14750,15 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -14604,11 +14888,11 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoFullScreen] [-NoApplicationMode] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
+    [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -14934,6 +15218,15 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -15167,12 +15460,12 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -15491,6 +15784,15 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -15650,8 +15952,8 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -15955,6 +16257,15 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -16073,8 +16384,8 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -16378,6 +16689,15 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window  
         Required?                    false  
@@ -16498,11 +16818,12 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
     [-Top] [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-Minimize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-Minimize] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -16821,6 +17142,15 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -16930,7 +17260,7 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -17244,6 +17574,15 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -17362,11 +17701,12 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -17676,6 +18016,15 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -17794,11 +18143,12 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -18108,6 +18458,15 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -18226,7 +18585,7 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -18538,6 +18897,15 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -19040,13 +19408,13 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-FullScreen] [-Private] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru]
-    [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend
-    <string[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-NewWindow] [-ReturnURL] [-ReturnOnlyURL]
-    [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-PassThru] [-NoBorders] [-RestoreFocus]
+    [-SideBySide] [-KeysToSend <string[]>] [-SendKeyEscape]
+    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
+    [-SendKeyDelayMilliSeconds <int>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL]
+    [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -19374,6 +19742,15 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor  
         Required?                    false  
@@ -19485,7 +19862,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
     [-PassThru] [-SideBySide] [-NewWindow] [-Maximize]
-    [-NoBorders] [-RestoreFocus] [-ReturnURL]
+    [-SetRestored] [-NoBorders] [-RestoreFocus] [-ReturnURL]
     [-ReturnOnlyURL] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -19815,6 +20192,15 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -SideBySide  
@@ -20604,10 +20990,11 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -20935,6 +21322,15 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -21048,8 +21444,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -21377,6 +21773,15 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -21486,12 +21891,12 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Top] [-Bottom] [-Centered] [-FullScreen]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -21819,6 +22224,15 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -21930,10 +22344,11 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -22261,6 +22676,15 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -22372,10 +22796,11 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -22703,6 +23128,15 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -22814,8 +23248,9 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
     [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -23080,6 +23515,15 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -Top  
         Place browser window on the top side of the screen  
         Required?                    false  
@@ -23174,9 +23618,10 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -23504,6 +23949,15 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -23613,12 +24067,12 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -23946,6 +24400,15 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -24057,10 +24520,11 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -24388,6 +24852,15 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -24497,8 +24970,8 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow]
-    [-SetForeground] [-SendKeyEscape]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-FocusWindow] [-SetForeground] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -24803,6 +25276,15 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -24921,12 +25403,12 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -25254,6 +25736,15 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -25335,8 +25826,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
     [-SessionOnly] [-ClearSession] [-SkipSession]
     [<CommonParameters>] 
 ```` 
@@ -25657,6 +26148,15 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Opens two browser windows side by side  
         Required?                    false  
@@ -25768,10 +26268,11 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -26099,6 +26600,15 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -26210,10 +26720,11 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -26541,6 +27052,15 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -26650,12 +27170,12 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -26983,6 +27503,15 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -27097,10 +27626,11 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -27437,6 +27967,15 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -27548,10 +28087,11 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -27888,6 +28428,15 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -27986,10 +28535,10 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
     [-Centered] [-NoApplicationMode] [-BrowserExtensions]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
-    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
-    <string>] [-FocusedNodeBackground <string>]
-    [-FocusedNodeForeground <string>]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
+    [-DragedNodeBackground <string>] [-FocusedNodeBackground
+    <string>] [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -28408,6 +28957,15 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -28555,10 +29113,11 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -28895,6 +29454,15 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -29004,9 +29572,9 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen]
-    [-NoApplicationMode] [-SendKeyEscape]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly]
+    [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SideBySide] [-SessionOnly] [-ClearSession]
@@ -29347,6 +29915,15 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -29476,11 +30053,11 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoFullScreen] [-NoApplicationMode] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
+    [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -29806,6 +30383,15 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -30039,12 +30625,12 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -30363,6 +30949,15 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -30522,8 +31117,8 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -30827,6 +31422,15 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -30945,8 +31549,8 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -31250,6 +31854,15 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window  
         Required?                    false  
@@ -31370,11 +31983,12 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
     [-Top] [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-Minimize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-Minimize] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -31693,6 +32307,15 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -31802,7 +32425,7 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -32116,6 +32739,15 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -32234,11 +32866,12 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -32548,6 +33181,15 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -32666,11 +33308,12 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -32980,6 +33623,15 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -33098,7 +33750,7 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -33410,6 +34062,15 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -33912,13 +34573,13 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-FullScreen] [-Private] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru]
-    [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend
-    <string[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-NewWindow] [-ReturnURL] [-ReturnOnlyURL]
-    [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-PassThru] [-NoBorders] [-RestoreFocus]
+    [-SideBySide] [-KeysToSend <string[]>] [-SendKeyEscape]
+    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
+    [-SendKeyDelayMilliSeconds <int>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL]
+    [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -34246,6 +34907,15 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor  
         Required?                    false  
@@ -34357,7 +35027,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
     [-PassThru] [-SideBySide] [-NewWindow] [-Maximize]
-    [-NoBorders] [-RestoreFocus] [-ReturnURL]
+    [-SetRestored] [-NoBorders] [-RestoreFocus] [-ReturnURL]
     [-ReturnOnlyURL] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -34687,6 +35357,15 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -SideBySide  
@@ -35476,10 +36155,11 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -35807,6 +36487,15 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -35920,8 +36609,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -36249,6 +36938,15 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -36358,12 +37056,12 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Top] [-Bottom] [-Centered] [-FullScreen]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -36691,6 +37389,15 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -36802,10 +37509,11 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -37133,6 +37841,15 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -37244,10 +37961,11 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -37575,6 +38293,15 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -37686,8 +38413,9 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
     [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -37952,6 +38680,15 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -Top  
         Place browser window on the top side of the screen  
         Required?                    false  
@@ -38046,9 +38783,10 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -38376,6 +39114,15 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -38485,12 +39232,12 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -38818,6 +39565,15 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -38929,10 +39685,11 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -39260,6 +40017,15 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -39369,8 +40135,8 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow]
-    [-SetForeground] [-SendKeyEscape]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-FocusWindow] [-SetForeground] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -39675,6 +40441,15 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -39793,12 +40568,12 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -40126,6 +40901,15 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -40207,8 +40991,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
     [-SessionOnly] [-ClearSession] [-SkipSession]
     [<CommonParameters>] 
 ```` 
@@ -40529,6 +41313,15 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Opens two browser windows side by side  
         Required?                    false  
@@ -40640,10 +41433,11 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -40971,6 +41765,15 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -41082,10 +41885,11 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -41413,6 +42217,15 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -41522,12 +42335,12 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -41855,6 +42668,15 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -41969,10 +42791,11 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -42309,6 +43132,15 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -42420,10 +43252,11 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -42760,6 +43593,15 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -42858,10 +43700,10 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
     [-Centered] [-NoApplicationMode] [-BrowserExtensions]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
-    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
-    <string>] [-FocusedNodeBackground <string>]
-    [-FocusedNodeForeground <string>]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
+    [-DragedNodeBackground <string>] [-FocusedNodeBackground
+    <string>] [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -43280,6 +44122,15 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -43427,10 +44278,11 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -43767,6 +44619,15 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -43876,9 +44737,9 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen]
-    [-NoApplicationMode] [-SendKeyEscape]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly]
+    [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SideBySide] [-SessionOnly] [-ClearSession]
@@ -44219,6 +45080,15 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -44348,11 +45218,11 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoFullScreen] [-NoApplicationMode] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
+    [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -44678,6 +45548,15 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -44911,12 +45790,12 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -45235,6 +46114,15 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -45394,8 +46282,8 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -45699,6 +46587,15 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -45817,8 +46714,8 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -46122,6 +47019,15 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window  
         Required?                    false  
@@ -46242,11 +47148,12 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
     [-Top] [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-Minimize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-Minimize] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -46565,6 +47472,15 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -46674,7 +47590,7 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -46988,6 +47904,15 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -47106,11 +48031,12 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -47420,6 +48346,15 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -47538,11 +48473,12 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -47852,6 +48788,15 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -47970,7 +48915,7 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -48282,6 +49227,15 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -48784,13 +49738,13 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-FullScreen] [-Private] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru]
-    [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend
-    <string[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-NewWindow] [-ReturnURL] [-ReturnOnlyURL]
-    [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-PassThru] [-NoBorders] [-RestoreFocus]
+    [-SideBySide] [-KeysToSend <string[]>] [-SendKeyEscape]
+    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
+    [-SendKeyDelayMilliSeconds <int>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL]
+    [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -49118,6 +50072,15 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor  
         Required?                    false  
@@ -49229,7 +50192,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
     [-PassThru] [-SideBySide] [-NewWindow] [-Maximize]
-    [-NoBorders] [-RestoreFocus] [-ReturnURL]
+    [-SetRestored] [-NoBorders] [-RestoreFocus] [-ReturnURL]
     [-ReturnOnlyURL] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -49559,6 +50522,15 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -SideBySide  
@@ -50348,10 +51320,11 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -50679,6 +51652,15 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -50792,8 +51774,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -51121,6 +52103,15 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -51230,12 +52221,12 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Top] [-Bottom] [-Centered] [-FullScreen]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -51563,6 +52554,15 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -51674,10 +52674,11 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -52005,6 +53006,15 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -52116,10 +53126,11 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -52447,6 +53458,15 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -52558,8 +53578,9 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
     [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -52824,6 +53845,15 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -Top  
         Place browser window on the top side of the screen  
         Required?                    false  
@@ -52918,9 +53948,10 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -53248,6 +54279,15 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -53357,12 +54397,12 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -53690,6 +54730,15 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -53801,10 +54850,11 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -54132,6 +55182,15 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -54241,8 +55300,8 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow]
-    [-SetForeground] [-SendKeyEscape]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-FocusWindow] [-SetForeground] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -54547,6 +55606,15 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -54665,12 +55733,12 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -54998,6 +56066,15 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -55079,8 +56156,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
     [-SessionOnly] [-ClearSession] [-SkipSession]
     [<CommonParameters>] 
 ```` 
@@ -55401,6 +56478,15 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Opens two browser windows side by side  
         Required?                    false  
@@ -55512,10 +56598,11 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -55843,6 +56930,15 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -55954,10 +57050,11 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -56285,6 +57382,15 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -56394,12 +57500,12 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -56727,6 +57833,15 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -56841,10 +57956,11 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -57181,6 +58297,15 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -57292,10 +58417,11 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -57632,6 +58758,15 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -57730,10 +58865,10 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
     [-Centered] [-NoApplicationMode] [-BrowserExtensions]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
-    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
-    <string>] [-FocusedNodeBackground <string>]
-    [-FocusedNodeForeground <string>]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
+    [-DragedNodeBackground <string>] [-FocusedNodeBackground
+    <string>] [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -58152,6 +59287,15 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -58299,10 +59443,11 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -58639,6 +59784,15 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -58748,9 +59902,9 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen]
-    [-NoApplicationMode] [-SendKeyEscape]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly]
+    [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SideBySide] [-SessionOnly] [-ClearSession]
@@ -59091,6 +60245,15 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -59220,11 +60383,11 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoFullScreen] [-NoApplicationMode] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
+    [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -59550,6 +60713,15 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -59783,12 +60955,12 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -60107,6 +61279,15 @@ Open-AllPossibleQueries [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -60266,8 +61447,8 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -60571,6 +61752,15 @@ Open-BingCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Opens in fullscreen mode  
         Required?                    false  
@@ -60689,8 +61879,8 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-SideBySide] [<CommonParameters>] 
@@ -60994,6 +62184,15 @@ Open-ChatGPTQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window  
         Required?                    false  
@@ -61114,11 +62313,12 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
     [-Top] [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-Minimize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-Minimize] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -61437,6 +62637,15 @@ Open-CloudLLMChat [-Queries] <string[]> [[-EndPoint]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -61546,7 +62755,7 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -61860,6 +63069,15 @@ Open-DeepSearchQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -61978,11 +63196,12 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -62292,6 +63511,15 @@ Open-GithubCopilotQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -62410,11 +63638,12 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [-PassThru] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [-PassThru]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -62724,6 +63953,15 @@ Open-GoogleGeminiQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Required?                    false  
         Position?                    Named  
@@ -62842,7 +64080,7 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
@@ -63154,6 +64392,15 @@ Open-XGrokQuery [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  
@@ -63656,13 +64903,13 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-FullScreen] [-Private] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
-    [-FocusWindow] [-SetForeground] [-Maximize] [-PassThru]
-    [-NoBorders] [-RestoreFocus] [-SideBySide] [-KeysToSend
-    <string[]>] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-NewWindow] [-ReturnURL] [-ReturnOnlyURL]
-    [<CommonParameters>] 
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-PassThru] [-NoBorders] [-RestoreFocus]
+    [-SideBySide] [-KeysToSend <string[]>] [-SendKeyEscape]
+    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
+    [-SendKeyDelayMilliSeconds <int>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-NewWindow] [-ReturnURL]
+    [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -63990,6 +65237,15 @@ Open-BingQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Will either set the window fullscreen on a different monitor than Powershell, or side by side with Powershell on the same monitor  
         Required?                    false  
@@ -64101,7 +65357,7 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
     [-PassThru] [-SideBySide] [-NewWindow] [-Maximize]
-    [-NoBorders] [-RestoreFocus] [-ReturnURL]
+    [-SetRestored] [-NoBorders] [-RestoreFocus] [-ReturnURL]
     [-ReturnOnlyURL] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -64431,6 +65687,15 @@ Open-BuiltWithSiteInfo [-Queries] <string[]> [[-Language]
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -SideBySide  
@@ -65220,10 +66485,11 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -65551,6 +66817,15 @@ Open-GoogleQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -65664,8 +66939,8 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -65993,6 +67268,15 @@ Open-GoogleSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -66102,12 +67386,12 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
     [-Top] [-Bottom] [-Centered] [-FullScreen]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -66435,6 +67719,15 @@ Open-IMDBQuery [-Queries] <string[]> [[-Language] {Afrikaans
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -66546,10 +67839,11 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -66877,6 +68171,15 @@ Open-InstantStreetViewQuery [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Open browser windows side by side  
         Required?                    false  
@@ -66988,10 +68291,11 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -67319,6 +68623,15 @@ Open-MovieQuote [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -67430,8 +68743,9 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
     [-Firefox] [-All] [-FullScreen] [-Left] [-Right] [-Top]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -67696,6 +69010,15 @@ Open-SearchEngine [-Queries] <string[]> [[-EndPoint] {Bing |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -Top  
         Place browser window on the top side of the screen  
         Required?                    false  
@@ -67790,9 +69113,10 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-SideBySide] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -68120,6 +69444,15 @@ Open-SimularWebSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -68229,12 +69562,12 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
     [-Left] [-Right] [-Top] [-Bottom] [-Centered]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -68562,6 +69895,15 @@ Open-StackOverflowQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -68673,10 +70015,11 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-NoBorders] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-ReturnURL]
-    [-ReturnOnlyURL] [-SideBySide] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-NoBorders]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-ReturnURL] [-ReturnOnlyURL] [-SideBySide]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -69004,6 +70347,15 @@ Open-WaybackMachineSiteInfo [-Queries] <string[]>
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -69113,8 +70465,8 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
     [-Bottom] [-Centered] [-ApplicationMode]
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-FocusWindow]
-    [-SetForeground] [-SendKeyEscape]
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-FocusWindow] [-SetForeground] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SessionOnly] [-ClearSession] [-SkipSession]
@@ -69419,6 +70771,15 @@ Open-WebsiteAndPerformQuery [-Url] <string> [-Queries]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -69537,12 +70898,12 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-SideBySide] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-SideBySide] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -69870,6 +71231,15 @@ Open-WhoisHostSiteInfo [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -69951,8 +71321,8 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
     [-SessionOnly] [-ClearSession] [-SkipSession]
     [<CommonParameters>] 
 ```` 
@@ -70273,6 +71643,15 @@ Open-WikipediaNLQuery [-Queries] <string[]> [-Private]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Opens two browser windows side by side  
         Required?                    false  
@@ -70384,10 +71763,11 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -70715,6 +72095,15 @@ Open-WikipediaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -70826,10 +72215,11 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -71157,6 +72547,15 @@ Open-WolframAlphaQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -71266,12 +72665,12 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
     [-ApplicationMode] [-NoBrowserExtensions]
     [-DisablePopupBlocker] [-AcceptLang <string>]
     [-KeysToSend <string[]>] [-FocusWindow] [-SetForeground]
-    [-Maximize] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-ReturnURL] [-ReturnOnlyURL] [-SendKeyEscape]
-    [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
-    [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-Maximize] [-SetRestored] [-RestoreFocus] [-NewWindow]
+    [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -71599,6 +72998,15 @@ Open-YoutubeQuery [-Queries] <string[]> [[-Language]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -71713,10 +73121,11 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -72053,6 +73462,15 @@ Open-GameOfLife [[-Language] {Afrikaans | Akan | Albanian |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -72164,10 +73582,11 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -72504,6 +73923,15 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -72602,10 +74030,10 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
     [-Centered] [-NoApplicationMode] [-BrowserExtensions]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
-    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
-    <string>] [-FocusedNodeBackground <string>]
-    [-FocusedNodeForeground <string>]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
+    [-DragedNodeBackground <string>] [-FocusedNodeBackground
+    <string>] [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -73024,6 +74452,15 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.  
         Required?                    false  
@@ -73171,10 +74608,11 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
     [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
     [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
     <int>] [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
-    [-NoBorders] [-SideBySide] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-NoFullScreen]
+    [-NoApplicationMode] [-NoBorders] [-SideBySide]
+    [-SessionOnly] [-ClearSession] [-SkipSession]
+    [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -73511,6 +74949,15 @@ Open-ViralSimulation [[-Language] {Afrikaans | Akan |
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -SideBySide  
         Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -73620,9 +75067,9 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
     [-NoBrowserExtensions] [-DisablePopupBlocker]
     [-AcceptLang <string>] [-KeysToSend <string[]>]
     [-FocusWindow] [-SetForeground] [-Maximize]
-    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
-    [-ReturnOnlyURL] [-SpectateOnly] [-NoFullScreen]
-    [-NoApplicationMode] [-SendKeyEscape]
+    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
+    [-ReturnURL] [-ReturnOnlyURL] [-SpectateOnly]
+    [-NoFullScreen] [-NoApplicationMode] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-NoBorders]
     [-SideBySide] [-SessionOnly] [-ClearSession]
@@ -73963,6 +75410,15 @@ Open-Yab [[-Language] {Afrikaans | Akan | Albanian | Amharic
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
     -ShowWindow  
         Show the browser window (not minimized or hidden)  
         Required?                    false  
@@ -74092,11 +75548,11 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
     [-KeysToSend <string[]>] [-SendKeyEscape]
     [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter]
     [-SendKeyDelayMilliSeconds <int>] [-FocusWindow]
-    [-SetForeground] [-Maximize] [-RestoreFocus]
-    [-NewWindow] [-PassThru] [-ReturnURL] [-ReturnOnlyURL]
-    [-NoFullScreen] [-NoApplicationMode] [-NoBorders]
-    [-SideBySide] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [<CommonParameters>] 
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-ReturnURL]
+    [-ReturnOnlyURL] [-NoFullScreen] [-NoApplicationMode]
+    [-NoBorders] [-SideBySide] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
 ### PARAMETERS 
@@ -74422,6 +75878,15 @@ Open-YabAIBattle [[-Language] {Afrikaans | Akan | Albanian |
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
     -ShowWindow  

@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Websites
 Original cmdlet filename  : Open-GameOfLife.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -155,7 +155,10 @@ Gives focus to the browser window after opening the simulation.
 Brings the browser window to the foreground after opening the simulation.
 
 .PARAMETER Maximize
-Maximizes the browser window after positioning for full-screen Game of Life
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 experience.
 
 .PARAMETER RestoreFocus
@@ -583,6 +586,12 @@ function Open-GameOfLife {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         ########################################################################
         [Parameter(
             Mandatory = $false,

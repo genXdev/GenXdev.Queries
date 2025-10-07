@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.AI
 Original cmdlet filename  : Open-CloudLLMChat.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -129,7 +129,10 @@ Focus the browser window after opening.
 Set the browser window to foreground after opening.
 
 .PARAMETER Maximize
-Maximize the window after positioning.
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 
 .PARAMETER SideBySide
 Will either set the window fullscreen on a different monitor than Powershell, or
@@ -555,6 +558,12 @@ function Open-CloudLLMChat {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         #######################################################################
         [Parameter(
             Mandatory = $false,

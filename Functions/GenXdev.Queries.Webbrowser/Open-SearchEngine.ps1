@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-SearchEngine.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -148,7 +148,10 @@ Sets the browser window as the foreground application, bringing it to the front
 of all other windows.
 
 .PARAMETER Maximize
-Maximizes the browser window after positioning, overriding any size
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 constraints.
 
 .PARAMETER RestoreFocus
@@ -541,6 +544,12 @@ function Open-SearchEngine {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         ###############################################################################
         [Parameter(
             Mandatory = $false,

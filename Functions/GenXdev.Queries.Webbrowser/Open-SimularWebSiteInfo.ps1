@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-SimularWebSiteInfo.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -141,7 +141,10 @@ Gives focus to the browser window after opening the analysis.
 Brings the browser window to the foreground after opening.
 
 .PARAMETER Maximize
-Maximizes the browser window after positioning for full-screen analysis.
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 
 .PARAMETER RestoreFocus
 Returns focus to the PowerShell window after opening the browser.
@@ -564,6 +567,12 @@ function Open-SimularWebSiteInfo {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         ###############################################################################
         [Parameter(
             Mandatory = $false,

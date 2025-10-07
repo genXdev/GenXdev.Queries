@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-WolframAlphaQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -141,7 +141,10 @@ Focus the browser window after opening.
 Set the browser window to foreground after opening.
 
 .PARAMETER Maximize
-Maximize the window after positioning.
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 
 .PARAMETER RestoreFocus
 Restore PowerShell window focus after opening the browser.
@@ -575,6 +578,12 @@ function Open-WolframAlphaQuery {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
 
 ###############################################################################
         [Parameter(

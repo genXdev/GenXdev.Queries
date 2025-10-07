@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-GoogleQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -174,7 +174,10 @@ Gives focus to the browser window after opening the search.
 Brings the browser window to the foreground after opening the search.
 
 .PARAMETER Maximize
-Maximizes the browser window after positioning for full-screen search
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 experience.
 
 .PARAMETER RestoreFocus
@@ -605,6 +608,12 @@ function Open-GoogleQuery {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         #######################################################################
         [Parameter(
             Mandatory = $false,
