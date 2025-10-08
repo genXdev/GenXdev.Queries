@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Websites
 Original cmdlet filename  : Open-YabAIBattle.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -752,7 +752,7 @@ function Open-YabAIBattle {
         }
 
         # Copy identical parameters between functions
-        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -BoundParameters $PSBoundParameters `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

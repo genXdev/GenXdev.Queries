@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-InstantStreetViewQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -687,7 +687,7 @@ function Open-InstantStreetViewQuery {
     begin {
 
         # copy identical parameters between functions for open-webbrowser call
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

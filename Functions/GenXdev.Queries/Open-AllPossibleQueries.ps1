@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries
 Original cmdlet filename  : Open-AllPossibleQueries.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -692,7 +692,7 @@ function Open-AllPossibleQueries {
                                     try {
 
                                         # copy identical parameters for cmdlet invocation
-                                        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                                        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                                             -BoundParameters $PSBoundParameters `
                                             -FunctionName $PSItem `
                                             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
@@ -741,7 +741,7 @@ Line: $($PSItem.InvocationInfo.Line)
                         try {
 
                             # copy identical parameters for cmdlet invocation
-                            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                            $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                                 -BoundParameters $PSBoundParameters `
                                 -FunctionName $PSItem `
                                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)

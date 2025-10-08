@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-BuiltWithSiteInfo.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -644,7 +644,7 @@ function Open-BuiltWithSiteInfo {
     begin {
 
         # copy identical parameters from this function to open-webbrowser
-        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
@@ -686,7 +686,7 @@ function Open-BuiltWithSiteInfo {
             }
 
             # refresh parameter copy for this iteration
-            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

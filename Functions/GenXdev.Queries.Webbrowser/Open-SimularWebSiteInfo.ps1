@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-SimularWebSiteInfo.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -638,7 +638,7 @@ function Open-SimularWebSiteInfo {
     begin {
 
         # copy identical parameter values from this function to open-webbrowser
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

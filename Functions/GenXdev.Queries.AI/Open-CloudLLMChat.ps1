@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.AI
 Original cmdlet filename  : Open-CloudLLMChat.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -708,7 +708,7 @@ function Open-CloudLLMChat {
                 $PSBoundParameters['Query'] = $query
 
                 # copy identical parameters to the endpoint-specific function
-                $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+                $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
                     -BoundParameters $PSBoundParameters `
                     -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
                     -DefaultValues (

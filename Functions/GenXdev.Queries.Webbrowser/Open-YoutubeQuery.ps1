@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-YoutubeQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -634,7 +634,7 @@ function Open-YoutubeQuery {
         $code = 'www'
 
         # construct and encode the google search url
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

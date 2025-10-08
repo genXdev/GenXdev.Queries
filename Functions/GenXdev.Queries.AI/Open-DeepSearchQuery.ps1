@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.AI
 Original cmdlet filename  : Open-DeepSearchQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -667,7 +667,7 @@ function Open-DeepSearchQuery {
         }
 
         # copy identical parameter values between functions
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Queries\Open-WebsiteAndPerformQuery' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Websites
 Original cmdlet filename  : Open-Timeline.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -833,7 +833,7 @@ function Open-Timeline {
         }
 
         # copy matching parameters between this function and open-webbrowser
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

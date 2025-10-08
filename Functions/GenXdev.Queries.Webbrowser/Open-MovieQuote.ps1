@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-MovieQuote.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -650,7 +650,7 @@ function Open-MovieQuote {
             Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
 
             # copy identical parameters from this function to open-webbrowser
-            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

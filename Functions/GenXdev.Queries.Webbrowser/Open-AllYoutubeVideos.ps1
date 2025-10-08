@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-AllYoutubeVideos.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -253,7 +253,7 @@ function Open-AllYoutubeVideos {
                 if ($null -eq $browser) {
 
                     # copy parameters for browser invocation
-                    $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                         -BoundParameters $boundParams `
                         -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser';
 

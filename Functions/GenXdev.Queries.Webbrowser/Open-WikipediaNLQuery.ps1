@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-WikipediaNLQuery.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -369,7 +369,7 @@ function Open-WikipediaNLQuery {
             }
 
             # construct and encode the google search url
-            $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName 'GenXdev.Queries\Open-WikipediaQuery' `
                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)

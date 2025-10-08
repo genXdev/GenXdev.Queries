@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Webbrowser
 Original cmdlet filename  : Open-SearchEngine.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -628,7 +628,7 @@ function Open-SearchEngine {
             -ErrorAction SilentlyContinue
 
         # copy identical parameter values to pass to the endpoint function
-        $invocationArguments = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName "GenXdev.Queries\Open-$($endpointValue)Query" `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
