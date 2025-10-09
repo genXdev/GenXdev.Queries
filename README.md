@@ -10,44 +10,37 @@
     A Windows PowerShell module for finding resources and information on the internet
 [![GenXdev.Queries](https://img.shields.io/powershellgallery/v/GenXdev.Queries.svg?style=flat-square&label=GenXdev.Queries)](https://www.powershellgallery.com/packages/GenXdev.Queries/) [![License](https://img.shields.io/github/license/genXdev/GenXdev.Queries?style=flat-square)](./LICENSE)
 
-## MIT License
+## APACHE 2.0 License
 
 ````text
-MIT License
+Copyright (c) 2025 René Vaessen / GenXdev
 
-Copyright (c) 2025 GenXdev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+     http://www.apache.org/licenses/LICENSE-2.0
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ````
 
 ### FEATURES
 
-    * ✅ use, 'PS> Ask "anything"' to query any of the popular LLM's,
+    * use, 'PS> Ask "anything"' to query any of the popular LLM's,
           or all with 'PS> Ask "anything" All', but hands of the keyboard + mouse,
           while it is doing it's magic.
-    * ✅ search "any topic" on any of the popular searchengines
+    * search "any topic" on any of the popular searchengines
           using the 'q' cmdlet
-    * ✅ query multiple searchengines and content-providers at once
+    * query multiple searchengines and content-providers at once
           with a single query using the 'qq' cmdlet
-    * ✅ query text from a variety of api providers, all at once with
+    * query text from a variety of api providers, all at once with
           a single query using the 'qqq' cmdlet
-    * ✅ cool way of viewing and controlling youtube with 'qvideos' cmdlet
+    * cool way of viewing and controlling youtube with 'qvideos' cmdlet
 
 ### NOTES
 
