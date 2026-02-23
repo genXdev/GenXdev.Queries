@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Websites
 Original cmdlet filename  : Open-YabAIBattle.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -751,9 +751,6 @@ function Open-YabAIBattle {
                 -Scope Local -ErrorAction SilentlyContinue)
 
         GenXdev.Webbrowser\Open-Webbrowser @params
-
-        # ensure url parameter is set correctly
-        $invocationArguments.'Url' = $url
 
         # output verbose information about the game url
         Microsoft.PowerShell.Utility\Write-Verbose "Game URL: $url"

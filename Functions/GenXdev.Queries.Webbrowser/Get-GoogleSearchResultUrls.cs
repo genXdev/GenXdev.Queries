@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Queries.Webbrowser
 // Original cmdlet filename  : Get-GoogleSearchResultUrls.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,10 +21,7 @@
 
 
 
-using System;
-using System.Collections.Generic;
 using System.Management.Automation;
-using System.Threading.Tasks;
 
 namespace GenXdev.Queries.Webbrowser
 {

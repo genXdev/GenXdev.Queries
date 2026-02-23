@@ -1,6 +1,6 @@
 <##############################################################################
 Part of PowerShell module : GenXdev.Queries.Webbrowser
-Original cmdlet filename  : Open-WaybackMachineSiteInfo.ps1
+Original cmdlet filename  : Open-GrokipediaQuery.ps1
 Original author           : René Vaessen / GenXdev
 Version                   : 2.3.2026
 ################################################################################
@@ -18,117 +18,113 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-###############################################################################
 <#
 .SYNOPSIS
-Opens WaybackMachine site information in a web browser.
+Opens a Grokipedia query in a webbrowser.
 
 .DESCRIPTION
-Opens a Waybackmachine query in a web browser, displaying historical versions
-of the specified URL or website. Supports multiple queries and monitor
-selection. Provides access to archived web content through the Internet
-Archive's Wayback Machine service.
+Opens one or more Grokipedia search queries in a web browser with extensive
+configuration options. Supports configurable browser behavior, monitor
+selection, and window positioning. Queries are URL encoded and opened using
+the specified language's Grokipedia domain with full localization support.
+
+The function provides comprehensive browser control including private browsing
+modes, window positioning, keyboard automation, and multi-monitor support.
+It automatically handles URL encoding and language code mapping for
+international Grokipedia domains.
 
 .PARAMETER Queries
-The URL or website addresses to search in the Wayback Machine. Can be a single
-URL or multiple URLs to search for archived versions.
-
-.PARAMETER Language
-The language preference for the browser interface. This affects the browser's
-accept-language header and helps display content in the preferred language.
+One or more search terms to look up on Grokipedia. Multiple queries will open
+in separate browser instances. Supports pipeline input for batch processing.
 
 .PARAMETER Private
-Opens the browser in incognito or private browsing mode to prevent storing
-browsing history and cookies.
+Opens in incognito/private browsing mode for anonymous searches.
 
 .PARAMETER Force
-Force enables debugging port, stopping existing browsers if needed for
-automation purposes.
+Force enable debugging port, stopping existing browsers if needed.
 
 .PARAMETER Edge
-Opens the Wayback Machine query specifically in Microsoft Edge browser.
+Opens in Microsoft Edge browser.
 
 .PARAMETER Chrome
-Opens the Wayback Machine query specifically in Google Chrome browser.
+Opens in Google Chrome browser.
 
 .PARAMETER Chromium
-Opens the Wayback Machine query in Microsoft Edge or Google Chrome, depending
-on what the default browser is set to.
+Opens in Microsoft Edge or Google Chrome, depending on default browser.
 
 .PARAMETER Firefox
-Opens the Wayback Machine query specifically in Mozilla Firefox browser.
+Opens in Mozilla Firefox browser.
 
 .PARAMETER All
-Opens the Wayback Machine query in all registered modern browsers
-simultaneously.
+Opens in all registered modern browsers simultaneously.
 
 .PARAMETER Monitor
-The monitor to display the browser on. 0 = default monitor, -1 = discard
-window positioning, -2 = configured secondary monitor. Default is -1.
+The monitor to use for window placement. 0=default, -1=discard positioning,
+-2=configured secondary monitor, positive numbers=specific monitor.
 
 .PARAMETER FullScreen
-Opens the browser in fullscreen mode for an immersive viewing experience.
+Opens in fullscreen mode using F11 key simulation.
 
 .PARAMETER Width
-The initial width of the browser window in pixels.
+The initial width of the webbrowser window in pixels.
 
 .PARAMETER Height
-The initial height of the browser window in pixels.
+The initial height of the webbrowser window in pixels.
 
 .PARAMETER X
-The initial X position of the browser window on the screen.
+The initial X position of the webbrowser window.
 
 .PARAMETER Y
-The initial Y position of the browser window on the screen.
+The initial Y position of the webbrowser window.
 
 .PARAMETER Left
-Places the browser window on the left side of the screen.
+Place browser window on the left side of the screen.
 
 .PARAMETER Right
-Places the browser window on the right side of the screen.
+Place browser window on the right side of the screen.
 
 .PARAMETER Top
-Places the browser window on the top side of the screen.
+Place browser window on the top side of the screen.
 
 .PARAMETER Bottom
-Places the browser window on the bottom side of the screen.
+Place browser window on the bottom side of the screen.
 
 .PARAMETER Centered
-Places the browser window in the center of the screen.
+Place browser window in the center of the screen.
 
 .PARAMETER ApplicationMode
-Hides the browser controls for a distraction-free viewing experience.
+Hide the browser controls for distraction-free reading.
 
 .PARAMETER NoBrowserExtensions
-Prevents loading of browser extensions during the session.
+Prevent loading of browser extensions.
 
 .PARAMETER DisablePopupBlocker
-Disables the browser's popup blocking functionality.
+Disable the popup blocker.
 
 .PARAMETER AcceptLang
-Sets the browser's accept-language HTTP header for internationalization.
+Set the browser accept-lang http header for language preferences.
 
 .PARAMETER KeysToSend
 Keystrokes to send to the browser window after opening. Uses the same format
-as the GenXdev.Windows\Send-Key cmdlet.
+as GenXdev.Windows\Send-Key cmdlet.
 
 .PARAMETER SendKeyEscape
-Escapes control characters when sending keystrokes to the browser.
+Escape control characters when sending keystrokes to the browser.
 
 .PARAMETER SendKeyHoldKeyboardFocus
-Prevents returning keyboard focus to PowerShell after sending keystrokes.
+Prevent returning keyboard focus to PowerShell after sending keystrokes.
 
 .PARAMETER SendKeyUseShiftEnter
-Uses Shift+Enter instead of regular Enter for line breaks when sending keys.
+Send Shift+Enter instead of regular Enter for line breaks.
 
 .PARAMETER SendKeyDelayMilliSeconds
 Delay between sending different key sequences in milliseconds.
 
 .PARAMETER FocusWindow
-Focuses the browser window after opening.
+Focus the browser window after opening.
 
 .PARAMETER SetForeground
-Sets the browser window to foreground after opening.
+Set the browser window to foreground after opening.
 
 .PARAMETER Maximize
 Maximize the window after positioning
@@ -137,223 +133,210 @@ Maximize the window after positioning
 Restore the window to normal state after positioning
 
 .PARAMETER RestoreFocus
-Restores PowerShell window focus after opening the browser.
+Restore PowerShell window focus after opening browser.
 
 .PARAMETER NewWindow
-Creates a new browser window instead of reusing existing windows.
-
-.PARAMETER NoBorders
-Removes the borders of the browser window.
-
-.PARAMETER SessionOnly
-Use alternative settings stored in session for Wayback Machine preferences.
-
-.PARAMETER ClearSession
-Clear alternative settings stored in session for Wayback Machine preferences.
-
-.PARAMETER SkipSession
-Store settings only in persistent preferences without affecting session.
+Don't re-use existing browser window, instead create a new one.
 
 .PARAMETER PassThru
-Returns a System.Diagnostics.Process object of the browser process.
+Returns a PowerShell process object representing the browser process.
 
 .PARAMETER ReturnURL
-Returns the URL without opening the browser.
+Don't open webbrowser, just return the formatted Grokipedia URL.
 
 .PARAMETER ReturnOnlyURL
-Returns the URL after opening the browser.
+After opening webbrowser, return the formatted Grokipedia URL.
 
 .EXAMPLE
-Open-WaybackMachineSiteInfo -Queries "www.example.com" -Monitor 0
+Open-GrokipediaQuery -Queries "PowerShell" -Monitor 0 -Language "English"
 
-Opens the Wayback Machine archive for example.com on the default monitor.
-
-.EXAMPLE
-wayback example.com -mon -1
-
-Opens the Wayback Machine archive for example.com using aliases with monitor
-positioning discarded.
+Opens a Grokipedia search for "PowerShell" in English on the default monitor.
 
 .EXAMPLE
-Open-WaybackMachineSiteInfo -Queries "microsoft.com" -Chrome -Private
+wiki "PowerShell" -mon 0
 
-Opens the Wayback Machine archive for microsoft.com in Chrome's incognito mode.
+Opens a Grokipedia search using the alias with positional parameters.
+
+.EXAMPLE
+"PowerShell", "Windows" | Open-GrokipediaQuery -Private
+
+Searches for multiple terms in Grokipedia using private browsing mode.
 #>
-function Open-WaybackMachineSiteInfo {
+################################################################################
+function Open-GrokipediaQuery {
 
     [CmdletBinding()]
-    [Alias('wayback')]
+    [Alias('wiki')]
+
     param(
         ########################################################################
-        [Alias('q', 'Name', 'Text', 'Query')]
         [Parameter(
             Mandatory = $true,
             Position = 0,
             ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The query to execute.'
+            HelpMessage = 'The Grokipedia search query to execute'
         )]
+        [Alias('q', 'Name', 'Text', 'Query')]
         [string[]] $Queries,
-        ########################################################################
-        ########################################################################
-        [ValidateSet(
-            'Afrikaans',
-            'Akan',
-            'Albanian',
-            'Amharic',
-            'Arabic',
-            'Armenian',
-            'Azerbaijani',
-            'Basque',
-            'Belarusian',
-            'Bemba',
-            'Bengali',
-            'Bihari',
-            'Bork, bork, bork!',
-            'Bosnian',
-            'Breton',
-            'Bulgarian',
-            'Cambodian',
-            'Catalan',
-            'Cherokee',
-            'Chichewa',
-            'Chinese (Simplified)',
-            'Chinese (Traditional)',
-            'Corsican',
-            'Croatian',
-            'Czech',
-            'Danish',
-            'Dutch',
-            'Elmer Fudd',
-            'English',
-            'Esperanto',
-            'Estonian',
-            'Ewe',
-            'Faroese',
-            'Filipino',
-            'Finnish',
-            'French',
-            'Frisian',
-            'Ga',
-            'Galician',
-            'Georgian',
-            'German',
-            'Greek',
-            'Guarani',
-            'Gujarati',
-            'Hacker',
-            'Haitian Creole',
-            'Hausa',
-            'Hawaiian',
-            'Hebrew',
-            'Hindi',
-            'Hungarian',
-            'Icelandic',
-            'Igbo',
-            'Indonesian',
-            'Interlingua',
-            'Irish',
-            'Italian',
-            'Japanese',
-            'Javanese',
-            'Kannada',
-            'Kazakh',
-            'Kinyarwanda',
-            'Kirundi',
-            'Klingon',
-            'Kongo',
-            'Korean',
-            'Krio (Sierra Leone)',
-            'Kurdish',
-            'Kurdish (Soranî)',
-            'Kyrgyz',
-            'Laothian',
-            'Latin',
-            'Latvian',
-            'Lingala',
-            'Lithuanian',
-            'Lozi',
-            'Luganda',
-            'Luo',
-            'Macedonian',
-            'Malagasy',
-            'Malay',
-            'Malayalam',
-            'Maltese',
-            'Maori',
-            'Marathi',
-            'Mauritian Creole',
-            'Moldavian',
-            'Mongolian',
-            'Montenegrin',
-            'Nepali',
-            'Nigerian Pidgin',
-            'Northern Sotho',
-            'Norwegian',
-            'Norwegian (Nynorsk)',
-            'Occitan',
-            'Oriya',
-            'Oromo',
-            'Pashto',
-            'Persian',
-            'Pirate',
-            'Polish',
-            'Portuguese (Brazil)',
-            'Portuguese (Portugal)',
-            'Punjabi',
-            'Quechua',
-            'Romanian',
-            'Romansh',
-            'Runyakitara',
-            'Russian',
-            'Scots Gaelic',
-            'Serbian',
-            'Serbo-Croatian',
-            'Sesotho',
-            'Setswana',
-            'Seychellois Creole',
-            'Shona',
-            'Sindhi',
-            'Sinhalese',
-            'Slovak',
-            'Slovenian',
-            'Somali',
-            'Spanish',
-            'Spanish (Latin American)',
-            'Sundanese',
-            'Swahili',
-            'Swedish',
-            'Tajik',
-            'Tamil',
-            'Tatar',
-            'Telugu',
-            'Thai',
-            'Tigrinya',
-            'Tonga',
-            'Tshiluba',
-            'Tumbuka',
-            'Turkish',
-            'Turkmen',
-            'Twi',
-            'Uighur',
-            'Ukrainian',
-            'Urdu',
-            'Uzbek',
-            'Vietnamese',
-            'Welsh',
-            'Wolof',
-            'Xhosa',
-            'Yiddish',
-            'Yoruba',
-            'Zulu')]
-        [Parameter(
-            Mandatory = $false,
-            Position = 1,
-            HelpMessage = ('The language preference for the browser interface ' +
-                'and content')
-        )]
-        [string] $Language,
+        # ########################################################################
+        # [Parameter(
+        #     Mandatory = $false,
+        #     Position = 1,
+        #     HelpMessage = ('The language of the Grokipedia search results')
+        # )]
+        # [ValidateSet(
+        #     'Afrikaans',
+        #     'Akan',
+        #     'Albanian',
+        #     'Amharic',
+        #     'Arabic',
+        #     'Armenian',
+        #     'Azerbaijani',
+        #     'Basque',
+        #     'Belarusian',
+        #     'Bemba',
+        #     'Bengali',
+        #     'Bihari',
+        #     'Bork, bork, bork!',
+        #     'Bosnian',
+        #     'Breton',
+        #     'Bulgarian',
+        #     'Cambodian',
+        #     'Catalan',
+        #     'Cherokee',
+        #     'Chichewa',
+        #     'Chinese (Simplified)',
+        #     'Chinese (Traditional)',
+        #     'Corsican',
+        #     'Croatian',
+        #     'Czech',
+        #     'Danish',
+        #     'Dutch',
+        #     'Elmer Fudd',
+        #     'English',
+        #     'Esperanto',
+        #     'Estonian',
+        #     'Ewe',
+        #     'Faroese',
+        #     'Filipino',
+        #     'Finnish',
+        #     'French',
+        #     'Frisian',
+        #     'Ga',
+        #     'Galician',
+        #     'Georgian',
+        #     'German',
+        #     'Greek',
+        #     'Guarani',
+        #     'Gujarati',
+        #     'Hacker',
+        #     'Haitian Creole',
+        #     'Hausa',
+        #     'Hawaiian',
+        #     'Hebrew',
+        #     'Hindi',
+        #     'Hungarian',
+        #     'Icelandic',
+        #     'Igbo',
+        #     'Indonesian',
+        #     'Interlingua',
+        #     'Irish',
+        #     'Italian',
+        #     'Japanese',
+        #     'Javanese',
+        #     'Kannada',
+        #     'Kazakh',
+        #     'Kinyarwanda',
+        #     'Kirundi',
+        #     'Klingon',
+        #     'Kongo',
+        #     'Korean',
+        #     'Krio (Sierra Leone)',
+        #     'Kurdish',
+        #     'Kurdish (Soranî)',
+        #     'Kyrgyz',
+        #     'Laothian',
+        #     'Latin',
+        #     'Latvian',
+        #     'Lingala',
+        #     'Lithuanian',
+        #     'Lozi',
+        #     'Luganda',
+        #     'Luo',
+        #     'Macedonian',
+        #     'Malagasy',
+        #     'Malay',
+        #     'Malayalam',
+        #     'Maltese',
+        #     'Maori',
+        #     'Marathi',
+        #     'Mauritian Creole',
+        #     'Moldavian',
+        #     'Mongolian',
+        #     'Montenegrin',
+        #     'Nepali',
+        #     'Nigerian Pidgin',
+        #     'Northern Sotho',
+        #     'Norwegian',
+        #     'Norwegian (Nynorsk)',
+        #     'Occitan',
+        #     'Oriya',
+        #     'Oromo',
+        #     'Pashto',
+        #     'Persian',
+        #     'Pirate',
+        #     'Polish',
+        #     'Portuguese (Brazil)',
+        #     'Portuguese (Portugal)',
+        #     'Punjabi',
+        #     'Quechua',
+        #     'Romanian',
+        #     'Romansh',
+        #     'Runyakitara',
+        #     'Russian',
+        #     'Scots Gaelic',
+        #     'Serbian',
+        #     'Serbo-Croatian',
+        #     'Sesotho',
+        #     'Setswana',
+        #     'Seychellois Creole',
+        #     'Shona',
+        #     'Sindhi',
+        #     'Sinhalese',
+        #     'Slovak',
+        #     'Slovenian',
+        #     'Somali',
+        #     'Spanish',
+        #     'Spanish (Latin American)',
+        #     'Sundanese',
+        #     'Swahili',
+        #     'Swedish',
+        #     'Tajik',
+        #     'Tamil',
+        #     'Tatar',
+        #     'Telugu',
+        #     'Thai',
+        #     'Tigrinya',
+        #     'Tonga',
+        #     'Tshiluba',
+        #     'Tumbuka',
+        #     'Turkish',
+        #     'Turkmen',
+        #     'Twi',
+        #     'Uighur',
+        #     'Ukrainian',
+        #     'Urdu',
+        #     'Uzbek',
+        #     'Vietnamese',
+        #     'Welsh',
+        #     'Wolof',
+        #     'Xhosa',
+        #     'Yiddish',
+        #     'Yoruba',
+        #     'Zulu')]
+        # [string] $Language,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -369,33 +352,33 @@ function Open-WaybackMachineSiteInfo {
         )]
         [switch] $Force,
         ########################################################################
-        [Alias('e')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in Microsoft Edge'
         )]
+        [Alias('e')]
         [switch] $Edge,
         ########################################################################
-        [Alias('ch')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in Google Chrome'
         )]
+        [Alias('ch')]
         [switch] $Chrome,
         ########################################################################
-        [Alias('c')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = ('Opens in Microsoft Edge or Google Chrome, ' +
                 'depending on what the default browser is')
         )]
+        [Alias('c')]
         [switch] $Chromium,
         ########################################################################
-        [Alias('ff')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in Firefox'
         )]
+        [Alias('ff')]
         [switch] $Firefox,
         ########################################################################
         [Parameter(
@@ -404,20 +387,19 @@ function Open-WaybackMachineSiteInfo {
         )]
         [switch] $All,
         ########################################################################
-        [Alias('m', 'mon')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = ('The monitor to use, 0 = default, -1 is discard, ' +
-                '-2 = Configured secondary monitor, defaults to -1, ' +
-                'no positioning')
+                '-2 = Configured secondary monitor')
         )]
+        [Alias('m', 'mon')]
         [int] $Monitor = -1,
         ########################################################################
-        [Alias('fs', 'f')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Opens in fullscreen mode'
         )]
+        [Alias('fs', 'f')]
         [switch] $FullScreen,
         ########################################################################
         [Parameter(
@@ -474,18 +456,18 @@ function Open-WaybackMachineSiteInfo {
         )]
         [switch] $Centered,
         ########################################################################
-        [Alias('a', 'app', 'appmode')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Hide the browser controls'
         )]
+        [Alias('a', 'app', 'appmode')]
         [switch] $ApplicationMode,
         ########################################################################
-        [Alias('de', 'ne', 'NoExtensions')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Prevent loading of browser extensions'
         )]
+        [Alias('de', 'ne', 'NoExtensions')]
         [switch] $NoBrowserExtensions,
         ########################################################################
         [Parameter(
@@ -495,12 +477,12 @@ function Open-WaybackMachineSiteInfo {
         [Alias('allowpopups')]
         [switch] $DisablePopupBlocker,
         ########################################################################
-        [Alias('lang', 'locale')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Set the browser accept-lang http header'
         )]
-        [string] $AcceptLang,
+        [Alias('lang', 'locale')]
+        [string] $AcceptLang = $null,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -544,7 +526,7 @@ function Open-WaybackMachineSiteInfo {
             Mandatory = $false,
             HelpMessage = 'Focus the browser window after opening'
         )]
-        [Alias('fw','focus')]
+        [Alias('fw', 'focus')]
         [switch] $FocusWindow,
         ########################################################################
         [Parameter(
@@ -573,50 +555,21 @@ function Open-WaybackMachineSiteInfo {
         [Alias('rf', 'bg')]
         [switch] $RestoreFocus,
         ########################################################################
-        [Alias('nw', 'new')]
         [Parameter(
             Mandatory = $false,
             HelpMessage = ("Don't re-use existing browser window, instead, " +
                 'create a new one')
         )]
+        [Alias('nw', 'new')]
         [switch] $NewWindow,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ('Returns a [System.Diagnostics.Process] object ' +
-                'of the browserprocess')
+            HelpMessage = ('Returns a PowerShell process object representing ' +
+                'the browser process')
         )]
         [Alias('pt')]
         [switch] $PassThru,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Removes the borders of the browser window.'
-        )]
-        [Alias('nb')]
-        [switch] $NoBorders,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = ('Use alternative settings stored in session for ' +
-                'Wayback Machine preferences')
-        )]
-        [switch] $SessionOnly,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = ('Clear alternative settings stored in session for ' +
-                'Wayback Machine preferences')
-        )]
-        [switch] $ClearSession,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = ('Store settings only in persistent preferences ' +
-                'without affecting session')
-        )]
-        [Alias('FromPreferences')]
-        [switch] $SkipSession,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -631,10 +584,41 @@ function Open-WaybackMachineSiteInfo {
         [switch] $ReturnOnlyURL,
         ########################################################################
         [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Removes the borders of the browser window.'
+        )]
+        [Alias('nb')]
+        [switch] $NoBorders,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
             HelpMessage = 'Position browser window either fullscreen on different monitor than PowerShell, or side by side with PowerShell on the same monitor.'
         )]
         [Alias('sbs')]
-        [switch] $SideBySide
+        [switch] $SideBySide,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Use alternative settings stored in session for AI preferences.'
+        )]
+        [switch] $SessionOnly,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Clear alternative settings stored in session for AI preferences.'
+        )]
+        [switch] $ClearSession,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Store settings only in persistent preferences without affecting session.'
+        )]
+        [Alias('FromPreferences')]
+        [switch] $SkipSession
         ########################################################################
     )
 
@@ -643,55 +627,57 @@ function Open-WaybackMachineSiteInfo {
         # copy identical parameter values from this function to open-webbrowser
         $invocationArguments = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName 'GenXdev.Webbrowser' `
+            -FunctionName 'GenXdev.Webbrowser\Open-Webbrowser' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
                 -Scope Local `
                 -ErrorAction SilentlyContinue)
 
-        # process language setting if provided
-        if (-not [string]::IsNullOrWhiteSpace($Language)) {
+        # # check if language parameter was provided for localization
+        # if (-not [string]::IsNullOrWhiteSpace($Language)) {
 
-            # get language code from the language dictionary
-            $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
+        #     # retrieve the language code from the language dictionary
+        #     $code = (GenXdev.Helpers\Get-WebLanguageDictionary)[$Language]
 
-            # set accept-lang header if not already specified by user
-            if (-not $PSBoundParameters.ContainsKey('AcceptLang')) {
+        #     # set accept-lang header if not already specified by user
+        #     if (-not $PSBoundParameters.ContainsKey('AcceptLang')) {
 
-                $null = $invocationArguments.AcceptLang = $code
-            }
-        }
+        #         # assign the language code to the accept-lang parameter
+        #         $null = $invocationArguments.AcceptLang = $code
+        #     }
+        # }
     }
 
     process {
 
-        # process each search query provided
+        # process each search query provided by the user
         foreach ($query in $Queries) {
 
             # output verbose information about the query being processed
-            Microsoft.PowerShell.Utility\Write-Verbose "Processing query: $query"
+            Microsoft.PowerShell.Utility\Write-Verbose ('Processing query: ' +
+                $query)
 
-            # construct the wayback machine url for the query
-            $invocationArguments.'Url' = ('https://web.archive.org/web/*/' +
-                "$([Uri]::EscapeUriString($query))")
+            # build the Grokipedia search url with language code and query
+            $invocationArguments.'Url' = ("https://grokipedia.com/search?q=$([Uri]::EscapeUriString($query))")
 
             # handle return url only scenario without opening browser
             if ($ReturnOnlyURL) {
 
+                # output the formatted url and skip to next query
                 Microsoft.PowerShell.Utility\Write-Output (
-                    $invocationArguments.Url
-                )
+                    $invocationArguments.Url)
+
                 continue
             }
 
-            # launch browser with the constructed url
+            # launch browser with the Grokipedia search url
             GenXdev.Webbrowser\Open-Webbrowser @invocationArguments
 
-            # return url if requested by user
+            # return url if specifically requested by user
             if ($ReturnURL) {
 
+                # output the formatted url after opening browser
                 Microsoft.PowerShell.Utility\Write-Output (
-                    $invocationArguments.Url
-                )
+                    $invocationArguments.Url)
             }
         }
     }
@@ -699,4 +685,4 @@ function Open-WaybackMachineSiteInfo {
     end {
     }
 }
-###############################################################################
+################################################################################

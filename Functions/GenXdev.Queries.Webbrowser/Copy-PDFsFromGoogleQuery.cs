@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Queries.Webbrowser
 // Original cmdlet filename  : Copy-PDFsFromGoogleQuery.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,15 +21,8 @@
 
 
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Management.Automation;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace GenXdev.Queries.Webbrowser
 {

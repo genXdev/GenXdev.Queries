@@ -17,6 +17,7 @@ if ($major -ne 10) {
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-GithubQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-GoogleQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-GoogleSiteInfo.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-GrokipediaQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-IMDBQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-InstantStreetViewQuery.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Queries.Webbrowser\Open-MovieQuote.ps1"
