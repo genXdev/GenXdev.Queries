@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Queries.Webbrowser
 // Original cmdlet filename  : Clear-YoutubeWatched.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 3.3.2026
+// Version                   : 3.23.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
