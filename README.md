@@ -16045,28 +16045,21 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
 
 ### SYNTAX 
 ```PowerShell 
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
-    PicassoPulse | DaliDreams | KandinskyKaleidoscope |
-    PollockPoints | HokusaiWaves | EscherEchoes |
-    WarholWaves | KlimtKaleidoscope | MiroMirage |
-    RothkoRhythms | SeuratStipples | RembrandtRadiance |
-    VermeerVisions | BoschBizarre | TurnerTwilight |
-    FridaFeelings | CezanneContours | GauguinGlow |
-    RenoirReflections}] [[-Language] {English | Kotava |
-    Arabic | German | Spanish | French | Italian | Japanese
-    | Korean | Dutch | Polish | Portuguese | Russian | Thai
-    | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese |
-    [All]}] [-Private] [-Force] [-Edge] [-Chrome]
-    [-Chromium] [-Firefox] [-All] [-Monitor <int>]
-    [-NoFullScreen] [-Width <int>] [-Height <int>] [-X
-    <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-    [-Centered] [-NoApplicationMode] [-BrowserExtensions]
-    [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-    [-DragedNodeBackground <string>] [-FocusedNodeBackground
-    <string>] [-FocusedNodeForeground <string>]
+Open-Timeline [[-Language] {English | Kotava | Arabic |
+    German | Spanish | French | Italian | Japanese | Korean
+    | Dutch | Polish | Portuguese | Russian | Thai | Turkish
+    | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}]
+    [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+    [-Firefox] [-All] [-Monitor <int>] [-NoFullScreen]
+    [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>]
+    [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang
+    <string>] [-KeysToSend <string[]>] [-FocusWindow]
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
+    <string>] [-FocusedNodeBackground <string>]
+    [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -16616,17 +16609,6 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Do not start a new game, just watch the AI play  
         Required?                    false  
         Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Theme <string>  
-        Selects All or limit the theme to a specific one, default = PicassoPulse  
-        Required?                    false  
-        Position?                    0  
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
@@ -35120,28 +35102,21 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
 
 ### SYNTAX 
 ```PowerShell 
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
-    PicassoPulse | DaliDreams | KandinskyKaleidoscope |
-    PollockPoints | HokusaiWaves | EscherEchoes |
-    WarholWaves | KlimtKaleidoscope | MiroMirage |
-    RothkoRhythms | SeuratStipples | RembrandtRadiance |
-    VermeerVisions | BoschBizarre | TurnerTwilight |
-    FridaFeelings | CezanneContours | GauguinGlow |
-    RenoirReflections}] [[-Language] {English | Kotava |
-    Arabic | German | Spanish | French | Italian | Japanese
-    | Korean | Dutch | Polish | Portuguese | Russian | Thai
-    | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese |
-    [All]}] [-Private] [-Force] [-Edge] [-Chrome]
-    [-Chromium] [-Firefox] [-All] [-Monitor <int>]
-    [-NoFullScreen] [-Width <int>] [-Height <int>] [-X
-    <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-    [-Centered] [-NoApplicationMode] [-BrowserExtensions]
-    [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-    [-DragedNodeBackground <string>] [-FocusedNodeBackground
-    <string>] [-FocusedNodeForeground <string>]
+Open-Timeline [[-Language] {English | Kotava | Arabic |
+    German | Spanish | French | Italian | Japanese | Korean
+    | Dutch | Polish | Portuguese | Russian | Thai | Turkish
+    | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}]
+    [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+    [-Firefox] [-All] [-Monitor <int>] [-NoFullScreen]
+    [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>]
+    [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang
+    <string>] [-KeysToSend <string[]>] [-FocusWindow]
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
+    <string>] [-FocusedNodeBackground <string>]
+    [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -35691,17 +35666,6 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Do not start a new game, just watch the AI play  
         Required?                    false  
         Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Theme <string>  
-        Selects All or limit the theme to a specific one, default = PicassoPulse  
-        Required?                    false  
-        Position?                    0  
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
@@ -53788,28 +53752,21 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
 
 ### SYNTAX 
 ```PowerShell 
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
-    PicassoPulse | DaliDreams | KandinskyKaleidoscope |
-    PollockPoints | HokusaiWaves | EscherEchoes |
-    WarholWaves | KlimtKaleidoscope | MiroMirage |
-    RothkoRhythms | SeuratStipples | RembrandtRadiance |
-    VermeerVisions | BoschBizarre | TurnerTwilight |
-    FridaFeelings | CezanneContours | GauguinGlow |
-    RenoirReflections}] [[-Language] {English | Kotava |
-    Arabic | German | Spanish | French | Italian | Japanese
-    | Korean | Dutch | Polish | Portuguese | Russian | Thai
-    | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese |
-    [All]}] [-Private] [-Force] [-Edge] [-Chrome]
-    [-Chromium] [-Firefox] [-All] [-Monitor <int>]
-    [-NoFullScreen] [-Width <int>] [-Height <int>] [-X
-    <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-    [-Centered] [-NoApplicationMode] [-BrowserExtensions]
-    [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-    [-DragedNodeBackground <string>] [-FocusedNodeBackground
-    <string>] [-FocusedNodeForeground <string>]
+Open-Timeline [[-Language] {English | Kotava | Arabic |
+    German | Spanish | French | Italian | Japanese | Korean
+    | Dutch | Polish | Portuguese | Russian | Thai | Turkish
+    | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}]
+    [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+    [-Firefox] [-All] [-Monitor <int>] [-NoFullScreen]
+    [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>]
+    [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang
+    <string>] [-KeysToSend <string[]>] [-FocusWindow]
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
+    <string>] [-FocusedNodeBackground <string>]
+    [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -54359,17 +54316,6 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Do not start a new game, just watch the AI play  
         Required?                    false  
         Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Theme <string>  
-        Selects All or limit the theme to a specific one, default = PicassoPulse  
-        Required?                    false  
-        Position?                    0  
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
@@ -72456,28 +72402,21 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
 
 ### SYNTAX 
 ```PowerShell 
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
-    PicassoPulse | DaliDreams | KandinskyKaleidoscope |
-    PollockPoints | HokusaiWaves | EscherEchoes |
-    WarholWaves | KlimtKaleidoscope | MiroMirage |
-    RothkoRhythms | SeuratStipples | RembrandtRadiance |
-    VermeerVisions | BoschBizarre | TurnerTwilight |
-    FridaFeelings | CezanneContours | GauguinGlow |
-    RenoirReflections}] [[-Language] {English | Kotava |
-    Arabic | German | Spanish | French | Italian | Japanese
-    | Korean | Dutch | Polish | Portuguese | Russian | Thai
-    | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese |
-    [All]}] [-Private] [-Force] [-Edge] [-Chrome]
-    [-Chromium] [-Firefox] [-All] [-Monitor <int>]
-    [-NoFullScreen] [-Width <int>] [-Height <int>] [-X
-    <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-    [-Centered] [-NoApplicationMode] [-BrowserExtensions]
-    [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-    [-DragedNodeBackground <string>] [-FocusedNodeBackground
-    <string>] [-FocusedNodeForeground <string>]
+Open-Timeline [[-Language] {English | Kotava | Arabic |
+    German | Spanish | French | Italian | Japanese | Korean
+    | Dutch | Polish | Portuguese | Russian | Thai | Turkish
+    | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}]
+    [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+    [-Firefox] [-All] [-Monitor <int>] [-NoFullScreen]
+    [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>]
+    [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang
+    <string>] [-KeysToSend <string[]>] [-FocusWindow]
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
+    <string>] [-FocusedNodeBackground <string>]
+    [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -73027,17 +72966,6 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Do not start a new game, just watch the AI play  
         Required?                    false  
         Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Theme <string>  
-        Selects All or limit the theme to a specific one, default = PicassoPulse  
-        Required?                    false  
-        Position?                    0  
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  
@@ -91124,28 +91052,21 @@ Open-GenXdevAppCatalog [[-Language] {Afrikaans | Akan |
 
 ### SYNTAX 
 ```PowerShell 
-Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
-    PicassoPulse | DaliDreams | KandinskyKaleidoscope |
-    PollockPoints | HokusaiWaves | EscherEchoes |
-    WarholWaves | KlimtKaleidoscope | MiroMirage |
-    RothkoRhythms | SeuratStipples | RembrandtRadiance |
-    VermeerVisions | BoschBizarre | TurnerTwilight |
-    FridaFeelings | CezanneContours | GauguinGlow |
-    RenoirReflections}] [[-Language] {English | Kotava |
-    Arabic | German | Spanish | French | Italian | Japanese
-    | Korean | Dutch | Polish | Portuguese | Russian | Thai
-    | Turkish | Ukrainian | Vietnamese | Yiddish | Chinese |
-    [All]}] [-Private] [-Force] [-Edge] [-Chrome]
-    [-Chromium] [-Firefox] [-All] [-Monitor <int>]
-    [-NoFullScreen] [-Width <int>] [-Height <int>] [-X
-    <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom]
-    [-Centered] [-NoApplicationMode] [-BrowserExtensions]
-    [-AcceptLang <string>] [-KeysToSend <string[]>]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-RestoreFocus] [-NewWindow] [-PassThru]
-    [-SpectateOnly] [-ReturnURL] [-ReturnOnlyURL]
-    [-DragedNodeBackground <string>] [-FocusedNodeBackground
-    <string>] [-FocusedNodeForeground <string>]
+Open-Timeline [[-Language] {English | Kotava | Arabic |
+    German | Spanish | French | Italian | Japanese | Korean
+    | Dutch | Polish | Portuguese | Russian | Thai | Turkish
+    | Ukrainian | Vietnamese | Yiddish | Chinese | [All]}]
+    [-Private] [-Force] [-Edge] [-Chrome] [-Chromium]
+    [-Firefox] [-All] [-Monitor <int>] [-NoFullScreen]
+    [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>]
+    [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-NoApplicationMode] [-BrowserExtensions] [-AcceptLang
+    <string>] [-KeysToSend <string[]>] [-FocusWindow]
+    [-SetForeground] [-Maximize] [-SetRestored]
+    [-RestoreFocus] [-NewWindow] [-PassThru] [-SpectateOnly]
+    [-ReturnURL] [-ReturnOnlyURL] [-DragedNodeBackground
+    <string>] [-FocusedNodeBackground <string>]
+    [-FocusedNodeForeground <string>]
     [-UnFocusedNodeBackground <string>]
     [-UnFocusedNodeForeground <string>] [-BorderLightColor
     <string>] [-BorderDarkColor <string>] [-BorderWidth
@@ -91695,17 +91616,6 @@ Open-Timeline [[-Theme] {[All] | VanGoghSkies | MonetMoods |
         Do not start a new game, just watch the AI play  
         Required?                    false  
         Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Theme <string>  
-        Selects All or limit the theme to a specific one, default = PicassoPulse  
-        Required?                    false  
-        Position?                    0  
         Accept pipeline input?       false  
         Parameter set name           (All)  
         Aliases                      None  

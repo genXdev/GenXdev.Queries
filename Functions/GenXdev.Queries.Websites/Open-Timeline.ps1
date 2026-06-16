@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Queries.Websites
 Original cmdlet filename  : Open-Timeline.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 3.23.2026
+Version                   : 3.24.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -25,11 +25,8 @@ Opens an interactive timeline showing current time, date, century, and
 millennium.
 
 .DESCRIPTION
-Opens a web-based interactive timeline that displays temporal information in an
-artistic theme. Supports multiple languages and visual customization options.
-The timeline provides an immersive experience with artistic backgrounds
-inspired by famous artists and painters, with configurable themes and
-multilingual support.
+Opens a web-based interactive timeline.
+Supports multiple languages and visual customization options.
 
 .PARAMETER Private
 Opens in incognito/private browsing mode
@@ -130,9 +127,6 @@ Don't open webbrowser, just return the url
 .PARAMETER ReturnOnlyURL
 After opening webbrowser, return the url
 
-.PARAMETER Theme
-Selects All or limit the theme to a specific one, default = PicassoPulse
-
 .PARAMETER Language
 Override default browser language, or select [All] for rotation of all
 languages every minute
@@ -210,24 +204,19 @@ Clear alternative settings stored in session for AI preferences
 Store settings only in persistent preferences without affecting session
 
 .EXAMPLE
-Open-Timeline -Theme "VanGoghSkies" -Language "English"
+Open-Timeline -Language "English"
 
 Opens an interactive timeline with Van Gogh-inspired visuals in English.
 
 .EXAMPLE
-timeline -Theme "MonetMoods" -mon 2
+timeline -mon 2
 
-Opens timeline with Monet theme on monitor 2 using aliases.
+Opens timeline on monitor 2 using aliases.
 
 .EXAMPLE
 Open-Timeline -Private -Chrome -FullScreen
 
 Opens timeline in Chrome incognito mode in fullscreen.
-
-.EXAMPLE
-timeline -Theme "[All]" -Language "[All]" -Monitor 1 -Centered
-
-Opens timeline with rotating themes and languages, centered on monitor 1.
 #>
 function Open-Timeline {
 
@@ -383,7 +372,7 @@ function Open-Timeline {
             Mandatory = $false,
             HelpMessage = 'Focus the browser window after opening'
         )]
-        [Alias('fw','focus')]
+        [Alias('fw', 'focus')]
         [switch] $FocusWindow,
         ###############################################################################
         [Parameter(
@@ -444,37 +433,6 @@ function Open-Timeline {
             HelpMessage = 'After opening webbrowser, return the url'
         )]
         [switch] $ReturnOnlyURL,
-        ###############################################################################
-        [parameter(
-            Mandatory = $false,
-            Position = 0,
-            HelpMessage = 'Selects All or limit the theme to a specific one, default = PicassoPulse'
-        )]
-        [ValidateSet(
-            '[All]',
-            'VanGoghSkies',
-            'MonetMoods',
-            'PicassoPulse',
-            'DaliDreams',
-            'KandinskyKaleidoscope',
-            'PollockPoints',
-            'HokusaiWaves',
-            'EscherEchoes',
-            'WarholWaves',
-            'KlimtKaleidoscope',
-            'MiroMirage',
-            'RothkoRhythms',
-            'SeuratStipples',
-            'RembrandtRadiance',
-            'VermeerVisions',
-            'BoschBizarre',
-            'TurnerTwilight',
-            'FridaFeelings',
-            'CezanneContours',
-            'GauguinGlow',
-            'RenoirReflections'
-        )]
-        [string] $Theme = '[All]',
         ###############################################################################
         [parameter(
             Mandatory = $false,
@@ -674,10 +632,6 @@ function Open-Timeline {
             $null = $PSBoundParameters.Remove('Language')
         }
 
-        if ($PSBoundParameters.ContainsKey('Theme')) {
-            $null = $PSBoundParameters.Remove('Theme')
-        }
-
         if ($PSBoundParameters.ContainsKey('DragedNodeBackground')) {
             $null = $PSBoundParameters.Remove('DragedNodeBackground')
         }
@@ -770,8 +724,8 @@ function Open-Timeline {
             $queryParams += "&DragedNodeBackground=$DragedNodeBackground"
         }
 
-        # construct the complete timeline url with theme fragment
-        $url = "https://timeline.genxdev.net/$queryParams#$Theme"
+        # construct the complete timeline url
+        $url = "https://timeline.genxdev.net/$queryParams"
 
         # handle return url only scenario without opening browser
         if ($ReturnOnlyURL) {
